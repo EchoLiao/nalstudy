@@ -1,0 +1,2 @@
+// 把所有匹配"The Start"的字串删除掉
+:/The Start/,$delete
