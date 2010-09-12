@@ -1,0 +1,145 @@
+#TITLE: ViKi 基本语法
+
+%=====================================
+#DOC fmt=html: css=moon.css|screen
+% heading 不带数字
+%%#DOC fmt=html: headings=plain
+#AU: NuoErlz
+#DATE: today
+
+% 输出标题部分
+#MAKETITLE
+% 输出table of contents(目录)
+#LIST: toc
+%=====================================
+
+
+
+* 文章基本结构
+
+** 页面标题
+
+** 文内标题与正文
+
+% 注释
+这里有一段 viki 编写的文字，
+虽然这里出现了换行，
+但由于 viki 忽略单个换行，
+因此这几行文字都会被拼接起来，
+成为一个长长的段落。
+
+*** sub文内标题与正文
+
+**** subsub文内标题与正文
+***** subsubsub文内标题与正文
+
+这里出现了一个空行，
+% 贴图例子
+我们在这里：{img w=128 h=128: kittie.png}贴了一张图片。
+因此 viki 会在这里开启一个新的段落。
+由于段落内部的换行符不会影响最终得到的效果，
+因此你可以根据自己的习惯任意调整段落内的换行。
+
+** 超链接
+[[hyperlink][我是超链接]]
+
+ViKi
+
+MyHome
+
+
+** 纯文本片段
+
+% 如果你需要将一段纯文本片段直接贴入 ViKi， 忽略所有的 ViKi 语法， 你就可以使用 Verbatim 宏。
+#Verbatim <<---
+这里是 Verbatim 环境！
+
+该环境中的所有换行、空格，
+    都会被原样保留。
+该环境中的所有 ViKi 语句，
+    都被忽略。
+
+换句话说，
+Verbatim 环境中的所有内容都被原样照抄，
+    ** 不会做任何处理。**
+
+在许多模板下，
+Verbatim 环境都会被一个框包含起来，
+    并且使用等宽字体。
+滇狐自己的模板也是这样的。
+---
+
+
+** 代码片段
+#Code syntax=cpp <<---
+#include <iostream>
+
+int main(void)
+{
+    std::cout << "Hello, world!" << std::endl;
+    return 0;
+}
+---
+
+
+** 嵌入 HTML
+#Native fmt=html <<---
+这是一段<span style="background-color: green; color: #00ffff">
+<blink>
+会闪烁
+</blink>
+</span>
+的文本！！
+---
+
+
+** 符号与编号项
+% 标号的使用
+ * 使用星号的例子
+ * 注意星号之前必须有一定数量的空格
+ * 否则紧贴在最左边的星号会被处理为大标题
+ - 使用减号的例子
+     - 我们可以使用更多的缩进
+     - 来描述项目之间的某种树形关系
+         - jjj
+ + 使用加号的例子
+ + 以上几种符号没有本质上的区别
+
+ # 使用“#”号
+ # 我们可以得到数字编号项
+     # 当使用更多的缩进描述树形关系的时候
+     # 会重新开始编号
+     # 因此这里的编号是重新从 a 开始的
+         # sub
+             # sub-sub
+                 # su-sub-sub
+ # 这里恢复原有缩进
+ # 因此继续原先的编号
+
+ @ 使用“@”号
+ @ 继续刚才的编号
+     @ sub
+         @ su-sub
+             @ su-su-sub
+
+** 独立贴图
+#IMG w=700 h=350 : kittie.png
+
+
+** 表格
+
+|  Head |  Category  |
+|  Row  |  Value     |
+|  Row  |  Value     |
+#CAPTION: 表一
+% "#CAPTION: 表一" 应转换为 "表格1.1: 表一", 但"表格"不是utf-8编码, 所以不能正常输出.
+
+"#CAPTION: 表一" 应转换为 "表格1.1: 表一", 但"表格"不是utf-8编码, 所以不能正常输出.
+yeah!
+
+|| Head || Category ||
+| 单元  |    行     |
+| 单元  |    行     |
+| 单元  |  行        |
+| 单元  |  行        |
+#CAPTION: 表二

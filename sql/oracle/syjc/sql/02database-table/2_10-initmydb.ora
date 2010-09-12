@@ -1,0 +1,25 @@
+job_queue_processes=10
+dispatchers="(PROTOCOL=TCP)(SERVICE=mydbXDB)"
+:wa
+compatible=10.2.0.10
+remote_login_passwordfile=EXCLUSIVE
+pga_aggregate_target=25165824
+sort_area_size=65536
+db_domain=""
+db_name=mydb
+control_files=("E:\oracle\product\10.2.0\admin\mydb\control01.ctl", "E:\oracle\product\10.2.0\admin\mydb\control02.ctl", "E:\oracle\product\10.2.0\admin\mydb\control03.ctl")
+db_recovery_file_dest=E:\flash_recovery_area1
+db_recovery_file_dest_size=2147483648
+java_pool_size=50331648
+large_pool_size=8388608
+shared_pool_size=8388608
+open_cursors=300
+undo_management=auto
+undo_tablespace=UNDOTBS1
+background_dump_dest=E:\oracle\admin\mydb\bdump
+core_dump_dest=E:\oracle\admin\mydb\cdump
+user_dump_dest=E:\oracle\admin\mydb\udump
+processes=150
+db_block_size=8192
+db_cache_size=25165824
+db_file_multiblock_read_count=16

@@ -1,0 +1,94 @@
+case "$1" in "-h" | "--help")
+echo "Usage: ${0##*/}";
+echo "";
+echo ""
+exit $E_PARAM;;	# 没有命令行参数,
+esac
+
+[]# ./11/11_8_readpipe.sh
+cat $0 | while read line // 以行为单位读取所有文件
+[]# ./12/12_41_self_mailer.sh
+${1:-'whoami'} //g 如果不指定的话, 默认是当前用户
+mail
+[]# ./12/12_42_monthlypmt.sh
+bc  精确计算数值
+interest_r=$(echo "scale=9; $interest_r/100.0" | bc) // g 转换成小数.
+[]# ./12/12_43_base.sh
+if [ -gt ]  大于
+进制转换
+case	0x*|[a-f]*|[A-F]*)	ibase=16;; // 16进制
+$@	表示所有参数
+$#	参数个数
+sed; tr;
+dec=`echo "ibase=$ibase; $number" | bc` // g ==> 'bc' 是个计算工具.
+echo `bc <<!	// ?????
+sed -e 's: :	:g // ?????
+read line // 从标准输入中读入数据
+[]# ./12/12_44_here_document.sh
+使用 "here document" 来调用 bc
+[]# ./12/12_45_cannon.sh
+if -lt	小于
+if -le	小于等于
+if [ "$?" -eq 0 ]; then
+let "rnum = $RANDOM % $DIMENSION"             //  范围小于 10000.
+((shots++))
+printf "#%4d   " $shots
+echo -n "SPLASH!  " // 不换行
+while [ "$shots" -lt  "$MAXSHOTS" ]           // 主循环.
+SEED=$(head -1 /dev/urandom | od -N 1 | awk '{ print $2 }')
+[]# ./12/12_46_hexconvert.sh
+if [ -z "$1" -o "$1" == "-h" -o "$1" == "--help" ]
+if [ -z "$1" ]
+if -z 字符串为"null", 即是指字符串长度为零.
+if -n 字符串不为"null", 即长度不为零.
+echo ""$1" "$BASE" o p" | dc
+[]# ./12/12_47_factr.sh
+echo "$1[p]s2[lip/dli%0=1dvsr]s12sid2%0=13sidvsr[dli%0=1lrli2+dsi!>.]ds.xd1<2" | dc
+[]# ./12/12_48_hypotenuse.sh
+if [ $# -ne "$ARGS" ] // 测试传递到脚本中的参数值.
+echo $1 $2 | awk "$AWKSCRIPT"	    // 将参数通过管道传递给awk.
+[]# ./12/12_49_seq.sh
+for a in `seq 80`  // 与  " for a in 1 2 3 4 5 ... 80 "相同  (少敲了好多字!).
+for a in $( seq 80 ) // 与 " for a in `seq 80` " 相同
+for a in `seq $COUNT`  // 或者   for a in $( seq $COUNT )
+for a in `seq $BEGIN $END` //  传给 "seq" 两个参数, 从第一个参数开始增长, 一直增长到第二个参数为止.
+for a in `seq $BEGIN $INTERVAL $END` // 传给 "seq" 三个参数从第一个参数开始增长, 并以第二个参数作为增量, 一直增长到第三个参数为止.
+[]# ./12/12_50_letter_count.sh	统计一个文本文件中字母出现的次数
+let LETTERS=$#-1   # (从命令行参数的个数中减1.)
+for n in `seq $LETTERS`; do
+shift # shift后, $1表示$LETTERS的第一个参数
+tr; wc;
+[]# ./12/12_51_getopt.sh	使用getopt来分析命令行选项
+set -- `getopt "abcd:" "$@"`
+shift # !!!!!
+while [ ! -z "$1" ]
+[]# ./12/12_52_self_copy.sh	一个拷贝自身的脚本
+dd if=$0 conv=ucase of=$0.$file_subscript 2>/dev/null // 拷贝
+dd if=$filename conv=ucase > $filename.uppercase // 将一个文件转换为大写
+[]# ./12/12_53_exercising_dd.sh	    把input_file中的第start_point到end_point的字符提取出来,并保存于output_file中!
+dd if=$input_file of=$output_file bs=1 skip=$((n-1)) count=$((p-n+1)) 2> /dev/null // 从脚本中把位置n到p的字符提取出来.
+echo -n "hello world" | dd cbs=2 conv=unblock 2> /dev/null // conv=unblock:	每输出cbs个字符就换行一次
+[]# ./12/12_54_dd_keypress.sh	记录按键
+stty -g	    // 保存老的终端设置
+stty -icanon -echo  // 禁用标准模式, 禁用本地echo.
+keys=$(dd bs=1 count=$keypresses 2> /dev/null)	// 记录按键
+stty "$old_tty_setting"           // 恢复老的终端设置.
+[]# ./12/12_55_blot_out.sh
+echo; echo -n "Are you absolutely sure you want to blot out \"$file\" (y/n)? "
+read answer
+case "$answer" in
+while [ "$pass_count" -le "$PASSES" ]
+dd if=/dev/urandom of=$file bs=$BLOCKSIZE count=$flength
+sync         // 刷新buffer.
+shred
+[]# ./12/12_56_tempfile_name.sh
+mcookie	    // 产生126字节的随机16进制值(magic cookie)
+suffix=${base_str:POS:LEN}  // 提取子字符串
+[]# ./12/12_57_unit_conversion.sh
+units	// 进制转换工具
+[]# ./12/12_58_m4.sh
+echo "len($string)" | m4                           # 7
+echo "substr($string,4)" | m4                      # A01  剪除掉下标为0-4的字串
+echo "regexp($string,[0-1][0-1],\&Z)" | m4         # 01Z
+echo "incr(22)" | m4                               # 23
+echo "eval(99 / 3)" | m4                           # 33

@@ -1,0 +1,22 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=mptopdf 2010.8.31)  31 AUG 2010 20:34
+ %&-line parsing enabled.
+**\relax test-yi.2
+ (./test-yi.2{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map})
+[1] 
+Here is how much of TeX's memory you used:
+ 57 strings out of 258930
+ 513 string characters out of 1952942
+ 4015916 words of memory out of 5501282
+ 1668 multiletter control sequences out of 10000+200000
+ 6443 words of font info for 3 fonts, out of 1200000 for 2000
+ 0 hyphenation exceptions out of 8191
+ 9i,3n,7p,109b,250s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1
+/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmr12.pfb>
+Output written on test-yi.pdf (1 page, 51367 bytes).
+PDF statistics:
+ 21 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 7 words of extra memory for PDF output out of 10000 (max. 10000000)
+

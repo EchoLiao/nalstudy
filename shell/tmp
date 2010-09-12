@@ -1,0 +1,14 @@
+15:08:14.607197 IP gateway.49720 > sun.scr.com.daytime: S 1539565:1539565(0) win 5840 <mss 1460,sackOK,timestamp 28322689 0,nop,wscale 6>
+15:08:14.607527 IP sun.scr.com.daytime > gateway.49720: S 198714772:198714772(0) ack 1539566 win 5792 <mss 1460,sackOK,timestamp 185662761 28322689,nop,wscale 4>
+15:08:14.607574 IP gateway.49720 > sun.scr.com.daytime: . ack 1 win 92 <nop,nop,timestamp 28322689 185662761>
+15:08:14.608641 IP sun.scr.com.daytime > gateway.49720: P 1:2(1) ack 1 win 362 <nop,nop,timestamp 185662762 28322689>
+15:08:14.608701 IP gateway.49720 > sun.scr.com.daytime: . ack 2 win 92 <nop,nop,timestamp 28322690 185662762>
+15:08:14.608898 IP sun.scr.com.daytime > gateway.49720: P 2:3(1) ack 1 win 362 <nop,nop,timestamp 185662762 28322690>
+15:08:14.608931 IP gateway.49720 > sun.scr.com.daytime: . ack 3 win 92 <nop,nop,timestamp 28322691 185662762>
+15:08:14.609111 IP sun.scr.com.daytime > gateway.49720: P 3:4(1) ack 1 win 362 <nop,nop,timestamp 185662763 28322691>
+15:08:14.609140 IP gateway.49720 > sun.scr.com.daytime: . ack 4 win 92 <nop,nop,timestamp 28322691 185662763>
+15:08:14.609268 IP sun.scr.com.daytime > gateway.49720: P 4:5(1) ack 1 win 362 <nop,nop,timestamp 185662763 28322691>
+15:08:14.609296 IP gateway.49720 > sun.scr.com.daytime: . ack 5 win 92 <nop,nop,timestamp 28322691 185662763>
+15:08:14.609419 IP sun.scr.com.daytime > gateway.49720: P 5:6(1) ack 1 win 362 <nop,nop,timestamp 185662763 28322691>
+15:08:14.609447 IP gateway.49720 > sun.scr.com.daytime: . ack 6 win 92 <nop,nop,timestamp 28322691 185662763>
+

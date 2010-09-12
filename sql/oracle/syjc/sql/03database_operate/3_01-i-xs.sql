@@ -1,0 +1,16 @@
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061101', '王林', '计算机', '男', to_date('19880222', 'YYYYMMDD'), 50);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061102', '李红', '计算机', '女', to_date('19860812', 'YYYYMMDD'), 50);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061103', '黄了', '计算机', '男', to_date('19871226', 'YYYYMMDD'), 50);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061104', '张子', '计算机', '男', to_date('19880222', 'YYYYMMDD'), 60);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061105', '王络丹', '计算机', '女', to_date('19890302', 'YYYYMMDD'), 50);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061106', '李工', '信息工程', '女', to_date('19890102', 'YYYYMMDD'), 50);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061107', '王最苗', '管理系', '女', to_date('19890902', 'YYYYMMDD'), 50);
+insert into xs(xh, xm, zym, xb, cssj, zxf)
+    values( '061108', '廖诗', '管理系', '女', to_date('19850902', 'YYYYMMDD'), 50);
