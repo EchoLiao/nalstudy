@@ -1,0 +1,1 @@
+@dir /p /oge /on %*

@@ -1,0 +1,1065 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+COPY	stdio/fvwrite.c	62;"	d	file:
+DB_GT_SIG	math/fmod.c	80;"	d	file:
+DB_HI	math/fmod.c	50;"	d	file:
+DB_HI	math/fmod.c	66;"	d	file:
+DB_HI_SIG	math/fmod.c	54;"	d	file:
+DB_HI_SIG	math/fmod.c	70;"	d	file:
+DB_LO_SIG	math/fmod.c	58;"	d	file:
+DB_LO_SIG	math/fmod.c	74;"	d	file:
+DECP	stdlib/ansiStdlib.c	1325;"	d	file:
+DECP	stdlib/strtod.c	50;"	d	file:
+DOC_FILES	assert/Makefile	/^DOC_FILES=	ansiAssert.c$/;"	m
+DOC_FILES	ctype/Makefile	/^DOC_FILES=	ansiCtype.c$/;"	m
+DOC_FILES	locale/Makefile	/^DOC_FILES=	ansiLocale.c $/;"	m
+DOC_FILES	math/Makefile	/^DOC_FILES=	ansiMath.c$/;"	m
+DOC_FILES	setjmp/Makefile	/^DOC_FILES=	ansiSetjmp.c$/;"	m
+DOC_FILES	stdarg/Makefile	/^DOC_FILES=	ansiStdarg.c$/;"	m
+DOC_FILES	stdio/Makefile	/^DOC_FILES=	ansiStdio.c$/;"	m
+DOC_FILES	stdlib/Makefile	/^DOC_FILES=	ansiStdlib.c$/;"	m
+DOC_FILES	string/Makefile	/^DOC_FILES=	ansiString.c$/;"	m
+DOC_FILES	time/Makefile	/^DOC_FILES=	ansiTime.c$/;"	m
+ESIGN	stdlib/ansiStdlib.c	1324;"	d	file:
+ESIGN	stdlib/strtod.c	49;"	d	file:
+GETIOV	stdio/fvwrite.c	64;"	d	file:
+Isdigit	stdlib/ansiStdlib.c	1307;"	d	file:
+Isdigit	stdlib/strtod.c	32;"	d	file:
+Ise	stdlib/ansiStdlib.c	1306;"	d	file:
+Ise	stdlib/strtod.c	31;"	d	file:
+Issign	stdlib/ansiStdlib.c	1310;"	d	file:
+Issign	stdlib/strtod.c	35;"	d	file:
+Isspace	stdlib/ansiStdlib.c	1308;"	d	file:
+Isspace	stdlib/strtod.c	33;"	d	file:
+JMP_DATA	setjmp/longjmp.c	31;"	d	file:
+L1	math/log__L.c	/^L1     =  6.6666666666667340202E-1    , \/*Hex  2^ -1   *  1.5555555555592 *\/$/;"	v	file:
+L1	math/log__L.c	63;"	d	file:
+L1x	math/log__L.c	/^static long        L1x[] = { _0x(aaaa,402a), _0x(aac5,aaaa)};$/;"	v	file:
+L2	math/log__L.c	/^L2     =  3.9999999999416702146E-1    , \/*Hex  2^ -2   *  1.999999997FF24 *\/$/;"	v	file:
+L2	math/log__L.c	64;"	d	file:
+L2x	math/log__L.c	/^static long        L2x[] = { _0x(cccc,3fcc), _0x(2684,cccc)};$/;"	v	file:
+L3	math/log__L.c	/^L3     =  2.8571428742008753154E-1    , \/*Hex  2^ -2   *  1.24924941E07B4 *\/$/;"	v	file:
+L3	math/log__L.c	65;"	d	file:
+L3x	math/log__L.c	/^static long        L3x[] = { _0x(4924,3f92), _0x(5782,92f8)};$/;"	v	file:
+L4	math/log__L.c	/^L4     =  2.2222198607186277597E-1    , \/*Hex  2^ -3   *  1.C71C52150BEA6 *\/$/;"	v	file:
+L4	math/log__L.c	66;"	d	file:
+L4x	math/log__L.c	/^static long        L4x[] = { _0x(8e38,3f63), _0x(af2c,39b7)};$/;"	v	file:
+L5	math/log__L.c	/^L5     =  1.8183562745289935658E-1    , \/*Hex  2^ -3   *  1.74663CC94342F *\/$/;"	v	file:
+L5	math/log__L.c	67;"	d	file:
+L5x	math/log__L.c	/^static long        L5x[] = { _0x(2eb4,3f3a), _0x(655e,cc39)};$/;"	v	file:
+L6	math/log__L.c	/^L6     =  1.5314087275331442206E-1    , \/*Hex  2^ -3   *  1.39A1EC014045B *\/$/;"	v	file:
+L6	math/log__L.c	68;"	d	file:
+L6x	math/log__L.c	/^static long        L6x[] = { _0x(8551,3f1d), _0x(781d,e8c5)};$/;"	v	file:
+L7	math/log__L.c	/^L7     =  1.4795612545334174692E-1    ; \/*Hex  2^ -3   *  1.2F039F0085122 *\/$/;"	v	file:
+L7	math/log__L.c	69;"	d	file:
+L7x	math/log__L.c	/^static long        L7x[] = { _0x(95b3,3f08), _0x(cd92,907f)};$/;"	v	file:
+L8	math/log__L.c	70;"	d	file:
+L8x	math/log__L.c	/^static long        L8x[] = { _0x(0000,3f00), _0x(0000,0000)};$/;"	v	file:
+LIB_BASE_NAME	assert/Makefile	/^LIB_BASE_NAME	= os$/;"	m
+LIB_BASE_NAME	ctype/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	locale/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	math/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	setjmp/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	stdarg/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	stdio/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	stdlib/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	string/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+LIB_BASE_NAME	time/Makefile	/^LIB_BASE_NAME   = os$/;"	m
+MASK_DB_EXP	math/fmod.c	34;"	d	file:
+MASK_DB_HI20	math/fmod.c	38;"	d	file:
+MASK_DB_MANT	math/fmod.c	42;"	d	file:
+MAXE	stdlib/ansiStdlib.c	1313;"	d	file:
+MAXE	stdlib/strtod.c	38;"	d	file:
+MIN	stdio/fvwrite.c	61;"	d	file:
+MINE	stdlib/ansiStdlib.c	1314;"	d	file:
+MINE	stdlib/strtod.c	39;"	d	file:
+MTHRESH	stdlib/ansiStdlib.c	878;"	d	file:
+MTHRESH	stdlib/qsort.c	61;"	d	file:
+NAN_VAL	math/fmod.c	86;"	d	file:
+OBJS	assert/Makefile	/^OBJS=	assert.o$/;"	m
+OBJS	ctype/Makefile	/^OBJS=	__ctype_tab.o isalnum.o isalpha.o iscntrl.o isdigit.o isgraph.o \\$/;"	m
+OBJS	locale/Makefile	/^OBJS= localeconv.o setlocale.o$/;"	m
+OBJS	math/Makefile	/^OBJS=   $(OBJS_$(CPU))$/;"	m
+OBJS	setjmp/Makefile	/^OBJS=	longjmp.o$/;"	m
+OBJS	stdarg/Makefile	/^OBJS=$/;"	m
+OBJS	stdio/Makefile	/^OBJS=	clearerr.o fclose.o fdopen.o feof.o ferror.o fflush.o fgetc.o \\$/;"	m
+OBJS	stdlib/Makefile	/^OBJS= abort.o abs.o atexit.o atof.o atoi.o atol.o bsearch.o div.o labs.o \\$/;"	m
+OBJS	string/Makefile	/^OBJS=	memchr.o memcmp.o memcpy.o memmove.o memset.o strcat.o strchr.o \\$/;"	m
+OBJS	time/Makefile	/^OBJS= locTime.o asctime.o clock.o ctime.o difftime.o gmtime.o localtime.o \\$/;"	m
+OBJS_AM29030	math/Makefile	/^OBJS_AM29030    = acosh.o asinh.o exp__E.o expm1.o log1p.o log__L.o support.o$/;"	m
+OBJS_AM29200	math/Makefile	/^OBJS_AM29200    = $(OBJS_AM29030)$/;"	m
+OBJS_ARM	math/Makefile	/^OBJS_ARM	= $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_ARMARCH4	math/Makefile	/^OBJS_ARMARCH4	=$/;"	m
+OBJS_ARMARCH4_T	math/Makefile	/^OBJS_ARMARCH4_T	= $(OBJS_ARM)$/;"	m
+OBJS_ARMARCH5	math/Makefile	/^OBJS_ARMARCH5	=$/;"	m
+OBJS_ARMARCH5_T	math/Makefile	/^OBJS_ARMARCH5_T	= $(OBJS_ARM)$/;"	m
+OBJS_CPU32	math/Makefile	/^OBJS_CPU32      = $(OBJS_MIN)$/;"	m
+OBJS_FR500	math/Makefile	/^OBJS_FR500	= $(OBJS_FRV)$/;"	m
+OBJS_FRV	math/Makefile	/^OBJS_FRV	= acosh.o asincos.o asinh.o atan.o atan2.o atanh.o ceil.o \\$/;"	m
+OBJS_I80386	math/Makefile	/^OBJS_I80386     = $(OBJS_MIN) cosh.o sinh.o tanh.o support.o expm1.o \\$/;"	m
+OBJS_I80486	math/Makefile	/^OBJS_I80486     = $(OBJS_MIN) cosh.o sinh.o tanh.o support.o expm1.o \\$/;"	m
+OBJS_I960CA	math/Makefile	/^OBJS_I960CA     = ceil.o floor.o$/;"	m
+OBJS_I960HX	math/Makefile	/^OBJS_I960HX     = $(OBJS_I960CA)$/;"	m
+OBJS_I960JX	math/Makefile	/^OBJS_I960JX	= $(OBJS_I960CA)$/;"	m
+OBJS_I960KA	math/Makefile	/^OBJS_I960KA     = $(OBJS_I960CA)$/;"	m
+OBJS_I960KB	math/Makefile	/^OBJS_I960KB     = support.o$/;"	m
+OBJS_MC68000	math/Makefile	/^OBJS_MC68000    = $(OBJS_MIN)$/;"	m
+OBJS_MC68010	math/Makefile	/^OBJS_MC68010    = $(OBJS_MIN)$/;"	m
+OBJS_MC68020	math/Makefile	/^OBJS_MC68020    = $(OBJS_MIN) support.o$/;"	m
+OBJS_MC68040	math/Makefile	/^OBJS_MC68040    = $(OBJS_MIN) fmod.o pow.o support.o log__L.o exp__E.o$/;"	m
+OBJS_MC68060	math/Makefile	/^OBJS_MC68060    = $(OBJS_MIN) fmod.o pow.o support.o log__L.o exp__E.o$/;"	m
+OBJS_MC68LC040	math/Makefile	/^OBJS_MC68LC040  = $(OBJS_MIN) fmod.o pow.o support.o log__L.o exp__E.o$/;"	m
+OBJS_MCF5200	math/Makefile	/^OBJS_MCF5200	= $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_MCF5400	math/Makefile	/^OBJS_MCF5400	= $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_MCORE10	math/Makefile	/^OBJS_MCORE10	= acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_MCORE15	math/Makefile	/^OBJS_MCORE15	= $(OBJS_MCORE10)$/;"	m
+OBJS_MIN	math/Makefile	/^OBJS_MIN=	frexp.o ldexp.o modf.o$/;"	m
+OBJS_MIPS32	math/Makefile	/^OBJS_MIPS32	= $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_MIPS64	math/Makefile	/^OBJS_MIPS64	= $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_PENTIUM	math/Makefile	/^OBJS_PENTIUM    = $(OBJS_MIN) cosh.o sinh.o tanh.o support.o expm1.o \\$/;"	m
+OBJS_PENTIUM2	math/Makefile	/^OBJS_PENTIUM2   = $(OBJS_MIN) cosh.o sinh.o tanh.o support.o expm1.o \\$/;"	m
+OBJS_PENTIUM3	math/Makefile	/^OBJS_PENTIUM3   = $(OBJS_MIN) cosh.o sinh.o tanh.o support.o expm1.o \\$/;"	m
+OBJS_PENTIUM4	math/Makefile	/^OBJS_PENTIUM4   = $(OBJS_MIN) cosh.o sinh.o tanh.o support.o expm1.o \\$/;"	m
+OBJS_PPC403	math/Makefile	/^OBJS_PPC403     = support.o$/;"	m
+OBJS_PPC405	math/Makefile	/^OBJS_PPC405     = $(OBJS_PPC403) $/;"	m
+OBJS_PPC405F	math/Makefile	/^OBJS_PPC405F   = $(OBJS_MIN) acosh.o asincos.o asinh.o atanh.o ceil.o cosh.o \\$/;"	m
+OBJS_PPC440	math/Makefile	/^OBJS_PPC440     = $(OBJS_PPC403)$/;"	m
+OBJS_PPC505	math/Makefile	/^OBJS_PPC505     = $(OBJS_PPC403)$/;"	m
+OBJS_PPC509	math/Makefile	/^OBJS_PPC509     = $(OBJS_PPC603)$/;"	m
+OBJS_PPC555	math/Makefile	/^OBJS_PPC555     = $(OBJS_PPC603)$/;"	m
+OBJS_PPC601	math/Makefile	/^OBJS_PPC601     = $(OBJS_PPC403)$/;"	m
+OBJS_PPC603	math/Makefile	/^OBJS_PPC603     = $(OBJS_MIN) acosh.o asincos.o asinh.o atanh.o ceil.o cosh.o \\$/;"	m
+OBJS_PPC604	math/Makefile	/^OBJS_PPC604     = $(OBJS_PPC603)$/;"	m
+OBJS_PPC860	math/Makefile	/^OBJS_PPC860     = $(OBJS_PPC403)$/;"	m
+OBJS_PPCEC603	math/Makefile	/^OBJS_PPCEC603	= $(OBJS_PPC403)$/;"	m
+OBJS_SH7000	math/Makefile	/^OBJS_SH7000     = support.o$/;"	m
+OBJS_SH7600	math/Makefile	/^OBJS_SH7600     = $(OBJS_SH7000) $/;"	m
+OBJS_SH7700	math/Makefile	/^OBJS_SH7700     = $(OBJS_SH7000) $/;"	m
+OBJS_SH7750	math/Makefile	/^OBJS_SH7750     = $(OBJS_SH7000) $/;"	m
+OBJS_SIMHPPA	math/Makefile	/^OBJS_SIMHPPA    = $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_SIMNT	math/Makefile	/^OBJS_SIMNT	= $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_SIMSPARCSOLARIS	math/Makefile	/^OBJS_SIMSPARCSOLARIS    = $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_SIMSPARCSUNOS	math/Makefile	/^OBJS_SIMSPARCSUNOS    = $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_SPARC	math/Makefile	/^OBJS_SPARC      = $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_SPARClite	math/Makefile	/^OBJS_SPARClite  = acosh.o asinh.o atanh.o exp__E.o expm1.o log1p.o log__L.o \\$/;"	m
+OBJS_STRONGARM	math/Makefile	/^OBJS_STRONGARM	=$/;"	m
+OBJS_ULTRASPARC	math/Makefile	/^OBJS_ULTRASPARC = $(OBJS_MIN) acosh.o asincos.o asinh.o atan.o atan2.o \\$/;"	m
+OBJS_XSCALE	math/Makefile	/^OBJS_XSCALE	=$/;"	m
+PI	math/ansiMath.c	/^PI     =  3.1415926535897931160E0     , \/*Hex  2^  1   *  1.921FB54442D18 *\/$/;"	v	file:
+PI	math/ansiMath.c	389;"	d	file:
+PI	math/atan2.c	/^PI     =  3.1415926535897931160E0     , \/*Hex  2^  1   *  1.921FB54442D18 *\/$/;"	v	file:
+PI	math/atan2.c	84;"	d	file:
+PIo2	math/ansiMath.c	/^PIo2   =  1.5707963267948965580E0     , \/*Hex  2^  0   *  1.921FB54442D18 *\/$/;"	v	file:
+PIo2	math/ansiMath.c	387;"	d	file:
+PIo2	math/atan2.c	/^PIo2   =  1.5707963267948965580E0     , \/*Hex  2^  0   *  1.921FB54442D18 *\/$/;"	v	file:
+PIo2	math/atan2.c	82;"	d	file:
+PIo2x	math/ansiMath.c	/^static long   PIo2x[] = { _0x(0fda,40c9), _0x(68c2,a221)};$/;"	v	file:
+PIo2x	math/atan2.c	/^static long   PIo2x[] = { _0x(0fda,40c9), _0x(68c2,a221)};$/;"	v	file:
+PIo4	math/ansiMath.c	/^PIo4   =  7.8539816339744827900E-1    , \/*Hex  2^ -1   *  1.921FB54442D18 *\/$/;"	v	file:
+PIo4	math/ansiMath.c	381;"	d	file:
+PIo4	math/atan2.c	/^PIo4   =  7.8539816339744827900E-1    , \/*Hex  2^ -1   *  1.921FB54442D18 *\/$/;"	v	file:
+PIo4	math/atan2.c	76;"	d	file:
+PIo4x	math/ansiMath.c	/^static long   PIo4x[] = { _0x(0fda,4049), _0x(68c2,a221)};$/;"	v	file:
+PIo4x	math/atan2.c	/^static long   PIo4x[] = { _0x(0fda,4049), _0x(68c2,a221)};$/;"	v	file:
+PIx	math/ansiMath.c	/^static long     PIx[] = { _0x(0fda,4149), _0x(68c2,a221)};$/;"	v	file:
+PIx	math/atan2.c	/^static long     PIx[] = { _0x(0fda,4149), _0x(68c2,a221)};$/;"	v	file:
+POS_ERR	stdio/ansiStdio.c	2625;"	d	file:
+POS_ERR	stdio/fseek.c	69;"	d	file:
+P_INDEX	math/support.c	90;"	d	file:
+P_INDEX	math/support.c	92;"	d	file:
+SIGN	stdlib/ansiStdlib.c	1323;"	d	file:
+SIGN	stdlib/strtod.c	48;"	d	file:
+SORT	stdlib/ansiStdlib.c	921;"	d	file:
+SORT	stdlib/qsort.c	104;"	d	file:
+SWAP	stdlib/ansiStdlib.c	896;"	d	file:
+SWAP	stdlib/qsort.c	79;"	d	file:
+TGT_DIR	Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	assert/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	ctype/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	locale/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	math/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	setjmp/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	stdarg/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	stdio/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	stdlib/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	string/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+TGT_DIR	time/Makefile	/^TGT_DIR=$(WIND_BASE)\/target$/;"	m
+THRESH	stdlib/ansiStdlib.c	884;"	d	file:
+THRESH	stdlib/qsort.c	67;"	d	file:
+Val	stdlib/ansiStdlib.c	1311;"	d	file:
+Val	stdlib/strtod.c	36;"	d	file:
+X	string/xstate.c	32;"	d	file:
+_0x	math/acosh.c	46;"	d	file:
+_0x	math/acosh.c	48;"	d	file:
+_0x	math/ansiMath.c	1429;"	d	file:
+_0x	math/ansiMath.c	1431;"	d	file:
+_0x	math/ansiMath.c	1613;"	d	file:
+_0x	math/ansiMath.c	1615;"	d	file:
+_0x	math/ansiMath.c	1838;"	d	file:
+_0x	math/ansiMath.c	1840;"	d	file:
+_0x	math/ansiMath.c	2250;"	d	file:
+_0x	math/ansiMath.c	2252;"	d	file:
+_0x	math/ansiMath.c	352;"	d	file:
+_0x	math/ansiMath.c	354;"	d	file:
+_0x	math/ansiMath.c	721;"	d	file:
+_0x	math/ansiMath.c	723;"	d	file:
+_0x	math/ansiMath.c	864;"	d	file:
+_0x	math/ansiMath.c	866;"	d	file:
+_0x	math/asinh.c	46;"	d	file:
+_0x	math/asinh.c	48;"	d	file:
+_0x	math/atan2.c	47;"	d	file:
+_0x	math/atan2.c	49;"	d	file:
+_0x	math/cosh.c	46;"	d	file:
+_0x	math/cosh.c	48;"	d	file:
+_0x	math/exp.c	46;"	d	file:
+_0x	math/exp.c	48;"	d	file:
+_0x	math/exp__E.c	43;"	d	file:
+_0x	math/exp__E.c	45;"	d	file:
+_0x	math/expm1.c	49;"	d	file:
+_0x	math/expm1.c	51;"	d	file:
+_0x	math/log.c	48;"	d	file:
+_0x	math/log.c	50;"	d	file:
+_0x	math/log10.c	46;"	d	file:
+_0x	math/log10.c	48;"	d	file:
+_0x	math/log1p.c	55;"	d	file:
+_0x	math/log1p.c	57;"	d	file:
+_0x	math/log__L.c	42;"	d	file:
+_0x	math/log__L.c	44;"	d	file:
+_0x	math/pow.c	49;"	d	file:
+_0x	math/pow.c	51;"	d	file:
+_0x	math/sinh.c	47;"	d	file:
+_0x	math/sinh.c	49;"	d	file:
+_Randseed	stdlib/ansiStdlib.c	/^ulong_t _Randseed = 1;$/;"	v
+_Randseed	stdlib/rand.c	/^ulong_t _Randseed = 1;$/;"	v
+__adjust	stdlib/ansiStdlib.c	/^LOCAL double __adjust $/;"	f	signature:( double *acc, int dexp, int sign )
+__adjust	stdlib/ansiStdlib.c	/^double          __adjust (double *acc, int dexp, int sign);$/;"	p	file:	signature:(double *acc, int dexp, int sign)
+__adjust	stdlib/strtod.c	/^LOCAL double __adjust $/;"	f	signature:( double *acc, int dexp, int sign )
+__adjust	stdlib/strtod.c	/^double          __adjust (double *acc, int dexp, int sign);$/;"	p	file:	signature:(double *acc, int dexp, int sign)
+__anon1::buf	string/strcoll.c	/^    char 	   buf[32];$/;"	m	struct:__anon1	file:	access:public
+__anon1::s1	string/strcoll.c	/^    const uchar_t *s1;$/;"	m	struct:__anon1	file:	access:public
+__anon1::s2	string/strcoll.c	/^    const uchar_t *s2;$/;"	m	struct:__anon1	file:	access:public
+__anon1::sout	string/strcoll.c	/^    const uchar_t *sout;$/;"	m	struct:__anon1	file:	access:public
+__anon1::state	string/strcoll.c	/^    __cosave       state;$/;"	m	struct:__anon1	file:	access:public
+__anon2::buf	string/ansiString.c	/^    char 	   buf[32];$/;"	m	struct:__anon2	file:	access:public
+__anon2::s1	string/ansiString.c	/^    const uchar_t *s1;$/;"	m	struct:__anon2	file:	access:public
+__anon2::s2	string/ansiString.c	/^    const uchar_t *s2;$/;"	m	struct:__anon2	file:	access:public
+__anon2::sout	string/ansiString.c	/^    const uchar_t *sout;$/;"	m	struct:__anon2	file:	access:public
+__anon2::state	string/ansiString.c	/^    __cosave       state;$/;"	m	struct:__anon2	file:	access:public
+__anon3::d	math/support.c	/^    double		d;$/;"	m	union:__anon3	file:	access:public
+__anon3::s	math/support.c	/^    unsigned short	s[4];$/;"	m	union:__anon3	file:	access:public
+__assert	assert/assert.c	/^void __assert$/;"	f	signature:( const char *msg )
+__clocale	locale/ansiLocale.c	/^__linfo	    __clocale = $/;"	v
+__clocale	locale/setlocale.c	/^__linfo	    __clocale = $/;"	v
+__costate	string/xstate.c	/^__statetable __costate = $/;"	v
+__ctime	time/locTime.c	/^static TIMELOCALE  __ctime = { $/;"	v	file:
+__ctype	ctype/__ctype_tab.c	/^const unsigned char *__ctype = &__ctype_tab[1];$/;"	v
+__ctype_tab	ctype/__ctype_tab.c	/^static const unsigned char __ctype_tab[257] =$/;"	v	file:
+__daysSinceEpoch	time/ansiTime.c	/^int __daysSinceEpoch$/;"	f	signature:( int year, int yday )
+__daysSinceEpoch	time/gmtime.c	/^int __daysSinceEpoch$/;"	f	signature:( int year, int yday )
+__exp10	stdlib/ansiStdlib.c	/^double          __exp10 (uint_t x);$/;"	p	file:	signature:(uint_t x)
+__exp10	stdlib/ansiStdlib.c	/^double __exp10 $/;"	f	signature:( uint_t x )
+__exp10	stdlib/strtod.c	/^double          __exp10 (uint_t x);$/;"	p	file:	signature:(uint_t x)
+__exp10	stdlib/strtod.c	/^double __exp10 $/;"	f	signature:( uint_t x )
+__generateTime	time/ansiTime.c	/^LOCAL void   __generateTime (char *, const struct tm *,$/;"	p	file:	signature:(char *, const struct tm *, TIMELOCALE *, int *, const char *)
+__generateTime	time/ansiTime.c	/^LOCAL void __generateTime$/;"	f	signature:( char * addOn, const struct tm * tmptr, TIMELOCALE * timeInfo, int * pnum, const char * fmt )
+__generateTime	time/strftime.c	/^LOCAL void   __generateTime (char *, const struct tm *,$/;"	p	file:	signature:(char *, const struct tm *, TIMELOCALE *, int *, const char *)
+__generateTime	time/strftime.c	/^LOCAL void __generateTime$/;"	f	signature:( char * addOn, const struct tm * tmptr, TIMELOCALE * timeInfo, int * pnum, const char * fmt )
+__getDay	time/ansiTime.c	/^LOCAL void   __getDay (char *, int, int, TIMELOCALE *, int *);$/;"	p	file:	signature:(char *, int, int, TIMELOCALE *, int *)
+__getDay	time/ansiTime.c	/^LOCAL void __getDay$/;"	f	signature:( char * buffer, int index, int abbr, TIMELOCALE * timeInfo, int * size )
+__getDay	time/strftime.c	/^LOCAL void   __getDay (char *, int, int, TIMELOCALE *, int *);$/;"	p	file:	signature:(char *, int, int, TIMELOCALE *, int *)
+__getDay	time/strftime.c	/^LOCAL void __getDay$/;"	f	signature:( char * buffer, int index, int abbr, TIMELOCALE * timeInfo, int * size )
+__getDstInfo	time/ansiTime.c	/^int __getDstInfo	$/;"	f	signature:( struct tm * timeNow, TIMELOCALE * timeInfo )
+__getDstInfo	time/strftime.c	/^int __getDstInfo	$/;"	f	signature:( struct tm * timeNow, TIMELOCALE * timeInfo )
+__getLocale	time/ansiTime.c	/^LOCAL void   __getLocale (char *, int, const struct tm *, TIMELOCALE *, int *);$/;"	p	file:	signature:(char *, int, const struct tm *, TIMELOCALE *, int *)
+__getLocale	time/ansiTime.c	/^LOCAL void __getLocale$/;"	f	signature:( char * buffer, int desc, const struct tm * tmptr, TIMELOCALE * timeInfo, int * size )
+__getLocale	time/strftime.c	/^LOCAL void   __getLocale (char *, int, const struct tm *, TIMELOCALE *, int *);$/;"	p	file:	signature:(char *, int, const struct tm *, TIMELOCALE *, int *)
+__getLocale	time/strftime.c	/^LOCAL void __getLocale$/;"	f	signature:( char * buffer, int desc, const struct tm * tmptr, TIMELOCALE * timeInfo, int * size )
+__getMonth	time/ansiTime.c	/^LOCAL void   __getMonth (char *, int, int, TIMELOCALE *, int *);$/;"	p	file:	signature:(char *, int, int, TIMELOCALE *, int *)
+__getMonth	time/ansiTime.c	/^LOCAL void __getMonth$/;"	f	signature:( char * buffer, int index, int abbr, TIMELOCALE * timeInfo, int * size )
+__getMonth	time/strftime.c	/^LOCAL void   __getMonth (char *, int, int, TIMELOCALE *, int *);$/;"	p	file:	signature:(char *, int, int, TIMELOCALE *, int *)
+__getMonth	time/strftime.c	/^LOCAL void __getMonth$/;"	f	signature:( char * buffer, int index, int abbr, TIMELOCALE * timeInfo, int * size )
+__getTime	time/ansiTime.c	/^int __getTime$/;"	f	signature:( const time_t timer, struct tm * tmp )
+__getTime	time/gmtime.c	/^int __getTime$/;"	f	signature:( const time_t timer, struct tm * tmp )
+__getZoneInfo	time/ansiTime.c	/^void __getZoneInfo$/;"	f	signature:( char * buffer, int option, TIMELOCALE * timeInfo )
+__getZoneInfo	time/strftime.c	/^void __getZoneInfo$/;"	f	signature:( char * buffer, int option, TIMELOCALE * timeInfo )
+__intToStr	time/ansiTime.c	/^LOCAL void   __intToStr (char *, int, int);$/;"	p	file:	signature:(char *, int, int)
+__intToStr	time/ansiTime.c	/^LOCAL void __intToStr$/;"	f	signature:( char * buffer, int number, int size )
+__intToStr	time/strftime.c	/^LOCAL void   __intToStr (char *, int, int);$/;"	p	file:	signature:(char *, int, int)
+__intToStr	time/strftime.c	/^LOCAL void __intToStr$/;"	f	signature:( char * buffer, int number, int size )
+__julday	time/ansiTime.c	/^int __julday$/;"	f	signature:( int yr, int mon, int day )
+__julday	time/gmtime.c	/^int __julday$/;"	f	signature:( int yr, int mon, int day )
+__locale	locale/ansiLocale.c	/^struct lconv __locale = $/;"	v	typeref:struct:lconv
+__locale	locale/localeconv.c	/^struct lconv __locale = $/;"	v	typeref:struct:lconv
+__loctime	time/locTime.c	/^TIMELOCALE  *__loctime = &__ctime; $/;"	v
+__mbstate	string/xstate.c	/^__statetable __mbstate = $/;"	v
+__sclose	stdio/stdio.c	/^int __sclose$/;"	f	signature:( FILE * fp )
+__sct1	string/ansiString.c	/^    } __sct1;$/;"	t	typeref:struct:__anon2	file:
+__sct1	string/strcoll.c	/^    } __sct1;$/;"	t	typeref:struct:__anon1	file:
+__sflags	stdio/flags.c	/^int __sflags$/;"	f	signature:( FAST char * mode, int * optr )
+__sflush	stdio/ansiStdio.c	/^int __sflush$/;"	f	signature:( FAST FILE *fp )
+__sflush	stdio/fflush.c	/^int __sflush$/;"	f	signature:( FAST FILE *fp )
+__sfvwrite	stdio/fvwrite.c	/^int __sfvwrite$/;"	f	signature:( FAST FILE * fp, FAST struct __suio * uio )
+__smakebuf	stdio/makebuf.c	/^void __smakebuf$/;"	f	signature:( FAST FILE *fp )
+__sread	stdio/stdio.c	/^int __sread$/;"	f	signature:( FAST FILE * fp, char * buf, int n )
+__srefill	stdio/refill.c	/^int __srefill$/;"	f	signature:( FAST FILE *fp )
+__srget	stdio/rget.c	/^int __srget$/;"	f	signature:( FAST FILE *fp )
+__sseek	stdio/stdio.c	/^fpos_t __sseek$/;"	f	signature:( FAST FILE * fp, fpos_t offset, int whence )
+__stderr	stdio/ansiStdio.c	/^FILE ** __stderr (void)$/;"	f	signature:(void)
+__stderr	stdio/stdioLib.c	/^FILE ** __stderr (void)$/;"	f	signature:(void)
+__stdin	stdio/ansiStdio.c	/^FILE ** __stdin (void)$/;"	f	signature:(void)
+__stdin	stdio/stdioLib.c	/^FILE ** __stdin (void)$/;"	f	signature:(void)
+__stdout	stdio/ansiStdio.c	/^FILE ** __stdout (void)$/;"	f	signature:(void)
+__stdout	stdio/stdioLib.c	/^FILE ** __stdout (void)$/;"	f	signature:(void)
+__strxfrm	string/ansiString.c	/^size_t __strxfrm$/;"	f	signature:( char * sout, const uchar_t ** ppsin, size_t size, __cosave * ps )
+__strxfrm	string/strxfrm.c	/^size_t __strxfrm$/;"	f	signature:( char * sout, const uchar_t ** ppsin, size_t size, __cosave * ps )
+__submore	stdio/ansiStdio.c	/^static int __submore$/;"	f	file:	signature:( FAST FILE *fp )
+__submore	stdio/ungetc.c	/^static int __submore$/;"	f	file:	signature:( FAST FILE *fp )
+__swbuf	stdio/wbuf.c	/^int __swbuf$/;"	f	signature:( FAST int c, FAST FILE * fp )
+__swrite	stdio/stdio.c	/^int __swrite$/;"	f	signature:( register FILE * fp, char const * buf, int n )
+__swsetup	stdio/wsetup.c	/^int __swsetup$/;"	f	signature:( FAST FILE *fp )
+__table	string/xstate.c	/^static const ushort_t __table[257] = $/;"	v	file:
+__ten_mul	stdlib/ansiStdlib.c	/^LOCAL int __ten_mul $/;"	f	signature:( double *acc, int digit )
+__ten_mul	stdlib/ansiStdlib.c	/^int             __ten_mul (double *acc, int digit);$/;"	p	file:	signature:(double *acc, int digit)
+__ten_mul	stdlib/strtod.c	/^LOCAL int __ten_mul $/;"	f	signature:( double *acc, int digit )
+__ten_mul	stdlib/strtod.c	/^int             __ten_mul (double *acc, int digit);$/;"	p	file:	signature:(double *acc, int digit)
+__tmNormalize	time/ansiTime.c	/^LOCAL void __tmNormalize (int *,int *,int);$/;"	p	file:	signature:(int *,int *,int)
+__tmNormalize	time/ansiTime.c	/^LOCAL void __tmNormalize$/;"	f	signature:( int * tens, int * units, int base )
+__tmNormalize	time/mktime.c	/^LOCAL void __tmNormalize (int *,int *,int);$/;"	p	file:	signature:(int *,int *,int)
+__tmNormalize	time/mktime.c	/^LOCAL void __tmNormalize$/;"	f	signature:( int * tens, int * units, int base )
+__tmValidate	time/ansiTime.c	/^LOCAL void __tmValidate (struct tm *); $/;"	p	file:	signature:(struct tm *)
+__tmValidate	time/ansiTime.c	/^LOCAL void __tmValidate$/;"	f	signature:( struct tm * tmptr )
+__tmValidate	time/mktime.c	/^LOCAL void __tmValidate (struct tm *); $/;"	p	file:	signature:(struct tm *)
+__tmValidate	time/mktime.c	/^LOCAL void __tmValidate$/;"	f	signature:( struct tm * tmptr )
+__wcstate	string/xstate.c	/^__statetable __wcstate = $/;"	v
+__weekOfYear	time/ansiTime.c	/^LOCAL int    __weekOfYear (int, int, int);$/;"	p	file:	signature:(int, int, int)
+__weekOfYear	time/ansiTime.c	/^LOCAL int __weekOfYear$/;"	f	signature:( int start, int wday, int yday )
+__weekOfYear	time/strftime.c	/^LOCAL int    __weekOfYear (int, int, int);$/;"	p	file:	signature:(int, int, int)
+__weekOfYear	time/strftime.c	/^LOCAL int __weekOfYear$/;"	f	signature:( int start, int wday, int yday )
+_setjmpSetup	setjmp/longjmp.c	/^void _setjmpSetup$/;"	f	signature:( jmp_buf env, int val )
+a1	math/ansiMath.c	/^a1     =  3.3333333333333942106E-1    , \/*Hex  2^ -2   *  1.55555555555C3 *\/$/;"	v	file:
+a1	math/ansiMath.c	391;"	d	file:
+a1	math/atan2.c	/^a1     =  3.3333333333333942106E-1    , \/*Hex  2^ -2   *  1.55555555555C3 *\/$/;"	v	file:
+a1	math/atan2.c	86;"	d	file:
+a10	math/ansiMath.c	/^a10    = -3.6700606902093604877E-2    , \/*Hex  2^ -5   * -1.2CA6C04C6937A *\/$/;"	v	file:
+a10	math/ansiMath.c	409;"	d	file:
+a10	math/atan2.c	/^a10    = -3.6700606902093604877E-2    , \/*Hex  2^ -5   * -1.2CA6C04C6937A *\/$/;"	v	file:
+a10	math/atan2.c	104;"	d	file:
+a10x	math/ansiMath.c	/^static long    a10x[] = { _0x(e4b9,be37), _0x(048f,7fd1)};$/;"	v	file:
+a10x	math/atan2.c	/^static long    a10x[] = { _0x(e4b9,be37), _0x(048f,7fd1)};$/;"	v	file:
+a11	math/ansiMath.c	/^a11    =  1.6438029044759730479E-2    ; \/*Hex  2^ -6   *  1.0D52174A1BB54 *\/$/;"	v	file:
+a11	math/ansiMath.c	411;"	d	file:
+a11	math/atan2.c	/^a11    =  1.6438029044759730479E-2    ; \/*Hex  2^ -6   *  1.0D52174A1BB54 *\/$/;"	v	file:
+a11	math/atan2.c	106;"	d	file:
+a11x	math/ansiMath.c	/^static long    a11x[] = { _0x(3174,3e07), _0x(2d87,3cf7)};$/;"	v	file:
+a11x	math/atan2.c	/^static long    a11x[] = { _0x(3174,3e07), _0x(2d87,3cf7)};$/;"	v	file:
+a12	math/ansiMath.c	413;"	d	file:
+a12	math/atan2.c	108;"	d	file:
+a12x	math/ansiMath.c	/^static long    a12x[] = { _0x(731a,bd6f), _0x(76d9,2f34)};$/;"	v	file:
+a12x	math/atan2.c	/^static long    a12x[] = { _0x(731a,bd6f), _0x(76d9,2f34)};$/;"	v	file:
+a1x	math/ansiMath.c	/^static long     a1x[] = { _0x(aaaa,3faa), _0x(ab75,aaaa)};$/;"	v	file:
+a1x	math/atan2.c	/^static long     a1x[] = { _0x(aaaa,3faa), _0x(ab75,aaaa)};$/;"	v	file:
+a2	math/ansiMath.c	/^a2     = -1.9999999999979536924E-1    , \/*Hex  2^ -3   * -1.9999999997CCD *\/$/;"	v	file:
+a2	math/ansiMath.c	393;"	d	file:
+a2	math/atan2.c	/^a2     = -1.9999999999979536924E-1    , \/*Hex  2^ -3   * -1.9999999997CCD *\/$/;"	v	file:
+a2	math/atan2.c	88;"	d	file:
+a2x	math/ansiMath.c	/^static long     a2x[] = { _0x(cccc,bf4c), _0x(946e,cccd)};$/;"	v	file:
+a2x	math/atan2.c	/^static long     a2x[] = { _0x(cccc,bf4c), _0x(946e,cccd)};$/;"	v	file:
+a3	math/ansiMath.c	/^a3     =  1.4285714278004377209E-1    , \/*Hex  2^ -3   *  1.24924921EC1D7 *\/$/;"	v	file:
+a3	math/ansiMath.c	395;"	d	file:
+a3	math/atan2.c	/^a3     =  1.4285714278004377209E-1    , \/*Hex  2^ -3   *  1.24924921EC1D7 *\/$/;"	v	file:
+a3	math/atan2.c	90;"	d	file:
+a3x	math/ansiMath.c	/^static long     a3x[] = { _0x(4924,3f12), _0x(4262,9274)};$/;"	v	file:
+a3x	math/atan2.c	/^static long     a3x[] = { _0x(4924,3f12), _0x(4262,9274)};$/;"	v	file:
+a4	math/ansiMath.c	/^a4     = -1.1111110579344973814E-1    , \/*Hex  2^ -4   * -1.C71C7059AF280 *\/$/;"	v	file:
+a4	math/ansiMath.c	397;"	d	file:
+a4	math/atan2.c	/^a4     = -1.1111110579344973814E-1    , \/*Hex  2^ -4   * -1.C71C7059AF280 *\/$/;"	v	file:
+a4	math/atan2.c	92;"	d	file:
+a4x	math/ansiMath.c	/^static long     a4x[] = { _0x(8e38,bee3), _0x(6292,ebc6)};$/;"	v	file:
+a4x	math/atan2.c	/^static long     a4x[] = { _0x(8e38,bee3), _0x(6292,ebc6)};$/;"	v	file:
+a5	math/ansiMath.c	/^a5     =  9.0908906105474668324E-2    , \/*Hex  2^ -4   *  1.745CE5AA35DB2 *\/$/;"	v	file:
+a5	math/ansiMath.c	399;"	d	file:
+a5	math/atan2.c	/^a5     =  9.0908906105474668324E-2    , \/*Hex  2^ -4   *  1.745CE5AA35DB2 *\/$/;"	v	file:
+a5	math/atan2.c	94;"	d	file:
+a5x	math/ansiMath.c	/^static long     a5x[] = { _0x(2e8b,3eba), _0x(d70c,b31b)};$/;"	v	file:
+a5x	math/atan2.c	/^static long     a5x[] = { _0x(2e8b,3eba), _0x(d70c,b31b)};$/;"	v	file:
+a6	math/ansiMath.c	/^a6     = -7.6919217767468239799E-2    , \/*Hex  2^ -4   * -1.3B0FA54BEC400 *\/$/;"	v	file:
+a6	math/ansiMath.c	401;"	d	file:
+a6	math/atan2.c	/^a6     = -7.6919217767468239799E-2    , \/*Hex  2^ -4   * -1.3B0FA54BEC400 *\/$/;"	v	file:
+a6	math/atan2.c	96;"	d	file:
+a6x	math/ansiMath.c	/^static long     a6x[] = { _0x(89c8,be9d), _0x(7f18,27c3)};$/;"	v	file:
+a6x	math/atan2.c	/^static long     a6x[] = { _0x(89c8,be9d), _0x(7f18,27c3)};$/;"	v	file:
+a7	math/ansiMath.c	/^a7     =  6.6614695906082474486E-2    , \/*Hex  2^ -4   *  1.10DA924597FFF *\/$/;"	v	file:
+a7	math/ansiMath.c	403;"	d	file:
+a7	math/atan2.c	/^a7     =  6.6614695906082474486E-2    , \/*Hex  2^ -4   *  1.10DA924597FFF *\/$/;"	v	file:
+a7	math/atan2.c	98;"	d	file:
+a7x	math/ansiMath.c	/^static long     a7x[] = { _0x(86b4,3e88), _0x(9e58,ae37)};$/;"	v	file:
+a7x	math/atan2.c	/^static long     a7x[] = { _0x(86b4,3e88), _0x(9e58,ae37)};$/;"	v	file:
+a8	math/ansiMath.c	/^a8     = -5.8358371008508623523E-2    , \/*Hex  2^ -5   * -1.DE125FDDBD793 *\/$/;"	v	file:
+a8	math/ansiMath.c	405;"	d	file:
+a8	math/atan2.c	/^a8     = -5.8358371008508623523E-2    , \/*Hex  2^ -5   * -1.DE125FDDBD793 *\/$/;"	v	file:
+a8	math/atan2.c	100;"	d	file:
+a8x	math/ansiMath.c	/^static long     a8x[] = { _0x(bba5,be70), _0x(a942,8481)};$/;"	v	file:
+a8x	math/atan2.c	/^static long     a8x[] = { _0x(bba5,be70), _0x(a942,8481)};$/;"	v	file:
+a9	math/ansiMath.c	/^a9     =  4.9850617156082015213E-2    , \/*Hex  2^ -5   *  1.9860524BDD807 *\/$/;"	v	file:
+a9	math/ansiMath.c	407;"	d	file:
+a9	math/atan2.c	/^a9     =  4.9850617156082015213E-2    , \/*Hex  2^ -5   *  1.9860524BDD807 *\/$/;"	v	file:
+a9	math/atan2.c	102;"	d	file:
+a9x	math/ansiMath.c	/^static long     a9x[] = { _0x(b0f3,3e55), _0x(13ab,a1ab)};$/;"	v	file:
+a9x	math/atan2.c	/^static long     a9x[] = { _0x(b0f3,3e55), _0x(13ab,a1ab)};$/;"	v	file:
+abort	stdlib/abort.c	/^void abort (void)$/;"	f	signature:(void)
+abort	stdlib/ansiStdlib.c	/^void abort (void)$/;"	f	signature:(void)
+abs	stdlib/abs.c	/^int abs $/;"	f	signature:( int i )
+abs	stdlib/ansiStdlib.c	/^int abs $/;"	f	signature:( int i )
+acos	math/ansiMath.c	/^double acos$/;"	f	signature:( double x )
+acos	math/asincos.c	/^double acos$/;"	f	signature:( double x )
+acosh	math/acosh.c	/^double acosh(x)$/;"	f
+asctime	time/ansiTime.c	/^char * asctime$/;"	f	signature:( const struct tm *timeptr )
+asctime	time/asctime.c	/^char * asctime$/;"	f	signature:( const struct tm *timeptr )
+asctime_r	time/ansiTime.c	/^int asctime_r$/;"	f	signature:( const struct tm *timeptr, char * asctimeBuf, size_t * buflen )
+asctime_r	time/asctime.c	/^int asctime_r$/;"	f	signature:( const struct tm *timeptr, char * asctimeBuf, size_t * buflen )
+asin	math/ansiMath.c	/^double asin$/;"	f	signature:( double x )
+asin	math/asincos.c	/^double asin$/;"	f	signature:( double x )
+asinh	math/asinh.c	/^double asinh(x)$/;"	f
+assert	assert/ansiAssert.c	/^void assert$/;"	f	signature:( int a )
+at1fhi	math/ansiMath.c	/^at1fhi =  9.8279372324732905408E-1    , \/*Hex  2^ -1   *  1.F730BD281F69B *\/$/;"	v	file:
+at1fhi	math/ansiMath.c	383;"	d	file:
+at1fhi	math/atan2.c	/^at1fhi =  9.8279372324732905408E-1    , \/*Hex  2^ -1   *  1.F730BD281F69B *\/$/;"	v	file:
+at1fhi	math/atan2.c	78;"	d	file:
+at1fhix	math/ansiMath.c	/^static long at1fhix[] = { _0x(985e,407b), _0x(b4d9,940f)};$/;"	v	file:
+at1fhix	math/atan2.c	/^static long at1fhix[] = { _0x(985e,407b), _0x(b4d9,940f)};$/;"	v	file:
+at1flo	math/ansiMath.c	/^at1flo = -2.4407677060164810007E-17   , \/*Hex  2^-56   * -1.C23DFEFEAE6B5 *\/$/;"	v	file:
+at1flo	math/ansiMath.c	385;"	d	file:
+at1flo	math/atan2.c	/^at1flo = -2.4407677060164810007E-17   , \/*Hex  2^-56   * -1.C23DFEFEAE6B5 *\/$/;"	v	file:
+at1flo	math/atan2.c	80;"	d	file:
+at1flox	math/ansiMath.c	/^static long at1flox[] = { _0x(1edc,a383), _0x(eaea,34d6)};$/;"	v	file:
+at1flox	math/atan2.c	/^static long at1flox[] = { _0x(1edc,a383), _0x(eaea,34d6)};$/;"	v	file:
+atan	math/ansiMath.c	/^double atan$/;"	f	signature:( double x )
+atan	math/atan.c	/^double atan$/;"	f	signature:( double x )
+atan2	math/ansiMath.c	/^double atan2$/;"	f	signature:( double y, double x )
+atan2	math/atan2.c	/^double atan2$/;"	f	signature:( double y, double x )
+atanh	math/atanh.c	/^double atanh(x)$/;"	f
+atexit	stdlib/ansiStdlib.c	/^int atexit $/;"	f	signature:( void (*__func)(void) )
+atexit	stdlib/atexit.c	/^int atexit $/;"	f	signature:( void (*__func)(void) )
+athfhi	math/ansiMath.c	/^athfhi =  4.6364760900080609352E-1    , \/*Hex  2^ -2   *  1.DAC670561BB4F *\/$/;"	v	file:
+athfhi	math/ansiMath.c	377;"	d	file:
+athfhi	math/atan2.c	/^athfhi =  4.6364760900080609352E-1    , \/*Hex  2^ -2   *  1.DAC670561BB4F *\/$/;"	v	file:
+athfhi	math/atan2.c	72;"	d	file:
+athfhix	math/ansiMath.c	/^static long athfhix[] = { _0x(6338,3fed), _0x(da7b,2b0d)};$/;"	v	file:
+athfhix	math/atan2.c	/^static long athfhix[] = { _0x(6338,3fed), _0x(da7b,2b0d)};$/;"	v	file:
+athflo	math/ansiMath.c	/^athflo =  4.6249969567426939759E-18   , \/*Hex  2^-58   *  1.5543B8F253271 *\/$/;"	v	file:
+athflo	math/ansiMath.c	379;"	d	file:
+athflo	math/atan2.c	/^athflo =  4.6249969567426939759E-18   , \/*Hex  2^-58   *  1.5543B8F253271 *\/$/;"	v	file:
+athflo	math/atan2.c	74;"	d	file:
+athflox	math/ansiMath.c	/^static long athflox[] = { _0x(5005,2164), _0x(92c0,9cfe)};$/;"	v	file:
+athflox	math/atan2.c	/^static long athflox[] = { _0x(5005,2164), _0x(92c0,9cfe)};$/;"	v	file:
+atof	stdlib/ansiStdlib.c	/^double atof$/;"	f	signature:( const char * s )
+atof	stdlib/atof.c	/^double atof$/;"	f	signature:( const char * s )
+atoi	stdlib/ansiStdlib.c	/^int atoi$/;"	f	signature:( const char * s )
+atoi	stdlib/atoi.c	/^int atoi$/;"	f	signature:( const char * s )
+atol	stdlib/ansiStdlib.c	/^long atol$/;"	f	signature:( const register char * s )
+atol	stdlib/atol.c	/^long atol$/;"	f	signature:( const register char * s )
+bias	math/support.c	/^    static short  prep1=57, gap=7, bias=129           ;$/;"	v	file:
+bias	math/support.c	/^    static short prep1=54, gap=4, bias=1023           ;$/;"	v	file:
+bsearch	stdlib/ansiStdlib.c	/^void * bsearch$/;"	f	signature:( FAST const void * key, const void * base0, size_t nmemb, FAST size_t size, FAST int (*compar) (const void *, const void *) )
+bsearch	stdlib/bsearch.c	/^void * bsearch$/;"	f	signature:( FAST const void * key, const void * base0, size_t nmemb, FAST size_t size, FAST int (*compar) (const void *, const void *) )
+buf	string/ansiString.c	/^    char 	   buf[32];$/;"	m	struct:__anon2	file:	access:public
+buf	string/strcoll.c	/^    char 	   buf[32];$/;"	m	struct:__anon1	file:	access:public
+ceil	math/ansiMath.c	/^double ceil$/;"	f	signature:( double v )
+ceil	math/ceil.c	/^double ceil$/;"	f	signature:( double v )
+clearerr	stdio/ansiStdio.c	/^void clearerr$/;"	f	signature:( FILE * fp )
+clearerr	stdio/ansiStdio.c	281;"	d	file:
+clearerr	stdio/clearerr.c	/^void clearerr$/;"	f	signature:( FILE * fp )
+clearerr	stdio/clearerr.c	56;"	d	file:
+clock	time/ansiTime.c	/^clock_t clock (void)$/;"	f	signature:(void)
+clock	time/clock.c	/^clock_t clock (void)$/;"	f	signature:(void)
+copysign	math/support.c	/^double copysign(x,y)$/;"	f
+cos	math/ansiMath.c	/^double cos$/;"	f	signature:( double x )
+cos	math/sincos.c	/^double cos$/;"	f	signature:( double x )
+cosh	math/ansiMath.c	/^double cosh$/;"	f	signature:( double x )
+cosh	math/cosh.c	/^double cosh$/;"	f	signature:( double x )
+ctime	time/ansiTime.c	/^char * ctime$/;"	f	signature:( const time_t *timer )
+ctime	time/ctime.c	/^char * ctime$/;"	f	signature:( const time_t *timer )
+ctime_r	time/ansiTime.c	/^char * ctime_r$/;"	f	signature:( const time_t * timer, char * asctimeBuf, size_t * buflen )
+ctime_r	time/ctime.c	/^char * ctime_r$/;"	f	signature:( const time_t * timer, char * asctimeBuf, size_t * buflen )
+currentName	locale/ansiLocale.c	/^LOCAL char *currentName = "C";		\/* current locale name *\/$/;"	v
+currentName	locale/setlocale.c	/^LOCAL char *currentName = "C";		\/* current locale name *\/$/;"	v
+d	math/support.c	/^    double		d;$/;"	m	union:__anon3	file:	access:public
+didswap	stdlib/ansiStdlib.c	1036;"	d	file:
+didswap	stdlib/qsort.c	219;"	d	file:
+difftime	time/ansiTime.c	/^double difftime$/;"	f	signature:( time_t time1, time_t time0 )
+difftime	time/difftime.c	/^double difftime$/;"	f	signature:( time_t time1, time_t time0 )
+div	stdlib/ansiStdlib.c	/^div_t div $/;"	f	signature:( int numer, int denom )
+div	stdlib/div.c	/^div_t div $/;"	f	signature:( int numer, int denom )
+div_r	stdlib/ansiStdlib.c	/^void div_r$/;"	f	signature:( int numer, int denom, div_t * divStructPtr )
+div_r	stdlib/div.c	/^void div_r$/;"	f	signature:( int numer, int denom, div_t * divStructPtr )
+drem	math/support.c	/^double drem(x,p)$/;"	f
+exp	math/ansiMath.c	/^double exp$/;"	f	signature:( double x )
+exp	math/exp.c	/^double exp$/;"	f	signature:( double x )
+exp__E	math/exp__E.c	/^double exp__E(x,c)$/;"	f
+expm1	math/expm1.c	/^double expm1(x)$/;"	f
+fabs	math/ansiMath.c	/^double fabs$/;"	f	signature:( double v )
+fabs	math/fabs.c	/^double fabs$/;"	f	signature:( double v )
+fclose	stdio/ansiStdio.c	/^int fclose$/;"	f	signature:( FAST FILE * fp )
+fclose	stdio/fclose.c	/^int fclose$/;"	f	signature:( FAST FILE * fp )
+fdopen	stdio/ansiStdio.c	/^FILE * fdopen$/;"	f	signature:( int fd, const char * mode )
+fdopen	stdio/fdopen.c	/^FILE * fdopen$/;"	f	signature:( int fd, const char * mode )
+feof	stdio/ansiStdio.c	/^int feof$/;"	f	signature:( FILE * fp )
+feof	stdio/ansiStdio.c	619;"	d	file:
+feof	stdio/feof.c	/^int feof$/;"	f	signature:( FILE * fp )
+feof	stdio/feof.c	57;"	d	file:
+ferror	stdio/ansiStdio.c	/^int ferror$/;"	f	signature:( FILE * fp )
+ferror	stdio/ansiStdio.c	697;"	d	file:
+ferror	stdio/ferror.c	/^int ferror$/;"	f	signature:( FILE * fp )
+ferror	stdio/ferror.c	56;"	d	file:
+fflush	stdio/ansiStdio.c	/^int fflush$/;"	f	signature:( FAST FILE * fp )
+fflush	stdio/fflush.c	/^int fflush$/;"	f	signature:( FAST FILE * fp )
+fgetc	stdio/ansiStdio.c	/^int fgetc$/;"	f	signature:( FILE * fp )
+fgetc	stdio/fgetc.c	/^int fgetc$/;"	f	signature:( FILE * fp )
+fgetpos	stdio/ansiStdio.c	/^int fgetpos$/;"	f	signature:( FILE * fp, fpos_t * pos )
+fgetpos	stdio/fgetpos.c	/^int fgetpos$/;"	f	signature:( FILE * fp, fpos_t * pos )
+fgets	stdio/ansiStdio.c	/^char * fgets$/;"	f	signature:( char * buf, FAST size_t n, FAST FILE * fp )
+fgets	stdio/fgets.c	/^char * fgets$/;"	f	signature:( char * buf, FAST size_t n, FAST FILE * fp )
+fileno	stdio/ansiStdio.c	/^int fileno$/;"	f	signature:( FILE * fp )
+fileno	stdio/ansiStdio.c	1245;"	d	file:
+fileno	stdio/fileno.c	/^int fileno$/;"	f	signature:( FILE * fp )
+fileno	stdio/fileno.c	62;"	d	file:
+finite	math/ansiMath.c	/^extern int	finite();$/;"	p	file:
+finite	math/sqrt.c	/^extern int	finite();$/;"	p	file:
+finite	math/support.c	/^int finite(x)$/;"	f
+floor	math/ansiMath.c	/^double floor$/;"	f	signature:( double v )
+floor	math/floor.c	/^double floor$/;"	f	signature:( double v )
+fmod	math/ansiMath.c	/^double fmod$/;"	f	signature:( double x, double y )
+fmod	math/fmod.c	/^double fmod$/;"	f	signature:( double x, double y )
+fopen	stdio/ansiStdio.c	/^FILE * fopen$/;"	f	signature:( const char * file, const char * mode )
+fopen	stdio/fopen.c	/^FILE * fopen$/;"	f	signature:( const char * file, const char * mode )
+fpClass	stdio/ansiStdio.c	/^LOCAL OBJ_CLASS fpClass;			\/* file object class *\/$/;"	v
+fpClass	stdio/stdioLib.c	/^LOCAL OBJ_CLASS fpClass;			\/* file object class *\/$/;"	v
+fpClassId	stdio/ansiStdio.c	/^CLASS_ID fpClassId = &fpClass;			\/* file class id *\/$/;"	v
+fpClassId	stdio/stdioLib.c	/^CLASS_ID fpClassId = &fpClass;			\/* file class id *\/$/;"	v
+fprintf	stdio/ansiStdio.c	/^int fprintf$/;"	f	signature:( FILE * fp, const char * fmt, ... )
+fprintf	stdio/fprintf.c	/^int fprintf$/;"	f	signature:( FILE * fp, const char * fmt, ... )
+fputc	stdio/ansiStdio.c	/^int fputc$/;"	f	signature:( int c, FAST FILE * fp )
+fputc	stdio/fputc.c	/^int fputc$/;"	f	signature:( int c, FAST FILE * fp )
+fputs	stdio/ansiStdio.c	/^int fputs$/;"	f	signature:( const char * s, FILE * fp )
+fputs	stdio/fputs.c	/^int fputs$/;"	f	signature:( const char * s, FILE * fp )
+fread	stdio/ansiStdio.c	/^int fread$/;"	f	signature:( void * buf, size_t size, size_t count, FAST FILE * fp )
+fread	stdio/fread.c	/^int fread$/;"	f	signature:( void * buf, size_t size, size_t count, FAST FILE * fp )
+freopen	stdio/ansiStdio.c	/^FILE * freopen$/;"	f	signature:( const char * file, const char * mode, FAST FILE * fp )
+freopen	stdio/freopen.c	/^FILE * freopen$/;"	f	signature:( const char * file, const char * mode, FAST FILE * fp )
+frexp	math/ansiMath.c	/^double frexp$/;"	f	signature:( double value, int *pexp )
+frexp	math/frexp.c	/^double frexp$/;"	f	signature:( double value, int *pexp )
+fscanf	stdio/ansiStdio.c	/^int fscanf$/;"	f	signature:( FILE * fp, char const * fmt, ... )
+fscanf	stdio/fscanf.c	/^int fscanf$/;"	f	signature:( FILE * fp, char const * fmt, ... )
+fseek	stdio/ansiStdio.c	/^int fseek$/;"	f	signature:( FAST FILE * fp, long offset, int whence )
+fseek	stdio/fseek.c	/^int fseek$/;"	f	signature:( FAST FILE * fp, long offset, int whence )
+fsetpos	stdio/ansiStdio.c	/^int fsetpos $/;"	f	signature:( FILE * iop, const fpos_t * pos )
+fsetpos	stdio/fsetpos.c	/^int fsetpos $/;"	f	signature:( FILE * iop, const fpos_t * pos )
+ftell	stdio/ansiStdio.c	/^long ftell$/;"	f	signature:( FAST FILE * fp )
+ftell	stdio/ftell.c	/^long ftell$/;"	f	signature:( FAST FILE * fp )
+fwrite	stdio/ansiStdio.c	/^int fwrite$/;"	f	signature:( const void * buf, size_t size, size_t count, FILE * fp )
+fwrite	stdio/fwrite.c	/^int fwrite$/;"	f	signature:( const void * buf, size_t size, size_t count, FILE * fp )
+gap	math/support.c	/^    static short  prep1=57, gap=7, bias=129           ;$/;"	v	file:
+gap	math/support.c	/^    static short prep1=54, gap=4, bias=1023           ;$/;"	v	file:
+getc	stdio/ansiStdio.c	/^int getc$/;"	f	signature:( FILE * fp )
+getc	stdio/ansiStdio.c	3286;"	d	file:
+getc	stdio/getc.c	/^int getc$/;"	f	signature:( FILE * fp )
+getc	stdio/getc.c	62;"	d	file:
+getchar	stdio/ansiStdio.c	/^int getchar (void)$/;"	f	signature:(void)
+getchar	stdio/ansiStdio.c	3381;"	d	file:
+getchar	stdio/getchar.c	/^int getchar (void)$/;"	f	signature:(void)
+getchar	stdio/getchar.c	59;"	d	file:
+gets	stdio/ansiStdio.c	/^char * gets $/;"	f	signature:( char * buf )
+gets	stdio/gets.c	/^char * gets $/;"	f	signature:( char * buf )
+getw	stdio/ansiStdio.c	/^int getw$/;"	f	signature:( FILE * fp )
+getw	stdio/getw.c	/^int getw$/;"	f	signature:( FILE * fp )
+getxfrm	string/ansiString.c	/^LOCAL size_t getxfrm$/;"	f	signature:( __sct1 *p )
+getxfrm	string/strcoll.c	/^LOCAL size_t getxfrm$/;"	f	signature:( __sct1 *p )
+gmtime	time/ansiTime.c	/^struct tm *gmtime$/;"	f	signature:( const time_t *timer )
+gmtime	time/gmtime.c	/^struct tm *gmtime$/;"	f	signature:( const time_t *timer )
+gmtime_r	time/ansiTime.c	/^int gmtime_r$/;"	f	signature:( const time_t *timer, struct tm * timeBuffer )
+gmtime_r	time/gmtime.c	/^int gmtime_r$/;"	f	signature:( const time_t *timer, struct tm * timeBuffer )
+half	math/ansiMath.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+half	math/pow.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+infnan	math/ansiMath.c	/^extern double infnan();$/;"	p	file:
+infnan	math/pow.c	/^extern double infnan();$/;"	p	file:
+insertion_sort	stdlib/ansiStdlib.c	/^static void insertion_sort$/;"	f	file:	signature:( char * bot, int nmemb, FAST int size, int (*compar)() )
+insertion_sort	stdlib/ansiStdlib.c	/^static void insertion_sort(), quick_sort(); $/;"	p	file:
+insertion_sort	stdlib/qsort.c	/^static void insertion_sort$/;"	f	file:	signature:( char * bot, int nmemb, FAST int size, int (*compar)() )
+insertion_sort	stdlib/qsort.c	/^static void insertion_sort(), quick_sort(); $/;"	p	file:
+invln2	math/ansiMath.c	/^invln2 =  1.4426950408889633870E0     , \/*Hex  2^  0   *  1.71547652B82FE *\/$/;"	v	file:
+invln2	math/ansiMath.c	/^invln2 =  1.4426950408889633870E0     ; \/*Hex  2^  0   *  1.71547652B82FE *\/$/;"	v	file:
+invln2	math/ansiMath.c	1853;"	d	file:
+invln2	math/ansiMath.c	893;"	d	file:
+invln2	math/exp.c	/^invln2 =  1.4426950408889633870E0     ; \/*Hex  2^  0   *  1.71547652B82FE *\/$/;"	v	file:
+invln2	math/exp.c	75;"	d	file:
+invln2	math/expm1.c	/^invln2 =  1.4426950408889633870E0     ; \/*Hex  2^  0   *  1.71547652B82FE *\/$/;"	v	file:
+invln2	math/expm1.c	65;"	d	file:
+invln2	math/pow.c	/^invln2 =  1.4426950408889633870E0     , \/*Hex  2^  0   *  1.71547652B82FE *\/$/;"	v	file:
+invln2	math/pow.c	64;"	d	file:
+invln2x	math/ansiMath.c	/^static long    invln2x[] = { _0x(aa3b,40b8), _0x(17f1,295c)};$/;"	v	file:
+invln2x	math/exp.c	/^static long    invln2x[] = { _0x(aa3b,40b8), _0x(17f1,295c)};$/;"	v	file:
+invln2x	math/expm1.c	/^static long    invln2x[] = { _0x(aa3b,40b8), _0x(17f1,295c)};$/;"	v	file:
+invln2x	math/pow.c	/^static long    invln2x[] = { _0x(aa3b,40b8), _0x(17f1,295c)};$/;"	v	file:
+isalnum	ctype/ansiCtype.c	/^int isalnum $/;"	f	signature:( int c )
+isalnum	ctype/ansiCtype.c	101;"	d	file:
+isalnum	ctype/isalnum.c	/^int isalnum $/;"	f	signature:( int c )
+isalnum	ctype/isalnum.c	29;"	d	file:
+isalpha	ctype/ansiCtype.c	/^int isalpha $/;"	f	signature:( int c )
+isalpha	ctype/ansiCtype.c	149;"	d	file:
+isalpha	ctype/isalpha.c	/^int isalpha $/;"	f	signature:( int c )
+isalpha	ctype/isalpha.c	29;"	d	file:
+iscntrl	ctype/ansiCtype.c	/^int iscntrl $/;"	f	signature:( int c )
+iscntrl	ctype/ansiCtype.c	198;"	d	file:
+iscntrl	ctype/iscntrl.c	/^int iscntrl $/;"	f	signature:( int c )
+iscntrl	ctype/iscntrl.c	29;"	d	file:
+isdigit	ctype/ansiCtype.c	/^int isdigit $/;"	f	signature:( int c )
+isdigit	ctype/ansiCtype.c	245;"	d	file:
+isdigit	ctype/isdigit.c	/^int isdigit $/;"	f	signature:( int c )
+isdigit	ctype/isdigit.c	29;"	d	file:
+isgraph	ctype/ansiCtype.c	/^int isgraph $/;"	f	signature:( int c )
+isgraph	ctype/ansiCtype.c	292;"	d	file:
+isgraph	ctype/isgraph.c	/^int isgraph $/;"	f	signature:( int c )
+isgraph	ctype/isgraph.c	29;"	d	file:
+islower	ctype/ansiCtype.c	/^int islower $/;"	f	signature:( int c )
+islower	ctype/ansiCtype.c	343;"	d	file:
+islower	ctype/islower.c	/^int islower $/;"	f	signature:( int c )
+islower	ctype/islower.c	29;"	d	file:
+isprint	ctype/ansiCtype.c	/^int isprint $/;"	f	signature:( int c )
+isprint	ctype/ansiCtype.c	390;"	d	file:
+isprint	ctype/isprint.c	/^int isprint $/;"	f	signature:( int c )
+isprint	ctype/isprint.c	28;"	d	file:
+ispunct	ctype/ansiCtype.c	/^int ispunct $/;"	f	signature:( int c )
+ispunct	ctype/ansiCtype.c	439;"	d	file:
+ispunct	ctype/ispunct.c	/^int ispunct $/;"	f	signature:( int c )
+ispunct	ctype/ispunct.c	29;"	d	file:
+isspace	ctype/ansiCtype.c	/^int isspace $/;"	f	signature:( int c )
+isspace	ctype/ansiCtype.c	488;"	d	file:
+isspace	ctype/isspace.c	/^int isspace $/;"	f	signature:( int c )
+isspace	ctype/isspace.c	30;"	d	file:
+isupper	ctype/ansiCtype.c	/^int isupper $/;"	f	signature:( int c )
+isupper	ctype/ansiCtype.c	548;"	d	file:
+isupper	ctype/isupper.c	/^int isupper $/;"	f	signature:( int c )
+isupper	ctype/isupper.c	29;"	d	file:
+isxdigit	ctype/ansiCtype.c	/^int isxdigit $/;"	f	signature:( int c )
+isxdigit	ctype/ansiCtype.c	597;"	d	file:
+isxdigit	ctype/isxdigit.c	/^int isxdigit $/;"	f	signature:( int c )
+isxdigit	ctype/isxdigit.c	29;"	d	file:
+ivln10	math/ansiMath.c	/^ivln10 =  4.3429448190325181667E-1    ; \/*Hex   2^ -2   *  1.BCB7B1526E50E *\/$/;"	v	file:
+ivln10	math/log10.c	/^ivln10 =  4.3429448190325181667E-1    ; \/*Hex   2^ -2   *  1.BCB7B1526E50E *\/$/;"	v	file:
+labs	stdlib/ansiStdlib.c	/^long labs $/;"	f	signature:( long i )
+labs	stdlib/labs.c	/^long labs $/;"	f	signature:( long i )
+ldexp	math/ansiMath.c	/^double ldexp$/;"	f	signature:( double v, int xexp )
+ldexp	math/ldexp.c	/^double ldexp$/;"	f	signature:( double v, int xexp )
+ldiv	stdlib/ansiStdlib.c	/^ldiv_t ldiv $/;"	f	signature:( long numer, long denom )
+ldiv	stdlib/ldiv.c	/^ldiv_t ldiv $/;"	f	signature:( long numer, long denom )
+ldiv_r	stdlib/ansiStdlib.c	/^void ldiv_r$/;"	f	signature:( long numer, long denom, ldiv_t * divStructPtr )
+ldiv_r	stdlib/ldiv.c	/^void ldiv_r$/;"	f	signature:( long numer, long denom, ldiv_t * divStructPtr )
+lflush	stdio/refill.c	/^LOCAL int lflush$/;"	f	signature:( FILE *fp )
+ln10hi	math/ansiMath.c	1620;"	d	file:
+ln10hi	math/log10.c	53;"	d	file:
+ln10hix	math/ansiMath.c	/^static long    ln10hix[] = { _0x(5d8d,4113), _0x(a8ac,ddaa)};$/;"	v	file:
+ln10hix	math/log10.c	/^static long    ln10hix[] = { _0x(5d8d,4113), _0x(a8ac,ddaa)};$/;"	v	file:
+ln2hi	math/acosh.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/acosh.c	55;"	d	file:
+ln2hi	math/ansiMath.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/ansiMath.c	1440;"	d	file:
+ln2hi	math/ansiMath.c	1851;"	d	file:
+ln2hi	math/ansiMath.c	889;"	d	file:
+ln2hi	math/asinh.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/asinh.c	55;"	d	file:
+ln2hi	math/exp.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/exp.c	71;"	d	file:
+ln2hi	math/expm1.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/expm1.c	62;"	d	file:
+ln2hi	math/log.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/log.c	59;"	d	file:
+ln2hi	math/log1p.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/log1p.c	66;"	d	file:
+ln2hi	math/pow.c	/^ln2hi  =  6.9314718036912381649E-1    , \/*Hex  2^ -1   *  1.62E42FEE00000 *\/$/;"	v	file:
+ln2hi	math/pow.c	62;"	d	file:
+ln2hix	math/acosh.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/ansiMath.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/asinh.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/exp.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/expm1.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/log.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/log1p.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2hix	math/pow.c	/^static long     ln2hix[] = { _0x(7217,4031), _0x(0000,f7d0)};$/;"	v	file:
+ln2lo	math/acosh.c	/^ln2lo  =  1.9082149292705877000E-10   ; \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/acosh.c	56;"	d	file:
+ln2lo	math/ansiMath.c	/^ln2lo  =  1.9082149292705877000E-10   , \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/ansiMath.c	1441;"	d	file:
+ln2lo	math/ansiMath.c	1852;"	d	file:
+ln2lo	math/ansiMath.c	890;"	d	file:
+ln2lo	math/asinh.c	/^ln2lo  =  1.9082149292705877000E-10   ; \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/asinh.c	56;"	d	file:
+ln2lo	math/exp.c	/^ln2lo  =  1.9082149292705877000E-10   , \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/exp.c	72;"	d	file:
+ln2lo	math/expm1.c	/^ln2lo  =  1.9082149292705877000E-10   , \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/expm1.c	63;"	d	file:
+ln2lo	math/log.c	/^ln2lo  =  1.9082149292705877000E-10   , \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/log.c	60;"	d	file:
+ln2lo	math/log1p.c	/^ln2lo  =  1.9082149292705877000E-10   , \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/log1p.c	67;"	d	file:
+ln2lo	math/pow.c	/^ln2lo  =  1.9082149292705877000E-10   , \/*Hex  2^-33   *  1.A39EF35793C76 *\/$/;"	v	file:
+ln2lo	math/pow.c	63;"	d	file:
+ln2lox	math/acosh.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/ansiMath.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/asinh.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/exp.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/expm1.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/log.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/log1p.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+ln2lox	math/pow.c	/^static long     ln2lox[] = { _0x(bcd5,2ce7), _0x(d9cc,e4f1)};$/;"	v	file:
+lnhuge	math/ansiMath.c	/^lnhuge =  7.1602103751842355450E2     , \/*Hex  2^  9   *  1.6602B15B7ECF2 *\/$/;"	v	file:
+lnhuge	math/ansiMath.c	891;"	d	file:
+lnhuge	math/exp.c	/^lnhuge =  7.1602103751842355450E2     , \/*Hex  2^  9   *  1.6602B15B7ECF2 *\/$/;"	v	file:
+lnhuge	math/exp.c	73;"	d	file:
+lnhuge	math/expm1.c	/^lnhuge =  7.1602103751842355450E2     , \/*Hex  2^  9   *  1.6602B15B7ECF2 *\/$/;"	v	file:
+lnhuge	math/expm1.c	64;"	d	file:
+lnhugex	math/ansiMath.c	/^static long    lnhugex[] = { _0x(ec1d,43bd), _0x(9010,a73e)};$/;"	v	file:
+lnhugex	math/exp.c	/^static long    lnhugex[] = { _0x(ec1d,43bd), _0x(9010,a73e)};$/;"	v	file:
+lnhugex	math/expm1.c	/^static long    lnhugex[] = { _0x(ec1d,43bd), _0x(9010,a73e)};$/;"	v	file:
+lnovfl	math/ansiMath.c	/^lnovfl =  7.0978271289338397310E2     ; \/*Hex  2^  9   *  1.62E42FEFA39EF *\/$/;"	v	file:
+lnovfl	math/ansiMath.c	2263;"	d	file:
+lnovfl	math/ansiMath.c	734;"	d	file:
+lnovfl	math/cosh.c	/^lnovfl =  7.0978271289338397310E2     ; \/*Hex  2^  9   *  1.62E42FEFA39EF *\/$/;"	v	file:
+lnovfl	math/cosh.c	59;"	d	file:
+lnovfl	math/sinh.c	/^lnovfl =  7.0978271289338397310E2     ; \/*Hex  2^  9   *  1.62E42FEFA39EF *\/$/;"	v	file:
+lnovfl	math/sinh.c	60;"	d	file:
+lnovflx	math/ansiMath.c	/^static long    lnovflx[] = { _0x(0f33,43b0), _0x(2bda,c7e2)};$/;"	v	file:
+lnovflx	math/cosh.c	/^static long    lnovflx[] = { _0x(0f33,43b0), _0x(2bda,c7e2)};$/;"	v	file:
+lnovflx	math/sinh.c	/^static long    lnovflx[] = { _0x(0f33,43b0), _0x(2bda,c7e2)};$/;"	v	file:
+lntiny	math/ansiMath.c	/^lntiny = -7.5137154372698068983E2     , \/*Hex  2^  9   * -1.77AF8EBEAE354 *\/$/;"	v	file:
+lntiny	math/ansiMath.c	892;"	d	file:
+lntiny	math/exp.c	/^lntiny = -7.5137154372698068983E2     , \/*Hex  2^  9   * -1.77AF8EBEAE354 *\/$/;"	v	file:
+lntiny	math/exp.c	74;"	d	file:
+lntinyx	math/ansiMath.c	/^static long    lntinyx[] = { _0x(4f01,c3bf), _0x(33af,d72e)};$/;"	v	file:
+lntinyx	math/exp.c	/^static long    lntinyx[] = { _0x(4f01,c3bf), _0x(33af,d72e)};$/;"	v	file:
+localeconv	locale/ansiLocale.c	/^struct lconv *localeconv (void)$/;"	f	signature:(void)
+localeconv	locale/ansiLocale.c	92;"	d	file:
+localeconv	locale/localeconv.c	/^struct lconv *localeconv (void)$/;"	f	signature:(void)
+localeconv	locale/localeconv.c	59;"	d	file:
+localtime	time/ansiTime.c	/^struct tm *localtime$/;"	f	signature:( const time_t * timer )
+localtime	time/localtime.c	/^struct tm *localtime$/;"	f	signature:( const time_t * timer )
+localtime_r	time/ansiTime.c	/^int localtime_r$/;"	f	signature:( const time_t * timer, struct tm * timeBuffer )
+localtime_r	time/localtime.c	/^int localtime_r$/;"	f	signature:( const time_t * timer, struct tm * timeBuffer )
+log	math/ansiMath.c	/^double log$/;"	f	signature:( double x )
+log	math/log.c	/^double log$/;"	f	signature:( double x )
+log10	math/ansiMath.c	/^double log10$/;"	f	signature:( double x )
+log10	math/log10.c	/^double log10$/;"	f	signature:( double x )
+log1p	math/log1p.c	/^double log1p(x)$/;"	f
+log__L	math/log__L.c	/^double log__L(z)$/;"	f
+logb	math/ansiMath.c	/^extern double	logb();$/;"	p	file:
+logb	math/sqrt.c	/^extern double	logb();$/;"	p	file:
+logb	math/support.c	/^double logb(x)$/;"	f
+longjmp	setjmp/ansiSetjmp.c	/^void longjmp$/;"	f	signature:( jmp_buf env, int val )
+longjmp	setjmp/longjmp.c	/^void longjmp$/;"	f	signature:( jmp_buf env, int val )
+max	math/ansiMath.c	/^static max = 1023                     ;$/;"	v	file:
+max	math/ansiMath.c	/^static max = 126                      ;$/;"	v	file:
+max	math/cosh.c	/^static max = 1023                     ;$/;"	v	file:
+max	math/cosh.c	/^static max = 126                      ;$/;"	v	file:
+max	math/sinh.c	/^static max = 1023                     ;$/;"	v	file:
+max	math/sinh.c	/^static max = 126                      ;$/;"	v	file:
+mblen	stdlib/ansiStdlib.c	/^int mblen$/;"	f	signature:( const char * s, size_t n )
+mblen	stdlib/multibyte.c	/^int mblen$/;"	f	signature:( const char * s, size_t n )
+mbstowcs	stdlib/ansiStdlib.c	/^size_t mbstowcs$/;"	f	signature:( wchar_t * pwcs, const char * s, size_t n )
+mbstowcs	stdlib/multibyte.c	/^size_t mbstowcs$/;"	f	signature:( wchar_t * pwcs, const char * s, size_t n )
+mbtowc	stdlib/ansiStdlib.c	/^int mbtowc$/;"	f	signature:( wchar_t * pwc, const char * s, size_t n )
+mbtowc	stdlib/multibyte.c	/^int mbtowc$/;"	f	signature:( wchar_t * pwc, const char * s, size_t n )
+memchr	string/ansiString.c	/^void * memchr$/;"	f	signature:( const void * m, int c, size_t n )
+memchr	string/memchr.c	/^void * memchr$/;"	f	signature:( const void * m, int c, size_t n )
+memcmp	string/ansiString.c	/^int memcmp$/;"	f	signature:( const void * s1, const void * s2, size_t n )
+memcmp	string/memcmp.c	/^int memcmp$/;"	f	signature:( const void * s1, const void * s2, size_t n )
+memcpy	string/ansiString.c	/^void * memcpy$/;"	f	signature:( void * destination, const void * source, size_t size )
+memcpy	string/memcpy.c	/^void * memcpy$/;"	f	signature:( void * destination, const void * source, size_t size )
+memmove	string/ansiString.c	/^void * memmove$/;"	f	signature:( void * destination, const void * source, size_t size )
+memmove	string/memmove.c	/^void * memmove$/;"	f	signature:( void * destination, const void * source, size_t size )
+memset	string/ansiString.c	/^void * memset$/;"	f	signature:( void * m, int c, size_t size )
+memset	string/memset.c	/^void * memset$/;"	f	signature:( void * m, int c, size_t size )
+mexp	math/support.c	/^    static unsigned short msign=0x7fff , mexp =0x7f80 ;$/;"	v	file:
+mexp	math/support.c	/^    static unsigned short msign=0x7fff, mexp =0x7ff0  ;$/;"	v	file:
+mktime	time/ansiTime.c	/^time_t mktime$/;"	f	signature:( struct tm * timeptr )
+mktime	time/mktime.c	/^time_t mktime$/;"	f	signature:( struct tm * timeptr )
+mln2hi	math/ansiMath.c	/^mln2hi =  7.0978271289338397310E2     , \/*Hex  2^ 10   *  1.62E42FEFA39EF *\/$/;"	v	file:
+mln2hi	math/ansiMath.c	2261;"	d	file:
+mln2hi	math/ansiMath.c	732;"	d	file:
+mln2hi	math/cosh.c	/^mln2hi =  7.0978271289338397310E2     , \/*Hex  2^ 10   *  1.62E42FEFA39EF *\/$/;"	v	file:
+mln2hi	math/cosh.c	57;"	d	file:
+mln2hi	math/sinh.c	/^mln2hi =  7.0978271289338397310E2     , \/*Hex  2^ 10   *  1.62E42FEFA39EF *\/$/;"	v	file:
+mln2hi	math/sinh.c	58;"	d	file:
+mln2hix	math/ansiMath.c	/^static long    mln2hix[] = { _0x(0f33,43b0), _0x(2bdb,c7e2)};$/;"	v	file:
+mln2hix	math/cosh.c	/^static long    mln2hix[] = { _0x(0f33,43b0), _0x(2bdb,c7e2)};$/;"	v	file:
+mln2hix	math/sinh.c	/^static long    mln2hix[] = { _0x(0f33,43b0), _0x(2bdb,c7e2)};$/;"	v	file:
+mln2lo	math/ansiMath.c	/^mln2lo =  2.3747039373786107478E-14   , \/*Hex  2^-45   *  1.ABC9E3B39803F *\/$/;"	v	file:
+mln2lo	math/ansiMath.c	2262;"	d	file:
+mln2lo	math/ansiMath.c	733;"	d	file:
+mln2lo	math/cosh.c	/^mln2lo =  2.3747039373786107478E-14   , \/*Hex  2^-45   *  1.ABC9E3B39803F *\/$/;"	v	file:
+mln2lo	math/cosh.c	58;"	d	file:
+mln2lo	math/sinh.c	/^mln2lo =  2.3747039373786107478E-14   , \/*Hex  2^-45   *  1.ABC9E3B39803F *\/$/;"	v	file:
+mln2lo	math/sinh.c	59;"	d	file:
+mln2lox	math/ansiMath.c	/^static long    mln2lox[] = { _0x(1b60,a70f), _0x(582a,279e)};$/;"	v	file:
+mln2lox	math/cosh.c	/^static long    mln2lox[] = { _0x(1b60,a70f), _0x(582a,279e)};$/;"	v	file:
+mln2lox	math/sinh.c	/^static long    mln2lox[] = { _0x(1b60,a70f), _0x(582a,279e)};$/;"	v	file:
+modf	math/ansiMath.c	/^double modf$/;"	f	signature:( double value, double *pIntPart )
+modf	math/modf.c	/^double modf$/;"	f	signature:( double value, double *pIntPart )
+msign	math/support.c	/^    static unsigned short msign=0x7fff , mexp =0x7f80 ;$/;"	v	file:
+msign	math/support.c	/^    static unsigned short msign=0x7fff, mexp =0x7ff0  ;$/;"	v	file:
+negone	math/ansiMath.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+negone	math/pow.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+newbot	stdlib/ansiStdlib.c	1037;"	d	file:
+newbot	stdlib/qsort.c	220;"	d	file:
+nlower	stdlib/ansiStdlib.c	1104;"	d	file:
+nlower	stdlib/qsort.c	287;"	d	file:
+novf	math/support.c	/^    static double novf=1.7E308, nunf=3.0E-308,zero=0.0;$/;"	v	file:
+novf	math/support.c	/^    static double novf=1.7E38, nunf=3.0E-39, zero=0.0 ;$/;"	v	file:
+null	locale/ansiLocale.c	/^static char null[] = "";$/;"	v	file:
+null	locale/localeconv.c	/^static char null[] = "";$/;"	v	file:
+nunf	math/support.c	/^    static double novf=1.7E308, nunf=3.0E-308,zero=0.0;$/;"	v	file:
+nunf	math/support.c	/^    static double novf=1.7E38, nunf=3.0E-39, zero=0.0 ;$/;"	v	file:
+nupper	stdlib/ansiStdlib.c	1105;"	d	file:
+nupper	stdlib/qsort.c	288;"	d	file:
+one	math/ansiMath.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+one	math/pow.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+p1	math/ansiMath.c	/^p1     =  1.6666666666666601904E-1    , \/*Hex  2^-3    *  1.555555555553E *\/$/;"	v	file:
+p1	math/ansiMath.c	894;"	d	file:
+p1	math/exp.c	/^p1     =  1.6666666666666601904E-1    , \/*Hex  2^-3    *  1.555555555553E *\/$/;"	v	file:
+p1	math/exp.c	76;"	d	file:
+p1	math/exp__E.c	/^p1     =  1.3887401997267371720E-2    , \/*Hex  2^ -7   *  1.C70FF8B3CC2CF *\/$/;"	v	file:
+p1	math/exp__E.c	58;"	d	file:
+p1x	math/ansiMath.c	/^static long        p1x[] = { _0x(aaaa,3f2a), _0x(a9f1,aaaa)};$/;"	v	file:
+p1x	math/exp.c	/^static long        p1x[] = { _0x(aaaa,3f2a), _0x(a9f1,aaaa)};$/;"	v	file:
+p1x	math/exp__E.c	/^static long        p1x[] = { _0x(3abe,3d78), _0x(066a,67e1)};$/;"	v	file:
+p2	math/ansiMath.c	/^p2     = -2.7777777777015593384E-3    , \/*Hex  2^-9    * -1.6C16C16BEBD93 *\/$/;"	v	file:
+p2	math/ansiMath.c	895;"	d	file:
+p2	math/exp.c	/^p2     = -2.7777777777015593384E-3    , \/*Hex  2^-9    * -1.6C16C16BEBD93 *\/$/;"	v	file:
+p2	math/exp.c	77;"	d	file:
+p2	math/exp__E.c	/^p2     =  3.3044019718331897649E-5    , \/*Hex  2^-15   *  1.15317DF4526C4 *\/$/;"	v	file:
+p2	math/exp__E.c	59;"	d	file:
+p2x	math/ansiMath.c	/^static long        p2x[] = { _0x(0b60,bc36), _0x(ec94,b5f5)};$/;"	v	file:
+p2x	math/exp.c	/^static long        p2x[] = { _0x(0b60,bc36), _0x(ec94,b5f5)};$/;"	v	file:
+p2x	math/exp__E.c	/^static long        p2x[] = { _0x(5b42,3984), _0x(0173,48cd)};$/;"	v	file:
+p3	math/ansiMath.c	/^p3     =  6.6137563214379343612E-5    , \/*Hex  2^-14   *  1.1566AAF25DE2C *\/$/;"	v	file:
+p3	math/ansiMath.c	896;"	d	file:
+p3	math/exp.c	/^p3     =  6.6137563214379343612E-5    , \/*Hex  2^-14   *  1.1566AAF25DE2C *\/$/;"	v	file:
+p3	math/exp.c	78;"	d	file:
+p3x	math/ansiMath.c	/^static long        p3x[] = { _0x(b355,398a), _0x(f15f,792e)};$/;"	v	file:
+p3x	math/exp.c	/^static long        p3x[] = { _0x(b355,398a), _0x(f15f,792e)};$/;"	v	file:
+p4	math/ansiMath.c	/^p4     = -1.6533902205465251539E-6    , \/*Hex  2^-20   * -1.BBD41C5D26BF1 *\/$/;"	v	file:
+p4	math/ansiMath.c	897;"	d	file:
+p4	math/exp.c	/^p4     = -1.6533902205465251539E-6    , \/*Hex  2^-20   * -1.BBD41C5D26BF1 *\/$/;"	v	file:
+p4	math/exp.c	79;"	d	file:
+p4x	math/ansiMath.c	/^static long        p4x[] = { _0x(ea0e,b6dd), _0x(5f84,2e93)};$/;"	v	file:
+p4x	math/exp.c	/^static long        p4x[] = { _0x(ea0e,b6dd), _0x(5f84,2e93)};$/;"	v	file:
+p5	math/ansiMath.c	/^p5     =  4.1381367970572384604E-8    , \/*Hex  2^-25   *  1.6376972BEA4D0 *\/$/;"	v	file:
+p5	math/ansiMath.c	898;"	d	file:
+p5	math/exp.c	/^p5     =  4.1381367970572384604E-8    , \/*Hex  2^-25   *  1.6376972BEA4D0 *\/$/;"	v	file:
+p5	math/exp.c	80;"	d	file:
+p5x	math/ansiMath.c	/^static long        p5x[] = { _0x(bb4b,3431), _0x(2683,95f5)};$/;"	v	file:
+p5x	math/exp.c	/^static long        p5x[] = { _0x(bb4b,3431), _0x(2683,95f5)};$/;"	v	file:
+perror	stdio/ansiStdio.c	/^void perror $/;"	f	signature:( const char * __s )
+perror	stdio/perror.c	/^void perror $/;"	f	signature:( const char * __s )
+pow	math/ansiMath.c	/^double pow$/;"	f	signature:( double x, double y )
+pow	math/pow.c	/^double pow$/;"	f	signature:( double x, double y )
+pow_p	math/ansiMath.c	/^double pow_p(x,y)$/;"	f
+pow_p	math/pow.c	/^double pow_p(x,y)$/;"	f
+powtab	stdlib/ansiStdlib.c	/^static double powtab[] = {1.0,$/;"	v	file:
+powtab	stdlib/strtod.c	/^static double powtab[] = {1.0,$/;"	v	file:
+prep1	math/support.c	/^    static short  prep1=57, gap=7, bias=129           ;$/;"	v	file:
+prep1	math/support.c	/^    static short prep1=54, gap=4, bias=1023           ;$/;"	v	file:
+putbuf	stdio/ansiStdio.c	/^LOCAL STATUS putbuf (char *buffer, int nbytes, FILE *fp);$/;"	p	file:	signature:(char *buffer, int nbytes, FILE *fp)
+putbuf	stdio/ansiStdio.c	/^LOCAL STATUS putbuf$/;"	f	signature:( char * buffer, int nbytes, FILE * fp )
+putbuf	stdio/vfprintf.c	/^LOCAL STATUS putbuf (char *buffer, int nbytes, FILE *fp);$/;"	p	file:	signature:(char *buffer, int nbytes, FILE *fp)
+putbuf	stdio/vfprintf.c	/^LOCAL STATUS putbuf$/;"	f	signature:( char * buffer, int nbytes, FILE * fp )
+putc	stdio/ansiStdio.c	/^int putc$/;"	f	signature:( int c, FAST FILE * fp )
+putc	stdio/ansiStdio.c	3683;"	d	file:
+putc	stdio/putc.c	/^int putc$/;"	f	signature:( int c, FAST FILE * fp )
+putc	stdio/putc.c	60;"	d	file:
+putchar	stdio/ansiStdio.c	/^int putchar$/;"	f	signature:( int c )
+putchar	stdio/ansiStdio.c	3773;"	d	file:
+putchar	stdio/putchar.c	/^int putchar$/;"	f	signature:( int c )
+putchar	stdio/putchar.c	60;"	d	file:
+puts	stdio/ansiStdio.c	/^int puts$/;"	f	signature:( char const * s )
+puts	stdio/puts.c	/^int puts$/;"	f	signature:( char const * s )
+putw	stdio/ansiStdio.c	/^int putw$/;"	f	signature:( int w, FILE * fp )
+putw	stdio/putw.c	/^int putw$/;"	f	signature:( int w, FILE * fp )
+q1	math/exp__E.c	/^q1     =  1.1110813732786649355E-1    , \/*Hex  2^ -4   *  1.C719538248597 *\/$/;"	v	file:
+q1	math/exp__E.c	60;"	d	file:
+q1x	math/exp__E.c	/^static long        q1x[] = { _0x(b95a,3ee8), _0x(ec45,44a2)};$/;"	v	file:
+q2	math/exp__E.c	/^q2     =  9.9176615021572857300E-4    ; \/*Hex  2^-10   *  1.03FC4CB8C98E8 *\/$/;"	v	file:
+q2	math/exp__E.c	61;"	d	file:
+q2x	math/exp__E.c	/^static long        q2x[] = { _0x(7905,3ba5), _0x(f5e7,72e4)};$/;"	v	file:
+q3	math/exp__E.c	62;"	d	file:
+q3x	math/exp__E.c	/^static long        q3x[] = { _0x(9eb4,36c9), _0x(c395,604a)};$/;"	v	file:
+qsort	stdlib/ansiStdlib.c	/^void qsort$/;"	f	signature:( void * bot, size_t nmemb, size_t size, int (*compar) (const void *, const void *) )
+qsort	stdlib/qsort.c	/^void qsort$/;"	f	signature:( void * bot, size_t nmemb, size_t size, int (*compar) (const void *, const void *) )
+quick_sort	stdlib/ansiStdlib.c	/^static void insertion_sort(), quick_sort(); $/;"	p	file:
+quick_sort	stdlib/ansiStdlib.c	/^static void quick_sort$/;"	f	file:	signature:( FAST char * bot, int nmemb, FAST int size, int (*compar)() )
+quick_sort	stdlib/qsort.c	/^static void insertion_sort(), quick_sort(); $/;"	p	file:
+quick_sort	stdlib/qsort.c	/^static void quick_sort$/;"	f	file:	signature:( FAST char * bot, int nmemb, FAST int size, int (*compar)() )
+rand	stdlib/ansiStdlib.c	/^int rand (void) $/;"	f	signature:(void)
+rand	stdlib/rand.c	/^int rand (void) $/;"	f	signature:(void)
+replace	stdlib/ansiStdlib.c	1038;"	d	file:
+replace	stdlib/qsort.c	221;"	d	file:
+rewind	stdio/ansiStdio.c	/^void rewind$/;"	f	signature:( FILE * fp )
+rewind	stdio/rewind.c	/^void rewind$/;"	f	signature:( FILE * fp )
+s	math/support.c	/^    unsigned short	s[4];$/;"	m	union:__anon3	file:	access:public
+s1	string/ansiString.c	/^    const uchar_t *s1;$/;"	m	struct:__anon2	file:	access:public
+s1	string/strcoll.c	/^    const uchar_t *s1;$/;"	m	struct:__anon1	file:	access:public
+s2	string/ansiString.c	/^    const uchar_t *s2;$/;"	m	struct:__anon2	file:	access:public
+s2	string/strcoll.c	/^    const uchar_t *s2;$/;"	m	struct:__anon1	file:	access:public
+scalb	math/ansiMath.c	/^extern double	scalb();$/;"	p	file:
+scalb	math/sqrt.c	/^extern double	scalb();$/;"	p	file:
+scalb	math/support.c	/^double scalb(x,N)$/;"	f
+scanf	stdio/ansiStdio.c	/^int scanf$/;"	f	signature:( char const * fmt, ... )
+scanf	stdio/scanf.c	/^int scanf$/;"	f	signature:( char const * fmt, ... )
+setbuf	stdio/ansiStdio.c	/^void setbuf$/;"	f	signature:( FILE * fp, char * buf )
+setbuf	stdio/setbuf.c	/^void setbuf$/;"	f	signature:( FILE * fp, char * buf )
+setbuffer	stdio/ansiStdio.c	/^void setbuffer$/;"	f	signature:( FAST FILE * fp, char * buf, int size )
+setbuffer	stdio/setbuffer.c	/^void setbuffer$/;"	f	signature:( FAST FILE * fp, char * buf, int size )
+setjmp	setjmp/ansiSetjmp.c	/^int setjmp$/;"	f	signature:( jmp_buf env )
+setlinebuf	stdio/ansiStdio.c	/^int setlinebuf$/;"	f	signature:( FILE * fp )
+setlinebuf	stdio/setbuffer.c	/^int setlinebuf$/;"	f	signature:( FILE * fp )
+setlocale	locale/ansiLocale.c	/^char *setlocale $/;"	f	signature:( int category, const char *localeName )
+setlocale	locale/setlocale.c	/^char *setlocale $/;"	f	signature:( int category, const char *localeName )
+setvbuf	stdio/ansiStdio.c	/^int setvbuf$/;"	f	signature:( FAST FILE * fp, char * buf, FAST int mode, FAST size_t size )
+setvbuf	stdio/setvbuf.c	/^int setvbuf$/;"	f	signature:( FAST FILE * fp, char * buf, FAST int mode, FAST size_t size )
+sin	math/ansiMath.c	/^double sin$/;"	f	signature:( double x )
+sin	math/sincos.c	/^double sin$/;"	f	signature:( double x )
+sinh	math/ansiMath.c	/^double sinh$/;"	f	signature:( double x )
+sinh	math/sinh.c	/^double sinh$/;"	f	signature:( double x )
+sout	string/ansiString.c	/^    const uchar_t *sout;$/;"	m	struct:__anon2	file:	access:public
+sout	string/strcoll.c	/^    const uchar_t *sout;$/;"	m	struct:__anon1	file:	access:public
+sqrt	math/ansiMath.c	/^double sqrt$/;"	f	signature:( double x )
+sqrt	math/sqrt.c	/^double sqrt$/;"	f	signature:( double x )
+sqrt2	math/ansiMath.c	/^sqrt2  =  1.4142135623730951455E0     ; \/*Hex  2^  0   *  1.6A09E667F3BCD *\/$/;"	v	file:
+sqrt2	math/ansiMath.c	1442;"	d	file:
+sqrt2	math/ansiMath.c	1854;"	d	file:
+sqrt2	math/log.c	/^sqrt2  =  1.4142135623730951455E0     ; \/*Hex  2^  0   *  1.6A09E667F3BCD *\/$/;"	v	file:
+sqrt2	math/log.c	61;"	d	file:
+sqrt2	math/log1p.c	/^sqrt2  =  1.4142135623730951455E0     ; \/*Hex  2^  0   *  1.6A09E667F3BCD *\/$/;"	v	file:
+sqrt2	math/log1p.c	68;"	d	file:
+sqrt2	math/pow.c	/^sqrt2  =  1.4142135623730951455E0     ; \/*Hex  2^  0   *  1.6A09E667F3BCD *\/$/;"	v	file:
+sqrt2	math/pow.c	65;"	d	file:
+sqrt2x	math/ansiMath.c	/^static long     sqrt2x[] = { _0x(04f3,40b5), _0x(de65,33f9)};$/;"	v	file:
+sqrt2x	math/log.c	/^static long     sqrt2x[] = { _0x(04f3,40b5), _0x(de65,33f9)};$/;"	v	file:
+sqrt2x	math/log1p.c	/^static long     sqrt2x[] = { _0x(04f3,40b5), _0x(de65,33f9)};$/;"	v	file:
+sqrt2x	math/pow.c	/^static long     sqrt2x[] = { _0x(04f3,40b5), _0x(de65,33f9)};$/;"	v	file:
+srand	stdlib/ansiStdlib.c	/^void * srand $/;"	f	signature:( uint_t seed )
+srand	stdlib/rand.c	/^void * srand $/;"	f	signature:( uint_t seed )
+state	string/ansiString.c	/^    __cosave       state;$/;"	m	struct:__anon2	file:	access:public
+state	string/strcoll.c	/^    __cosave       state;$/;"	m	struct:__anon1	file:	access:public
+stdioFp	stdio/ansiStdio.c	/^FILE * stdioFp $/;"	f	signature:( int stdFd )
+stdioFp	stdio/stdioLib.c	/^FILE * stdioFp $/;"	f	signature:( int stdFd )
+stdioFpCleanupHookDone	stdio/stdioLib.c	/^LOCAL BOOL      stdioFpCleanupHookDone = FALSE;$/;"	v
+stdioFpCreate	stdio/ansiStdio.c	/^FILE *stdioFpCreate (void)$/;"	f	signature:(void)
+stdioFpCreate	stdio/stdioLib.c	/^FILE *stdioFpCreate (void)$/;"	f	signature:(void)
+stdioFpDestroy	stdio/ansiStdio.c	/^STATUS stdioFpDestroy$/;"	f	signature:( FILE *fp )
+stdioFpDestroy	stdio/stdioLib.c	/^STATUS stdioFpDestroy$/;"	f	signature:( FILE *fp )
+stdioInit	stdio/ansiStdio.c	/^STATUS stdioInit (void)$/;"	f	signature:(void)
+stdioInit	stdio/stdioLib.c	/^STATUS stdioInit (void)$/;"	f	signature:(void)
+stdioInitStd	stdio/ansiStdio.c	/^LOCAL STATUS stdioInitStd$/;"	f	signature:( int stdFd )
+stdioInitStd	stdio/stdioLib.c	/^LOCAL STATUS stdioInitStd$/;"	f	signature:( int stdFd )
+stdioInitialized	stdio/ansiStdio.c	/^LOCAL BOOL	stdioInitialized = FALSE;$/;"	v
+stdioInitialized	stdio/stdioLib.c	/^LOCAL BOOL	stdioInitialized = FALSE;$/;"	v
+stdioShow	stdio/ansiStdio.c	/^STATUS stdioShow$/;"	f	signature:( FAST FILE * fp, int level )
+stdioShow	stdio/stdioShow.c	/^STATUS stdioShow$/;"	f	signature:( FAST FILE * fp, int level )
+stdioShowInit	stdio/ansiStdio.c	/^STATUS stdioShowInit (void)$/;"	f	signature:(void)
+stdioShowInit	stdio/stdioShow.c	/^STATUS stdioShowInit (void)$/;"	f	signature:(void)
+stdioStdfpCleanup	stdio/stdioLib.c	/^LOCAL void stdioStdfpCleanup $/;"	f	signature:( WIND_TCB *pTcb )
+strcat	string/ansiString.c	/^char * strcat$/;"	f	signature:( char * destination, const char * append )
+strcat	string/strcat.c	/^char * strcat$/;"	f	signature:( char * destination, const char * append )
+strchr	string/ansiString.c	/^char * strchr$/;"	f	signature:( const char * s, int c )
+strchr	string/strchr.c	/^char * strchr$/;"	f	signature:( const char * s, int c )
+strcmp	string/ansiString.c	/^int strcmp$/;"	f	signature:( const char * s1, const char * s2 )
+strcmp	string/strcmp.c	/^int strcmp$/;"	f	signature:( const char * s1, const char * s2 )
+strcoll	string/ansiString.c	/^int strcoll$/;"	f	signature:( const char * s1, const char * s2 )
+strcoll	string/strcoll.c	/^int strcoll$/;"	f	signature:( const char * s1, const char * s2 )
+strcpy	string/ansiString.c	/^char * strcpy$/;"	f	signature:( char * s1, const char * s2 )
+strcpy	string/strcpy.c	/^char * strcpy$/;"	f	signature:( char * s1, const char * s2 )
+strcspn	string/ansiString.c	/^size_t strcspn   $/;"	f	signature:( const char * s1, const char * s2 )
+strcspn	string/strcspn.c	/^size_t strcspn   $/;"	f	signature:( const char * s1, const char * s2 )
+strerror	string/ansiString.c	/^char * strerror$/;"	f	signature:( int errcode )
+strerror	string/strerror.c	/^char * strerror$/;"	f	signature:( int errcode )
+strerrorIf	string/ansiString.c	/^LOCAL STATUS strerrorIf $/;"	f	signature:( int errcode, char *buf )
+strerrorIf	string/ansiString.c	/^LOCAL STATUS strerrorIf (int errcode, char *buf);$/;"	p	file:	signature:(int errcode, char *buf)
+strerrorIf	string/strerror.c	/^LOCAL STATUS strerrorIf $/;"	f	signature:( int errcode, char *buf )
+strerrorIf	string/strerror.c	/^LOCAL STATUS strerrorIf (int errcode, char *buf);$/;"	p	file:	signature:(int errcode, char *buf)
+strerror_r	string/ansiString.c	/^STATUS strerror_r $/;"	f	signature:( int errcode, char * buffer )
+strerror_r	string/strerror.c	/^STATUS strerror_r $/;"	f	signature:( int errcode, char * buffer )
+strftime	time/ansiTime.c	/^size_t strftime$/;"	f	signature:( char * s, size_t n, const char * format, const struct tm * tptr )
+strftime	time/strftime.c	/^size_t strftime$/;"	f	signature:( char * s, size_t n, const char * format, const struct tm * tptr )
+strftime_r	time/ansiTime.c	/^LOCAL size_t strftime_r (char *, size_t, const char *,$/;"	p	file:	signature:(char *, size_t, const char *, const struct tm *, TIMELOCALE *)
+strftime_r	time/ansiTime.c	/^LOCAL size_t strftime_r$/;"	f	signature:( char * bufHd, size_t bufMaxSz, const char * fmtHd, const struct tm * tmptr, TIMELOCALE * timeInfo )
+strftime_r	time/strftime.c	/^LOCAL size_t strftime_r (char *, size_t, const char *,$/;"	p	file:	signature:(char *, size_t, const char *, const struct tm *, TIMELOCALE *)
+strftime_r	time/strftime.c	/^LOCAL size_t strftime_r$/;"	f	signature:( char * bufHd, size_t bufMaxSz, const char * fmtHd, const struct tm * tmptr, TIMELOCALE * timeInfo )
+strlen	string/ansiString.c	/^size_t strlen$/;"	f	signature:( const char * s )
+strlen	string/strlen.c	/^size_t strlen$/;"	f	signature:( const char * s )
+strncat	string/ansiString.c	/^char * strncat$/;"	f	signature:( char * dst, const char * src, size_t n )
+strncat	string/strncat.c	/^char * strncat$/;"	f	signature:( char * dst, const char * src, size_t n )
+strncmp	string/ansiString.c	/^int strncmp$/;"	f	signature:( const char * s1, const char * s2, size_t n )
+strncmp	string/strncmp.c	/^int strncmp$/;"	f	signature:( const char * s1, const char * s2, size_t n )
+strncpy	string/ansiString.c	/^char *strncpy$/;"	f	signature:( char * s1, const char *s2, size_t n )
+strncpy	string/strncpy.c	/^char *strncpy$/;"	f	signature:( char * s1, const char *s2, size_t n )
+strpbrk	string/ansiString.c	/^char * strpbrk$/;"	f	signature:( const char * s1, const char * s2 )
+strpbrk	string/strpbrk.c	/^char * strpbrk$/;"	f	signature:( const char * s1, const char * s2 )
+strrchr	string/ansiString.c	/^char * strrchr$/;"	f	signature:( const char * s, int c )
+strrchr	string/strrchr.c	/^char * strrchr$/;"	f	signature:( const char * s, int c )
+strspn	string/ansiString.c	/^size_t strspn$/;"	f	signature:( const char * s, const char * sep )
+strspn	string/strspn.c	/^size_t strspn$/;"	f	signature:( const char * s, const char * sep )
+strstr	string/ansiString.c	/^char * strstr$/;"	f	signature:( const char * s, const char * find )
+strstr	string/strstr.c	/^char * strstr$/;"	f	signature:( const char * s, const char * find )
+strtod	stdlib/ansiStdlib.c	/^double strtod $/;"	f	signature:( const char * s, char ** endptr )
+strtod	stdlib/strtod.c	/^double strtod $/;"	f	signature:( const char * s, char ** endptr )
+strtok	string/ansiString.c	/^char * strtok$/;"	f	signature:( char * string, const char * separator )
+strtok	string/strtok.c	/^char * strtok$/;"	f	signature:( char * string, const char * separator )
+strtok_r	string/ansiString.c	/^char * strtok_r$/;"	f	signature:( char * string, const char * separators, char ** ppLast )
+strtok_r	string/strtok_r.c	/^char * strtok_r$/;"	f	signature:( char * string, const char * separators, char ** ppLast )
+strtol	stdlib/ansiStdlib.c	/^long strtol$/;"	f	signature:( const char * nptr, char ** endptr, FAST int base )
+strtol	stdlib/strtol.c	/^long strtol$/;"	f	signature:( const char * nptr, char ** endptr, FAST int base )
+strtoul	stdlib/ansiStdlib.c	/^ulong_t strtoul$/;"	f	signature:( const char * nptr, char ** endptr, FAST int base )
+strtoul	stdlib/strtoul.c	/^ulong_t strtoul$/;"	f	signature:( const char * nptr, char ** endptr, FAST int base )
+strxfrm	string/ansiString.c	/^size_t strxfrm$/;"	f	signature:( char * s1, const char * s2, size_t n )
+strxfrm	string/strxfrm.c	/^size_t strxfrm$/;"	f	signature:( char * s1, const char * s2, size_t n )
+system	stdlib/ansiStdlib.c	/^int system $/;"	f	signature:( const char * string )
+system	stdlib/system.c	/^int system $/;"	f	signature:( const char * string )
+tan	math/ansiMath.c	/^double tan$/;"	f	signature:( double x )
+tan	math/tan.c	/^double tan$/;"	f	signature:( double x )
+tanh	math/ansiMath.c	/^double tanh$/;"	f	signature:( double x )
+tanh	math/tanh.c	/^double tanh$/;"	f	signature:( double x )
+tdouble	math/support.c	/^    } tdouble;$/;"	t	typeref:union:__anon3	file:
+time	time/ansiTime.c	/^time_t time$/;"	f	signature:( time_t *timer )
+time	time/time.c	/^time_t time$/;"	f	signature:( time_t *timer )
+tmpfile	stdio/ansiStdio.c	/^FILE * tmpfile (void)$/;"	f	signature:(void)
+tmpfile	stdio/tmpfile.c	/^FILE * tmpfile (void)$/;"	f	signature:(void)
+tmpnam	stdio/ansiStdio.c	/^char * tmpnam$/;"	f	signature:( char * s )
+tmpnam	stdio/tmpnam.c	/^char * tmpnam$/;"	f	signature:( char * s )
+tolower	ctype/ansiCtype.c	/^int tolower $/;"	f	signature:( int c )
+tolower	ctype/ansiCtype.c	646;"	d	file:
+tolower	ctype/tolower.c	/^int tolower $/;"	f	signature:( int c )
+tolower	ctype/tolower.c	30;"	d	file:
+toupper	ctype/ansiCtype.c	/^int toupper $/;"	f	signature:( int c )
+toupper	ctype/ansiCtype.c	697;"	d	file:
+toupper	ctype/toupper.c	/^int toupper $/;"	f	signature:( int c )
+toupper	ctype/toupper.c	29;"	d	file:
+two	math/ansiMath.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+two	math/pow.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+ungetc	stdio/ansiStdio.c	/^int ungetc$/;"	f	signature:( int c, FAST FILE * fp )
+ungetc	stdio/ungetc.c	/^int ungetc$/;"	f	signature:( int c, FAST FILE * fp )
+va_arg	stdarg/ansiStdarg.c	/^void va_arg$/;"	f
+va_end	stdarg/ansiStdarg.c	/^void va_end$/;"	f
+va_start	stdarg/ansiStdarg.c	/^void va_start$/;"	f
+vfprintf	stdio/ansiStdio.c	/^int vfprintf$/;"	f	signature:( FILE * fp, const char * fmt, va_list vaList )
+vfprintf	stdio/vfprintf.c	/^int vfprintf$/;"	f	signature:( FILE * fp, const char * fmt, va_list vaList )
+wcstombs	stdlib/ansiStdlib.c	/^size_t wcstombs$/;"	f	signature:( char * s, const wchar_t * pwcs, size_t n )
+wcstombs	stdlib/multibyte.c	/^size_t wcstombs$/;"	f	signature:( char * s, const wchar_t * pwcs, size_t n )
+wctomb	stdlib/ansiStdlib.c	/^int wctomb$/;"	f	signature:( char * s, wchar_t wchar )
+wctomb	stdlib/multibyte.c	/^int wctomb$/;"	f	signature:( char * s, wchar_t wchar )
+zero	math/ansiMath.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+zero	math/pow.c	/^static double zero=0.0, half=1.0\/2.0, one=1.0, two=2.0, negone= -1.0;$/;"	v	file:
+zero	math/support.c	/^    static double novf=1.7E308, nunf=3.0E-308,zero=0.0;$/;"	v	file:
+zero	math/support.c	/^    static double novf=1.7E38, nunf=3.0E-39, zero=0.0 ;$/;"	v	file:
