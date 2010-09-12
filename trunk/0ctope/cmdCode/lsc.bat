@@ -1,0 +1,1 @@
+@dir *.cpp /oge /on %*
