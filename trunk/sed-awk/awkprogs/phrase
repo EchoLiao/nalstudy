@@ -1,0 +1,48 @@
+# 搜索短语(可以跨行, 最多两行)
+# ./phrase.sh "to news" test.in
+
+search=$1
+shift
+
+for file
+do
+    sed '
+    /'"$search"'/b
+
+    N
+    h
+    s/.*\n//
+    /'"$search"'/b
+
+    g
+    s/ *\n/ /
+    /'"$search"'/{
+        g
+        b
+    }
+    g
+    D' $file
+done
+# 最后的 g D 只有没有匹配时才会执行!
+# BUGS: 最后一行, 永远都会输出!
+
+
+
+#search=$1
+#shift
+#for file
+#do
+#sed '
+#/'"$search"'/b
+#N
+#h
+#s/.*\n//
+#/'"$search"'/b
+#g
+#s/ *\n/ /
+#/'"$search"'/{
+#g
+#b
+#}
+#d' $file
+#done

@@ -1,0 +1,123 @@
+acronym[ˊækrәnim]n. 缩写字,字头语 acronymn. 缩写字,字头语;
+adequate	adequate[ˊædikwit]a. 足够的,充分的;适当的,适合的 adequate[ˊædikwit]a. 适当的,足够的;
+alternately	alternately[ˊɒːltәnitli]ad. 交替地,隔一个地 alternately[ɒːlˊtәːnitli]ad. 交替地,隔一个地;
+appletalk	appletalk[ˊæpltɒːk]对话 ; 网络协议,(由苹果电脑公司开发出的一种网络协议。用于苹果计算机与其它种类计算机的通信上)
+approve	approve[әˊpruːv]vt. 批准,通过;赞成,称许vi. 赞成,称许 approverapprover n : an authority with power to approve
+asynchronous	asynchronous异步的,异步 asynchronousa.异步的，非同步的
+Attach[әˊtætʃ]vt. 使…附属于…,把…附加在…,系上,缚上,使依附 attach[әˊtætʃ]v. 附上,使依恋,爱慕;
+authentication	authentication[ɒːθentiˊkeiʃәn]n. 证明,鉴定;(判别是否为同一人或同一程序的辨认程序) authenticationn. 证明,鉴定;
+avoidance	avoidance[әˊvɒidәns]n. 避免,避开,逃避 avoidancen. 避免,避开,逃避;
+be up to	be up to该由…负责；胜任
+bit stuffing	====================
+broadcast	broadcast[ˊbrɒːdkæst]n. 广播,广播节目a. 广播的vt. vi. 广播ad. 经广播,四散地 ; (网络上所有结点都能接收到的一种数据包) broadcast[ˊbrɒːdkɑːst]n. 广播,广播节目;a. 广播的;v. 广播;
+bulk	bulk[bʌlk]n. 大小,体积,大批,大多数vt. 显得大,显得重要 bulky[ˊbʌlki]a. 庞大的;
+by convention	====================
+calculation	calculation[kælkjuˊleiʃәn]n. 计算,考虑,计算的结果 calculation[,kælkjuˊleiʃәn]n. 计算,考虑,计算的结果;
+capable	capable[ˊkeipәbl]a. 有能力的,有才能的,有技能的;能…的,可以…的 capable[ˊkeipәbl]a. 有能力的,能的,能干的;
+capitalize	capitalize[kәˊpitәlaiz]vt. 以大写字母写,使资本化,计算…的现价 capitalizeda.大写的
+carrier	carrier[ˊkæriә]n. 搬运者,携带者,载体,媒介 carrier[ˊkæriә]n. 运送者,邮务士,带菌者;
+carrier sense	====================
+chronology	chronology[krәˊnɒlәdʒi]n. 年代学;年代记 chronology n.年代学;按年月次序的排列;年表
+committee	committee[kәˊmiti]n. 委员会,全体委员 committee[kәˊmiti]n. 委员会;
+compress	compress[kәmˊpres]vt. 压缩,压榨vi. 经压缩 compress[kәmˊpres]v. 压缩,压榨;
+compress[kәmˊpres]vt. 压缩,压榨vi. 经压缩 compress[kәmˊpres]v. 压缩,压榨;
+concurrent	concurrent[kәnˊkʌrәnt]n. 同时发生的事件a. 同时发生的,一致的 concurrent[kәnˊkʌrәnt]n. 同时发生的事件;a. 同时发生的,一致的;
+configurable	configurable a. 结构的;
+congestion	congestion[kәnˊdʒestʃәn]n. 堵塞,充满,拥挤 ; 阻塞,(这种情况常发生于负载超过数据通路容量的时候) congestionn. 混杂,拥挤,过剩;
+corrupt	corrupt[kәˊrʌpt]a. 腐败的,贪污的,败德的,讹用的vt. 使腐烂,腐蚀,使恶化vi. 腐烂,堕落
+crc	CRC循环冗余校验
+CSMA/CD	CSMA/CD载波监听多路访问/冲突检测
+cyclic redundancy check	Cyclic Redundancy Check循环冗余校验,(简称为CRC。它是在发收数据时,确保数据准确的一种检验方式) 
+dash[dæʃ]n. 冲撞,破折号vi. 猛掷,冲撞vt. 泼溅,使猛撞,搀加,使破灭,使沮丧,匆忙完成 dash[dæʃ]n. 冲撞,破折号;v. 猛掷,泼溅,冲撞;
+datagram	datagram数据报
+date back to	date back to追溯到；从…开始有
+DDN	oddness[ɒdnis]n. 奇怪,奇妙 oddnessn. 奇怪,奇妙;
+de	Ade腺嘌呤 DEADEA n : federal agency responsible for enforcing laws and regulations governing narcotics and controlled substances; goal is to immobilize drug trafficking organizations [syn: {Drug Enforcement Administration}, {Drug Enforcement Agency}]
+de facto	事实上的
+defense	defense[diˊfens]n. 防卫,防卫物 defense[diˊfens]n. 防卫,防卫物;
+demultiplex	demultiplex多路分用
+deprecate	deprecate[ˊdeprәkeit]vt. 声明不赞成,抨击,反对 deprecate[ˊdeprikeit]v. 声明不赞成,抨击,反对;
+dial[ˊdaiәl]vt. 拨,打电话vi. 拨,打电话n. 钟面,刻度盘,拨号盘 dialkyl二烃基
+dialup	====================
+discard	discard[disˊkɑːd,ˊdiskɑːd]vt. 丢弃,抛弃,解雇vi. 垫牌n. 垫牌,抛弃 discard[disˊkɑːd]v. 丢弃,抛弃,解雇;
+domestic	domestic[dәˊmestik]a. 家里的,家庭的;本国的,国内的;驯养的 domestic[dәˊmestik]a. 家庭的,国内的,驯服的;
+encapsulation	encapsulation[inkæpjuˊleiʃәn]封装 ; (指将一些必要信息加在不同层次协议数据单元之前,Internet中的每一数据包的开始信息,将分别是实体层,IP层,TCP层,再至应用层) encapsulation封装
+encapsulation[inkæpjuˊleiʃәn]封装 ; (指将一些必要信息加在不同层次协议数据单元之前,Internet中的每一数据包的开始信息,将分别是实体层,IP层,TCP层,再至应用层) encapsulation封装
+ephemeral	ephemeral[iˊfemәrәl]a. 朝生暮死,短命,短暂的 ephemerala. 朝生暮死,短命,短暂的;
+erroneous	erroneous[iˊrouniәs]a. 错误的,不正确的 erroneous[iˊrәunjәs]a. 错误的;
+escape[isˊkeip]vi. 逃跑,逃脱;漏出,流出vt. 逃脱,避免;没有被…注意,被…忘掉n. 逃跑 escape[isˊkeip]n. 逃亡,避难设备;v. 逃脱,避开,溜走;
+ethernet	Ethernet以太网 ; (一种以基频通讯技术为基础的高传输网络硬件标准。是一个很受欢迎的局域网络) Ethernetn.[计算机]以太网;
+exception[ikˊsepʃәn]n. 例外,除外;U反对,异议 exception[ikˊsepʃәn]n. 例外,除外,异议;
+extrapolate	extrapolate[eksˊtræpәleit]vt. vi. 推断,外推 extrapolatev．预测,推测
+facet[ˊfæsit]n. 小平面,方面,刻面 facet[ˊfæsit]n. 小平面,方面,刻面;
+facto	factor[ˊfæktә]n. 因素,要素;因子,因数,系数 factor[ˊfæktә]n. 因素,因数,代理人;
+field	afield[әˊfiːld]ad. 至野外,在田野,至远方 field[fiːld]n. 领域,田地,场地;
+finer	finer[ˊfainә]a. 好的,出色的 fineryn. 装饰,服饰,鲜艳服装;
+footnotes页脚注释,脚标 footnote[ˊfutnout]n.脚注
+frame	frame[freim]n. 框架,结构,体格vt. 构成,设计,制定,使适合,陷害; 框架,(是指在数据链路层中,将网络层数据包加上开始与结尾信息包组成一个框架) 
+full-duplex	====================
+ieee	IEEE电机与电子工程师学会
+implication	implication[impliˊkeiʃәn]n. 意涵,暗示,暗指 implication[impliˊkeiʃәn]n. 含意,暗示;
+infrastructure	infrastructure[ˊinfrәstrʌktʃә]n. 下部构造,基础下部组织 infrastructuren. 下部构造,下部组织;
+iniquity[iˊnikwiti]n. 不正,不法,不正当行为 unquieta. 不平静的,动摇的,不稳的;
+interactive	interactive[intәrˊæktiv]交互的,互相影响的,交互 interactivea.交互式，交互的
+intermix	intermix[intәˊmiks]vt. vi. (使)混和,(使)混杂 intermixv. 混入,混杂;
+internet	internetn. 互联网络(由interconnection network 组合成的新词，通过TCP/IP通讯协议，连结全世界的计算机网络，实现服务与资源的共享，它可提供 ftp，gopher，wais，news，telnet等服务) Internet网际
+Internet	internetn. 互联网络(由interconnection network 组合成的新词，通过TCP/IP通讯协议，连结全世界的计算机网络，实现服务与资源的共享，它可提供 ftp，gopher，wais，news，telnet等服务) Internet网际
+latency	latency[ˊleitnsi]n. 潜伏,潜在 latency n. 潜伏,潜在;
+latency[ˊleitnsi]n. 潜伏,潜在 latencyn. 潜伏,潜在;
+logarithmic	Logarithmic[lɒːgәˊriðmik]a. 对数的 logarithmica. 对数的;
+mtu	MTU最大传输单元,( MAXIMUM TRANSMISSION UNIT 的缩写。PPP模式中一次传送数据的最大量)
+multihole多孔; 多孔的
+multihomed	====================
+netotiate	====================
+notable	notable[ˊnoutәbl]n. 著名人士,值得注意之事物a. 值得注意的,显著的,善理家的 notable[ˊnәutәbl]n. 著名人士,值得注意之事物;a. 值得注意的,显著的,善理家的;
+notation	notation[nouˊteiʃәn]n. 记号法,表示法,注释 notationn. 记号法,表示法,注释;
+odd	coddle[ˊkɒdl]vt. 娇养,溺爱,煮蛋n. 娇生惯养的人,宝贝子弟,娇养小孩的人 noddv. 点头;打盹;疏忽;失误;倾斜;摇摆
+on the inside front cover	====================
+on the wire	====================
+pad	spado[ˊspeidou]n. 无生育能力的人
+Parity[ˊpæriti]n. 奇偶校验n. 同等,同格,同位,平价 parity[ˊpæriti]n. 同等,同格,同位;
+perceive	perceive[pәˊsiːv]vt. 察觉,感知;理解,领悟
+perceive[pәˊsiːv]vt. 察觉,感知;理解,领悟 perceive[pәˊsiːv]v. 感觉,认知,理解;
+predecessor	predecessor[prediˊsesә]n. 前任,先辈,以前的东西 predecessor[ˊpriːdisesә]n. 前任,先辈,以前的东西;
+prediction	prediction[priˊdikʃәn]n. 预言,预报 prediction[priˊdikʃәn]n. 预言,预报;
+predominant	predominant[priˊdɒminәnt]a. 优越的,卓越的,有力的 predominant[priˊdɒminәnt]a. 优越的,卓越的,有力的;
+principle	principle[ˊprinsәpl]n. C原理,原则;道义,德行 principle[ˊprinsәpl]n. 原则,原理,主义;
+proposal	proposal[prәˊpәuzәl]n. 建议,提议,求婚 proposal[prәˊpәuzәl]n. 提议,计划,求婚;
+publicly	publicly[ˊpʌblikli]ad. 公然地,舆论上 publicly[ˊpʌblikli]ad. 公然地,舆论上,以公费;
+rearrange	prearrange[priːәˊreindʒ]vt. 预先安排,预先协定,预定 rearrange v. 再排列,再整理;
+redundancy	redundancy[riˊdʌndәnsi]冗余 redundancyn．过剩，似乎多余其实重要的后备力量
+redundancy[riˊdʌndәnsi]冗余 redundancyn．过剩，似乎多余其实重要的后备力量
+reissue	====================
+reiterate	reiterate[riːˊitәreit]vt. 反复地说,重申,反复地做 reiterate[riːˊitәreit]v. 反覆地说,反覆地做;
+request for comment	====================
+retransmit	retransmit重传输; 重复传输 retransmit重新发送
+RFC	RFCS( REQUEST FOR COMMENTS 的缩写,计算机与通讯技术文件)
+robustness	robustnessrobustness n : the property of strong in constitution [syn: {hardiness}, {lustiness}]
+round-trip	round-trip a. 来回旅程的
+sense[sens]n. 侦测,感应,感觉,感官,意识,观念,情理,知觉,理智vt. 感觉,觉察,了解 sense[sens]n. 侦测,感应,感觉;v. 感觉,了解;
+serial link	====================
+serial	serial[ˊsiәriәl]n. 序列,连载小说a. 连续的,一连串的,连载的,分期偿还的 serialn. 序列,串列;a. 连续的,一连串的;
+shortcoming[ˊʃɒːtkɒmiŋ]n. 缺点,不足 shortcoming[ʃɒːt,kʌmiŋ]n. 缺点,短处;
+shortcoming	[ˊʃɒːtkɒmiŋ]n. 缺点,不足 shortcoming[ʃɒːt,kʌmiŋ]n. 缺点,短处;
+SLIP	slip[slip]n. v. 滑跤,滑倒,滑落;溜走,悄悄离开,流逝;疏忽,遗忘,弄错,错过 ; 协议名,( SERIAL LINE INTERNET PROTOCOL 的缩写,提供PC用户经由MODEM、电话线连接到INTERNET网络的通信协议) sliptslip的过去式
+stand for	stand for代表,象征,意味着 stand for代表
+stuffedadj. 填料的 scuffle[ˊskʌfl]混战
+stuffing[ˊstʌfiŋ]n. 填塞物,剥制,填料 stuffingn. 填塞物,剥制,填料;
+stuffing	stuffing[ˊstʌfiŋ]n. 填塞物,剥制,填料 stuffingn. 填塞物,剥制,填料;
+superset	superset超集
+symmetric	asymmetric[æsiˊmetrik]a. 不均匀的;不对称的 symmetric adj.对称的，匀称的
+thick[θik]a. 厚的;密;浓,粘稠的;混浊的,多雾的n. 最厚的部分,最激烈处;笨蛋ad. 厚 thick[θik]a. 厚的,浓的,迟钝的;ad. 厚地,密地,丰富地;
+token ring	token ring令牌环网,(一个环状的局域网络)
+token	token[ˊtoukәn]n. 表征,记号,代币a. 象征的,表意的 token[ˊtәukәn]n. 表征，记号,代币;
+traffic[ˊtræfik]n. 交通,通行,运输,交通量,贸易,交易,交往,通信量vi. 交易 traffic[ˊtræfik]n. 交通,商业;
+trailer encapsulation	====================
+trailer[ˊtreilә]n. 拖曳者,拖车,追踪者 trailer[ˊtreilә]n. 追踪者,拖车;
+traverse	traverse[ˊtrævәːs]n. 横贯,横木,障碍,否认,反驳vt. 横过,穿过,经过,详细研究,反对 traversern. 横贯者,拒绝者,反驳者;
+ubiquitous	ubiquitous[juːˊbikwitәs]a. 到处存在的,遍在的 ubiquitous[juˊbikwitәs]a. 到处存在的,遍在的;
+unique	unique[juːˊniːk]a. 独一无二的,独特的,稀罕的 unique[juːˊniːk]a. 独一无二的,独特的,稀罕的;
+uniquit	====================
+versus	versus[ˊvәːsәs]prep.(比赛中的)对...
+wire[ˊwaiә]n. 电线,电报,电信,铁丝网,金属丝vt. 用金属丝卷起,拍电报vi. 打电报 wire[ˊwaiә]n. 电线,电报,铁丝网;v. 用金属丝卷起,拍电报;
+

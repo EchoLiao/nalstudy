@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>autoload/xolox/path.vim</title>
+<meta name="Generator" content="Vim/7.2">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+.Identifier { color: #008b8b; }
+.Constant { color: #ff00ff; }
+.Folded { color: #00008b; background-color: #d3d3d3; }
+.PreProc { color: #a020f0; }
+.Statement { color: #a52a2a; font-weight: bold; }
+.Comment { color: #0000ff; }
+pre { font-family: monospace; color: #000000; background-color: #cfe8cc; }
+body { font-family: monospace; color: #000000; background-color: #cfe8cc; }
+.lnr { color: #a52a2a; }
+
+html, body, pre { margin: 0; padding: 0; }
+a:link, a:visited { color: inherit; text-decoration: none; }
+pre:hover a:link, pre:hover a:visited { text-decoration: underline; }
+a:link span, a:visited span { text-decoration: inherit; }
+.lnr a:link, .lnr a:visited { text-decoration: none !important; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr"><a name="l1" href="#l1">  1 </a></span><span class="Comment">&quot; Vim script</span>
+<span class="lnr"><a name="l2" href="#l2">  2 </a></span><span class="Comment">&quot;</span> <span class="PreProc">Maintainer:</span><span class="Comment"> Peter Odding &lt;peter@peterodding.com&gt;</span>
+<span class="lnr"><a name="l3" href="#l3">  3 </a></span><span class="Comment">&quot;</span> <span class="PreProc">Last Change:</span><span class="Comment"> June 15, 2010</span>
+<span class="lnr"><a name="l4" href="#l4">  4 </a></span><span class="Comment">&quot;</span> <span class="PreProc">URL:</span><span class="Comment"> <a href="http://peterodding.com/code/vim/profile/autoload/xolox/path.vim">http://peterodding.com/code/vim/profile/autoload/xolox/path.vim</a></span>
+<span class="lnr"><a name="l5" href="#l5">  5 </a></span>
+<span class="lnr"><a name="l6" href="#l6">  6 </a></span><span class="Statement">let</span> s:windows_compatible <span class="Statement">=</span> <span class="Identifier">has</span><span class="Statement">(</span><span class="Constant">'win32'</span><span class="Statement">)</span> <span class="Statement">||</span> <span class="Identifier">has</span><span class="Statement">(</span><span class="Constant">'win64'</span><span class="Statement">)</span>
+<span class="lnr"><a name="l7" href="#l7">  7 </a></span>
+<span class="Folded">  8 +-- 15 lines: split() -- split a pathname into a list of path components -----------------------</span>
+<span class="Folded"> 23 +-- 13 lines: join() -- join a list of path components into a pathname -------------------------</span>
+<span class="Folded"> 36 +-- 20 lines: absolute() -- canonicalize and resolve a pathname --------------------------------</span>
+<span class="Folded"> 56 +-- 13 lines: relative() -- make an absolute pathname relative ---------------------------------</span>
+<span class="Folded"> 69 +-- 17 lines: merge() -- join a directory and filename into a single pathname ------------------</span>
+<span class="Folded"> 86 +-- 19 lines: commonprefix() -- find the common prefix of path components in a list of pathnames </span>
+<span class="Folded">105 +--  7 lines: encode() -- encode a pathname so it can be used as a filename --------------------</span>
+<span class="Folded">112 +--  6 lines: decode() -- decode a pathname previously encoded with xolox#path#encode() --------</span>
+<span class="Folded">118 +-- 12 lines: equals() -- check whether two pathnames point to the same file -------------------</span>
+<span class="Folded">130 +-- 29 lines: tempdir() -- create a temporary directory and return the path --------------------</span>
+</pre>
+</body>
+</html>

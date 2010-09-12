@@ -1,0 +1,55 @@
+% Written by DVItoMP, Version 0.992/color (Web2C 7.5.6)
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n0="ec-lmr12";
+_s(char228&char187&char191&char229&char164&char170&char230&char158&char129 
+,_n0,1.00000,0.0000,0.0000,);
+_s(char233&char152&char180&char233&char152 
+,_n0,1.00000,59.5295,0.0000,);
+_s(char179&char233&char177&char188&char229&char155&char190 
+,_n0,1.00000,91.0614,0.0000,);
+setbounds _p to (0,-2.3246)--(130.5367,-2.3246)--
+ (130.5367,10.0005)--(0,10.0005)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n1="ec-lmr10";
+_s(char230&char168&char170&char232&char189&char180 
+,_n1,1.00000,0.0000,0.0000,);
+_n2="cmmi12";
+_s("x",_n2,1.00000,27.7015,0.0000,);
+setbounds _p to (0,-1.9372)--(34.3536,-1.9372)--
+ (34.3536,9.1706)--(0,9.1706)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n1="ec-lmr10";
+_s(char231&char186&char181&char232&char189&char180 
+,_n1,1.00000,0.0000,0.0000,);
+_n2="cmmi12";
+_s("y",_n2,1.00000,27.1209,0.0000,);
+setbounds _p to (0,-2.3246)--(33.2575,-2.3246)--
+ (33.2575,6.7918)--(0,6.7918)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n0="ec-lmr12";
+_s(char232&char174,_n0,1.00000,0.0000,0.0000,);
+_s(char184,_n0,1.00000,10.7303,0.0000,);
+_s(char229&char138&char159&char231&char155&char150&char230&char181&char139 
+&char232&char175&char149,_n0,1.00000,16.5835,0.0000,);
+setbounds _p to (0,-2.3246)--(96.5467,-2.3246)--
+ (96.5467,10.9629)--(0,10.9629)--cycle;
+_p endgroup
+mpxbreak

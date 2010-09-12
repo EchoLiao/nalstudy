@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC	= gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS	=$/;"	m
+LIBS	Makefile	/^LIBS	= -lm$/;"	m
+MAX_LINE	hexs2char.c	28;"	d	file:
+OBJS	Makefile	/^OBJS = hexs2char.o$/;"	m
+PROGS	Makefile	/^PROGS =	hexs2char$/;"	m
+help	hexs2char.c	/^static void help(char *name)$/;"	f	file:
+hex2dec	hexs2char.c	/^int hex2dec(const char *pbg, int len)$/;"	f
+main	hexs2char.c	/^int main (int argc, char *argv[])$/;"	f
+main	te.c	/^int main(void)$/;"	f
+readline	hexs2char.c	/^int readline(char *pch, FILE *fpin)$/;"	f
+readword	hexs2char.c	/^int readword(char *pch, FILE *fpin)$/;"	f
+transline	hexs2char.c	/^int transline(char *pline)$/;"	f

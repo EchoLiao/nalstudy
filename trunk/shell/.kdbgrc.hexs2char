@@ -1,0 +1,16 @@
+[General]
+DebuggerCmdStr=
+DriverName=GDB
+FileVersion=1
+OptionsSelected=
+ProgramArgs=
+TTYLevel=7
+WorkingDirectory=
+
+[Memory]
+ColumnWidths=80,0
+Expression1=00000000
+Expression2=000000
+Format1=19
+Format2=19
+NumExprs=2

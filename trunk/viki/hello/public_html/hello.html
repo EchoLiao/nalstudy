@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="zh_CN">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="NuoErlz">
+<meta name="language" content="zh_CN">
+<meta name="date" content="2010-09-11">
+<meta name="generator" content="deplate.rb 0.8.5">
+<title>ViKi 基本语法</title>
+<link rel="start" href="hello.html" title="Frontpage">
+<link rel="chapter" href="hello.html#hd001" title="1 文章基本结构">
+<link rel="stylesheet" type="text/css" href="moon.css" title="moon" media="screen">
+<link rel="stylesheet" type="text/css" href="bright.css">
+</head>
+<body >
+<a name="#pagetop"></a>
+
+<center> <div class="tabBodyFrame" style="max-width:650pt; text-align:left"> <div class="tabBody">
+<div class="title">
+<p class="title"><a href="ViKi.html">ViKi</a><a name="idx001"></a> 基本语法</p>
+<p class="author"><a href="NuoErlz.html">NuoErlz</a><a name="idx002"></a></p>
+<p class="date">11. Sep 2010</p>
+</div>
+<div id="Table_of_Contents">
+<div id="Table_of_ContentsBlock" class="toc">
+<h1 class="toc">Ŀ¼</h1>
+<ul class="toc">
+    <li class="Itemize-1 toc">
+        <a href="#hd001" class="toc">1 文章基本结构</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd001001" class="toc">1.1 页面标题</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001002" class="toc">1.2 文内标题与正文</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd001002001" class="toc">1.2.1 sub文内标题与正文</a>
+                        <ul class="toc">
+                            <li class="Itemize-7 toc">
+                                <a href="#hd001002001001" class="toc">1.2.1.1 
+                                subsub文内标题与正文</a>
+                                <ul class="toc">
+                                    <li class="Itemize-9 toc">
+                                        <a href="#hd001002001001001" class="toc">1.2.1.1.1 
+                                        subsubsub文内标题与正文</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001003" class="toc">1.3 超链接</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001004" class="toc">1.4 纯文本片段</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001005" class="toc">1.5 代码片段</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001006" class="toc">1.6 嵌入 HTML</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001007" class="toc">1.7 符号与编号项</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001008" class="toc">1.8 独立贴图</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd001009" class="toc">1.9 表格</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+</div></div>
+
+<h1 id="hd001"><a name="file000"></a>1&nbsp;文章基本结构</h1>
+
+
+<h2 id="hd001001">1.1&nbsp;页面标题</h2>
+
+
+
+<h2 id="hd001002">1.2&nbsp;文内标题与正文</h2>
+
+<p>这里有一段 viki 编写的文字， 虽然这里出现了换行， 
+但由于 viki 忽略单个换行， 
+因此这几行文字都会被拼接起来， 
+成为一个长长的段落。</p>
+
+
+<h3 id="hd001002001">1.2.1&nbsp;sub文内标题与正文</h3>
+
+
+<h4 id="hd001002001001">1.2.1.1&nbsp;subsub文内标题与正文</h4>
+
+
+<h5 id="hd001002001001001">1.2.1.1.1&nbsp;subsubsub文内标题与正文</h5>
+
+<p>这里出现了一个空行， 
+我们在这里：<img src="kittie.png" width="128" height="128" alt="kittie" class="inline" id="imgid_0" name="imgid_0"/>贴了一张图片。 
+因此 viki 会在这里开启一个新的段落。 
+由于段落内部的换行符不会影响最终得到的效果， 
+因此你可以根据自己的习惯任意调整段落内的换行。</p>
+
+
+
+<h2 id="hd001003">1.3&nbsp;超链接</h2>
+
+<p><a href="hyperlink.html">我是超链接</a><a name="idx003"></a></p>
+
+<p><a href="ViKi.html">ViKi</a><a name="idx004"></a></p>
+
+<p><a href="MyHome.html">MyHome</a><a name="idx005"></a></p>
+
+
+
+<h2 id="hd001004">1.4&nbsp;纯文本片段</h2>
+
+<pre class="verbatim">
+这里是&nbsp;Verbatim&nbsp;环境！
+
+该环境中的所有换行、空格，
+&nbsp;&nbsp;&nbsp;&nbsp;都会被原样保留。
+该环境中的所有&nbsp;ViKi&nbsp;语句，
+&nbsp;&nbsp;&nbsp;&nbsp;都被忽略。
+
+换句话说，
+Verbatim&nbsp;环境中的所有内容都被原样照抄，
+&nbsp;&nbsp;&nbsp;&nbsp;**&nbsp;不会做任何处理。**
+
+在许多模板下，
+Verbatim&nbsp;环境都会被一个框包含起来，
+&nbsp;&nbsp;&nbsp;&nbsp;并且使用等宽字体。
+滇狐自己的模板也是这样的。
+</pre>
+
+
+
+<h2 id="hd001005">1.5&nbsp;代码片段</h2>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a020f0;">#include </span><span style="color: #ff00ff;">&lt;iostream&gt;</span><br />
+<span style="color: #a52a2a;">2 </span><br />
+<span style="color: #a52a2a;">3 </span><span style="color: #2e8b57;"><b>int</b></span>&nbsp;main(<span style="color: #2e8b57;"><b>void</b></span>)<br />
+<span style="color: #a52a2a;">4 </span>{<br />
+<span style="color: #a52a2a;">5 </span>&nbsp;&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; <span style="color: #ff00ff;">&quot;Hello, world!&quot;</span>&nbsp;&lt;&lt; std::endl;<br />
+<span style="color: #a52a2a;">6 </span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a52a2a;"><b>return</b></span>&nbsp;<span style="color: #ff00ff;">0</span>;<br />
+<span style="color: #a52a2a;">7 </span>}<br />
+</div>
+
+
+<h2 id="hd001006">1.6&nbsp;嵌入 HTML</h2>
+
+这是一段<span style="background-color: green; color: #00ffff">
+<blink>
+会闪烁
+</blink>
+</span>
+的文本！！
+
+
+<h2 id="hd001007">1.7&nbsp;符号与编号项</h2>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        使用星号的例子
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        注意星号之前必须有一定数量的空格
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        否则紧贴在最左边的星号会被处理为大标题
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        使用减号的例子
+        <ul class="Itemize">
+            <li class="Itemize-3 Itemize dash">
+                我们可以使用更多的缩进
+            </li>
+            <li class="Itemize-3 Itemize dash">
+                来描述项目之间的某种树形关系
+                <ul class="Itemize">
+                    <li class="Itemize-5 Itemize dash">
+                        jjj
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 Itemize plus">
+        使用加号的例子
+    </li>
+    <li class="Itemize-1 Itemize plus">
+        以上几种符号没有本质上的区别
+    </li>
+</ul>
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered">
+        使用“#”号
+    </li>
+    <li class="Ordered-1 Ordered">
+        我们可以得到数字编号项
+        <ol class="Ordered numeric">
+            <li class="Ordered-3 Ordered">
+                当使用更多的缩进描述树形关系的时候
+            </li>
+            <li class="Ordered-3 Ordered">
+                会重新开始编号
+            </li>
+            <li class="Ordered-3 Ordered">
+                因此这里的编号是重新从 a 开始的
+                <ol class="Ordered numeric">
+                    <li class="Ordered-5 Ordered">
+                        sub
+                        <ol class="Ordered numeric">
+                            <li class="Ordered-7 Ordered">
+                                sub-sub
+                                <ol class="Ordered numeric">
+                                    <li class="Ordered-9 Ordered">
+                                        su-sub-sub
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+    <li class="Ordered-1 Ordered">
+        这里恢复原有缩进
+    </li>
+    <li class="Ordered-1 Ordered">
+        因此继续原先的编号
+    </li>
+</ol>
+<ol class="Ordered alpha" type="a">
+    <li class="Ordered-1 Ordered">
+        使用“@”号
+    </li>
+    <li class="Ordered-1 Ordered">
+        继续刚才的编号
+        <ol class="Ordered alpha" type="a">
+            <li class="Ordered-3 Ordered">
+                sub
+                <ol class="Ordered alpha" type="a">
+                    <li class="Ordered-5 Ordered">
+                        su-sub
+                        <ol class="Ordered alpha" type="a">
+                            <li class="Ordered-7 Ordered">
+                                su-su-sub
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+
+
+<h2 id="hd001008">1.8&nbsp;独立贴图</h2>
+
+<div class="figure">
+<img src="kittie.png" width="700" height="350" alt="kittie" class="figure" id="imgid_1" name="imgid_1"/>
+</div>
+
+
+
+<h2 id="hd001009">1.9&nbsp;表格</h2>
+
+<a name="tab001001"></a>
+<div class="table">
+<table class="standard" summary="表一">
+<caption>���� 1.1: 表一</caption>
+  <tr class="standard">
+    <td class="standard">Head</td>
+    <td class="standard">Category</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">Row</td>
+    <td class="standard">Value</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">Row</td>
+    <td class="standard">Value</td>
+  </tr>
+</table>
+</div>
+
+
+<p>&ldquo;#CAPTION: 表一&rdquo; 应转换为 &ldquo;表格1.1: 
+表一&rdquo;, 但&rdquo;表格&rdquo;不是utf-8编码, 
+所以不能正常输出. yeah!</p>
+
+<a name="tab001002"></a>
+<div class="table">
+<table class="standard" summary="表二">
+<caption>���� 1.2: 表二</caption>
+  <thead class="standard">
+  <tr class="head ">
+    <th class="head standard">Head</th>
+    <th class="head standard">Category</th>
+  </tr>
+  </thead>
+  <tr class="standard">
+    <td class="standard">单元</td>
+    <td class="standard">行</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">单元</td>
+    <td class="standard">行</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">单元</td>
+    <td class="standard">行</td>
+  </tr>
+  <tr class="standard">
+    <td class="standard">单元</td>
+    <td class="standard">行</td>
+  </tr>
+</table>
+</div>
+
+
+
+</div>
+
+<p align="center"> <table border="0" cellspacing="0" cellpadding="0"> <tr> <td> <a href="http://www.vim.org" target="_blank"><img border="0" src="created_with_vim.png" alt="Created with Vim" height="36" width="90"></a><br> <a href="http://deplate.sourceforge.net" target="_blank"><img src="deplate-mini.png" border="0" alt="deplate Logo" height="31" width="88"></a> </td> <td>
+
+<!--<script type="text/javascript">--> <!--google_ad_client = "pub-6027327391667521";--> <!--google_ad_width = 180;--> <!--google_ad_height = 60;--> <!--google_ad_format = "180x60_as_rimg";--> <!--google_cpa_choice = "CAAQ0cX8zwEaCEpGRZ0Cl8yyKPu_93M";--> <!--google_ad_channel = "";--> <!--</script>--> <!--<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--> <!--</script>--> <!--</td>--> <!--<td>--> <!--<script type="text/javascript">--> <!--google_ad_client = "pub-6027327391667521";--> <!--google_ad_width = 234;--> <!--google_ad_height = 60;--> <!--google_ad_format = "234x60_as";--> <!--google_ad_type = "text_image";--> <!--google_ad_channel = "0487030161";--> <!--google_color_border = "FFA500";--> <!--google_color_bg = "FFFFFF";--> <!--google_color_link = "000000";--> <!--google_color_text = "000000";--> <!--google_color_url = "0000FF";--> <!--google_ui_features = "rc:0";--> <!--</script>--> <!--<script type="text/javascript"-->   <!--src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--> <!--</script>--> <!--<script type="text/javascript">--> <!--google_ad_client = "pub-6027327391667521";--> <!--google_ad_width = 234;--> <!--google_ad_height = 60;--> <!--google_ad_format = "234x60_as";--> <!--google_ad_type = "text_image";--> <!--google_ad_channel ="";--> <!--google_color_border = "FFA500";--> <!--google_color_bg = "FFFFFF";--> <!--google_color_link = "000000";--> <!--google_color_url = "0000FF";--> <!--google_color_text = "000000";--> <!--</script>--> <!--<script type="text/javascript"--> <!--src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--> <!--</script>--> <!--<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">--> <!--</script>--> <!--<script type="text/javascript">--> <!--_uacct = "UA-1413228-1";--> <!--urchinTracker();-->
+
+<!--</script>--> <!--</td>--> <!--<td>--> <!--<script language="javascript" type="text/javascript" src="http://js.users.51.la/59490.js"></script> <noscript><a href="http://www.51.la/?59490" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/59490.asp" style="border:none" /></a></noscript>--> </td> </tr> </table> </div> </center>
+
+</body>
+</html>
+

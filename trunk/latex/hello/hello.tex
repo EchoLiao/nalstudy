@@ -1,0 +1,419 @@
+\documentclass{report}
+\usepackage{some,packages}
+%% \parindent=0pt % 全文不缩排
+
+%---------------------------------
+% 编译 MetaPost 须要的配置
+\usepackage{graphicx,mflogo}
+\parindent=0pt
+\ifx\pdfoutput\undefined
+  \DeclareGraphicsRule{*}{eps}{*}{}
+\else
+  \DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+%---------------------------------
+%# title page 资讯
+\title{Aesop Fables}
+\author{Aesop\thanks{Thanks to the reader.}
+       \and Nobody\thanks{Thanks to nobody.}}
+\date{\today}
+%---------------------------------
+% 目录深度
+\setcounter{tocdepth}{2}
+
+
+%=================================
+\begin{document}
+\maketitle % 使得可以生成"title page 资讯"
+
+%# 摘要
+% 只有 article/report 类别才有 abstract
+\begin{abstract}
+The tale, the Parable, and the Fable are all common and popular
+modes of conveying instruction. Each is distinguished by its own
+special characteristics.
+\end{abstract}
+
+\tableofcontents %# 生成目录(要放在\maketitle后面)
+This is the first experience of \LaTeX.
+\chapter{Aesop Fables}
+\section{The Ant and the Dove}
+ ...
+
+
+\chapter{换行与缩排}
+\noindent % 只对该段落进行缩排
+This is my first {\LaTeX} typesetting example.\\[1cm] % 换行 (\\)
+This is my first \LaTeX{} typesetting example.\\
+This is my first \LaTeX\ typesetting example.\\
+
+中华人民共和国！。
+I am Mr. Edward G.J. Lee, G.J. is a abbreviation of my name.\\
+I am Mr.\ Edward G.J. Lee, G.J. is a abbreviation of my name.\\
+Please see Appendix A. We will be there soon.\linebreak % 也是强迫换行(\linebreak[n])
+Please see Appendix A\null. We will be there soon.\\\\\\\\
+
+
+% report, article, book 的章节标题的格式不太一样
+\chapter{章节标题}
+This is the first experience of \LaTeX.
+\section{The Ant and the Dove}
+
+An ant went to the bank of a river to quench its thirst, and
+being carried away by the rush of the stream, was on the
+point of drowning.
+
+A Dove sitting on a tree overhanging the water plucked a
+leaf and let it fall into the stream close to her. The Ant
+climbed onto it and floated in safety to the bank.
+
+\section{The Dog in the Manger}
+
+A dog lay in a manger, and by his growling and snapping
+prevented the oxen from eating the hay which had been
+placed for them.
+
+\subsection{What?}
+``What a selfish Dog!'' said one of them to his companions;
+``he cannot eat the hay himself, and yet refuses to allow
+\subsection{Why?}
+\subsubsection{Why?}
+those to eat who can.''
+
+
+An eagle sat on a lofty rock, watching the movements of a
+Hare whom he sought to make his prey.
+
+An archer, who saw the Eagle from a place of concealment,
+took an accurate aim and wounded him mortally.
+
+
+\chapter{加入注解}
+\section{脚注（Footnote）}
+An ant went to the bank of a river to quench its thirst, and
+being carried away by the rush of the stream, was on the
+point of drowning.
+
+A Dove\footnote{Pigeon, an emblem of peace.}
+sitting on a tree overhanging the water plucked a
+leaf and let it fall into the stream close to her. The Ant
+climbed onto it and floated in safety to the bank.
+
+\section{边注（Marginal note）}
+An ant went to the bank of a river to quench its thirst, and
+being carried away by the rush of the stream, was on the
+point of drowning.
+
+A Dove\marginpar{Pigeon, an emblem of peace.}
+sitting on a tree overhanging the water plucked a
+leaf and let it fall into the stream close to her. The Ant
+climbed onto it and floated in safety to the bank.
+...
+
+
+\chapter{字型的相关调整}
+\section{调整字族、字型系列、字形的指令}
+\subsection{The \textsl{Ant} and the \textsl{Dove}}
+
+\itshape
+An antwent to the bank of a river to quench its thirst, and
+being carried away by the rush of the stream, was on the
+point of drowning.
+\upshape
+
+A \textsl{Dove} sitting on a tree overhanging the water plucked a
+leaf and let it fall into the stream close to her. The \textbf{\textsl{Ant}}
+climbed onto it and floated in safety to the bank.
+
+\subsection{The {\it Dog}\/ in the Manger}
+
+A \textbf{\textit{dog}} lay in a manger, and by his growling and snapping
+prevented the oxen from eating the hay which had been
+placed for them.
+
+``What a selfish Dog!'' said one of them to his companions;
+``he cannot eat the hay himself, and yet refuses to allow
+those to eat who can.''
+
+\subsection{The \textsc{Eagle} and the Arrow}
+
+An \textsc{eagle} sat on a lofty rock, watching the movements of a
+Hare whom he sought to make his prey.
+
+An archer, who saw the \textsc{Eagle} from a place of concealment,
+took an accurate aim and wounded him mortally.
+
+
+\section{相对字型大小的调整}
+\begin{small}
+took an accurate aim and wounded him mortally.
+  本文内容
+\end{small}
+
+  ...
+\usepackage{type1cm}
+不苗地苗羁薯  what lf an
+took an accurate aim
+% \fontsize{17}{3cm}\seclectfont
+  ...
+
+
+\chapter{原文照列}
+The example of \verb|\verb{}| command and \texttt{verbatim} environment.
+
+\section{\textbackslash{}\texttt{verb} command}
+% \verb| ... |
+
+When you want to express you home directory, you can \verb|echo $HOME|
+varient to display your home directory in your sh script.
+
+\noindent
+\verb*|This is    4 space here.|
+
+\section{\texttt{verbatim} environment}
+
+Here is a sh script to determine if on GNU/Linux system.
+
+\begin{verbatim}
+#!/bin/sh
+Date=`date '+%y%m%d'`
+if [ `uname` = Linux ]
+then
+  Mail=/var/spool/mail/edt1023
+  Target=/mnt/hd
+else
+  Mail=/var/mail/edt1023
+  Target=/mnt/pub
+fi
+\end{verbatim}
+
+
+\chapter{线框}
+
+\section{直线（rule）}
+% \rule[上下位置(单位)]{宽}{高}
+% 在网页中显示不出来? QQQQQ
+\parskip=3pt
+\parindent=0pt
+This is a line.       % 画高 1pt 宽 3cm 的横线。
+\rule{3cm}{1pt}
+\rule[1ex]{3cm}{1pt}
+\rule[-1ex]{3cm}{1pt}
+\rule[-1ex]{3cm}{1pt}
+
+\rule{1pt}{3cm}      % 画高 3cm 宽 1pt 的直线。
+
+\rule{3cm}{0pt}TEST. % 把 TEST 向右推 3cm。
+
+\rule{2cm}{3cm}      % 画高 3cm 宽 2cm 的实体方框。
+
+% 颜色显示不出来? QQQQQ
+\textcolor{blue}{This is color lines.}
+\textcolor{red}{\rule{3cm}{1pt}}        % 有颜色的线框。
+\textcolor{green}{\rule[1ex]{3cm}{1pt}}
+\textcolor{blue}{\rule[-1ex]{3cm}{1pt}}
+
+\section{文字底线（underline）}
+有时候我们希望在书写文字的同时，也\underline{在其下画线}。
+LaTeX 有现成的指令可以使用
+The tale, the Parable, and the \underline{Fable are} all common and popular
+
+
+\section{方框（box）}
+\parskip=3ex
+\parindent=0pt
+\frame{This is frame.}
+\fbox{This is fbox.}
+\mbox{This is mbox.} % 方框不可见
+
+\framebox{This is a framebox with no argumant.}
+
+\framebox[1.5\width]{This is a framebox.}
+
+\framebox[1.5\width][l]{This is a framebox with \texttt{l}.}
+
+\framebox[1.5\width][r]{This is a framebox with \texttt{r}.}
+
+\framebox[1.5\width][s]{This is a framebox with \texttt{s}.}
+
+This is baseline.
+% \raisebox{上下位置(单位)}[深度][高度]{文字内容}
+\raisebox{3ex}[5\height]{This is a raisebox which lift 3ex.}
+
+This is baseline.
+\fbox{\raisebox{-3ex}[5\height]{This is a raisebox which lift $-$3ex.}}
+
+\fboxrule=1.5pt
+\fboxsep=8pt
+\framebox[1.5\width][s]{This is a framebox with \texttt{s}.}
+
+
+\section{段落方框}
+% \parbox[对齐方式][高度][内文位置]{宽度}{文字内容}
+
+% \begin{minipage}[对齐方式][高度][内文位置]{宽度}
+%   段落内容
+% \end{minipage}
+
+\parbox[t][22][3]{100}{文字内容jaljfjfjfoijoaisfj}
+\parbox[b][22][3]{100}{文字内容jaljfjfjfoijoaisfj}
+
+\begin{minipage}[c][22][3]{10}
+  段落内容
+  asfjljfjf
+\end{minipage}
+
+
+\chapter{表格的处理}
+\section{tabbing 环境}
+\begin{tabbing} % 在网页中排列的不是很整齐
+% 这里以 10 个 x 为栏位的宽度，这里的 \kill 表示这一行是不印出来的
+xxxxxxxxxx\=xxxxxxxxxx\=xxxxxxxxxx \kill
+column1 \> column2 \> column3 \\
+item1   \> item2   \> item3   \\
+itemA   \> itemB   \> itemC
+\end{tabbing}
+
+\section{tabular 环境}
+\subsection{tabular 表格的基本结构}
+% 其中 [t] 表示 top，也可以是 b 表示 bottom，或 c 代表 center
+% lll 是在指定各栏位内容在小方框内的置放位置，l 表示靠左（left），r 表示靠右（right），c 表示置中（center）
+% \hline 是画一条横线的意思
+\begin{tabular}[t]{lcr} % {|l|l|l|} 不一样的效果
+\hline
+column1 & column2 & column3 \\
+\hline
+\hline
+item1   & item2   & item3 \\
+itemA   & itemB   & itemC \\
+\hline
+\end{tabular}
+
+\subsection{tabular 环境对栏位的调整}
+\usepackage{textcomp}             % for \textcelsius
+\renewcommand{\arraystretch}{1.2} % 将表格行间距加大为原来的 1.2 倍
+\arrayrulewidth=1pt               % 调整线条粗细为 1pt
+\tabcolsep=12pt                   % 调整栏间距为 24pt
+\centering
+\subsubsection*{SPECIFIC HEATS (20 \textcelsius\ AND 1 ATM)}
+\begin{tabular}{@{\sf }lll@{}}    % 第一栏位使用 sans serif 字族
+\hline
+ & \multicolumn{2}{c}{\bf Specific Heats} \\ % 跨二三栏排版，文字置中
+\cline{2-3}                                  % 只画二三栏横线
+ & $c$ (J/kg$\cdot$K) & $C$ (J/mol$\cdot$K) \\
+\hline
+Aluminum     & 900  & 24.3 \\
+Copper       & 385  & 24.4 \\
+Gold         & 130  & 25.6 \\
+Steel/Iron   & 450  & 25.0 \\
+Lead         & 130  & 26.8 \\
+Mercury      & 140  & 28.0 \\
+Water        & 4190 & 75.4 \\
+Ice ($-$10 \textcelsius) & 2100 & 38 \\
+\hline
+\end{tabular}
+
+
+% p{} 指令的使用时机是某一个栏位的文字比较多，需限定栏位的宽度让他自动折行的情形
+\renewcommand{\arraystretch}{1.2} % 将表格行间距加大为原来的 1.2 倍
+\centering
+\subsubsection*{Yi Syllables Area Character Blocks}
+\begin{tabular}{@{}llp{6cm}@{}}
+\hline
+Start & End & Character Block Name \\
+\hline
+A000  & A48F  & Yi Syllables.
+
+                Yi also known as Lolo, is a script resembling Chinese
+                in overall shaps that is used in the Yunnan province
+                China. \\
+A490  & A4CF  & Yi Radicals.
+
+                Basic units of the Yi syllables. \\
+\hline
+\end{tabular}
+
+
+\section{tabularx 巨集套件}
+\usepackage{tabularx}
+\parindent=0pt
+\renewcommand{\arraystretch}{1.2}
+\centering
+\subsubsection*{\texttt{tabular*} environment}
+\begin{tabular*}{8cm}{lll}
+\hline
+Start & End  & Character Block Name \\
+\hline
+3400  & 4DB5 & CJK Unified Ideographs Extension A \\
+4E00  & 9FFF & CJK Unified Ideographs \\
+\hline
+\end{tabular*}
+
+\subsubsection*{\textsf{tabularx} package}
+\begin{tabularx}{8cm}{llX}  % 8cm 减去前两个栏位宽度后，剩下的通通给
+\hline                      % 第三栏位使用，文字超出的部份会自动折行
+Start & End  & Character Block Name \\
+\hline
+3400  & 4DB5 & CJK Unified Ideographs Extension A \\
+4E00  & 9FFF & CJK Unified Ideographs \\
+\hline
+\end{tabularx}
+
+
+\section{小数点对齐（dcolumn）}
+\begin{tabular}{lllll}
+\toprule
+      & headA & headB & headC & headD \\
+\midrule
+test1 & 7.879  & 921.661 & 1382.81 & 998.98 \\
+test2 & 1.97   & 35.21   & 321.3   & 4791112.11 \\
+test3 & 211.97 & 5.2     & 213.629 & 748261594.106 \\
+\bottomrule
+\end{tabular}
+
+% 我们只要把 tabular 的后面参数改成： ... 就可以让小数点对齐 ? QQQQQ
+\usepackage{booktabs,dcolumn}
+\newcolumntype{z}[1]{D{.}{.}{#1}}
+\begin{tabular}{lz{3}z{3}z{3}z{3}}
+\toprule
+      & $headA$ & $headB$ & $headC$ & $headD$ \\
+\midrule
+test1 & 7.879  & 921.661 & 1382.81 & 998.98 \\
+test2 & 1.97   & 35.21   & 321.3   & 4791112.11 \\
+test3 & 211.97 & 5.2     & 213.629 & 748261594.106 \\
+\bottomrule
+\end{tabular}
+
+
+\chapter{图形的处理}
+\section{简化座标位置}
+\usepackage{epic}
+\parindent=0pt
+\unitlength=1mm
+\begin{picture}(80, 60)
+\multiput(5, 0)(5, 0){15}{\line(0, 1){60}} % 画 15 条直线，每隔 5mm 一条
+\multiput(0, 5)(0, 5){11}{\line(1, 0){80}} % 画 11 条横线，每隔 5mm 一条
+\thicklines
+\put(0, 0){\vector(0, 1){60}} % 画 y 轴
+\put(0, 0){\vector(1, 0){80}} % 画 x 轴
+\put(0, 0){\circle*{1}}       % 画圆点，实心粗点
+\put(-5, -5){$O(0, 0)$}       % 标上原点的座标
+\put(-5, 60){$y$}             % 标上 y 轴字样
+\put(80, -5){$x$}             % 标上 x 轴字样
+\end{picture}
+
+
+\section{MetaPost}
+
+\subsection{和 LaTeX 的配合}
+% 编译方法:
+%% 先 mptopdf test-yi.mp ; 后 pdflatex hello.tex
+\vspace{10ex}
+\begin{figure}[h]
+\centering
+\includegraphics{test-yi.1}
+\caption{aaaaaa}
+\end{figure}
+
+
+\end{document}  % 这段放在文稿最后即可

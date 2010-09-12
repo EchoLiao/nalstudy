@@ -1,0 +1,2 @@
+Files is execute in this directory when system booting.
+They join in the file: /etc/rc.d/rc.local

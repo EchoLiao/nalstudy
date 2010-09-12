@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>final.c</title>
+<meta name="Generator" content="Vim/7.2">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+.Comment { color: #0000ff; }
+.PreProc { color: #a020f0; }
+.Constant { color: #ff00ff; }
+.Type { color: #2e8b57; font-weight: bold; }
+.Special { color: #6a5acd; }
+.Statement { color: #a52a2a; font-weight: bold; }
+pre { font-family: monospace; color: #000000; background-color: #cfe8cc; }
+body { font-family: monospace; color: #000000; background-color: #cfe8cc; }
+.lnr { color: #a52a2a; }
+
+html, body, pre { margin: 0; padding: 0; }
+a:link, a:visited { color: inherit; text-decoration: none; }
+pre:hover a:link, pre:hover a:visited { text-decoration: underline; }
+a:link span, a:visited span { text-decoration: inherit; }
+.lnr a:link, .lnr a:visited { text-decoration: none !important; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr"><a name="l1" href="#l1">  1 </a></span><span class="Comment">/*</span>
+<span class="lnr"><a name="l2" href="#l2">  2 </a></span><span class="Comment"> * =====================================================================================</span>
+<span class="lnr"><a name="l3" href="#l3">  3 </a></span><span class="Comment"> *</span>
+<span class="lnr"><a name="l4" href="#l4">  4 </a></span><span class="Comment"> *       Filename:  char_ptr_ptr.c</span>
+<span class="lnr"><a name="l5" href="#l5">  5 </a></span><span class="Comment"> *</span>
+<span class="lnr"><a name="l6" href="#l6">  6 </a></span><span class="Comment"> *    Description:</span>
+<span class="lnr"><a name="l7" href="#l7">  7 </a></span><span class="Comment"> *</span>
+<span class="lnr"><a name="l8" href="#l8">  8 </a></span><span class="Comment"> *        Version:  1.0</span>
+<span class="lnr"><a name="l9" href="#l9">  9 </a></span><span class="Comment"> *        Created:  2010年04月17日 22时58分32秒</span>
+<span class="lnr"><a name="l10" href="#l10"> 10 </a></span><span class="Comment"> *       Revision:  none</span>
+<span class="lnr"><a name="l11" href="#l11"> 11 </a></span><span class="Comment"> *       Compiler:  gcc</span>
+<span class="lnr"><a name="l12" href="#l12"> 12 </a></span><span class="Comment"> *</span>
+<span class="lnr"><a name="l13" href="#l13"> 13 </a></span><span class="Comment"> *         Author:  nuoerll (nuoliu), lcy3636@126.com</span>
+<span class="lnr"><a name="l14" href="#l14"> 14 </a></span><span class="Comment"> *        Company:  mhtt</span>
+<span class="lnr"><a name="l15" href="#l15"> 15 </a></span><span class="Comment"> *</span>
+<span class="lnr"><a name="l16" href="#l16"> 16 </a></span><span class="Comment"> *      CopyRight:  Reserve</span>
+<span class="lnr"><a name="l17" href="#l17"> 17 </a></span><span class="Comment"> *</span>
+<span class="lnr"><a name="l18" href="#l18"> 18 </a></span><span class="Comment"> * =====================================================================================</span>
+<span class="lnr"><a name="l19" href="#l19"> 19 </a></span><span class="Comment"> </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l20" href="#l20"> 20 </a></span>
+<span class="lnr"><a name="l21" href="#l21"> 21 </a></span><span class="PreProc">#include </span><span class="Constant">&lt;stdio.h&gt;</span>
+<span class="lnr"><a name="l22" href="#l22"> 22 </a></span><span class="PreProc">#include </span><span class="Constant">&lt;string.h&gt;</span>
+<span class="lnr"><a name="l23" href="#l23"> 23 </a></span>
+<span class="lnr"><a name="l24" href="#l24"> 24 </a></span><span class="Type">int</span> <a href="final.c.html#l24">a</a>;
+<span class="lnr"><a name="l25" href="#l25"> 25 </a></span><span class="Type">double</span> <a href="final.c.html#l25">b</a>;
+<span class="lnr"><a name="l26" href="#l26"> 26 </a></span>
+<span class="lnr"><a name="l27" href="#l27"> 27 </a></span><span class="Type">static</span> <span class="Type">void</span> <a href="final.c.html#l27">help</a>();
+<span class="lnr"><a name="l28" href="#l28"> 28 </a></span>
+<span class="lnr"><a name="l29" href="#l29"> 29 </a></span><span class="Type">int</span> main (<span class="Type">int</span> argc, <span class="Type">char</span> *argv[])
+<span class="lnr"><a name="l30" href="#l30"> 30 </a></span>{
+<span class="lnr"><a name="l31" href="#l31"> 31 </a></span>    <span class="Type">int</span> len = <span class="Constant">0</span>, pos = <span class="Constant">0</span>;
+<span class="lnr"><a name="l32" href="#l32"> 32 </a></span>    <span class="Comment">/*</span><span class="Comment"> str[0] 它的意义为一个指针(的值) </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l33" href="#l33"> 33 </a></span>    <span class="Type">static</span> <span class="Type">char</span> *str[<span class="Constant">100</span>] = {<span class="Constant">&quot;axdjl</span><span class="Special">\0\0\0\0</span><span class="Constant">k</span><span class="Special">\0</span><span class="Constant">ffff&quot;</span>, <span class="Constant">&quot;we&quot;</span>};
+<span class="lnr"><a name="l34" href="#l34"> 34 </a></span>    <span class="Type">static</span> <span class="Type">char</span> des[<span class="Statement">sizeof</span>(str)];
+<span class="lnr"><a name="l35" href="#l35"> 35 </a></span>
+<span class="lnr"><a name="l36" href="#l36"> 36 </a></span>    pos = <span class="Constant">0</span>;
+<span class="lnr"><a name="l37" href="#l37"> 37 </a></span>    memmove((<span class="Type">void</span>*)(des + pos), (<span class="Type">void</span>*)&amp;str[<span class="Constant">0</span>], <span class="Statement">sizeof</span>(<span class="Type">char</span>*));
+<span class="lnr"><a name="l38" href="#l38"> 38 </a></span>
+<span class="lnr"><a name="l39" href="#l39"> 39 </a></span>    pos += <span class="Statement">sizeof</span>(<span class="Type">char</span>*);
+<span class="lnr"><a name="l40" href="#l40"> 40 </a></span>    memmove((<span class="Type">void</span>*)(des + pos), (<span class="Type">void</span>*)&amp;str[<span class="Constant">1</span>], <span class="Statement">sizeof</span>(<span class="Type">char</span>*));
+<span class="lnr"><a name="l41" href="#l41"> 41 </a></span>
+<span class="lnr"><a name="l42" href="#l42"> 42 </a></span>    pos += <span class="Statement">sizeof</span>(<span class="Type">char</span>*);
+<span class="lnr"><a name="l43" href="#l43"> 43 </a></span>    len = strlen(str[<span class="Constant">0</span>]) + <span class="Constant">1</span>;
+<span class="lnr"><a name="l44" href="#l44"> 44 </a></span>    memmove((<span class="Type">void</span>*)(des + pos), (<span class="Type">void</span>*)str[<span class="Constant">0</span>], len);
+<span class="lnr"><a name="l45" href="#l45"> 45 </a></span>
+<span class="lnr"><a name="l46" href="#l46"> 46 </a></span>    pos += len;
+<span class="lnr"><a name="l47" href="#l47"> 47 </a></span>    len = strlen(str[<span class="Constant">1</span>]) + <span class="Constant">1</span>;
+<span class="lnr"><a name="l48" href="#l48"> 48 </a></span>    memmove((<span class="Type">void</span>*)(des + pos), (<span class="Type">void</span>*)str[<span class="Constant">1</span>], len);
+<span class="lnr"><a name="l49" href="#l49"> 49 </a></span>
+<span class="lnr"><a name="l50" href="#l50"> 50 </a></span>    <span class="Comment">/*</span><span class="Comment"> pp[0] 它的意义为一个指针(的值) </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l51" href="#l51"> 51 </a></span>    <span class="Type">char</span> **pp = (<span class="Type">char</span>**) des;
+<span class="lnr"><a name="l52" href="#l52"> 52 </a></span>
+<span class="lnr"><a name="l53" href="#l53"> 53 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%d</span><span class="Constant"> &quot;</span>, <span class="Statement">sizeof</span>(str));
+<span class="lnr"><a name="l54" href="#l54"> 54 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%d</span><span class="Constant"> &quot;</span>, strlen(str[<span class="Constant">0</span>]));
+<span class="lnr"><a name="l55" href="#l55"> 55 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>);
+<span class="lnr"><a name="l56" href="#l56"> 56 </a></span>
+<span class="lnr"><a name="l57" href="#l57"> 57 </a></span><span class="Comment">/*</span><span class="Comment"> ============================================================================================== </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l58" href="#l58"> 58 </a></span><span class="Comment">/*</span><span class="Comment">      |------------|            I       |------|            I      |------------|               </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l59" href="#l59"> 59 </a></span><span class="Comment">/*</span><span class="Comment">      |            |            I       |      |            I      |            |               </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l60" href="#l60"> 60 </a></span><span class="Comment">/*</span><span class="Comment">      |------------|            I       |------|            I      |------------|               </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l61" href="#l61"> 61 </a></span><span class="Comment">/*</span><span class="Comment">      | 0x0        |            I       | 0x04 |            I      | 0x6a647861---&gt;(即axdj的值) </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l62" href="#l62"> 62 </a></span><span class="Comment">/*</span><span class="Comment"> str+2|------------|0x08049ba8  I  des+2|------|0x08049d62  I  pp+2|------------|0x08049d68     </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l63" href="#l63"> 63 </a></span><span class="Comment">/*</span><span class="Comment">      | 0x080489fa |            I       | 0x89 |            I      | 0x080489fa |               </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l64" href="#l64"> 64 </a></span><span class="Comment">/*</span><span class="Comment"> str+1|------------|0x08049ba4  I  des+1|------|0x08049d61  I  pp+1|------------|0x08049d64     </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l65" href="#l65"> 65 </a></span><span class="Comment">/*</span><span class="Comment">      | 0x080489ea |            I       | 0xea |            I      | 0x080489ea |               </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l66" href="#l66"> 66 </a></span><span class="Comment">/*</span><span class="Comment"> str  |------------|0x08049ba0  I  des  |------|0x08049d60  I  pp  |------------|0x08049d60     </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l67" href="#l67"> 67 </a></span><span class="Comment">/*</span><span class="Comment">                                I                           I                                   </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l68" href="#l68"> 68 </a></span><span class="Comment">/*</span><span class="Comment">           str                  I         des               I           pp                      </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l69" href="#l69"> 69 </a></span><span class="Comment">/*</span><span class="Comment">                                                                                                </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l70" href="#l70"> 70 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, str);
+<span class="lnr"><a name="l71" href="#l71"> 71 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, str+<span class="Constant">1</span>);
+<span class="lnr"><a name="l72" href="#l72"> 72 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, str+<span class="Constant">2</span>);
+<span class="lnr"><a name="l73" href="#l73"> 73 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>);
+<span class="lnr"><a name="l74" href="#l74"> 74 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, &amp;str[<span class="Constant">0</span>]);
+<span class="lnr"><a name="l75" href="#l75"> 75 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, &amp;str[<span class="Constant">1</span>]);
+<span class="lnr"><a name="l76" href="#l76"> 76 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, &amp;str[<span class="Constant">2</span>]);
+<span class="lnr"><a name="l77" href="#l77"> 77 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>,  &amp;pp[<span class="Constant">0</span>]);
+<span class="lnr"><a name="l78" href="#l78"> 78 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>,  &amp;pp[<span class="Constant">1</span>]);
+<span class="lnr"><a name="l79" href="#l79"> 79 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>,  &amp;pp[<span class="Constant">2</span>]);
+<span class="lnr"><a name="l80" href="#l80"> 80 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, &amp;des[<span class="Constant">0</span>]);
+<span class="lnr"><a name="l81" href="#l81"> 81 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, &amp;des[<span class="Constant">1</span>]);
+<span class="lnr"><a name="l82" href="#l82"> 82 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%p</span><span class="Constant"> &quot;</span>, &amp;des[<span class="Constant">2</span>]);
+<span class="lnr"><a name="l83" href="#l83"> 83 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>);
+<span class="lnr"><a name="l84" href="#l84"> 84 </a></span>
+<span class="lnr"><a name="l85" href="#l85"> 85 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *str);          <span class="Comment">/*</span><span class="Comment"> 取回4个字节里的值 </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l86" href="#l86"> 86 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *(str + <span class="Constant">1</span>));
+<span class="lnr"><a name="l87" href="#l87"> 87 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *(str + <span class="Constant">2</span>));
+<span class="lnr"><a name="l88" href="#l88"> 88 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *des);          <span class="Comment">/*</span><span class="Comment"> 取回1个字节里的值, 存放在4 个字节里</span>
+<span class="lnr"><a name="l89" href="#l89"> 89 </a></span><span class="Comment">                                       (uint), 其高3字节按第一个的最高位进行填</span>
+<span class="lnr"><a name="l90" href="#l90"> 90 </a></span><span class="Comment">                                       充. 如: 0x04 ==&gt; 0x00000004, 0xaa ==&gt; 0xffffffaa </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l91" href="#l91"> 91 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *(des + <span class="Constant">1</span>));
+<span class="lnr"><a name="l92" href="#l92"> 92 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *(des + <span class="Constant">2</span>));
+<span class="lnr"><a name="l93" href="#l93"> 93 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *pp);           <span class="Comment">/*</span><span class="Comment"> 取回4个字节里的值 </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l94" href="#l94"> 94 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *(pp  + <span class="Constant">1</span>));
+<span class="lnr"><a name="l95" href="#l95"> 95 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, *(pp  + <span class="Constant">2</span>));
+<span class="lnr"><a name="l96" href="#l96"> 96 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>);
+<span class="lnr"><a name="l97" href="#l97"> 97 </a></span><span class="Comment">/*</span><span class="Comment"> ============================================================================================== </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l98" href="#l98"> 98 </a></span>
+<span class="lnr"><a name="l99" href="#l99"> 99 </a></span>    <span class="Comment">/*</span><span class="Comment"> 联想一下:</span>
+<span class="lnr"><a name="l100" href="#l100">100 </a></span><span class="Comment">     *  1).  char s[33]; ==&gt; s == &amp;s[0] ==&gt;</span>
+<span class="lnr"><a name="l101" href="#l101">101 </a></span><span class="Comment">     *       printf(&quot;%s&quot;, s); &lt;==&gt; printf(&quot;%s&quot;, &amp;s[0])</span>
+<span class="lnr"><a name="l102" href="#l102">102 </a></span><span class="Comment">     *  2).  int s; ==&gt; printf(&quot;%d&quot;, s); 注意: 是s而不是&amp;s !!!!!</span>
+<span class="lnr"><a name="l103" href="#l103">103 </a></span><span class="Comment">     * </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l104" href="#l104">104 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%s</span><span class="Constant"> &quot;</span>, str[<span class="Constant">0</span>]); <span class="Comment">/*</span><span class="Comment"> 把要输出的字符串首地址传递给printf, 即str[0]的值 </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l105" href="#l105">105 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%s</span><span class="Special">\t</span><span class="Constant">&quot;</span>, str[<span class="Constant">1</span>]);
+<span class="lnr"><a name="l106" href="#l106">106 </a></span>    <span class="Comment">/*</span><span class="Comment"> 指针数组不是顺序存储, 所以不能通过计算得到字符串首地址 </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l107" href="#l107">107 </a></span>    <span class="Comment">/*</span><span class="Comment"> ... </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l108" href="#l108">108 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%s</span><span class="Constant"> &quot;</span>, pp[<span class="Constant">0</span>]);
+<span class="lnr"><a name="l109" href="#l109">109 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%s</span><span class="Special">\t</span><span class="Constant">&quot;</span>, pp[<span class="Constant">1</span>]);
+<span class="lnr"><a name="l110" href="#l110">110 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%s</span><span class="Constant"> &quot;</span>, (des + <span class="Constant">4</span> + <span class="Constant">4</span>)); <span class="Comment">/*</span><span class="Comment"> ..., 即(des + 4 + 4) </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l111" href="#l111">111 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">%s</span><span class="Special">\n</span><span class="Constant">&quot;</span>, (des + <span class="Constant">4</span> + <span class="Constant">4</span> + strlen(str[<span class="Constant">0</span>]) + <span class="Constant">1</span>));
+<span class="lnr"><a name="l112" href="#l112">112 </a></span>
+<span class="lnr"><a name="l113" href="#l113">113 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, pp[<span class="Constant">0</span>]); <span class="Comment">/*</span><span class="Comment"> !!!!! </span><span class="Comment">*/</span> <span class="Comment">/*</span><span class="Comment"> pp[0]的值, 不是地址!!!!! </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l114" href="#l114">114 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, pp[<span class="Constant">1</span>]); <span class="Comment">/*</span><span class="Comment"> !!!!! </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l115" href="#l115">115 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, pp[<span class="Constant">2</span>]); <span class="Comment">/*</span><span class="Comment"> !!!!! </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l116" href="#l116">116 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, &amp;pp[<span class="Constant">0</span>]);<span class="Comment">/*</span><span class="Comment"> !!!!! </span><span class="Comment">*/</span> <span class="Comment">/*</span><span class="Comment"> pp[0]的地址 </span><span class="Comment">*/</span>
+<span class="lnr"><a name="l117" href="#l117">117 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, &amp;pp[<span class="Constant">1</span>]);
+<span class="lnr"><a name="l118" href="#l118">118 </a></span>    printf(<span class="Constant">&quot;0x</span><span class="Special">%x</span><span class="Constant"> &quot;</span>, &amp;pp[<span class="Constant">2</span>]);
+<span class="lnr"><a name="l119" href="#l119">119 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>);
+<span class="lnr"><a name="l120" href="#l120">120 </a></span>
+<span class="lnr"><a name="l121" href="#l121">121 </a></span>    printf(<span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>);
+<span class="lnr"><a name="l122" href="#l122">122 </a></span>    <span class="Statement">return</span> <span class="Constant">0</span>;
+<span class="lnr"><a name="l123" href="#l123">123 </a></span>}
+<span class="lnr"><a name="l124" href="#l124">124 </a></span>
+<span class="lnr"><a name="l125" href="#l125">125 </a></span>
+<span class="lnr"><a name="l126" href="#l126">126 </a></span><span class="Type">void</span> <a href="final.c.html#l27">help</a>()
+<span class="lnr"><a name="l127" href="#l127">127 </a></span>{
+<span class="lnr"><a name="l128" href="#l128">128 </a></span>
+<span class="lnr"><a name="l129" href="#l129">129 </a></span>}
+</pre>
+</body>
+</html>

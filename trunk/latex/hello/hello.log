@@ -1,0 +1,1155 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.28)  31 AUG 2010 20:34
+entering extended mode
+ %&-line parsing enabled.
+**hello.tex
+(./hello.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(/usr/share/texmf/tex/latex/base/report.cls
+Document Class: report 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+
+! LaTeX Error: File `some.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+
+! LaTeX Error: File `packages.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/usr/share/texmf/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf/tex/latex/mflogo/mflogo.sty
+Package: mflogo 1999/03/10 v2.0 LaTeX package for Metafont and MetaPost logos
+)
+No file hello.aux.
+\openout1 = `hello.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count89
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count90
+\nofMParguments=\count91
+\MPscratchCnt=\count92
+\MPscratchDim=\dimen106
+\MPnumerator=\count93
+\everyMPtoPDFconversion=\toks15
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 27.
+ [1
+
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1]
+No file hello.toc.
+\tf@toc=\write3
+\openout3 = `hello.toc'.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 38.
+[1
+
+]
+Chapter 1.
+[2
+
+]
+Chapter 2.
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ç in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ° in font cmbx12!
+Missing character: There is no å in font cmbx12!
+Missing character: There is no ‰ in font cmbx12!
+Missing character: There is no ∏ in font cmbx12!
+Missing character: There is no é in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no © in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no é in font cmbx12!
+Missing character: There is no í in font cmbx12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--49
+
+ []
+
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ∏ in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ∫ in font cmr10!
+Missing character: There is no ∫ in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ∞ in font cmr10!
+Missing character: There is no ë in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ö in font cmr10!
+Missing character: There is no ± in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no í in font cmr10!
+Missing character: There is no å in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no º in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no „ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no Ç in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+\OT1/cmr/m/n/10 Please see Ap-pendix A. We will be there soon.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--55
+
+ []
+
+[3
+
+]
+Chapter 3.
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ´ in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ä in font cmbx12!
+Missing character: There is no Ç in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no á in font cmbx12!
+Missing character: There is no È in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no ò in font cmbx12!
+[4
+
+]
+Chapter 4.
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ä in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ö in font cmbx12!
+Missing character: There is no • in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ≥ in font cmbx12!
+Missing character: There is no ® in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ß in font cmbx12!
+Missing character: There is no £ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ≥ in font cmbx12!
+Missing character: There is no ® in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no â in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no æ in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ≥ in font cmbx12!
+Missing character: There is no ® in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no â in font cmbx12!
+[5
+
+]
+Chapter 5.
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ≠ in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no û in font cmbx12!
+Missing character: There is no ã in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no õ in font cmbx12!
+Missing character: There is no ∏ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ö in font cmbx12!
+Missing character: There is no ≥ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ï in font cmbx12!
+Missing character: There is no ¥ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ï in font cmbx12!
+Missing character: There is no ¥ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ≠ in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no è in font cmbx12!
+Missing character: There is no „ in font cmbx12!
+Missing character: There is no Ä in font cmbx12!
+Missing character: There is no Å in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ≠ in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no û in font cmbx12!
+Missing character: There is no ã in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ≥ in font cmbx12!
+Missing character: There is no ª in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no „ in font cmbx12!
+Missing character: There is no Ä in font cmbx12!
+Missing character: There is no Å in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ≠ in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no å in font cmbx12!
+Missing character: There is no á in font cmbx12!
+Missing character: There is no ‰ in font cmbx12!
+Missing character: There is no ª in font cmbx12!
+Missing character: There is no § in font cmbx12!
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 138.
+
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no õ in font cmbx12!
+Missing character: There is no ∏ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ø in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ≠ in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no û in font cmbx12!
+Missing character: There is no ã in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no § in font cmbx12!
+Missing character: There is no ß in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no è in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ï in font cmbx12!
+Missing character: There is no ¥ in font cmbx12!
+Missing character: There is no Ê in font cmr9!
+Missing character: There is no ú in font cmr9!
+Missing character: There is no ¨ in font cmr9!
+Missing character: There is no Ê in font cmr9!
+Missing character: There is no ñ in font cmr9!
+Missing character: There is no á in font cmr9!
+Missing character: There is no Â in font cmr9!
+Missing character: There is no Ü in font cmr9!
+Missing character: There is no Ö in font cmr9!
+Missing character: There is no Â in font cmr9!
+Missing character: There is no Æ in font cmr9!
+Missing character: There is no π in font cmr9!
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.154 \usepackage
+                 {type1cm}
+? 
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ∏ in font cmr10!
+Missing character: There is no ç in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ∞ in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no æ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no ñ in font cmr10!
+Missing character: There is no Ø in font cmr10!
+[6
+
+]
+Chapter 6.
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no é in font cmbx12!
+Missing character: There is no ü in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ñ in font cmbx12!
+Missing character: There is no á in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no Ö in font cmbx12!
+Missing character: There is no ß in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 164.
+
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 164.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 164.
+ [7
+
+]
+Chapter 7.
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ∫ in font cmbx12!
+Missing character: There is no ø in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ° in font cmbx12!
+Missing character: There is no Ü in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no õ in font cmbx12!
+Missing character: There is no ¥ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ∫ in font cmbx12!
+Missing character: There is no ø in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no â in font cmbx12!
+
+Overfull \hbox (63.39606pt too wide) in paragraph at lines 198--203
+\OT1/cmr/m/n/10 This is a line. [] [] [] [] 
+ []
+
+! Undefined control sequence.
+l.211 \textcolor
+                {blue}{This is color lines.}
+? 
+! Undefined control sequence.
+l.212 \textcolor
+                {red}{\rule{3cm}{1pt}}        % ÊúâÈ¢úËâ≤ÁöÑÁ∫øÊ°Ü„ÄÇ
+? 
+! Undefined control sequence.
+l.213 \textcolor
+                {green}{\rule[1ex]{3cm}{1pt}}
+? 
+! Undefined control sequence.
+l.214 \textcolor
+                {blue}{\rule[-1ex]{3cm}{1pt}}
+? 
+
+Overfull \hbox (69.84352pt too wide) in paragraph at lines 211--215
+[]\OT1/cmr/m/n/10 blueThis is color lines. red[] green[] blue[] 
+ []
+
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ñ in font cmbx12!
+Missing character: There is no á in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ≠ in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ∫ in font cmbx12!
+Missing character: There is no ï in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ∫ in font cmbx12!
+Missing character: There is no ø in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no â in font cmbx12!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ∂ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no ë in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ª in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ∏ in font cmr10!
+Missing character: There is no å in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no õ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ® in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no π in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ü in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ñ in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no ö in font cmr10!
+Missing character: There is no Ñ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no å in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no ∂ in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no º in font cmr10!
+Missing character: There is no å in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no π in font cmr10!
+Missing character: There is no ü in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ® in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ö in font cmr10!
+Missing character: There is no ∂ in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ∏ in font cmr10!
+Missing character: There is no ã in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no î in font cmr10!
+Missing character: There is no ª in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no ∫ in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no „ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no ∞ in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no ö in font cmr10!
+Missing character: There is no Ñ in font cmr10!
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no å in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ª in font cmr10!
+Missing character: There is no § in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no è in font cmr10!
+Missing character: There is no Ø in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no ª in font cmr10!
+Missing character: There is no • in font cmr10!
+Missing character: There is no ‰ in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Á in font cmr10!
+Missing character: There is no î in font cmr10!
+Missing character: There is no ® in font cmr10!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ñ in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ° in font cmbx12!
+Missing character: There is no Ü in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no â in font cmbx12!
+[8
+
+]
+Underfull \hbox (badness 10000) detected at line 237
+\OT1/cmr/m/n/10 This is a framebox with \OT1/cmtt/m/n/10 s\OT1/cmr/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 248
+\OT1/cmr/m/n/10 This is a framebox with \OT1/cmtt/m/n/10 s\OT1/cmr/m/n/10 .
+ []
+
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no Æ in font cmbx12!
+Missing character: There is no µ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ê in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ñ in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ° in font cmbx12!
+Missing character: There is no Ü in font cmbx12!
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.258 ...][3]{100}{ÊñáÂ≠óÂÜÖÂÆπjaljfjfjfoijoaisfj}
+                                                  
+? 
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ñ in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ü in font cmr10!
+Missing character: There is no Ö in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Æ in font cmr10!
+Missing character: There is no π in font cmr10!
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.258 ...][3]{100}{ÊñáÂ≠óÂÜÖÂÆπjaljfjfjfoijoaisfj}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.259 ...][3]{100}{ÊñáÂ≠óÂÜÖÂÆπjaljfjfjfoijoaisfj}
+                                                  
+? 
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no ñ in font cmr10!
+Missing character: There is no á in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ≠ in font cmr10!
+Missing character: There is no ó in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ü in font cmr10!
+Missing character: There is no Ö in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Æ in font cmr10!
+Missing character: There is no π in font cmr10!
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.259 ...][3]{100}{ÊñáÂ≠óÂÜÖÂÆπjaljfjfjfoijoaisfj}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.261 \begin{minipage}[c][22][3]{10}
+                                    
+? 
+Missing character: There is no Ê in font cmr10!
+Missing character: There is no Æ in font cmr10!
+Missing character: There is no µ in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no ê in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Ü in font cmr10!
+Missing character: There is no Ö in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no Æ in font cmr10!
+Missing character: There is no π in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+[]
+ []
+
+
+Overfull \hbox (2.27779pt too wide) in paragraph at lines 262--264
+\OT1/cmr/m/n/10 as-
+ []
+
+
+Overfull \hbox (11.11122pt too wide) in paragraph at lines 262--264
+\OT1/cmr/m/n/10 fjljfjf 
+ []
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.264 \end{minipage}
+                    
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.264 \end{minipage}
+                    
+? 
+[9]
+Chapter 8.
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ° in font cmbx12!
+Missing character: There is no ® in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no § in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ê in font cmbx12!
+Missing character: There is no Ü in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no é in font cmbx12!
+Missing character: There is no Ø in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no é in font cmbx12!
+Missing character: There is no Ø in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ° in font cmbx12!
+Missing character: There is no ® in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ü in font cmbx12!
+Missing character: There is no ∫ in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ú in font cmbx12!
+Missing character: There is no ¨ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ª in font cmbx12!
+Missing character: There is no ì in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no û in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no é in font cmbx12!
+Missing character: There is no Ø in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ø in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no è in font cmbx12!
+Missing character: There is no ‰ in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no ç in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Ë in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no É in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ï in font cmbx12!
+Missing character: There is no ¥ in font cmbx12!
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.293 \usepackage
+                 {textcomp}             % for \textcelsius
+? 
+! Undefined control sequence.
+<argument> SPECIFIC HEATS (20 \textcelsius 
+                                           \ AND 1 ATM)
+l.298 ...CIFIC HEATS (20 \textcelsius\ AND 1 ATM)}
+                                                  
+? 
+! Undefined control sequence.
+l.312 Ice ($-$10 \textcelsius
+                             ) & 2100 & 38 \\
+? 
+[10
+
+]
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ∑ in font cmbx12!
+Missing character: There is no ® in font cmbx12!
+Missing character: There is no È in font cmbx12!
+Missing character: There is no õ in font cmbx12!
+Missing character: There is no Ü in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no • in font cmbx12!
+Missing character: There is no ó in font cmbx12!
+Missing character: There is no ‰ in font cmbx12!
+Missing character: There is no ª in font cmbx12!
+Missing character: There is no ∂ in font cmbx12!
+
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.338 \usepackage
+                 {tabularx}
+? 
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 342.
+
+Overfull \hbox (54.54512pt too wide) in alignment at lines 343--350
+[][][]
+ []
+
+
+! LaTeX Error: Environment tabularx undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.353 \begin{tabularx}
+                      {8cm}{llX}  % 8cm ÂáèÂéªÂâç‰∏§‰∏™Ê†è‰ΩçÂÆΩÂ∫¶ÂêéÔºåÂâ©...
+
+? 
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.354 \hline
+                                  % Á¨¨‰∏âÊ†è‰Ωç‰ΩøÁî®ÔºåÊñáÂ≠óË∂ÖÂá∫ÁöÑÈÉ®‰...
+
+? 
+[11]
+! Misplaced alignment tab character &.
+l.355 Start &
+              End  & Character Block Name \\
+? 
+! Misplaced alignment tab character &.
+l.355 Start & End  &
+                     Character Block Name \\
+? 
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.356 \hline
+            
+? 
+! Misplaced alignment tab character &.
+l.357 3400  &
+              4DB5 & CJK Unified Ideographs Extension A \\
+? 
+! Misplaced alignment tab character &.
+l.357 3400  & 4DB5 &
+                     CJK Unified Ideographs Extension A \\
+? 
+! Misplaced alignment tab character &.
+l.358 4E00  &
+              9FFF & CJK Unified Ideographs \\
+? 
+! Misplaced alignment tab character &.
+l.358 4E00  & 9FFF &
+                     CJK Unified Ideographs \\
+? 
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.359 \hline
+            
+? 
+
+! LaTeX Error: \begin{document} ended by \end{tabularx}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.360 \end{tabularx}
+                    
+? 
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no è in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no ï in font cmbx12!
+Missing character: There is no ∞ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no Ç in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ø in font cmbx12!
+Missing character: There is no π in font cmbx12!
+Missing character: There is no È in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no ê in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no à in font cmbx12!
+Missing character: There is no Ô in font cmbx12!
+Missing character: There is no º in font cmbx12!
+Missing character: There is no â in font cmbx12!
+! Undefined control sequence.
+l.365 \toprule
+              
+? 
+! Undefined control sequence.
+<recently read> \midrule 
+                         
+l.367 \midrule
+              
+? 
+! Undefined control sequence.
+<recently read> \bottomrule 
+                            
+l.371 \bottomrule
+                 
+? 
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.375 \usepackage
+                 {booktabs,dcolumn}
+? 
+! Undefined control sequence.
+l.376 \newcolumntype
+                    {z}[1]{D{.}{.}{#1}}
+? 
+! You can't use `macro parameter character #' in horizontal mode.
+l.376 \newcolumntype{z}[1]{D{.}{.}{#
+                                    1}}
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.377 \begin{tabular}{lz{3}z{3}z{3}z{3}}
+                                        
+? 
+! Undefined control sequence.
+l.378 \toprule
+              
+? 
+! Undefined control sequence.
+<recently read> \midrule 
+                         
+l.380 \midrule
+              
+? 
+! Undefined control sequence.
+<recently read> \bottomrule 
+                            
+l.384 \bottomrule
+                 
+? 
+[12]
+Chapter 9.
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no õ in font cmbx12!
+Missing character: There is no æ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no ¢ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no § in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ê in font cmbx12!
+Missing character: There is no Ü in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no Æ in font cmbx12!
+Missing character: There is no Ä in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no å in font cmbx12!
+Missing character: There is no ñ in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ∫ in font cmbx12!
+Missing character: There is no ß in font cmbx12!
+Missing character: There is no Ê in font cmbx12!
+Missing character: There is no † in font cmbx12!
+Missing character: There is no á in font cmbx12!
+Missing character: There is no ‰ in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no ç in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no Ω in font cmbx12!
+Missing character: There is no Æ in font cmbx12!
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.390 \usepackage
+                 {epic}
+? 
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no í in font cmbx12!
+Missing character: There is no å in font cmbx12!
+Missing character: There is no Á in font cmbx12!
+Missing character: There is no ö in font cmbx12!
+Missing character: There is no Ñ in font cmbx12!
+Missing character: There is no È in font cmbx12!
+Missing character: There is no Ö in font cmbx12!
+Missing character: There is no ç in font cmbx12!
+Missing character: There is no Â in font cmbx12!
+Missing character: There is no ê in font cmbx12!
+Missing character: There is no à in font cmbx12!
+File: test-yi.1 Graphic file (type mps)
+[MP to PDF] (./test-yi.1) [13
+
+] [14] (./hello.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1022 strings out of 256216
+ 12166 string characters out of 1917072
+ 59482 words of memory out of 1500000
+ 4330 multiletter control sequences out of 10000+200000
+ 16678 words of font info for 48 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 25i,11n,22p,196b,371s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
+bluesky/cm/cmbsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb></us
+r/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/b
+luesky/cm/cmbxsl10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbxti10.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmcsc10.pfb></usr/share/texmf/fonts/type
+1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></us
+r/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bl
+uesky/cm/cmr17.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/shar
+e/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/c
+m/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmsl10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss
+10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmssbx10.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti
+10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf/fo
+nts/type1/bluesky/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt12
+.pfb></usr/share/texmf/fonts/type1/bluesky/latex-fonts/lcirclew.pfb></usr/share
+/texmf/fonts/type1/bluesky/latex-fonts/linew10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmr12.pfb>
+Output written on hello.pdf (16 pages, 159485 bytes).
+PDF statistics:
+ 155 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,7832 @@
+cscope 15 /home/scr/lang/sql/oracle/syjc/sql -q 0000000386 0000037750
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_05-c_tbs.sql
+
+2 
+ü—‹
+ 
+	gbË¥aû
+ "test"
+
+3 
+loggšg
+
+
+4 
+	gd©afe
+ 'E:\Üaşe\´oduù\10.2.0\Üad©a\XSCJ\‹¡101.dbf' 
+	gsize
+ 3
+M
+
+
+5 
+»u£
+ 
+autÛx‹nd
+ 
+	goff
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_06-c_tbs.sql
+
+2 
+ü—‹
+ 
+bË¥aû
+ 
+myts
+
+
+3 
+loggšg
+
+
+4 
+	gd©afe
+ 'E:\Üaşe\´oduù\10.2.0\Üad©a\XSCJ\myts01.dbf' 
+	gsize
+ 3
+M
+
+
+5 
+»u£
+ 
+autÛx‹nd
+ 
+Ú
+ 
+	gÃxt
+ 32
+K
+ 
+	gmaxsize
+ 10
+M
+
+
+6  
+¡Üage
+(
+š™Ÿl
+ 32
+K
+ 
+Ãxt
+ 32K 
+mšex‹Ás
+ 1
+
+7 
+maxex‹Ás
+ 249 
+pùšü—£
+ 50);
+
+8 -- 
+ex‹Á
+ 
+mªagem’t
+ 
+	gloÿl
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_07-a_tbs.sql
+
+2 
+®‹r
+ 
+bË¥aû
+ 
+d©a
+
+
+3 
+add
+ 
+	gd©afe
+ 'E:\Üaşe\´oduù\10.2.0\Üad©a\XSCJ\d©a02.dbf' 
+	gsize
+ 4
+M
+
+
+4 
+»u£
+ 
+autÛx‹nd
+ 
+Ú
+ 
+	gÃxt
+ 64
+K
+ 
+	gmaxsize
+ 20
+	gM
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_11-c_db.sql
+
+1 
+ü—‹
+ 
+d©aba£
+ 
+mydb
+
+
+2 
+	gmaxš¡ªûs
+ 1
+
+3 
+	gmaxloghi¡Üy
+ 1
+
+4 
+	gmaxlogfes
+ 5
+
+5 
+	gmaxlogmemb”s
+ 5
+
+6 
+	gmaxd©afes
+ 100
+
+7 
+	gd©afe
+ 'E:\oracle\product\10.2.0\admin\mydb\system01.dbf'
+
+8 
+	gsize
+ 5
+M
+ 
+autÛx‹nd
+ 
+Ú
+ 
+	gÃxt
+ 100
+K
+ 
+maxsize
+ 
+uÆim™ed
+
+
+9 
+undo
+ 
+bË¥aû
+ 
+undÙbs
+ 
+	gd©afe
+
+
+11 
+	gsize
+ 5
+M
+ 
+»u£
+ 
+autÛx‹nd
+ 
+Ú
+ 
+	gÃxt
+ 100
+K
+ 
+maxsize
+ 
+uÆim™ed
+
+
+12  
+‹mpÜ¬y
+ 
+bË¥aû
+ 
+‹mps1
+
+
+13 
+ch¬aù”
+ 
+£t
+ 
+zhs16gbk
+
+
+14 
+ÇtiÚ®
+ 
+ch¬aù”
+ 
+£t
+ 
+®16utf16
+
+
+15 
+	glogfe
+ 'E:\Üaşe\´oduù\10.2.0\admš\mydb\»do01.log' 
+	gsize
+ 3
+	gM
+
+
+16 'E:\Üaşe\´oduù\10.2.0\admš\mydb\»do02.log' 
+	gsize
+ 3
+	gM
+
+
+17 'E:\Üaşe\´oduù\10.2.0\admš\mydb\»do03.log' 
+	gsize
+ 3
+	gM
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_12-c_tbs.sql
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_13-a_db.sql
+
+2 
+®‹r
+ 
+d©aba£
+ 
+mydb
+
+
+3 
+	g¬chiv–og
+;
+
+6 
+®‹r
+ 
+d©aba£
+ 
+mydb
+
+
+7 
+ü—‹
+ 
+	gd©afe
+ 'u£rs' 
+	gas
+ 'E:\oracle\product\10.2.0\admin\mydb\users01.dbf'
+
+8 
+	gsize
+ 20
+M
+ 
+»u£
+ 
+autÛx‹nd
+ 
+Ú
+ 
+	gÃxt
+ 1M
+
+9 
+	gmaxsize
+ 50
+M
+
+
+10 
+ex‹Á
+ 
+mªagem’t
+ 
+	gloÿl
+;
+
+13 
+®‹r
+ 
+d©aba£
+ 
+mydb
+
+
+14 
+	gd©afe
+ 'E:\oracle\product\10.2.0\admin\mydb\users01.dbf'
+
+15 
+	g»size
+ 80
+	gM
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_15-c_tb-xs.sql
+
+2 
+ü—‹
+ 
+bË
+ 
+	gxs
+
+
+4 
+xh
+ (6è
+nÙ
+ 
+nuÎ
+,
+
+6 
+xm
+ 
+	$v¬ch¬2
+(8è
+nÙ
+ 
+nuÎ
+,
+
+7 
+šd’t™y
+ (20),
+
+9 
+zym
+ (10),
+
+10 
+xb
+ (2è
+nÙ
+ 
+nuÎ
+,
+
+11 
+cssj
+ 
+d©e
+ 
+nÙ
+ 
+nuÎ
+,
+
+12 
+zxf
+ 
+	$numb”
+(2)  0,
+
+13 
+bz
+ 
+	$v¬ch¬2
+(200è
+nuÎ
+,
+
+14 
+cÚ¡¿št
+ 
+pk_xs
+ 
+´im¬y
+ 
+	`key
+ (
+xh
+),
+
+15 
+cÚ¡¿št
+ 
+un_xs__šd’t™y
+ 
+	`unique
+ (
+šd’t™y
+)
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_15-c_tb-xs_kc.sql
+
+2 
+ü—‹
+ 
+bË
+ 
+	gxs_kc
+
+
+3 Ğ
+xh
+ (6è
+nÙ
+ 
+nuÎ
+,
+
+5 
+kch
+ (3è
+nÙ
+ 
+nuÎ
+,
+
+6 
+cj
+ 
+	$numb”
+(2è
+nuÎ
+,
+
+7 
+xf
+ 
+	$numb”
+(2è
+nuÎ
+,
+
+8 
+cÚ¡¿št
+ "pk_xs_kc" 
+´im¬y
+ 
+	`key
+ (
+xh
+, 
+kch
+),
+
+9 
+cÚ¡¿št
+ 
+fk_xs_kc__xh
+ 
+fÜeign
+ 
+	$key
+ (
+xh
+è
+»ã»nûs
+ 
+	`xs
+(xh),
+
+10 
+cÚ¡¿št
+ 
+fk_xs_kc__kch
+ 
+fÜeign
+ 
+	$key
+ (
+kch
+è
+»ã»nûs
+ 
+	$kc
+(
+kch
+)
+
+12 
+bË¥aû
+ 
+myts
+;
+
+14 
+drİ
+ 
+bË
+ 
+xs_kc
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_16-c_tb-kc.sql
+
+2 
+ü—‹
+ 
+bË
+ 
+	gkc
+
+
+4 
+kch
+ (3è
+nÙ
+ 
+nuÎ
+,
+
+5 
+kcm
+ (16è
+nÙ
+ 
+nuÎ
+,
+
+6 
+šd’t™y
+ (20è
+nuÎ
+,
+
+7 
+kkxq
+ 
+	$numb”
+(1è
+nÙ
+ 
+nuÎ
+,
+
+8 
+xs
+ 
+	$numb”
+(2è
+nÙ
+ 
+nuÎ
+,
+
+9 
+xf
+ 
+	$numb”
+(2è
+nuÎ
+,
+
+11 
+cÚ¡¿št
+ 
+pk_kch
+ 
+´im¬y
+ 
+	`key
+ (
+kch
+),
+
+12 
+cÚ¡¿št
+ 
+un_kc__šd’t™y
+ 
+	`unique
+ (
+šd’t™y
+),
+
+13 
+cÚ¡¿št
+ 
+ch_kc__kkxq
+ 
+	`check
+ (
+kkxq
+ 
+b‘w“n
+ 1 
+ªd
+ 8),
+
+14 
+cÚ¡¿št
+ 
+ch_kc__xf
+ 
+	`check
+(
+xf
+>=0 
+ªd
+ xf<=10)
+
+16 
+pùä“
+ 10 
+pùu£d
+ 40 
+š™¿ns
+ 1 
+maxŒªs
+ 255
+
+17 
+bË¥aû
+ 
+myts
+
+
+18 
+	`¡Üage
+ (
+š™Ÿl
+ 64
+K
+ 
+mšex‹Ás
+ 1 
+pùšü—£
+ 40
+
+19 
+ä“li¡s
+ 1 
+ä“li¡
+ 
+groups
+ 1);
+
+21 
+drİ
+ 
+bË
+ 
+xs_kc
+;
+
+22 
+drİ
+ 
+bË
+ 
+kc
+;
+
+23 
+drİ
+ 
+bË
+ 
+xs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_17-c_tb-kc_jsj.sql
+
+2 
+ü—‹
+ 
+bË
+ 
+xs_jsj
+
+
+3 
+as
+ 
+£Ëù
+ *
+
+4 
+äom
+ 
+xs
+
+
+5 
+wh”e
+ 
+	gzym
+='¼ÆËã»ú';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_18-a_tb.sql
+
+5 
+®‹r
+ 
+bË
+ 
+xs
+
+
+6 
+add
+(
+jxj
+ 
+numb”
+(1), 
+djsm
+ 
+	$v¬ch¬2
+(40)  '½±½ğ 1000Ôª');
+
+9 
+®‹r
+ 
+bË
+ 
+xs
+
+
+10 
+	`modify
+ (
+djsm
+  '½±½ğ800Ôª');
+
+13 
+®‹r
+ 
+bË
+ 
+xs
+
+
+14 
+drİ
+ 
+cŞumn
+ 
+jxj
+;
+
+15 
+®‹r
+ 
+bË
+ 
+xs
+
+
+16 
+drİ
+ 
+cŞumn
+ 
+djsm
+;
+
+19 
+®‹r
+ 
+bË
+ 
+xs
+
+
+20 
+pùä“
+ 20 
+maxŒªs
+ 50;
+
+23 
+®‹r
+ 
+bË
+ 
+xs_jsj
+
+
+24 
+	`add
+(
+cÚ¡¿št
+ "pk_jsj" 
+´im¬y
+ 
+	`key
+ (
+xh
+));
+
+	@/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_19-d_tb-xs.sql
+
+1 
+drİ
+ 
+bË
+ 
+	gxs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_01-i-kc.sql
+
+1 
+š£¹
+ 
+što
+ 
+	$kc
+(
+kch
+, 
+kcm
+, 
+kkxq
+, 
+xs
+, 
+xf
+)
+
+2 
+	`v®ues
+('101', '¸ßµÈÊıÑ§', 1, 45, 4);
+
+3 
+š£¹
+ 
+što
+ 
+	$kc
+(
+kch
+, 
+kcm
+, 
+kkxq
+, 
+xs
+, 
+xf
+)
+
+4 
+	`v®ues
+('102', '´óÑ§Ó¢Óï', 2, 50, 3);
+
+5 
+š£¹
+ 
+što
+ 
+	$kc
+(
+kch
+, 
+kcm
+, 
+kkxq
+, 
+xs
+, 
+xf
+)
+
+6 
+	`v®ues
+('103', 'ÀëÉ¢ÊıÑ§', 3, 45, 5);
+
+7 
+š£¹
+ 
+što
+ 
+	$kc
+(
+kch
+, 
+kcm
+, 
+kkxq
+, 
+xs
+, 
+xf
+)
+
+8 
+	`v®ues
+('104', '²Ù×÷ÏµÍ³', 3, 55, 4);
+
+9 
+š£¹
+ 
+što
+ 
+	$kc
+(
+kch
+, 
+kcm
+, 
+kkxq
+, 
+xs
+, 
+xf
+)
+
+10 
+	`v®ues
+('105', 'ÏßĞÔ´úÊı', 2, 40, 4);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_01-i-xs.sql
+
+1 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+2 
+	`v®ues
+Ğ'061101', 'ÍõÁÖ', '¼ÆËã»ú', 'ÄĞ', 
+	`to_d©e
+('19880222', 'YYYYMMDD'), 50);
+
+3 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+4 
+	`v®ues
+Ğ'061102', 'Àîºì', '¼ÆËã»ú', 'Å®', 
+	`to_d©e
+('19860812', 'YYYYMMDD'), 50);
+
+5 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+6 
+	`v®ues
+Ğ'061103', '»ÆÁË', '¼ÆËã»ú', 'ÄĞ', 
+	`to_d©e
+('19871226', 'YYYYMMDD'), 50);
+
+7 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+8 
+	`v®ues
+Ğ'061104', 'ÕÅ×Ó', '¼ÆËã»ú', 'ÄĞ', 
+	`to_d©e
+('19880222', 'YYYYMMDD'), 60);
+
+9 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+10 
+	`v®ues
+Ğ'061105', 'ÍõÂçµ¤', '¼ÆËã»ú', 'Å®', 
+	`to_d©e
+('19890302', 'YYYYMMDD'), 50);
+
+11 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+12 
+	`v®ues
+Ğ'061106', 'Àî¹¤', 'ĞÅÏ¢¹¤³Ì', 'Å®', 
+	`to_d©e
+('19890102', 'YYYYMMDD'), 50);
+
+13 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+14 
+	`v®ues
+Ğ'061107', 'Íõ×îÃç', '¹ÜÀíÏµ', 'Å®', 
+	`to_d©e
+('19890902', 'YYYYMMDD'), 50);
+
+15 
+š£¹
+ 
+što
+ 
+	$xs
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+16 
+	`v®ues
+Ğ'061108', 'ÁÎÊ«', '¹ÜÀíÏµ', 'Å®', 
+	`to_d©e
+('19850902', 'YYYYMMDD'), 50);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_01-i-xs_kc.sql
+
+1 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+2 
+	`v®ues
+('061101', '101', 79);
+
+3 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+4 
+	`v®ues
+('061101', '102', 79);
+
+5 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+6 
+	`v®ues
+('061101', '103', 69);
+
+7 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+8 
+	`v®ues
+('061101', '104', 82);
+
+9 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+10 
+	`v®ues
+('061101', '105', 77);
+
+11 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+12 
+	`v®ues
+('061102', '103', 95);
+
+13 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+14 
+	`v®ues
+('061102', '102', 55);
+
+15 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+16 
+	`v®ues
+('061103', '103', 89);
+
+17 
+š£¹
+ 
+što
+ 
+	$xs_kc
+(
+xh
+, 
+kch
+, 
+cj
+)
+
+18 
+	`v®ues
+('061104', '105', 99);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_02-c_tb-test.sql
+
+1 
+ü—‹
+ 
+bË
+ 
+	g‹¡
+
+
+2 Ğ
+xm
+ (20è
+nÙ
+ 
+nuÎ
+,
+
+3 
+zy
+ 
+	$v¬ch¬2
+(30) ('¼ÆËã»ú'),
+
+4 
+nj
+ 
+numb”
+ 
+nÙ
+ 
+nuÎ
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_03-c_tb-xs1.sql
+
+1 
+ü—‹
+ 
+bË
+ 
+	gxs1
+
+
+2 Ğ
+num
+ (6è
+nÙ
+ 
+nuÎ
+,
+
+3 
+Çme
+ (8è
+nÙ
+ 
+nuÎ
+,
+
+4 
+¥eŸl™y
+ (10è
+nuÎ
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_03-i-xs1.sql
+
+1 
+š£¹
+ 
+što
+ 
+xs1
+
+
+2 
+£Ëù
+ 
+	gxh
+, 
+	gxm
+, 
+zym
+
+
+3 
+äom
+ 
+xs
+
+
+4 
+wh”e
+ 
+	gzym
+='¼ÆËã»ú';
+
+6 
+£Ëù
+ * 
+äom
+ 
+	gxs1
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_04-i-xs_jsj.sql
+
+1 
+š£¹
+ 
+što
+ 
+	$xs_jsj
+ (
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+)
+
+2 
+	`v®ues
+ ('101112', 'Å£B', '¼ÆËã»ú', 'Å®', 
+	`to_d©e
+('19860130', 'YYYYMMDD'), 36);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_04-merge.sql
+
+1 
+m”ge
+ 
+što
+ 
+xs
+ 
+a
+
+
+2 
+usšg
+ 
+xs_jsj
+ 
+b
+
+
+3 
+	$Ú
+ (
+a
+.
+xh
+ = 
+b
+.xh)
+
+4 
+wh’
+ 
+nÙ
+ 
+m©ched
+ 
+th’
+ 
+š£¹
+
+
+5 
+	`v®ues
+ (
+b
+.
+xh
+, b.
+xm
+, b.
+zym
+, b.
+xb
+, b.
+cssj
+, b.
+zxf
+, b.
+bz
+);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_05-d.sql
+
+1 
+d–‘e
+ 
+äom
+ 
+xs
+
+
+2 
+wh”e
+ 
+	gzxf
+ < 39;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_05-truncate.sql
+
+2 
+Œunÿ‹
+ 
+bË
+ 
+	gxs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_06-u.sql
+
+1 
+upd©e
+ 
+xs
+
+
+2 
+£t
+ 
+	gbz
+='ÈıºÃÑ§Éú'
+
+3 
+wh”e
+ 
+xh
+='061101';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_07-u.sql
+
+1 
+upd©e
+ 
+xs
+
+
+2 
+£t
+ 
+	gzxf
+ = 
+zxf
+ + 10;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_08-u.sql
+
+1 
+upd©e
+ 
+xs
+
+
+2 
+£t
+ 
+	gzym
+ = 'Í¨ĞÅ¹¤³Ì',
+
+3 
+	gbz
+ = '×ª×¨ÒµÑ§Ï°',
+
+4 
+	gxh
+='061241'
+
+5 
+wh”e
+ 
+xm
+='Àîºì';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_09-u.sql
+
+1 
+upd©e
+ 
+xs
+
+
+2 
+£t
+ 
+	gzxf
+ = 
+zxf
+ + 4,
+
+3 
+	gbz
+ = 'ÌáÇ°ĞŞÍêÁË<<Êı¾İ½á¹¹>>, ²¢»ñµÃÑ§·Ö'
+
+4 
+wh”e
+ 
+xm
+= '»ÆÁË';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_11-a-def.sql
+
+1 
+®‹r
+ 
+bË
+ 
+xs
+
+
+2 
+add
+ (
+addcŞumn
+ 
+	$numb”
+(2)  0);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_13-c-idx.sql
+
+4 
+ü—‹
+ 
+šdex
+ 
+kc_Çme_idx
+
+
+5 
+Ú
+ 
+	$kc
+(
+kcm
+)
+
+6 
+bË¥aû
+ "MYTS";
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_14-c-idx.sql
+
+1 
+ü—‹
+ 
+šdex
+ 
+xs_xm_idx
+
+
+2 
+Ú
+ 
+	$xs
+(
+xm
+)
+
+3 
+bË¥aû
+ "MYTS"
+
+4 
+š™¿ns
+ 2
+
+5 
+maxŒªs
+ 255
+
+6 
+nosÜt
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_15-a-idx.sql
+
+1 
+®‹r
+ 
+šdex
+ 
+kc_Çme_idx
+
+
+2 
+	gš™¿ns
+ 2
+
+3 
+	gmaxŒªs
+ 128;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_16-a-idx-rename.sql
+
+1 
+®‹r
+ 
+šdex
+ 
+kc_Çme_idx
+
+
+2 
+»Çme
+ 
+to
+ 
+	gkc_Çme2_idx
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_17-d_idx.sql
+
+1 
+drİ
+ 
+šdex
+ 
+	gkc_Çme2_idx
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_19-c_synonym.sql
+
+2 
+ü—‹
+ 
+public
+ 
+synÚym
+ 
+xs
+
+
+3 
+	gsy¡em
+.
+	gxs
+;
+
+5 
+ü—‹
+ 
+public
+ 
+synÚym
+ 
+xs_kc
+
+
+6 
+	gsy¡em
+.
+	gxs_kc
+;
+
+9 
+ü—‹
+ 
+public
+ 
+synÚym
+ 
+xs_lšk
+
+
+10 
+	gsy¡em
+.
+	gxs
+@
+	gmy_lšk
+;
+
+13 
+ü—‹
+ 
+public
+ 
+synÚym
+ 
+cs_xs
+
+
+14 
+	gsy¡em
+.
+	gcs_xs
+;
+
+19 
+£Ëù
+ * 
+äom
+ 
+	gxs
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_21-d_synonym.sql
+
+2 
+drİ
+ 
+public
+ 
+synÚym
+ 
+	gcs_xs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_23-c_dblink.sql
+
+2 
+ü—‹
+ 
+public
+ 
+d©aba£
+ 
+lšk
+ 
+my_¶šk
+
+
+3 
+cÚÃù
+ 
+to
+ 
+sy¡em
+ 
+id’tif›d
+ 
+by
+ 
+googË8
+
+
+4 
+	gusšg
+ 'XSCJ';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_24-use_dblink.sql
+
+1 
+£Ëù
+ * 
+äom
+ 
+	gsy¡em
+.
+	gxs
+@
+	gmy_¶šk
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_26-d_dblink.sql
+
+1 
+drİ
+ 
+public
+ 
+d©aba£
+ 
+lšk
+ 
+	gmy_¶šk
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_28-c_tb-def-check.sql
+
+1 
+ü—‹
+ 
+bË
+ 
+	gbooks
+
+
+3 
+book_id
+ 
+numb”
+(10),
+
+4 
+bood_Çme
+ 
+	$v¬ch¬2
+(50è
+nÙ
+ 
+nuÎ
+,
+
+5 
+boo_desc
+ 
+	$v¬ch¬2
+(50)  'New book',
+
+6 
+max_lvl
+ 
+	$numb”
+(3, 2è
+nÙ
+ 
+nuÎ
+,
+
+7 
+Œade_´iû
+ 
+	$numb”
+(4, 1è
+nÙ
+ 
+nuÎ
+,
+
+8 
+cÚ¡¿št
+ 
+ch_co¡
+ 
+	`check
+(
+max_lvl
+<=250)
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_29-a_tb-check.sql
+
+1 
+®‹r
+ 
+bË
+ 
+books
+
+
+2 
+add
+(
+cÚ¡¿št
+ 
+ch_´iû
+ 
+check
+(
+Œade_´iû
+<=250));
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_30-a_tb-d_constraint.sql
+
+1 
+®‹r
+ 
+bË
+ 
+books
+
+
+2 
+drİ
+ 
+cÚ¡¿št
+ 
+	gch_´iû
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_32-a_tb-add_contraint.sql
+
+1 
+®‹r
+ 
+bË
+ 
+xs
+
+
+2 
+add
+(
+cÚ¡¿št
+ 
+pk_xs
+ 
+´im¬y
+ 
+key
+(
+xh
+));
+
+4 
+®‹r
+ 
+bË
+ 
+xs
+
+
+5 
+add
+(
+cÚ¡¿št
+ 
+un_xs
+ 
+unique
+(
+šd’t™y
+));
+
+8 
+®‹r
+ 
+bË
+ 
+xs
+
+
+9 
+drİ
+ 
+cÚ¡¿št
+ 
+	gpk_xs
+;
+
+10 
+®‹r
+ 
+bË
+ 
+xs
+
+
+11 
+drİ
+ 
+cÚ¡¿št
+ 
+	gun_xs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_35-a_tb-add_fk.sql
+
+1 
+®‹r
+ 
+bË
+ 
+xs_kc
+
+
+2 
+add
+(
+cÚ¡¿št
+ 
+fk_xh
+ 
+fÜeign
+ 
+	$key
+(
+xh
+è
+»ã»nûs
+ 
+	`xs
+(xh));
+
+4 
+®‹r
+ 
+bË
+ 
+xs_kc
+
+
+5 
+	`add
+(
+cÚ¡¿št
+ 
+fk_kch
+ 
+fÜeign
+ 
+	$key
+(
+kch
+è
+»ã»nûs
+ 
+	`kc
+(kch));
+
+8 
+®‹r
+ 
+bË
+ 
+xs_kc
+
+
+9 
+drİ
+ 
+cÚ¡¿št
+ 
+fk_kc
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/03database_operate/4_20-s_all.sql
+
+2 
+£Ëù
+ *
+
+3 
+äom
+ 
+xs
+
+
+4 
+wh”e
+ 
+	gcssj
+ < 
+	g®l
+
+
+5 (
+£Ëù
+ 
+cssj
+
+
+6 
+äom
+ 
+xs
+
+
+7 
+wh”e
+ 
+	gzym
+='¼ÆËã»ú'
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_05-s.sql
+
+1 
+£Ëù
+ 
+	gxh
+, 
+	gxm
+, 
+zxf
+
+
+2 
+äom
+ 
+	gxs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_09-c_tb-cp.sql
+
+1 
+ü—‹
+ 
+bË
+ 
+	gı
+
+
+3 
+ıbh
+ (8è
+nÙ
+ 
+nuÎ
+,
+
+4 
+ımc
+ (12è
+nÙ
+ 
+nuÎ
+,
+
+5 
+jg
+ 
+	$numb”
+(8è
+nÙ
+ 
+nuÎ
+,
+
+6 
+kş
+ 
+š‹g”
+ 
+nuÎ
+,
+
+7 
+cÚ¡¿št
+ 
+pk_ı
+ 
+´im¬y
+ 
+	`key
+ (
+ıbh
+)
+
+10 
+®‹r
+ 
+bË
+ 
+ı
+
+
+11 
+	`add
+(
+cÚ¡¿št
+ 
+pk_ı
+ 
+´im¬y
+ 
+	`key
+(
+ıbh
+));
+
+13 
+š£¹
+ 
+što
+ 
+	$ı
+(
+ıbh
+, 
+ımc
+, 
+jg
+, 
+kş
+)
+
+14 
+	`v®ues
+('08982230', '±ùÏä A', 1500, 500 );
+
+15 
+š£¹
+ 
+što
+ 
+	$ı
+(
+ıbh
+, 
+ımc
+, 
+jg
+, 
+kş
+)
+
+16 
+	`v®ues
+('08982231', '±ùÏä B', 1800, 300 );
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_09-s_exp.sql
+
+1 
+£Ëù
+ 
+ımc
+ 
+	gas
+ ²úÆ·Ãû³Æ, 
+jg
+ * 
+	gkş
+ ²úÆ·×ÜÖµ
+
+2 
+äom
+ 
+	gı
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_10-s_distinct.sql
+
+1 
+£Ëù
+ 
+di¡šù
+ 
+	gzym
+, 
+zxf
+
+
+2 
+äom
+ 
+	gxs
+;
+
+4 
+£Ëù
+ 
+®l
+ 
+	gzym
+, 
+zxf
+
+
+5 
+äom
+ 
+	gxs
+;
+
+6 
+£Ëù
+ 
+	gzym
+, 
+zxf
+
+
+7 
+äom
+ 
+	gxs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_13-s_like.sql
+
+1 
+£Ëù
+ *
+
+2 
+äom
+ 
+xs
+
+
+3 
+wh”e
+ 
+xm
+ 
+	glike
+ 'Íõ%';
+
+5 
+£Ëù
+ *
+
+6 
+äom
+ 
+xs
+
+
+7 
+wh”e
+ 
+xm
+ 
+	glike
+ 'Íõ_';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_15-s_between.sql
+
+1 
+£Ëù
+ *
+
+2 
+äom
+ 
+xs
+
+
+3 
+wh”e
+ 
+zxf
+ 
+	gb‘w“n
+ 46 
+	gªd
+ 50;
+
+5 
+£Ëù
+ *
+
+6 
+äom
+ 
+xs
+
+
+7 
+wh”e
+ 
+zxf
+ 
+nÙ
+ 
+	gb‘w“n
+ 46 
+	gªd
+ 50;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_16-s_in.sql
+
+1 
+£Ëù
+ *
+
+2 
+äom
+ 
+xs
+
+
+3 
+wh”e
+ 
+zxf
+ 
+š
+ (46, 50);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_17-s_isnull.sql
+
+1 
+£Ëù
+ *
+
+2 
+äom
+ 
+xs
+
+
+3 
+wh”e
+ 
+bz
+ 
+is
+ 
+	gnuÎ
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_19-s_subs.sql
+
+2 
+£Ëù
+ 
+	gxh
+, 
+	gxm
+, 
+	gzym
+, 
+zxf
+
+
+3 
+äom
+ 
+xs
+
+
+4 
+wh”e
+ 
+xh
+ 
+nÙ
+ 
+	gš
+
+
+5 (
+£Ëù
+ 
+xh
+
+
+6 
+äom
+ 
+xs_kc
+
+
+7 
+wh”e
+ 
+kch
+ 
+	gš
+
+
+8 (
+£Ëù
+ 
+kch
+
+
+9 
+äom
+ 
+kc
+
+
+10 
+wh”e
+ 
+	gkcm
+ = 'ÀëÉ¢ÊıÑ§'
+
+14 
+£Ëù
+ 
+	gxs
+.
+	gxh
+, 
+	gxm
+, 
+	gzym
+, 
+zxf
+
+
+15 
+äom
+ 
+xs
+
+
+16 
+wh”e
+ 
+xh
+ 
+nÙ
+ 
+	gš
+
+
+17 (
+£Ëù
+ 
+xh
+
+
+18 
+äom
+ 
+	gxs_kc
+, 
+kc
+
+
+19 
+wh”e
+ 
+	gkc
+.
+	gkch
+ = 
+xs_kc
+.
+kch
+ 
+ªd
+
+
+20 
+kcm
+ = 'ÀëÉ¢ÊıÑ§'
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_21-s_any.sql
+
+2 
+£Ëù
+ 
+xh
+
+
+3 
+äom
+ 
+xs_kc
+
+
+4 
+wh”e
+ 
+	gkch
+='105' 
+ªd
+ 
+cj
+>=
+ªy
+
+
+5 (
+£Ëù
+ 
+cj
+
+
+6 
+äom
+ 
+xs_kc
+
+
+7 
+wh”e
+ 
+kch
+='101'
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_23-s_exists.sql
+
+3 
+£Ëù
+ 
+xm
+
+
+4 
+äom
+ 
+xs
+
+
+5 
+wh”e
+ 
+nÙ
+ 
+	gexi¡s
+
+
+6 (
+£Ëù
+ *
+
+7 
+äom
+ 
+kc
+
+
+8 
+wh”e
+ 
+nÙ
+ 
+	gexi¡s
+
+
+9 (
+£Ëù
+ *
+
+10 
+äom
+ 
+xs_kc
+
+
+11 
+wh”e
+ 
+	gxh
+=
+xs
+.
+xh
+ 
+ªd
+ 
+kch
+=
+kc
+.kch
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_24-s_exists.sql
+
+2 
+£Ëù
+ 
+di¡šù
+ 
+xh
+
+
+3 
+äom
+ 
+xs_kc
+ 
+x
+
+
+4 
+wh”e
+ 
+nÙ
+ 
+	gexi¡s
+
+
+5 (
+£Ëù
+ *
+
+6 
+äom
+ 
+xs_kc
+ 
+y
+
+
+7 
+wh”e
+ 
+	gy
+.
+	gxh
+='061104' 
+ªd
+ 
+nÙ
+ 
+exi¡s
+
+
+8 (
+£Ëù
+ *
+
+9 
+äom
+ 
+xs_kc
+ 
+z
+
+
+10 
+wh”e
+ 
+z
+.
+xh
+=
+x
+.xh 
+ªd
+ z.
+kch
+=
+y
+.kch
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_25-s-to_date.sql
+
+1 
+£Ëù
+ 
+	gxm
+, 
+zym
+
+
+2 
+äom
+ (
+£Ëù
+ *
+
+3 
+äom
+ 
+xs
+
+
+4 
+wh”e
+ 
+cssj
+ < 
+to_d©e
+('19860101', 'YYYYMMDD')
+
+7 
+£Ëù
+ 
+	gxm
+, 
+zym
+
+
+8 
+äom
+ 
+xs
+
+
+9 
+wh”e
+ 
+	gcssj
+ < 
+to_d©e
+('19860101', 'YYYYMMDD');
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_29-s-count.sql
+
+2 
+£Ëù
+ 
+couÁ
+(*) Ñ§Éú×ÜÊı
+
+3 
+äom
+ 
+	gxs
+;
+
+6 
+£Ëù
+ 
+	$couÁ
+(
+di¡šù
+ 
+xh
+)
+
+7 
+äom
+ 
+xs_kc
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_30-s-inner_join.sql
+
+16 
+£Ëù
+ *
+
+17 
+äom
+ 
+xs
+ 
+šÃr
+ 
+još
+ 
+xs_kc
+
+
+18 
+Ú
+ 
+	gxs
+.
+	gxh
+ = 
+xs_kc
+.
+xh
+;
+
+20 
+£Ëù
+ 
+	gxs
+.*, 
+	gkch
+, 
+cj
+
+
+21 
+äom
+ 
+xs
+ 
+šÃr
+ 
+još
+ 
+xs_kc
+
+
+22 
+Ú
+ 
+	gxs
+.
+	gxh
+ = 
+xs_kc
+.
+xh
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_31-s-join.sql
+
+1 
+£Ëù
+ 
+	gxm
+, 
+cj
+
+
+2 
+äom
+ 
+xs
+ 
+još
+ 
+xs_kc
+
+
+3 
+Ú
+ 
+	gxs
+.
+	gxh
+ = 
+xs_kc
+.
+xh
+
+
+4 
+wh”e
+ 
+kch
+='105' 
+ªd
+ 
+cj
+ >= 80;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_33-s-join.sql
+
+2 
+£Ëù
+ 
+	ga
+.
+	gxh
+,‡.
+	gkch
+, 
+	gb
+.kch,‡.
+cj
+
+
+3 
+äom
+ 
+xs_kc
+ 
+a
+ 
+još
+ xs_kø
+b
+
+
+4 
+Ú
+ 
+	ga
+.
+	gcj
+ = 
+b
+.
+cj
+ 
+ªd
+ 
+a
+.
+xh
+ = b.xh
+
+5 
+ªd
+ 
+a
+.
+kch
+ !ğ
+b
+.kch;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_34-s-left_join.sql
+
+2 
+£Ëù
+ 
+	gxs
+.
+	gxh
+, 
+kch
+
+
+3 
+äom
+ 
+xs
+ 
+Ëá
+ 
+ou‹r
+ 
+još
+ 
+xs_kc
+ 
+Ú
+ 
+	gxs
+.
+	gxh
+ = xs_kc.
+xh
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_35-s-right_join.sql
+
+2 
+£Ëù
+ 
+	gxs_kc
+.*, 
+kcm
+
+
+3 
+äom
+ 
+xs_kc
+ 
+right
+ 
+ou‹r
+ 
+još
+ 
+kc
+
+
+4 
+Ú
+ 
+	gxs_kc
+.
+	gkch
+ = 
+kc
+.
+kch
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_36-s-corss_join.sql
+
+1 
+£Ëù
+ 
+	gxh
+, 
+	gxm
+, 
+	gkch
+, 
+kcm
+
+
+2 
+äom
+ 
+xs
+ 
+üoss
+ 
+još
+ 
+	gkc
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_37-s-sum-avg.sql
+
+1 
+£Ëù
+ 
+	$sum
+(
+cj
+è
+as
+ ³É¼¨×ÜºÍ
+
+2 
+äom
+ 
+xs_kc
+
+
+3 
+wh”e
+ 
+kch
+ = '103';
+
+5 
+£Ëù
+ 
+	$avg
+(
+cj
+è
+as
+ Æ½¾ù³É¼¨
+
+6 
+äom
+ 
+xs_kc
+
+
+7 
+wh”e
+ 
+kch
+ = '103';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_38-s-max-min.sql
+
+1 
+£Ëù
+ 
+max
+(
+cj
+è×î¸ß·Ö, 
+mš
+(cj) ×îµÍ·Ö
+
+2 
+äom
+ 
+xs_kc
+
+
+3 
+wh”e
+ 
+	gkch
+='103';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_40-s-group_by.sql
+
+1 
+£Ëù
+ 
+zym
+
+
+2 
+äom
+ 
+xs
+
+
+3 
+group
+ 
+by
+ 
+	gzym
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_41-s-count-group_by.sql
+
+2 
+£Ëù
+ 
+	gzym
+, 
+	$couÁ
+(*)
+
+3 
+äom
+ 
+xs
+
+
+4 
+group
+ 
+by
+ 
+zym
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_43-s-having.sql
+
+2 
+£Ëù
+ 
+	gxh
+, 
+	$avg
+(
+cj
+)
+
+3 
+äom
+ 
+xs_kc
+
+
+4 
+group
+ 
+by
+ 
+xh
+
+
+5 
+havšg
+ 
+	`avg
+(
+cj
+) >= 85;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_45-s-having.sql
+
+2 
+£Ëù
+ 
+	gxh
+, 
+	$avg
+(
+cj
+)
+
+3 
+äom
+ 
+xs_kc
+
+
+4 
+wh”e
+ 
+xh
+ 
+š
+
+
+5 (
+£Ëù
+ 
+xh
+
+
+6 
+äom
+ 
+xs
+
+
+7 
+wh”e
+ 
+zym
+ = '¼ÆËã»ú'
+
+9 
+group
+ 
+by
+ 
+xh
+
+
+10 
+havšg
+ 
+	`avg
+(
+cj
+) >= 80;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_46-s-order_by.sql
+
+1 
+£Ëù
+ *
+
+2 
+äom
+ 
+xs
+
+
+3 
+wh”e
+ 
+	gzym
+ = '¼ÆËã»ú'
+
+5 
+Üd”
+ 
+by
+ 
+cssj
+ 
+desc
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_48-s-union.sql
+
+2 
+£Ëù
+ *
+
+3 
+äom
+ 
+xs
+
+
+6 
+£Ëù
+ *
+
+7 
+äom
+ 
+	gxs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_49-c_view.sql
+
+2 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+v›w
+ 
+cs_kc
+
+
+3 
+as
+
+
+4 
+£Ëù
+ 
+	gxs
+.
+	gxh
+, 
+	gkch
+, 
+cj
+
+
+5 
+äom
+ 
+	gxs
+, 
+xs_kc
+
+
+6 
+wh”e
+ 
+	gxs
+.
+	gxh
+ = 
+xs_kc
+.
+xh
+ 
+ªd
+ 
+zym
+ = '¼ÆËã»ú'
+
+7 
+w™h
+ 
+check
+ 
+İtiÚ
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_50-c_view.sql
+
+3 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+fÜû
+ 
+v›w
+ 
+	$cs_kc_avg
+(
+num
+, 
+scÜe_avg
+)
+
+4 
+as
+
+
+5 
+£Ëù
+ 
+xh
+, 
+	$avg
+(
+cj
+)
+
+6 
+äom
+ 
+cs_kc
+
+
+7 
+group
+ 
+by
+ 
+xh
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_53-c_view.sql
+
+1 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+v›w
+ 
+cs_xs1
+
+
+2 
+as
+
+
+3 
+£Ëù
+ *
+
+4 
+äom
+ 
+xs
+
+
+5 
+wh”e
+ 
+	gzym
+ = '¼ÆËã»ú'
+
+6 
+w™h
+ 
+check
+ 
+İtiÚ
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_54-i_view.sql
+
+1 
+š£¹
+ 
+što
+ 
+	$cs_xs1
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+, 
+bz
+)
+
+2 
+	`v®ues
+('001111', 'åˆ˜å¦‡', 'è®¡ç®—æœº', 'ç”·', 
+	`to_d©e
+('19880523', 'YYYYMMDD'),
+
+6 
+š£¹
+ 
+što
+ 
+	$cs_xs1
+(
+xh
+, 
+xm
+, 
+zym
+, 
+xb
+, 
+cssj
+, 
+zxf
+, 
+bz
+)
+
+7 
+	`v®ues
+('001112', 'åˆ˜å›½', 'è‡ªåŠ¨åŒ–', 'ç”·', 
+	`to_d©e
+('19880523', 'YYYYMMDD'),
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_55-u_view.sql
+
+1 
+upd©e
+ 
+cs_xs1
+
+
+2 
+£t
+ 
+	gzxf
+ = 
+zxf
+ + 8;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_57-d_cs_xs.sql
+
+1 
+d–‘e
+ 
+äom
+ 
+cs_xs1
+
+
+2 
+wh”e
+ 
+	gbz
+ = 'ÈıºÃÑ§Éú';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_58-d_view.sql
+
+1 
+drİ
+ 
+v›w
+ 
+	gcs_xs1
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_59-s_&.sql
+
+1 
+£Ëù
+ 
+	gxh
+, 
+xm
+
+
+2 
+äom
+ 
+xs
+
+
+3 
+wh”e
+ 
+	gzym
+ = '&specialty_name';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_61-s_&.sql
+
+1 
+£Ëù
+ 
+	gxs
+.
+	gxh
+, &
+	gÇme
+, 
+	gkcm
+, &
+cŞumn
+
+
+2 
+äom
+ 
+	gxs
+, &
+	gkc
+, 
+xs_kc
+
+
+3 
+wh”e
+ 
+	gxs
+.
+	gxh
+ = 
+xs_kc
+.
+xh
+ 
+ªd
+ &
+cÚd™iÚ
+
+
+4 
+ªd
+ 
+kcm
+ = &kcm
+
+5 
+Üd”
+ 
+by
+ &
+cŞumn
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_63-s_&&.sql
+
+2 
+	g£Ëù
+ &&
+cŞumn
+
+
+3 
+äom
+ 
+xs_kc
+
+
+4 
+wh”e
+ 
+	gcj
+ >= 75
+
+5 
+group
+ 
+by
+ &
+cŞumn
+
+
+6 
+havšg
+ 
+couÁ
+(*) > 2;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_64-define.sql
+
+1 
+defše
+ 
+	g¥ecŸÉy
+ = ×Ô¶¯»¯
+
+2 
+defše
+ 
+¥ecŸÉy
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_65-define.sql
+
+1 
+defše
+ 
+	g¥ecŸÉy
+ = ×Ô¶¯»¯
+
+2 
+defše
+ 
+¥ecŸÉy
+;
+
+4 
+£Ëù
+ 
+	gxh
+, 
+	gxm
+, 
+	gxb
+, 
+	gcssj
+,
+zxf
+
+
+5 
+äom
+ 
+xs
+
+
+6 
+wh”e
+ 
+	gzym
+ = '&specialty';
+
+	@/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_66-accept.sql
+
+1 
+acû±
+ 
+num
+ 
+	g´om±
+ 'ÇëÊäÈë¿Î³ÌºÅ: ';
+
+3 
+£Ëù
+ 
+	gxh
+, 
+	gkcm
+, 
+cj
+
+
+4 
+äom
+ 
+	gxs_kc
+, 
+kc
+
+
+5 
+wh”e
+ 
+	gxs_kc
+.
+	gkch
+ = 
+kc
+.
+kch
+ 
+ªd
+
+
+6 
+kc
+.
+kch
+ = '&num'
+
+7 
+Üd”
+ 
+by
+ 
+cj
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_04-type.sql
+
+1 
+£t
+ 
+S”v”Ouut
+ 
+	gÚ
+;
+
+3 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+ty³
+ 
+‹¡_obj
+
+
+4 
+as
+ 
+	gobjeù
+
+
+6 
+™em_id
+ (6),
+
+7 
+´iû
+ 
+numb”
+(10, 2)
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_05-if.sql
+
+1 
+£t
+ 
+S”v”Ouut
+ 
+	gÚ
+;
+
+2 
+deş¬e
+
+
+3 
+v_num
+ 
+numb”
+(3);
+
+6 
+begš
+
+
+7 
+£Ëù
+ 
+	$couÁ
+(*è
+što
+ 
+v_num
+
+
+8 
+äom
+ 
+xs
+
+
+9 
+wh”e
+ 
+zxf
+ > 40;
+
+11 
+v_num
+ !ğ0 
+th’
+
+
+12 
+dbms_ouut
+.
+	`put_lše
+('zxf´óÓÚ40: ' || 
+	`to_ch¬
+(
+v_num
+));
+
+14 
+dbms_ouut
+.
+	`put_lše
+('TEST');
+
+15 
+’d
+ ;
+
+16 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_09-loop.sql
+
+2 
+deş¬e
+
+
+3 
+n
+ 
+	gnumb”
+:=1;
+
+4 
+couÁ1
+ 
+	gnumb”
+:=2;
+
+6 
+begš
+
+
+7 
+loİ
+
+
+8 
+	gn
+ :ğ
+n
+*
+couÁ1
+;
+
+9 
+	gcouÁ1
+ :ğ
+couÁ1
+ + 1;
+
+10 
+	gcouÁ1
+ > 10 
+th’
+
+
+11 
+	gex™
+;
+
+12 
+’d
+ ;
+
+13 
+’d
+ 
+	gloİ
+;
+
+14 
+	gdbms_ouut
+.
+put_lše
+(
+to_ch¬
+(
+n
+));
+
+15 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_10-abc.sql
+
+1 
+ABS
+(333.3);
+
+2 
+ABS
+(-333.3);
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_10-loop_exit.sql
+
+2 
+deş¬e
+
+
+3 
+n
+ 
+	gnumb”
+:=1;
+
+4 
+couÁ1
+ 
+	gnumb”
+:=2;
+
+6 
+begš
+
+
+7 
+loİ
+
+
+8 
+	gn
+ :ğ
+n
+*
+couÁ1
+;
+
+9 
+	gcouÁ1
+ :ğ
+couÁ1
+ + 1;
+
+10 
+ex™
+ 
+wh’
+ 
+	gcouÁ1
+ = 11;
+
+11 
+’d
+ 
+	gloİ
+;
+
+12 
+	gdbms_ouut
+.
+put_lše
+(
+to_ch¬
+(
+n
+));
+
+13 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_11-while.sql
+
+1 
+deş¬e
+
+
+2 
+n
+ 
+	gnumb”
+ := 1;
+
+3 
+couÁ1
+ 
+	gnumb”
+ := 2;
+
+5 
+begš
+
+
+6 
+	gcouÁ1
+ <= 10
+
+7 
+loİ
+
+
+8 
+n
+ :ğn*
+couÁ1
+;
+
+9 
+	gcouÁ1
+ :ğ
+couÁ1
+ + 1;
+
+10 
+’d
+ 
+	gloİ
+;
+
+11 
+	gdbms_ouut
+.
+put_lše
+(
+to_ch¬
+(
+n
+));
+
+12 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_12-for.sql
+
+1 
+deş¬e
+
+
+2 
+n
+ 
+	gnumb”
+ := 1;
+
+3 
+couÁ1
+ 
+	gnumb”
+;
+
+4 
+begš
+
+
+5 
+couÁ1
+ 
+	gš
+ 2 .. 10
+
+6 
+loİ
+
+
+7 
+	gn
+ :ğ
+n
+ * 
+couÁ1
+;
+
+8 
+’d
+ 
+	gloİ
+;
+
+9 
+	gdbms_ouut
+.
+put_lše
+(
+to_ch¬
+(
+n
+));
+
+10 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_13-case.sql
+
+1 
+deş¬e
+
+
+2 
+v_kch
+ (3);
+
+3 
+v_»suÉ
+ 
+v¬ch¬2
+(16);
+
+5 
+begš
+
+
+6 
+£Ëù
+ 
+kch
+
+
+7 
+što
+ 
+v_kch
+
+
+8 
+äom
+ 
+kc
+
+
+9 
+wh”e
+ 
+	gkkxq
+ = '2';
+
+11 
+CASE
+ 
+v_kch
+
+
+12 
+	gwh’
+ '102' 
+th’
+ 
+	gv_»suÉ
+:='´óÑ§Ó¢Óï';
+
+13 
+	gwh’
+ '105' 
+th’
+ 
+	gv_»suÉ
+:='ÏßĞÔ´úÊı';
+
+15 
+	gv_»suÉ
+ := 'Nothing';
+
+16 
+’d
+ ;
+
+18 
+	gdbms_ouut
+.
+put_lše
+(
+v_»suÉ
+);
+
+19 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_14-goto.sql
+
+1 
+deş¬e
+
+
+2 
+n
+ 
+	gnumb”
+ := 1;
+
+3 
+couÁ1
+ 
+	gnumb”
+;
+
+4 
+begš
+
+
+5 
+couÁ1
+ 
+	gš
+ 2 .. 100
+
+6 
+loİ
+
+
+7 
+	gn
+ :ğ
+n
+ * 
+couÁ1
+;
+
+8 
+	gcouÁ1
+ = 10 
+th’
+
+
+9 
+loİ_’d
+;
+
+10 
+’d
+ ;
+
+11 
+’d
+ 
+	gloİ
+;
+
+13 <<
+	gloİ_’d
+>>
+
+14 
+	gdbms_ouut
+.
+put_lše
+(
+to_ch¬
+(
+n
+));
+
+15 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_15-zero_divide.sql
+
+1 
+deş¬e
+
+
+2 
+v_numb”
+ 
+	$numb”
+(2) := 10;
+
+3 
+v_z”o
+ 
+	$numb”
+(2) := 0;
+
+4 
+v_»suÉ
+ 
+	`numb”
+(5);
+
+6 
+begš
+
+
+7 
+v_»suÉ
+ :ğ
+v_numb”
+ / 
+v_z”o
+;
+
+8 
+exû±iÚ
+
+
+9 
+wh’
+ 
+z”o_divide
+ 
+th’
+
+
+10 
+dbms_ouut
+.
+	`put_lše
+('ZERO DIVIDE');
+
+11 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_16-value_error.sql
+
+2 
+deş¬e
+
+
+3 
+v_numb”
+ 
+numb”
+(5);
+
+4 
+v_»suÉ
+ (5) := '2w';
+
+6 
+begš
+
+
+7 
+v_numb”
+ :ğ
+	`to_numb”
+(
+v_»suÉ
+);
+
+8 
+exû±iÚ
+
+
+9 
+wh’
+ 
+v®ue_”rÜ
+ 
+th’
+
+
+10 
+dbms_ouut
+.
+	`put_lše
+('CONVERT TYPE ERROR');
+
+11 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_17-exception_errorcode.sql
+
+1 
+deş¬e
+
+
+2 
+v_»suÉ
+ 
+	gxs
+.
+	gxm
+%
+	gty³
+;
+
+4 
+begš
+
+
+5 
+£Ëù
+ 
+xm
+ 
+što
+ 
+v_»suÉ
+
+
+6 
+äom
+ 
+xs
+
+
+7 
+wh”e
+ 
+	gxm
+ = 'Àîºì2';
+
+8 
+	gdbms_ouut
+.
+put_lše
+('Çmis: ' || 
+v_»suÉ
+);
+
+9 
+exû±iÚ
+
+
+10 
+wh’
+ 
+too_mªy_rows
+ 
+th’
+
+
+11 
+	gdbms_ouut
+.
+put_lše
+('there has TOO_MANY_ROWSƒrror');
+
+14 
+wh’
+ 
+Ùh”s
+ 
+th’
+
+
+16 
+	gdbms_ouut
+.
+put_lše
+('”rÜ code: ' || 
+sqlcode
+);
+
+17 
+	gdbms_ouut
+.
+put_lše
+('”rÜ sŒšg: ' || 
+sqË¼m
+);
+
+18 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_18-my_exception.sql
+
+1 
+deş¬e
+
+
+2 
+e_ov”numb”
+ 
+	gexû±iÚ
+;
+
+3 
+v_xs_numb”
+ 
+numb”
+(9);
+
+4 
+v_max_xs_numb”
+ 
+	$numb”
+(9) := 5;
+
+6 
+begš
+
+
+7 
+£Ëù
+ 
+	$couÁ
+(*è
+što
+ 
+v_xs_numb”
+
+
+8 
+äom
+ 
+xs
+;
+
+9 
+v_max_xs_numb”
+ < 
+v_xs_numb”
+ 
+th’
+
+
+10 
+¿i£
+ 
+e_ov”numb”
+;
+
+11 
+’d
+ ;
+
+12 
+exû±iÚ
+
+
+13 
+wh’
+ 
+e_ov”numb”
+ 
+th’
+
+
+14 
+dbms_ouut
+.
+	`put_lše
+('cu¼’t: ' || 
+v_xs_numb”
+ ||
+
+15 ', max: ' || 
+v_max_xs_numb”
+);
+
+16 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_20-abs.sql
+
+1 
+begš
+
+
+2 
+	gdbms_ouut
+.
+put_lše
+(
+abs
+(33.3));
+
+3 
+	gdbms_ouut
+.
+put_lše
+(
+abs
+(-33.3));
+
+4 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_21-round.sql
+
+1 
+begš
+
+
+2 
+	gdbms_ouut
+.
+put_lše
+(
+round
+(33.332299, 2));
+
+3 
+	gdbms_ouut
+.
+put_lše
+(
+round
+(-33.3934234, 5));
+
+4 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_22-lower.sql
+
+1 
+begš
+
+
+2 
+	gdbms_ouut
+.
+put_lše
+(
+low”
+('Help'));
+
+3 
+	gdbms_ouut
+.
+put_lše
+(
+low”
+('HELP'));
+
+4 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_22-replace.sql
+
+1 
+begš
+
+
+2 
+	gdbms_ouut
+.
+put_lše
+(
+»¶aû
+('Help', 'H', 'O'));
+
+3 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_24-last_day-sysdate.sql
+
+3 
+begš
+
+
+4 
+	gdbms_ouut
+.
+put_lše
+(
+Ï¡_day
+(
+sysd©e
+));
+
+5 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_25-months_between.sql
+
+1 
+begš
+
+
+2 
+	gdbms_ouut
+.
+put_lše
+(
+mÚths_b‘w“n
+(2010-01-11, 2010-03-25));
+
+3 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_26-my_function.sql
+
+3 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+funùiÚ
+ 
+	gav”«
+
+
+4 Ğ
+úum
+ 
+š
+ )
+
+5  
+numb”
+
+
+6 
+as
+
+
+7 
+avg”
+ 
+	gnumb”
+;
+
+9 
+begš
+
+
+10 
+£Ëù
+ 
+	$avg
+(
+cj
+è
+što
+ 
+avg”
+
+
+11 
+äom
+ 
+xs_kc
+
+
+12 
+wh”e
+ 
+kch
+ = 
+úum
+
+
+13 
+group
+ 
+by
+ 
+kch
+;
+
+14  (
+avg”
+);
+
+15 
+’d
+ 
+av”«
+;
+
+21 
+begš
+
+
+22 
+dbms_ouut
+.
+	`put_lše
+(
+	`to_ch¬
+(
+	`av”«
+(101)));
+
+23 
+’d
+;
+
+28 
+drİ
+ 
+funùiÚ
+ 
+av”«
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_29-cursor.sql
+
+1 
+£t
+ 
+S”v”Ouut
+ 
+	gÚ
+;
+
+2 
+deş¬e
+ 
+cursÜ
+ 
+xs_cur2
+ 
+is
+
+
+3 
+£Ëù
+ 
+	gxh
+, 
+	gxm
+, 
+zxf
+
+
+4 
+äom
+ 
+	gxs
+;
+
+5 
+begš
+
+
+6 
+İ’
+ 
+	gxs_cur2
+;
+
+7 
+	gdbms_ouut
+.
+put_lše
+(
+xs_cur2
+%
+ROWCOUNT
+);
+
+8 
+	g’d
+;
+
+12 
+deş¬e
+
+
+13 
+v_xh
+ (6);
+
+14 
+v_zxf
+ 
+numb”
+(2);
+
+15 
+cursÜ
+ 
+xs_cur3
+ 
+is
+
+
+16 
+£Ëù
+ 
+	gxh
+, 
+zxf
+
+
+17 
+äom
+ 
+xs
+
+
+18 
+wh”e
+ 
+	gzym
+ = 'è®¡ç®—æœº';
+
+19 
+begš
+
+
+20 
+nÙ
+ 
+	gxs_cur3
+%
+ISOPEN
+ 
+th’
+
+
+21 
+İ’
+ 
+	gxs_cur3
+;
+
+22 
+’d
+ ;
+
+23 
+ãtch
+ 
+xs_cur3
+ 
+što
+ 
+	gv_xh
+, 
+	gv_zxf
+;
+
+24 
+	gdbms_ouut
+.
+put_lše
+(
+xs_cur3
+%
+ROWCOUNT
+);
+
+25 
+	gxs_cur3
+%
+FOUND
+
+
+26 
+loİ
+
+
+27 
+	gdbms_ouut
+.
+put_lše
+(
+v_xh
+ || ' ' || 
+v_zxf
+);
+
+28 
+	gdbms_ouut
+.
+put_lše
+(
+xs_cur3
+%
+ROWCOUNT
+);
+
+29 
+ãtch
+ 
+xs_cur3
+ 
+što
+ 
+	gv_xh
+, 
+	gv_zxf
+;
+
+30 
+’d
+ 
+	gloİ
+;
+
+31 
+	gxs_cur3
+%
+ISOPEN
+ 
+th’
+
+
+32 
+şo£
+ 
+	gxs_cur3
+;
+
+33 
+’d
+ ;
+
+34 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_29-cursor_hide.sql
+
+1 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+´oûdu»
+ 
+	gcs_xm
+
+
+3 
+š_xh
+ 
+š
+ ,
+
+4 
+out_xm
+ 
+out
+ 
+
+6 
+as
+
+
+7 
+begš
+
+
+8 
+£Ëù
+ 
+xm
+ 
+što
+ 
+out_xm
+
+
+9 
+äom
+ 
+xs
+
+
+10 
+wh”e
+ 
+	gxh
+ = 
+š_xh
+;
+
+11 
+	gdbms_ouut
+.
+put_lše
+(
+out_xm
+);
+
+12 
+’d
+ 
+	gcs_xm
+;
+
+15 
+begš
+
+
+16 
+execu‹
+ 
+cs_xm
+('061102');
+
+17 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_30-cursor_type.sql
+
+1 
+deş¬e
+
+
+3 
+ty³
+ 
+xs_cur
+ 
+is
+ 
+»f
+ 
+cursÜ
+  
+	gxs
+%
+	gROWTYPE
+;
+
+4 
+ty³
+ 
+mycur
+ 
+is
+ 
+»f
+ 
+	gcursÜ
+;
+
+6 
+xscur
+ 
+	gxs_cur
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_30-cursor_while_for.sql
+
+1 
+drİ
+ 
+bË
+ 
+	g‹mp_cj
+;
+
+2 
+ü—‹
+ 
+bË
+ 
+	g‹mp_cj
+
+
+3 Ğ
+xh
+ (6è
+nÙ
+ 
+nuÎ
+,
+
+4 
+kch
+ (3è
+nÙ
+ 
+nuÎ
+,
+
+5 
+cj
+ 
+	$numb”
+(2è
+nuÎ
+
+
+7 
+bË¥aû
+ 
+myts
+;
+
+9 
+deş¬e
+
+
+10 
+v_xh
+ (6);
+
+11 
+v_kch
+ (3);
+
+12 
+v_cj
+ 
+	`numb”
+(2);
+
+13 
+cursÜ
+ 
+kc_cur
+ 
+is
+
+
+14 
+£Ëù
+ 
+xh
+, 
+kch
+, 
+cj
+
+
+15 
+äom
+ 
+xs_kc
+;
+
+17 
+begš
+
+
+18 
+İ’
+ 
+kc_cur
+;
+
+19 
+ãtch
+ 
+kc_cur
+ 
+što
+ 
+v_xh
+, 
+v_kch
+, 
+v_cj
+;
+
+20 
+kc_cur
+%
+FOUND
+ 
+LOOP
+
+
+21 
+v_cj
+ < 60 
+th’
+
+
+22 
+š£¹
+ 
+što
+ 
+‹mp_cj
+ 
+	`v®ues
+(
+v_xh
+, 
+v_kch
+, 
+v_cj
+);
+
+23 
+’d
+ ;
+
+24 
+ãtch
+ 
+kc_cur
+ 
+što
+ 
+v_xh
+, 
+v_kch
+, 
+v_cj
+;
+
+25 
+’d
+ 
+loİ
+;
+
+26 
+şo£
+ 
+kc_cur
+;
+
+27 
+’d
+;
+
+29 
+£Ëù
+ * 
+äom
+ 
+‹mp_cj
+;
+
+33 
+Œunÿ‹
+ 
+bË
+ 
+‹mp_cj
+;
+
+35 
+deş¬e
+
+
+36 
+cursÜ
+ 
+kc_cur
+ 
+is
+
+
+37 
+£Ëù
+ 
+xh
+, 
+kch
+, 
+cj
+
+
+38 
+äom
+ 
+xs_kc
+;
+
+40 
+begš
+
+
+41 
+kc_cur_»c
+ 
+š
+ 
+kc_cur
+ 
+loİ
+
+
+42 
+kc_cur_»c
+.
+cj
+ < 60 
+th’
+
+
+43 
+š£¹
+ 
+što
+ 
+‹mp_cj
+ 
+	`v®ues
+(
+kc_cur_»c
+.
+xh
+,
+
+44 
+kc_cur_»c
+.
+kch
+, kc_cur_»c.
+cj
+);
+
+45 
+’d
+ ;
+
+46 
+’d
+ 
+loİ
+;
+
+47 
+’d
+;
+
+49 
+£Ëù
+ * 
+äom
+ 
+‹mp_cj
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_31-package.sql
+
+2 
+£t
+ 
+S”v”Ouut
+ 
+	gÚ
+;
+
+3 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+·ckage
+ 
+£Ëù_bË
+
+
+4 
+is
+
+
+5 
+ty³
+ 
+b_02
+ 
+is
+ 
+	g»cÜd
+
+
+7 
+™num_1
+ 
+v¬ch¬2
+(1),
+
+8 
+™num_2
+ 
+v¬ch¬2
+(1)
+
+10 
+ty³
+ 
+b_03
+ 
+is
+ 
+	g»cÜd
+
+
+12 
+™num_1
+ 
+v¬ch¬2
+(1),
+
+13 
+™num_2
+ 
+v¬ch¬2
+(1),
+
+14 
+™num_3
+ 
+v¬ch¬2
+(1)
+
+16 
+ty³
+ 
+b_04
+ 
+is
+ 
+	g»cÜd
+
+
+18 
+™num_1
+ 
+v¬ch¬2
+(1),
+
+19 
+™num_2
+ 
+v¬ch¬2
+(1),
+
+20 
+™num_3
+ 
+v¬ch¬2
+(1),
+
+21 
+™num_4
+ 
+v¬ch¬2
+(1)
+
+23 
+ty³
+ 
+b_05
+ 
+is
+ 
+	g»cÜd
+
+
+25 
+™num_1
+ 
+v¬ch¬2
+(1),
+
+26 
+™num_2
+ 
+v¬ch¬2
+(1),
+
+27 
+™num_3
+ 
+v¬ch¬2
+(1),
+
+28 
+™num_4
+ 
+v¬ch¬2
+(1),
+
+29 
+™num_5
+ 
+v¬ch¬2
+(1)
+
+31 
+ty³
+ 
+b_06
+ 
+is
+ 
+	g»cÜd
+
+
+33 
+™num_1
+ 
+v¬ch¬2
+(1),
+
+34 
+™num_2
+ 
+v¬ch¬2
+(1),
+
+35 
+™num_3
+ 
+v¬ch¬2
+(1),
+
+36 
+™num_4
+ 
+v¬ch¬2
+(1),
+
+37 
+™num_5
+ 
+v¬ch¬2
+(1),
+
+38 
+™num_6
+ 
+v¬ch¬2
+(1)
+
+41 
+ty³
+ 
+cur_02
+ 
+is
+ 
+»f
+ 
+cursÜ
+  
+	gb_02
+;
+
+42 
+ty³
+ 
+cur_03
+ 
+is
+ 
+»f
+ 
+cursÜ
+  
+	gb_03
+;
+
+43 
+ty³
+ 
+cur_04
+ 
+is
+ 
+»f
+ 
+cursÜ
+  
+	gb_04
+;
+
+44 
+ty³
+ 
+cur_05
+ 
+is
+ 
+»f
+ 
+cursÜ
+  
+	gb_05
+;
+
+45 
+ty³
+ 
+cur_06
+ 
+is
+ 
+»f
+ 
+cursÜ
+  
+	gb_06
+;
+
+46 
+’d
+ 
+	g£Ëù_bË
+;
+
+50 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+·ckage
+ 
+‹¡_·ckage
+
+
+51 
+is
+
+
+52 
+funùiÚ
+ 
+	gav”age
+
+
+53 (
+úum
+ 
+š
+ )
+
+54  
+	gnumb”
+;
+
+55 
+´oûdu»
+ 
+	g¡ud’t_g¿de
+
+
+56 (
+cur
+ 
+out
+ 
+	g£Ëù_bË
+.
+	gcur_04
+);
+
+57 
+’d
+ 
+	g‹¡_·ckage
+;
+
+60 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+·ckage
+ 
+BODY
+ 
+‹¡_·ckage
+
+
+61 
+is
+
+
+62 
+funùiÚ
+ 
+	gav”age
+
+
+63 (
+úum
+ 
+š
+ )
+
+64  
+numb”
+
+
+65 
+as
+
+
+66 
+avg”
+ 
+	gnumb”
+;
+
+67 
+begš
+
+
+68 
+£Ëù
+ 
+	$avg
+(
+cj
+è
+što
+ 
+agv”
+
+
+69 
+äom
+ 
+xs_kc
+
+
+70 
+wh”e
+ 
+kch
+ = 
+úum
+
+
+71 
+group
+ 
+by
+ 
+kch
+;
+
+72  (
+avg”
+)
+
+73 
+’d
+ 
+av”age
+;
+
+75 
+´oûdu»
+ 
+¡ud’t_g¿de
+
+
+76 (
+cur
+ 
+out
+ 
+£Ëù_bË
+.
+cur_04
+)
+
+77 
+as
+
+
+78 
+begš
+
+
+79 
+İ’
+ 
+cur
+ 
+
+80 
+£Ëù
+ 
+xs
+.
+xh
+, xs.
+xm
+, 
+kc
+.
+kch
+, 
+xs_kc
+.
+cj
+
+
+81 
+äom
+ 
+xs
+, 
+xs_kc
+, 
+kc
+
+
+82 
+wh”e
+ 
+xs
+.
+xh
+ = 
+xs_kc
+.xh 
+ªd
+ xs_kc.
+kch
+ = 
+kc
+.kch;
+
+83 
+’d
+ 
+¡ud’t_g¿de
+;
+
+84 
+’d
+ 
+‹¡_·ckage
+;
+
+88 
+deş¬e
+
+
+89 
+num
+ 
+numb”
+;
+
+90 
+begš
+
+
+91 
+num
+ :ğ
+‹¡_·ckage
+.
+	`av”age
+('101');
+
+92 
+dbms_ouut
+.
+	`put_lše
+(
+	`to_ch¬
+(
+num
+));
+
+93 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_33-package-overloading.sql
+
+1 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+·ckage
+ 
+TempPackage
+
+
+2 
+as
+
+
+3 
+´oûdu»
+ 
+	gadd¡ud’t
+
+
+4 Ğ
+v_xh
+ 
+š
+ 
+	g‹mp_cj
+.
+	gxh
+%
+	gty³
+ );
+
+6 
+´oûdu»
+ 
+	gadd¡ud’t
+
+
+8 
+v_xh
+ 
+š
+ 
+	g‹mp_cj
+.
+	gxh
+%
+	gty³
+,
+
+9 
+v_kch
+ 
+š
+ 
+	g‹mp_cj
+.
+	gkch
+%
+	gty³
+
+
+11 
+’d
+ 
+	gTempPackage
+;
+
+14 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+·ckage
+ 
+body
+ 
+TempPackage
+
+
+15 
+as
+
+
+16 
+´oûdu»
+ 
+	gadd¡ud’t
+
+
+17 Ğ
+v_xh
+ 
+š
+ 
+	g‹mp_cj
+.
+	gxh
+%
+	gty³
+ )
+
+18 
+is
+
+
+19 
+begš
+
+
+20 
+š£¹
+ 
+što
+ 
+	$‹mp_cj
+(
+xh
+)
+
+21 
+	`v®ues
+(
+v_xh
+);
+
+22 
+’d
+ 
+add¡ud’t
+;
+
+24 
+´oûdu»
+ 
+add¡ud’t
+
+
+26 
+v_xh
+ 
+š
+ 
+‹mp_cj
+.
+xh
+%
+ty³
+,
+
+27 
+v_kch
+ 
+š
+ 
+‹mp_cj
+.
+kch
+%
+ty³
+
+
+29 
+is
+
+
+30 
+begš
+
+
+31 
+š£¹
+ 
+što
+ 
+	$‹mp_cj
+(
+xh
+, 
+kch
+)
+
+32 
+	`v®ues
+(
+v_xh
+, 
+v_kch
+);
+
+33 
+’d
+ 
+add¡ud’t
+;
+
+34 
+’d
+ 
+TempPackage
+;
+
+37 
+begš
+
+
+38 
+TempPackage
+.
+	`add¡ud’t
+('100803');
+
+39 
+TempPackage
+.
+	`add¡ud’t
+('100803', '103');
+
+40 
+’d
+;
+
+42 
+£Ëù
+ * 
+äom
+ 
+‹mp_cj
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_34-index_by.sql
+
+3 
+deş¬e
+
+
+4 
+ty³
+ 
+xs_Çme
+
+
+5 
+is
+ 
+bË
+ 
+of
+ 
+	gxs
+.
+	gxm
+%
+ty³
+ 
+šdex
+ 
+by
+ 
+	gbš¬y_š‹g”
+;
+
+6 
+v_Çme
+ 
+	gxs_Çme
+;
+
+7 
+begš
+
+
+8 
+	$v_Çme
+(1) := 'adb';
+
+9 
+	`v_Çme
+(-2) := 'alfj';
+
+10 
+	$v_Çme
+(9) := 'jlajfo';
+
+11 
+dbms_ouut
+.
+	`put_lše
+(
+	`v_Çme
+(-2));
+
+12 
+’d
+;
+
+17 
+deş¬e
+
+
+18 
+ty³
+ 
+¡udyb
+
+
+19 
+is
+ 
+bË
+ 
+of
+ 
+	$v¬ch¬2
+(20è
+šdex
+ 
+by
+ 
+bš¬y_š‹g”
+;
+
+20 
+v_¡udyb
+ 
+¡udyb
+;
+
+21 
+begš
+
+
+22 
+v_couÁ
+ 
+š
+ 1..5 
+loİ
+
+
+23 
+	$v_¡udyb
+(
+v_couÁ
+) := v_count * 10;
+
+24 
+’d
+ 
+loİ
+;
+
+25 
+v_couÁ
+ 
+š
+ 1..5 
+loİ
+
+
+26 
+dbms_ouut
+.
+	`put_lše
+(
+	`v_¡udyb
+(
+v_couÁ
+));
+
+27 
+’d
+ 
+loİ
+;
+
+28 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_35-nesty_table.sql
+
+3 
+£t
+ 
+S”v”Ouut
+ 
+	gÚ
+;
+
+4 
+Deş¬e
+
+
+5 
+ty³
+ 
+¡udyb
+
+
+6 
+is
+ 
+bË
+ 
+of
+ 
+v¬ch¬
+(20);
+
+7 
+v_¡udyb
+ 
+	g¡udyb
+ :ğ
+¡udyb
+('Tom', 'Jack', 'Rose');
+
+9 
+begš
+
+
+10 
+v_couÁ
+ 
+	gš
+ 1..8 
+loİ
+
+
+11 
+	gdbms_ouut
+.
+put_lše
+(
+v_¡udyb
+(
+v_couÁ
+));
+
+12 
+’d
+ 
+	gloİ
+;
+
+13 
+	g’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_37-varray-count.sql
+
+1 
+deş¬e
+
+
+2 
+ty³
+ 
+Çme
+ 
+is
+ 
+bË
+ 
+of
+ 
+	$v¬ch¬2
+(20è
+šdex
+ 
+by
+ 
+bš¬y_š‹g”
+;
+
+3 
+ty³
+ 
+pwd
+ 
+is
+ 
+bË
+ 
+of
+ 
+	`v¬ch¬2
+(20);
+
+4 
+ty³
+ 
+d©es
+ 
+is
+ 
+	$v¬¿y
+(7è
+of
+ 
+	`v¬ch¬2
+(20);
+
+5 
+v_Çme
+ 
+Çme
+ ;
+
+6 
+v_pwd
+ 
+pwd
+ :ğ
+	`pwd
+('100', '12345', '22', 'yes', 'no');
+
+7 
+v_d©es
+ 
+d©es
+ :ğ
+	`d©es
+('Monday', 'Sunday');
+
+9 
+begš
+
+
+10 
+	$v_Çme
+(1) := 'Tom';
+
+11 
+	`v_Çme
+(-1) := 'Jack';
+
+12 
+	$v_Çme
+(4) := 'Rose';
+
+13 
+dbms_ouut
+.
+	`put_lše
+(
+v_Çme
+.
+couÁ
+);
+
+14 
+dbms_ouut
+.
+	`put_lše
+(
+v_pwd
+.
+couÁ
+);
+
+15 
+dbms_ouut
+.
+	`put_lše
+(
+v_d©es
+.
+couÁ
+);
+
+16 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/06procedure-trigger/6_01-procedure.sql
+
+1 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+´oûdu»
+ 
+	gcouÁ_g¿de
+
+
+2 (
+zym
+ 
+š
+ , 
+³rsÚ_num
+ 
+out
+ 
+	gnumb”
+)
+
+3 
+as
+
+
+4 
+begš
+
+
+5 
+£Ëù
+ 
+	$couÁ
+(*)
+
+6 
+što
+ 
+³rsÚ_num
+
+
+7 
+äom
+ 
+xs
+
+
+8 
+wh”e
+ 
+zym
+ = zym 
+ªd
+ 
+zxf
+ > 40;
+
+9 
+’d
+ 
+couÁ_g¿de
+;
+
+12 
+deş¬e
+
+
+13 
+num
+ 
+numb”
+;
+
+14 
+begš
+
+
+15 
+execu‹
+ 
+	`couÁ_g¿de
+('¼ÆËã»ú', 
+num
+);
+
+16 
+’d
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/06procedure-trigger/6_02-prcedure.sql
+
+1 
+ü—‹
+ 
+Ü
+ 
+»¶aû
+ 
+´oûdu»
+ 
+	gupd©e_šfo
+
+
+2 Ğ
+xm
+ 
+š
+ 
+	gv¬ch¬2
+ )
+
+3 
+as
+
+
+4 
+xf
+ 
+numb”
+(2);
+
+5 
+begš
+
+
+6 
+£Ëù
+ 
+zxf
+
+
+7 
+što
+ 
+xf
+
+
+8 
+äom
+ 
+xs
+
+
+9 
+wh”e
+ 
+	gxm
+ = 
+xm
+
+
+10 
+xf
+ > 60 
+th’
+
+
+11 
+upd©e
+ 
+xs
+ 
+£t
+ 
+bz
+ = 'ËÄºÃÑ§Éú'
+
+12 
+wh”e
+ 
+xm
+ = xm;
+
+13 
+’d
+ ;
+
+14 
+	gxf
+ < 45 
+th’
+
+
+15 
+upd©e
+ 
+xs
+ 
+£t
+ 
+	gbz
+ = 'Ñ§·ÖÎ´ĞŞÂú'
+
+16 
+wh”e
+ 
+xm
+ = xm;
+
+17 
+’d
+ ;
+
+18 
+’d
+ 
+	gupd©e_šfo
+;
+
+21 
+execu‹
+ 
+upd©e_šfo
+('ÕÅ×Ó');
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_01-c-user.sql
+
+3 
+ü—‹
+ 
+u£r
+ 
+authÜ
+
+
+4 
+id’tif›d
+ 
+by
+ 
+ªg–
+
+
+5  
+bË¥aû
+ 
+u£rs
+
+
+6 
+‹mpÜ¬y
+ 
+bË¥aû
+ 
+	g‹mp
+;
+
+8 
+ü—‹
+ 
+u£r
+ 
+admš
+
+
+9 
+id’tif›d
+ 
+by
+ 
+googË8
+
+
+10  
+bË¥aû
+ 
+u£rs
+
+
+11 
+‹mpÜ¬y
+ 
+bË¥aû
+ 
+	g‹mp
+;
+
+13 
+drİ
+ 
+u£r
+ 
+admš
+ 
+	gÿsÿde
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_02-grant.sql
+
+2 
+g¿Á
+ 
+dba
+ 
+to
+ 
+	gauthÜ
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_03-drop_user-create_user.sql
+
+2 
+drİ
+ 
+u£r
+ 
+	gauthÜ
+;
+
+3 
+ü—‹
+ 
+u£r
+ 
+authÜ
+
+
+4 
+id’tif›d
+ 
+by
+ 
+ªg–
+
+
+5  
+bË¥aû
+ 
+u£rs
+
+
+6 
+‹mpÜ¬y
+ 
+bË¥aû
+ 
+‹mp
+
+
+7 
+·sswÜd
+ 
+	gexpœe
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_04-alter_user-revoke-drop.sql
+
+2 
+®‹r
+ 
+u£r
+ 
+authÜ
+
+
+3 
+	gquÙa
+ 10
+M
+ 
+Ú
+ 
+	gu£rs
+;
+
+6 
+®‹r
+ 
+u£r
+ 
+authÜ
+
+
+7 
+accouÁ
+ 
+	glock
+;
+
+10 
+»voke
+ 
+dba
+ 
+äom
+ 
+	gauthÜ
+;
+
+13 
+»voke
+ 
+®‹r
+ 
+Ú
+ 
+xs
+ 
+äom
+ 
+	gnick
+;
+
+16 
+»voke
+ 
+	gd–‘e
+, 
+š£¹
+ 
+Ú
+ 
+xs
+ 
+äom
+ 
+	gnick
+, 
+	gauthÜ
+;
+
+19 -- 
+	gÿsÿde
+ É¾³ıÓÃ»§ËùÓĞµÄÏà¹Ø¶ÔÏó
+
+20 
+drİ
+ 
+u£r
+ 
+authÜ
+ 
+	gÿsÿde
+
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_05-creat_role.sql
+
+3 
+ü—‹
+ 
+rŞe
+ 
+	gaccouÁ_ü—‹
+;
+
+4 
+g¿Á
+ 
+ü—‹
+ 
+	g£ssiÚ
+, c»©
+	gu£r
+, 
+®‹r
+ 
+u£r
+
+
+5 
+to
+ 
+	gaccouÁ_ü—‹
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_06-type.sql
+
+1  -- 
+QQQQQ
+
+
+6 
+ü—‹
+ 
+ty³
+ 
+ty³1
+ 
+as
+ 
+objeù
+(
+©Œ1
+ 
+numb”
+);
+
+7 
+ü—‹
+ 
+ty³
+ 
+ty³2
+ 
+as
+ 
+objeù
+(
+©Œ2
+ 
+numb”
+);
+
+8 
+g¿Á
+ 
+execu‹
+ 
+Ú
+ 
+ty³1
+ 
+to
+ 
+	gu£r2
+;
+
+9 
+g¿Á
+ 
+execu‹
+ 
+Ú
+ 
+ty³2
+ 
+to
+ 
+u£r2
+
+
+10 
+w™h
+ 
+g¿Á
+ 
+	gİtiÚ
+; -- Ê¹µÃ±íµÄËùÓĞÕß¿ÉÒÔ·ÃÎÊÆäËûÓÃ»§µÄ±í
+
+13 
+ü—‹
+ 
+bË
+ 
+b1
+ 
+of
+ 
+	gu£r1
+.
+	gty³1
+;
+
+14 
+ü—‹
+ 
+ty³
+ 
+ty³3
+ 
+as
+ 
+objeù
+(
+©Œ3
+ 
+u£r1
+.
+ty³2
+);
+
+15 
+ü—‹
+ 
+bË
+ 
+b2
+(
+cŞ1
+ 
+u£¾
+.
+ty³2
+);
+
+21 
+g¿Á
+ 
+execu‹
+ 
+Ú
+ 
+ty³3
+ 
+to
+ 
+	gu£r3
+;
+
+22 
+g¿Á
+ 
+£Ëù
+ 
+Ú
+ 
+b2
+ 
+to
+ 
+	gu£r3
+;
+
+25 
+g¿Á
+ 
+£Ëù
+ 
+Ú
+ 
+b1
+ 
+to
+ 
+	gu£r3
+;
+
+28 
+ü—‹
+ 
+ty³
+ 
+ty³4
+ 
+as
+ 
+objeù
+(
+©Œ4
+ 
+u£r2
+.
+ty³3
+);
+
+29 
+ü—‹
+ 
+bË
+ 
+b3
+ 
+of
+ 
+	gty³4
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_07-create_profile.sql
+
+9 
+ü—‹
+ 
+´ofe
+ 
+lim™ed_´ofe
+ 
+lim™
+
+
+10 
+	gçed_logš_©‹m±s
+ 5
+
+11 
+	g·sswÜd_lock_time
+ 10;
+
+13 
+®‹r
+ 
+u£r
+ 
+nick
+
+
+14 
+´ofe
+ 
+	glim™ed_´ofe
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_08-alter_profile.sql
+
+2 
+®‹r
+ 
+´ofe
+ 
+lim™ed_´ofe
+ 
+lim™
+
+
+3 
+	g·sswÜd_liã_time
+ 10;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_09-N-ShenJi.sql
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_09-N-ShuJuZiDian.sql
+
+1 
+£Ëù
+ * 
+äom
+ 
+	g®l_u£rs
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_09-alter_profile.sql
+
+2 
+®‹r
+ 
+´ofe
+ 
+lim™ed_´ofe
+ 
+lim™
+
+
+3 
+	g·sswÜd_g¿û_time
+ 10;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_10-audit.sql
+
+2 
+aud™
+ 
+upd©e
+ 
+bË
+ 
+by
+ 
+	ghr
+;
+
+5 
+aud™
+ 
+	grŞe
+;
+
+7 
+nßud™
+ 
+	grŞe
+;
+
+12 
+£Ëù
+ 
+	gaùiÚ
+, 
+Çme
+
+
+13 
+äom
+ 
+	gaud™_aùiÚs
+;
+
+16 
+£Ëù
+ 
+	gos_u£ºame
+, 
+	gu£ºame
+, 
+	g‹rmš®
+, 
+	gowÃr
+, 
+	gobj_Çme
+, 
+	gaùiÚ_Çme
+,
+
+17 
+decode
+(
+»tuºcode
+, '0','Success',„eturncode),
+
+18 
+to_ch¬
+(
+Time¡amp
+, 'DD-MON-YYYY HH24:MI:SS')
+
+19 
+äom
+ 
+	gdba_aud™_objeù
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_11-audit.sql
+
+2 
+aud™
+ 
+š£¹
+ 
+Ú
+ 
+	gxs
+;
+
+4 
+aud™
+ 
+®l
+ 
+Ú
+ 
+	gxs_kc
+;
+
+6 
+aud™
+ 
+d–‘e
+ 
+Ú
+ 
+	gkc
+;
+
+	@/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_12-audit.sql
+
+2 
+aud™
+ 
+d–‘e
+ 
+ªy
+ 
+bË
+ 
+wh’ev”
+ 
+nÙ
+ 
+	gSucûssful
+;
+
+3 
+aud™
+ 
+ü—‹
+ 
+bË
+ 
+wh’ev”
+ 
+nÙ
+ 
+	gSucûssful
+;
+
+4 
+aud™
+ 
+®‹r
+ 
+ªy
+ 
+	gbË
+,‡É”‡ny 
+´oûdu»
+ 
+by
+ 
+nick
+ by 
+acûss
+ 
+wh’ev”
+ 
+nÙ
+ 
+	gSucûssful
+;
+
+5 
+aud™
+ 
+ü—‹
+ 
+u£r
+ 
+by
+ 
+admš
+ 
+wh’ev”
+ 
+nÙ
+ 
+	gSucûssful
+;
+
+10 
+£Ëù
+ 
+	gu£r_Çme
+, 
+	g´ivege
+, 
+	gSucûss
+, 
+	gçu»
+ 2
+
+11 
+äom
+ 
+dba_´iv_aud™_İts
+
+
+12 
+Üd”
+ 
+by
+ 
+	gu£r_Çme
+;
+
+	@
+1
+.
+0
+129
+9019
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_05-c_tbs.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_06-c_tbs.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_07-a_tbs.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_11-c_db.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_12-c_tbs.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_13-a_db.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_15-c_tb-xs.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_15-c_tb-xs_kc.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_16-c_tb-kc.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_17-c_tb-kc_jsj.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_18-a_tb.sql
+/home/scr/lang/sql/oracle/syjc/sql/02database-table/2_19-d_tb-xs.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_01-i-kc.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_01-i-xs.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_01-i-xs_kc.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_02-c_tb-test.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_03-c_tb-xs1.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_03-i-xs1.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_04-i-xs_jsj.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_04-merge.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_05-d.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_05-truncate.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_06-u.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_07-u.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_08-u.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_09-u.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_11-a-def.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_13-c-idx.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_14-c-idx.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_15-a-idx.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_16-a-idx-rename.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_17-d_idx.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_19-c_synonym.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_21-d_synonym.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_23-c_dblink.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_24-use_dblink.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_26-d_dblink.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_28-c_tb-def-check.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_29-a_tb-check.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_30-a_tb-d_constraint.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_32-a_tb-add_contraint.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/3_35-a_tb-add_fk.sql
+/home/scr/lang/sql/oracle/syjc/sql/03database_operate/4_20-s_all.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_05-s.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_09-c_tb-cp.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_09-s_exp.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_10-s_distinct.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_13-s_like.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_15-s_between.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_16-s_in.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_17-s_isnull.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_19-s_subs.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_21-s_any.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_23-s_exists.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_24-s_exists.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_25-s-to_date.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_29-s-count.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_30-s-inner_join.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_31-s-join.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_33-s-join.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_34-s-left_join.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_35-s-right_join.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_36-s-corss_join.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_37-s-sum-avg.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_38-s-max-min.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_40-s-group_by.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_41-s-count-group_by.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_43-s-having.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_45-s-having.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_46-s-order_by.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_48-s-union.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_49-c_view.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_50-c_view.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_53-c_view.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_54-i_view.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_55-u_view.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_57-d_cs_xs.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_58-d_view.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_59-s_&.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_61-s_&.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_63-s_&&.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_64-define.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_65-define.sql
+/home/scr/lang/sql/oracle/syjc/sql/04select-view-format/4_66-accept.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_04-type.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_05-if.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_09-loop.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_10-abc.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_10-loop_exit.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_11-while.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_12-for.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_13-case.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_14-goto.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_15-zero_divide.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_16-value_error.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_17-exception_errorcode.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_18-my_exception.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_20-abs.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_21-round.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_22-lower.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_22-replace.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_24-last_day-sysdate.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_25-months_between.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_26-my_function.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_29-cursor.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_29-cursor_hide.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_30-cursor_type.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_30-cursor_while_for.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_31-package.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_33-package-overloading.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_34-index_by.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_35-nesty_table.sql
+/home/scr/lang/sql/oracle/syjc/sql/05PL_SQL/5_37-varray-count.sql
+/home/scr/lang/sql/oracle/syjc/sql/06procedure-trigger/6_01-procedure.sql
+/home/scr/lang/sql/oracle/syjc/sql/06procedure-trigger/6_02-prcedure.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_01-c-user.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_02-grant.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_03-drop_user-create_user.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_04-alter_user-revoke-drop.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_05-creat_role.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_06-type.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_07-create_profile.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_08-alter_profile.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_09-N-ShenJi.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_09-N-ShuJuZiDian.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_09-alter_profile.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_10-audit.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_11-audit.sql
+/home/scr/lang/sql/oracle/syjc/sql/07system_security/7_12-audit.sql
