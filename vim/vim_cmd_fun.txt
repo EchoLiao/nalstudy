@@ -1,0 +1,13 @@
+1. cmd
+// 休息 50 毫秒
+:sleep 50m
+// 休息 4 秒
+:sleep 4
+
+2. fun
+// help usr_41
+getline(".")
+search("Date: ", "W")
+setline(".", repl)
+substitute(src_line, '\a', "*", "g")
+
