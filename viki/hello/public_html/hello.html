@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="author" content="NuoErlz">
 <meta name="language" content="zh_CN">
-<meta name="date" content="2010-09-11">
+<meta name="date" content="2010-09-22">
 <meta name="generator" content="deplate.rb 0.8.5">
 <title>ViKi 基本语法</title>
 <link rel="start" href="hello.html" title="Frontpage">
@@ -19,7 +19,7 @@
 <div class="title">
 <p class="title"><a href="ViKi.html">ViKi</a><a name="idx001"></a> 基本语法</p>
 <p class="author"><a href="NuoErlz.html">NuoErlz</a><a name="idx002"></a></p>
-<p class="date">11. Sep 2010</p>
+<p class="date">22. Sep 2010</p>
 </div>
 <div id="Table_of_Contents">
 <div id="Table_of_ContentsBlock" class="toc">
@@ -142,15 +142,16 @@ Verbatim&nbsp;环境都会被一个框包含起来，
 
 <h2 id="hd001005">1.5&nbsp;代码片段</h2>
 
-<div class="code">
-<span style="color: #a52a2a;">1 </span><span style="color: #a020f0;">#include </span><span style="color: #ff00ff;">&lt;iostream&gt;</span><br />
-<span style="color: #a52a2a;">2 </span><br />
-<span style="color: #a52a2a;">3 </span><span style="color: #2e8b57;"><b>int</b></span>&nbsp;main(<span style="color: #2e8b57;"><b>void</b></span>)<br />
-<span style="color: #a52a2a;">4 </span>{<br />
-<span style="color: #a52a2a;">5 </span>&nbsp;&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; <span style="color: #ff00ff;">&quot;Hello, world!&quot;</span>&nbsp;&lt;&lt; std::endl;<br />
-<span style="color: #a52a2a;">6 </span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a52a2a;"><b>return</b></span>&nbsp;<span style="color: #ff00ff;">0</span>;<br />
-<span style="color: #a52a2a;">7 </span>}<br />
-</div>
+<pre class="verbatim">
+#include&nbsp;&lt;iostream&gt;
+
+int&nbsp;main(void)
+{
+&nbsp;&nbsp;&nbsp;&nbsp;std::cout&nbsp;&lt;&lt;&nbsp;&quot;Hello,&nbsp;world!&quot;&nbsp;&lt;&lt;&nbsp;std::endl;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;
+}
+</pre>
+
 
 
 <h2 id="hd001006">1.6&nbsp;嵌入 HTML</h2>

@@ -1,22 +1,44 @@
-awk ' 
+# =#=# ======================================================================
+#
+#      Filename:  <filename>
+#         Usage:  <filename> infile1 ...
+#   Description:  对输入文件的大写缩写替换成对应的全称.
+#                 CICS ==> Customer Information Control System (CICS)
+#
+#       Version:  1.0
+#       Created:  2010年09月22日 16时53分55秒
+#    LastChange:  <date>
+#      Revision:  none
+#      Compiler:
+#
+#        Author:  nuoerlz (nuoliu), nuoerlz@gmail.com
+#       Company:  mhtt
+#
+#     CopyRight:  Reserve
+#
+# ===========================================================================
+
+awk '
 # load acronyms file into array "acro"
 FILENAME == "acronyms" {
 	split($0,entry,"\t")
 	acro[entry[1]]=entry[2]
 	next
-} 
-# read any input line containing caps 
+}
+
+# read any input line containing caps
 $0 ~ /[A-Z][A-Z]+/ {
 # loop through acronyms
-for ( acronym in acro )
-	# compare each field to acronym
-	for (i = 1; i <= NF; i++)
-		 if ( $i == acronym ) {
-			# if it matches, add description 
-			 $i = acro[acronym] " (" $i ")"
-			 #delete acro[acronym] 
-			}
+for ( acronym in acro ) #(for)
+    # compare each field to acronym
+    for (i = 1; i <= NF; i++)
+         if ( $i == acronym ) {
+                # if it matches, add description
+                 $i = acro[acronym] " (" $i ")"
+                 #delete acro[acronym]
+         }
 }
+
 {
 # print all lines
 print $0

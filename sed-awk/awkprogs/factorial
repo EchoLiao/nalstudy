@@ -1,12 +1,15 @@
-nawk ' BEGIN {
-	printf("Enter number: ")
+# Description: 求阶乘
+# (输入循环) (!~)
+
+awk ' BEGIN {
+    printf("Enter number: ")
 }
-$1 ~ /[0-9]+/ { 
-	number = $1
-	fact = number
-	for (x = number - 1 ; x > 1; x--)
-		fact *= x
-	printf("The factorial of %d is %g\n", number, fact)
-	exit
+$1 ~ /[0-9]+/ {
+    number = $1
+    fact = number
+    for (x = number - 1 ; x > 1; x--)
+        fact *= x
+    printf("The factorial of %d is %g\n", number, fact)
+    exit # 只要注释该行就可以实现多次输入
 }
 $1 !~ /[0-9]+/ { printf("\nInvalid entry. Enter a number: ") }' -
