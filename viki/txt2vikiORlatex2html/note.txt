@@ -1,0 +1,860 @@
+    <<NOTES>>
+(2010年 03月 23日 星期二 18:50:04 CST)
+#=============================================================================
+createProject
+http://code.google.com/hosting/createProject
+
+(2010年 03月 03日 星期三 21:21:08 CST)
+------------------------------------------------------------------------------
+Note:
+svn add 不能add.svn中记录有的目录或文件
+
+1. 用svn对vimfiles进行版本控制
+[~]$ mkdir -p /var/svn/repos
+[~]$ svnadmin create /var/svn/repos
+[~]$ mkdir -p /tmp/mp/{trunk,tags,branches}
+[~]$ mv -f /usr/local/share/vim/vimfiles/* /tmp/mp/trunk	    //*/
+[~]$ svn import /tmp/mp file:///var/svn/repos/vimfiles -m "initial import"
+[~]$ cd /usr/local/share/vim
+[~]$ svn checkout file:///var/svn/repos/vimfiles svn
+[~]$ ln -s svn/trunk vimfiles
+[~]$ cd svn
+......
+[~]$ svn commit -m "版本2"
+
+
+(2010年 03月 03日 星期三 22:47:25 CST)
+#=============================================================================
+2 用googlecode对vimfiles进行版本控制(svn)
+    1) home: http://code.google.com/p/nal-vimfiles/
+    2) if you plan to make changes,
+    if you plan to make changes, use this command to check out the code as
+    yourself using HTTPS:
+    // Project members authenticate over HTTPS to allow committing changes.
+    [~]$ svn checkout https://nal-vimfiles.googlecode.com/svn/trunk/ nal-vimfiles --username nuoerlz
+
+    密码:Zp3mQ2Cg2Zd3
+
+    When prompted, enter your generated googlecode.com password.
+
+    Use this command to anonymously check out the latest project source code:
+    // Non-members may check out a read-only working copy anonymously over HTTP.
+    [~]$ svn checkout http://nal-vimfiles.googlecode.com/svn/trunk/ nal-vimfiles-read-only
+    [~]$ cd /tmp/nal-vimfiles/
+    [~]$ cp -r /tmp/mp/* .                                              //*/
+    [~]$ svn add branches tags trunk
+    [~]$ svn add * --force
+    [~]$ svn commit -m "init ready"
+
+
+(2010年 03月 05日 星期五 14:21:18 CST)
+#=============================================================================
+3. yum insatll mplayer smplayer
+http://baixuewang.blog.163.com/blog/static/223872520091026105410297/
+http://blog.csdn.net/ajaxDreamer/archive/2009/08/21/4469862.aspx
+    1) 添加软件仓库
+    [~]$ rpm -ivh http://rpm.livna.org/livna-release.rpm
+    [~]$ rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+    [~]$ rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+
+    2) 使用yum安装mplayer smplayer
+    [~]$ yum install mplayer -y
+    [~]$ yum install -y smplayer
+
+
+(2010年 03月 05日 星期五 14:21:28 CST)
+#=============================================================================
+4. yum install amule
+[~]$ rpm -ivh http://www.webalice.it/iz0bbz/amule/repo/10/amuleSVNrepo-1-1.noarch.rpm
+[~]$ yum install amule amule-nogui -y
+
+
+(2010年 03月 05日 星期五 17:07:08 CST)
+#=============================================================================
+5. 用googlecode对vimf72进行版本控制(svn)
+http://code.google.com/hosting/
+http://code.google.com/p/my-nal-vim/
+Zp3mQ2Cg2Zd3
+If you plan to make changes, use this command to check out the code as yourself using HTTPS:
+# Project members authenticate over HTTPS to allow committing changes.
+[~]$ svn checkout https://my-nal-vim.googlecode.com/svn/trunk/ my-nal-vim --username nuoerlz
+
+When prompted, enter your generated googlecode.com password.
+
+Use this command to anonymously check out the latest project source code:
+# Non-members may check out a read-only working copy anonymously over HTTP.
+[~]$ svn checkout http://my-nal-vim.googlecode.com/svn/trunk/ my-nal-vim-read-only
+
+
+(2010年 03月 06日 星期六 15:35:55 CST)
+#=============================================================================
+6. mplayer\smplayer 播放rmvb有声音没图像
+1) 安装win32code
+2) ubuntu的Mplayer老是出现这样的错误.
+Error opening/initializing the selected video_out (-vo) device
+没有办法播放视频. 其实解决的方法很简单:
+打开MPLAYER.
+右击
+选择"preferences"->"Video"选项卡->在"Availabe Drivers"中选择"X11".
+点"OK"关闭设置. 重启Mplayer.
+打开个视频看看.
+
+3) smplayer只有声音没图像
+选项->常规->输出设备->视频(v)->X11
+
+
+(2010年 03月 10日 星期三 23:22:11 CST)
+#=============================================================================
+7. sudo的使用
+7.1. 配置sudo必须通过编辑/etc/sudoers文件
+Note:
+配置sudo必须要用visudo命令打开:
+
+[root ~]# visudo
+
+7.1.1  现在我们一起来看一下神秘的配置文件
+打开配置文件, 可以看到类似下面几行:
+# Runas alias specification# User privilege specification
+root ALL=(ALL) ALL
+
+表明root有所有权限. (用tab作为空白):
+
+7.1.2 修改
+foobar  localhost=	/sbin/ifconfig,   /bin/ls
+再来执行命令:
+[foobar@localhost ~]$ sudo head -5 /etc/shadow
+ Password:Sorry, user foobar is not allowed to execute '/usr/bin/head -5
+ /etc/shadow' as root on localhost.localdomain.
+[foobar@localhost ~]$ sudo /sbin/ifconfig eth0
+ Link encap:Ethernet  HWaddr 00:14:85:EC:E9:9B...
+
+Analysis:
+现在让我们来看一下那三个ALL到底是什么意思. 第1个ALL是指网络中的主机, 我们后面
+把它改成了主机名, 它指明 foobar可以在此主机上执行后面的命令. 第2个括号里的ALL
+是指目标用户, 也就是以谁的身份去执行命令. 最后1个 ALL当然就是指命令名了. 例如
+, 我们想让foobar用户在linux主机上以jimmy或rene的身份执行kill命令, 这样编写配置
+文件:
+
+7.1.3 再修改
+    foobar	linux=(jimmy,rene)	/bin/kill
+    Defaults:foobar	runas_default=rene	#默认为rene执行
+    foobar  localhost=NOPASSWD:     /bin/cat, /bin/ls	#不用每次都执行密码
+
+再来sudo一下:
+[foobar@localhost ~]$ sudo ls /rootanaconda-ks.cfg  Desktop  install.log
+install.log.syslog
+
+7.2 日志与安全
+sudo为安全考虑得很周到, 不仅可以记录日志, 还能在有必要时向系统管理员报告. 但是
+, sudo的日志功能不是自动的, 必须由管理员开启. 这样来做:
+[]# touch /var/log/sudo
+[]# vi /etc/syslog.conf
+
+在syslog.conf最后面加一行(必须用tab分割开)并保存:
+    local2.debug         	/var/log/sudo
+
+重启日志守候进程,
+[]# ps aux | grep syslogd
+
+把得到的syslogd进程的PID(输出的第二列是PID)填入下面:
+    kill -HUP PID
+
+这样, sudo就可以写日志了:
+
+[foobar@localhost ~]$ sudo ls /rootanaconda-ks.cfg  Desktop  install.log
+install.log.syslog$cat /var/log/sudoJul 28 22:52:54 localhost sudo:   foobar :
+TTY=pts/1 ; PWD=/home/foobar ; USER=root ; COMMAND=/bin/ls /root
+
+不过, 有一个小小的"缺陷", sudo记录日志并不是很忠实:
+[foobar@localhost ~]$ sudo cat /etc/shadow > /dev/null
+[foobar@localhost ~]$ cat /var/log/sudo
+   Jul 28 23:10:24 localhost sudo:   foobar : TTY=pts/1 ;
+PWD=/home/foobar ; USER=root ; COMMAND=/bin/cat /etc/shadow
+
+重定向没有被记录在案!为什么?因为在命令运行之前, shell把重定向的工作做完了,
+sudo根本就没看到重定向. 这也有个好处, 下面的手段不会得逞:
+[foobar@localhost ~]$ sudo ls /root > /etc/shadowbash: /etc/shadow: 权限不够
+
+sudo 有自己的方式来保护安全. 以root的身份执行sudo -V, 查看一下sudo的设置. 因为
+考虑到安全问题, 一部分环境变量并没有传递给sudo后面的命令, 或者被检查后再传递的
+, 比如: PATH, HOME,  SHELL等. 当然, 你也可以通过sudoers来配置这些环境变量.
+
+7.3 再谈sudo
+让普通用户安全执行管理员程序
+在多人共用一台电脑或管理局域网时, 常常会遇到这种情况: 普通用户必须执行某个命令
+, 比如关机. 但普通用户却不具备足够的权限, 而出于隐私和安全的考虑我们又不希望把
+root密码告诉别人.
+有两种方法可以解决这一问题:
+7.3.1 第一种方法suid或guid
+设置命令文件的suid, 可以使普通用户以此文件的拥有者的身份运行该程序
+, 具体命令为 chmod u+s file , file为你想让别人执行的文件. 还可以设置guid, 让用
+户以文件所属组的身份运行程序, 命令为 chmod g+s file.
+7.3.2 第二种方法是使用sudo程序
+它可以使某个用户以特定的身份去运行程序, 当然也能以
+root身份去运行, 它相比第一种方法更安全也便于维护. 在RedHat发行版的光盘里就有这
+个工具. 使用方法为, 在终端中输入visudo编辑sudoers文件, 在空白处添加以下四行:
+Host_Alias MYHOST=localhost
+User_Alias MYUSER=A的用户名, B的用户名
+Cmnd_Alias MYFILE=A和B要运行的程序路径
+MYUSER MYHOST=NOPASSWD: MYFILE
+注意大小写, 以后要增加新的程序或用户时, 直接更改前三行即可. 如果要让某个不知道
+root密码的用户具有全部权限, 除了运行某些危险程序(如格式化), 只需增加:
+Cmnd_Alias DANGER=危险程序的路径
+C的用户名 ALL=(ALL) NOPASSWD: ALL, !DANGER
+设置完成后, 和vi一样保存退出, 编辑器会自动检查你的语法是否正确, 如果出错按 e 可
+以回去修改. 然后该用户即可以"sudo+空格+某命令"的格式运行具体命令了. (佚名)
+
+
+(2010年 03月 11日 星期四 23:39:55 CST)
+#=============================================================================
+8. 在XMMS中享受APE
+APE是一种无损音乐压缩格式, 在Linux中的媒体播放器XMMS中享受它的高品质音乐, 需要
+编译monkey audio plugin For XMMS(本文以Fedora Core2发行版为例).
+先到下载页面http://supermmx.org/linux/mac/下载libxmms_mac-0.2.0.tar.gz
+mac-3.99-linux.tar.gz文件, 然后开始解压编译(在命令终端中):
+[~]# tar xzvf libxmms_mac-0.2.0.tar.gz
+[~]# tar xzvf mac-3.99-linux.tar.gz
+[~]# cd mac-3.99
+[~]# ./configure
+如果系统提示少了nasm,加载FC2-i386-disc2.iso(或第2张系统安装盘)装上它:
+[~]# rpm -ivh nasm-0.98.38-2.i386.rpm
+[~]# make
+[~]# sudo make install
+[~]# cd plugin
+[~]# ./configure
+如果发现无法找到xmms-config, 在FC2-i386-disc4.iso(或第4张系统安装盘)里找到
+xmms-devel装上:
+[~]# rpm -ivh xmms-devel-1.2.10-2.p.i386.rpm
+[~]# make
+[~]# sudo make install
+
+
+(2010年 03月 14日 星期日 23:01:53 CST)
+#=============================================================================
+9. 图形化 root 登陆
+Fedora 11 默认并不允许在 GDM 中以 root 登陆, 而必须使用正常用户登陆后在终端中成
+为 root 权限. 然后很多用户仍然想以 root 登陆. 虽然我不赞成但还是说一下怎么做.
+请不要忘记一旦你使用 root 登陆后会毁坏你的系统, 所以请不要输入下面的命令, 除非
+你知道你在做什么.
+打开终端输入:
+[~]# su -c 'gedit /etc/pam.d/gdm'
+[~]# su -c 'gedit /etc/pam.d/gdm-password'
+找到下面这行:
+auth required pam_succeed_if.so user != root quiet
+将这一行备注掉:
+#auth required pam_succeed_if.so user != root quiet
+保存这个文件后登出, 然后你就可以以 root 登陆了.
+
+
+(2010年 03月 21日 星期日 13:05:42 CST)
+#=============================================================================
+10. smplayer没声音解决办法
+smplaye 设置: 输出设备中的音频输出默认是pulse, 要改成alsa才行的, 否则部分avi和
+rmvb会没有声音.
+或者反过来!!
+
+
+(2010年 03月 21日 星期日 17:58:39 CST)
+#=============================================================================
+11. 网页视频没声音解决办法
+[~]# ps aux | grep pulseaudio (^ 查找该进程id ^)
+[~]# kill id (^ kill掉使其自动重新启动 ^)
+
+
+(2010年 03月 23日 星期二 18:51:58 CST)
+#=============================================================================
+12. minix study googlecode
+Zp3mQ2Cg2Zd3
+If you plan to make changes, use this command to check out the code as yourself using HTTPS:
+# Project members authenticate over HTTPS to allow committing changes.
+[~]# svn checkout https://minix-study.googlecode.com/svn/trunk/ minix-study --username nuoerlz
+
+When prompted, enter your generated googlecode.com password.
+
+Use this command to anonymously check out the latest project source code:
+# Non-members may check out a read-only working copy anonymously over HTTP.
+[~]# svn checkout http://minix-study.googlecode.com/svn/trunk/ minix-study-read-only
+
+
+13. 开机为文本界面由文本界面切换到图形界面
+开机为文本界面, 由文本界面切换到图形界面:
+    方法1: 运行命令
+          #startx ,  需要先配置图形界面信息, (暂时不会~) ;
+    方法2: 修改/etc/inittab文件中的
+          id:3:initdefault ,  将3改为5 , 重新启动系统;
+13.1
+真机环境中, 在图形界面和文本界面间切换:
+    Ctrl+Alt+F(n) , 其中F(n)为F1-F6 , 为6个控制台;
+    Ctrl+ALT+F7 ;
+13.2
+虚拟机环境, 在图形界面和文本界面间切换:
+VMWare虚拟机下, 由图形界面切换到文本界面, 和虚拟机设置有关, 默认VM占用
+  Ctrl+Alt为热键, 所以由图形界面切换到文本界面的组合键为:
+    Ctrl+Alt+Shift+F(n) , 其中F(n)为F1-F6 ;
+  由文本界面切换回图形界面的组合键为:
+    Alt+F7 ;
+  在文本界面不同控制台界面之间切换:
+    Alt+F(n) ,  其中F(n)为F1-F6, 为6个控制台;
+
+
+14. 把rm转换成avi视频
+[~]# sudo yum install mencoder
+
+使用方法:
+[~]# mencoder -ovc lavc basket.rm -oac mp3lame -o basket.avi
+
+
+15. firefox
+
+15.1 禁止firefox在网络断线时自动转换为脱机状态的方法:
+在地址栏里输入: about:config
+把toolkit.networkmanager.disable的值设为true
+
+15.2 npviewer.bin进程占用cpu过高
+表现:	    使用firefox上网时, 使用Rhythmbox听音乐, 发现滚轮转动时, 网页很卡,
+	    top一下, 发现npviewer.bin占用了43％的CPU.
+解决方法:   firefox安装flashblock插件. 这时npviewer进程没有了. 这时网页上的
+	    flash都变成了图标, 如果想看内容要点击才行.
+参考:	    http://www.linuxsir.com/bbs/lastpostinthread346660.html
+
+15.2 安装扩展 FireMule 链接 (未测试成功)
+在windows下,你需要安装电骡或电驴, 这个链接是为这些软件用的. 在一些情况下, 可能
+需要安装扩展 FireMule.
+如果您使用linux,用的是xMule一样的软件, 那么你可以这样做
+
+ 1. 在地址栏输入about:config, 进入配置页面.
+ 2. 在列表上单击右键, 新建一个布尔值(Boolean)值, 名字是
+    network.protocol-handler.external.ed2k, 赋值为true.
+ 3. 再新建一个字符串值(String), 名字是network.protocol-handler.app.ed2k, 赋值
+    为你的启动程序, 例如 "/usr/bin/amule".
+这样, 当点出ed2k:   //的链接时, 就会把地址加入相应软件了.
+
+
+15.3 firefox plugins
+
+15.3.1 Line Marker 批注
+
+1) 网址, 教程
+    Adds a new menu "Line Marker" to the context menu. It changes color of
+    selection.  Status of markers are saved to your profile.
+    https://addons.mozilla.org/zh-CN/firefox/addon/1931/
+    http://piro.sakura.ne.jp/xul/_linemarker.html.en
+    http://piro.sakura.ne.jp/xul/xul.html.en
+
+2)  配置文件:
+    /home/scr/.mozilla/firefox/zuq4l4dk.default/linemarker.rdf
+    /home/scr/.mozilla/firefox/zuq4l4dk.default/linemarker.txt
+
+
+
+17. 开机启动速度超级的慢 停留在sendmail启动的那个阶段的解决方法
+service sendmail restart
+解决办法:
+修改 /etc/hosts 文件, 在 127.0.0.1 行未加上主机名(hostname 命令显示的主机名):
+[scr ~]$ hostname
+nuoaila
+
+修改前:
+ 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+修改后:
+ 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 nuoaila
+
+
+18. fedora11 没声音的解决办法
+卸载pulseaudio:
+[]# yum -y erase pulseaudio
+
+
+19. 配置环境变量
+19.1 修改用户环境变量
+假设使用java的用户为 kunp, 编辑该用户的.bashrc文件进行环境变量设置.
+在 .bashrc文件中加入:
+[~]# vi /home/kunp/.bashrc
+export JAVA_HOME=/usr/java/j2sdk1.4.2_04
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin
+
+在该文件中加入:
+19.2 修改所有用户的环境变量
+[~]# vi /etc/profile
+export JAVA_HOME=/usr/java/j2sdk1.4.2_04
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
+
+Note:
+如果是以root身份登陆的, 只用做第二步就可以了, 因为它已经包含了第一步的设置.
+
+还有一点要注意的就是, 在改动过之后如果要测试是否成功, 要重新启动一次机器才可以
+哦, 我就是因为没有重起, 所以输入java -version一直提示没有成功, 害我郁闷了老久.
+
+
+
+20. error notes
+
+20.1 linux 下执行.sh文件总是提示permission denied
+
+1) 增加执行权限
+    [~]# chmod 777 *.sh
+
+2) 设置selinux
+    在linux上安装有些东西时会出现 Permission denied 的情况: 以下就是解决它的办
+    法之一:
+    // 编辑 /etc/selinux/config , 找到这段:
+    SELINUX=enforcing
+    // 把 SELINUX=enforcing 注释掉: #SELINUX=enforcing , 然后新加一行为:
+    SELINUX=disabled
+    // 保存, 关闭.
+
+# ......
+
+    // 编辑/etc/sysconfig/selinux, 找到:
+    SELINUX=enforcing
+    // 如果SELINUX已经是 SELINUX=disabled, 那么就不用改了, 否则就把
+    // SELINUX=enforcing 注释掉, 新加一行:
+    SELINUX=disabled
+    // 保存, 退出.
+
+
+21. kernel
+
+21.1 加载模块的方法
+// 执行命令
+[~]# insmod hello.ko
+
+// 同时在另一个窗口,用命令察看日志文件,你会看到
+[~]# tail -f /var/log/messages
+Hello world
+
+// 再执行命令,
+[~]# rmmod hello.ko
+// 此时,在另一窗口你会看到 Goodbye,cruel world!被打印了出来.
+
+
+22. vim
+
+22.1 vim-latex
+
+22.1.1 latex2html
+增加文件: ~/.latex2html-init
+
+
+
+77. tcpdump的安装
+在linux下tcpdump的安装十分简单, 一般由两种安装方式. 一种是以rpm包的形式来进行
+安装. 另外一种是以源程序的形式安装.
+77.1 rpm包的形式安装
+[~]# rpm -ivh tcpdump-3_4a5.rpm
+
+这样tcpdump就顺利地安装到你的linux系统中. 怎么样, 很简单吧.
+77.2 源程序的安装
+      #tar xvfz tcpdump-3_4a5.tar.Z
+    rpm的包可以使用如下命令安装:
+      #rpm -ivh tcpdump-3_4a5.src.rpm
+    这样就把tcpdump的源代码解压到/usr/src/redhat/SOURCES目录下.
+第二步 做好编译源程序前的准备活动
+在编译源程序之前, 最好已经确定库文件libpcap已经安装完毕, 这个库文件是tcpdump软
+件所需的库文件 . 同样, 你同时还要有一个标准的c语言编译器. 在linux下标准的c 语
+言编译器一般是gcc.  在tcpdump的源程序目录中. 有一个文件是Makefile.in,
+configure命令就是从Makefile.in文件中自动产生Makefile文件. 在Makefile.in文
+件中, 可以根据系统的配置来修改BINDEST 和 MANDEST 这两个宏定义, 缺省值是
+       BINDEST = @sbindir@
+       MANDEST = @mandir@
+
+第一个宏值表明安装tcpdump的二进制文件的路径名, 第二个表明tcpdump的man 帮助页的
+路径名,你可以修改它们来满足系统的需求.
+第三步 编译源程序
+使用源程序目录中的configure脚本, 它从系统中读出各种所需的属性. 并且根据
+Makefile.in文件自动生成Makefile文件, 以便编译使用.make 命令则根据Makefile文件
+中的规则编译tcpdump的源程序. 使用make install命令安装编译好的tcpdump的二进制文
+件.
+总结一下就是:
+[~]# tar xvfz tcpdump-3_4a5.tar.Z
+[~]# vi Makefile.in
+[~]# . /configure
+[~]# make
+[~]# make install
+关于tcpdump更详细的信息, 请查看Man tcpdump.
+
+
+
+100. java-tomcat
+
+100.1 配置tomcat环境 使可以运行jsp
+100.1.1 安装jdk
+
+100.1.2 配置jdk
+在 /etc/profile 文件中加入:
+export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
+export PATH=$PATH:$JAVA_HOME/bin
+
+100.1.3 安装tomcat
+sudo yum -y install tomcat6*
+
+100.1.4 配置tomcat
+在 /etc/profile 文件中加入:
+export JASPER_HOME=/usr/share/tomcat6
+export CATALINA_TMPDIR=/usr/share/tomcat6/temp
+export JAVA_ENDORSED_DIRS=/usr/share/tomcat6/common/endorsed
+
+100.2 配置使用 JSTL :
+100.2 要使用JSTL必须要有jstl.jar和standard.jar 使用jstl-xml还要有serializer.jar和xalan.jar
+Note:
+为了使得所有的程序都可用, 请把它们放到 %TOMCAT_HOME%/common/lib 目录下.
+
+100.2.1 安装 jstl.jar 和 standard.jar
+从 jakarta-taglibs-standard-1.1.2.zip 解压出该两文件放到 WEB-INF/lib/ 目录下.
+
+100.2.2 安装 serializer.jar 和 xalan.jar
+从 xalan-j_2_7_1-bin.zip 解压出该两文件放到 WEB-INF/lib/ 目录下.
+
+100.3 配置使用 JSF
+100.3.1 所需要的 jar 包:
+1) Six JSF JARs:
+    commons-beanutils.jar, commons-collections.jar,
+    commons-digester.jar, commons-logging.jar, jsf-api.jar,
+    jsf-impl.jar
+2) Two JSTL JARs:
+    jstl.jar, standard.jar
+
+100.3.2 经测试得出必须要有的包为:
+    myfaces-api-2.0.0.jar
+    myfaces-impl-2.0.0.jar
+    jstl.jar
+    standard.jar
+
+javac -classpath \
+/usr/share/tomcat6/lib/jsp-api.jar:/usr/share/tomcat6/lib/servlet-api.jar:\
+/home/scr/book/JSP/Pro_JSP_e3/code-e4/jsf/myfaces-impl-2.0.0.jar:\
+/home/scr/book/JSP/Pro_JSP_e3/code-e4/jsf/myfaces-api-2.0.0.jar:\
+ -d WEB-INF/classes/ src/com/apress/projsp/*.java
+//*/
+
+100.3.3 FAQ
+Error:
+HTTP Status 404 - Servlet Faces Servlet is not available
+
+type Status report
+
+message Servlet Faces Servlet is not available
+
+description The requested resource (Servlet Faces Servlet is not available) is not available.
+Apache Tomcat/6.0.20
+
+Analysis:
+Note:
+用目录的软链接方式是无效的!!!!!
+
+[scr WEB-INF]$ pwd
+/home/scr/book/JSP/Pro_JSP_e3/code-e4/Chapter05/Jsf02/WEB-INF
+[scr WEB-INF]$ ln -s ../../Jsf01/WEB-INF/lib/ lib
+
+
+
+
+
+
+
+
+
+100.20 编译出错处理记录
+
+100.20.1 软件包 javax.servlet 不存在
+Error:
+[javac] /home/scr/projsp/ErrorServlet.java:4:软件包javax.servlet 不存在
+
+Analysis:
+Linux中安装的tomcat6的servlet包是tomcat6-servlet-2.5-api-6.0.20.jar, 而不是
+servlet-api.jar
+
+Solution 1:
+1)  建立软链接
+[root lib]$ pwd
+/usr/share/tomcat6/lib
+[root lib]$ ln -s tomcat6-servlet-2.5-api-6.0.20.jar servlet-api.jar
+
+
+2)  使用 javac 的 -classpath 选项:
+[scr ~]$ javac -classpath /usr/share/tomcat6/lib/jsp-api.jar:/usr/share/tomcat6/lib/servlet-api.jar -d WEB-INF/classes/ src/com/apress/projsp/*.java
+
+
+100.20.2 软件包 javax.servlet.jsp 不存在
+Error:
+[javac] /home/scr/book/Functions.java:9: 软件包 javax.servlet.jsp 不存在
+
+Solution 1:
+1)  建立软链接
+[root lib]$ pwd
+/usr/share/tomcat6/lib
+[root lib]$ ln -s tomcat6-jsp-2.1-api-6.0.20.jar  jsp-api.jar
+
+2)  使用 javac 的 -classpath 选项:
+[scr ~]$ javac -classpath /usr/share/tomcat6/lib/jsp-api.jar:/usr/share/tomcat6/lib/servlet-api.jar -d WEB-INF/classes/ src/com/apress/projsp/*.java
+
+
+100.20.3 java.lang.NoClassDefFoundError: javax/ > > el/ELResolver 04/13/2009
+Error:
+javax.servlet.ServletException: java.lang.NoClassDefFoundError: javax/ > > el/ELResolver 04/13/2009
+ 0 Comment(s)
+
+Analysis
+Our testing phase was going one and I got a bug. To solve that I installed
+fresh copy of tomcat 6.0.18. When I ran the server this was what I was getting
+on the screen. Server console was showing everything ok, but UI was showing
+this exception.
+
+Solution:
+So, if You ever get this exception, here is the check list that You all need
+to check.
+1) check that You have set environment variable CATALINA_HOME to the tomcat home.
+2) You have el-api.jar in tomcat's lib directory.
+3) Make sure that there are no older versions of servlet-api.jar and // Note
+   jsp-api.jar files on the classpath.
+4) Web.xml is correct and not having any incomplete tag.
+   These are all the things that You need to check and most of the times, You
+   will  end up with exception gone.
+
+
+
+
+
+
+
+
+1000. last
+1000.1 开机启动项
+1000.1.1 新增
+1000.1.2 新减
+qbittorrent
+stardict
+
+#=============================================================================
+#=============================================================================
+Note:
+#=============================================================================
+#=============================================================================
+(2010年 03月 05日 星期五 20:46:38 CST)
+#=============================================================================
+1001. Bash Shell 快捷键
+CTRL 键
+Ctrl + b - Move back a char
+Ctrl + f - Move forward a char
+Ctrl + h - 删除当前字符
+Ctrl + u - Delete backward from cursor // 密码输入错误的时候比较有用
+Ctrl + xx - Move between EOL and current cursor position
+    Ctrl + a - Jump to the start of the line
+    Ctrl + c - Terminate the command  //用的最多了吧?
+    Ctrl + d - Delete from under the cursor
+    Ctrl + e - Jump to the end of the line
+    Ctrl + k - Delete to EOL
+    Ctrl + l - Clear the screen  //清屏, 类似 clear 命令
+    Ctrl + R - Search the history backwards with multi occurrence
+    Ctrl + r - Search the history backwards  //查找历史命令
+    Ctrl + w - 删除最后输入的单词
+    Ctrl + z - Suspend/ Stop the command
+        Ctrl + x @ - Show possible hostname completions
+
+ALT 键
+Alt + b - Move backward
+Alt + c - Capitalize the word (^ 首字母大写 ^)
+Alt + d - Delete word
+Alt + f - Move forward
+Alt + l - Make word lowercase
+Alt + r - Recall command (^ Ctrl + u ????? ^)
+Alt + t - Move words around (^ Esc + t ^)
+Alt + u - Make word uppercase
+Alt + . - Yank last argument to previous command
+    Alt + / - Attempt to complete filename
+    Alt + * - Insert all possible completions
+        Alt + back-space - Delete backward from cursor
+        Alt + < - Move to the first line in the history
+        Alt + > - Move to the last line in the history
+        Alt + n - Search the history forwards non-incremental
+        Alt + p - Search the history backwards non-incremental
+        Alt + ? - Show current completion list
+
+// SecureCRT 如果没有配置好, 这个就很管用了.
+
+其他特定的键绑定:
+输入 bind -P 可以查看所有的键盘绑定. 这一系列我觉得更为实用.
+Here "2T" means Press TAB twice
+$ 2T - All available commands(common) //命令行补全, 我认为是 Bash 最好用的一点
+$ (string)2T - All available commands starting with (string)
+$ /2T - Entire directory structure including Hidden one
+$ ./2T - Only Sub Dirs inside including Hidden one
+$ *2T - Only Sub Dirs inside without Hidden one
+$ ~2T - All Present Users on system from "/etc/passwd" //第一次见到, 很好用
+$ $2T - All Sys variables //写Shell脚本的时候很实用
+$ @2T - Entries from "/etc/hosts"  //第一次见到
+$ =2T - Output like ls or dir //好像还不如 ls 快捷
+补充:
+Esc + T - 交换光标前面的两个单词
+
+(2010年 03月 07日 星期日 02:17:29 CST)
+#=============================================================================
+fcitx 开机自动启动的方法:(还没有测试)
+新建:
+~/.xinput.d/default
+在其中输入:
+XMODIFIERS="@im=fcitx"
+XIM=fcitx
+XIM_PROGRAM=fcitx
+
+
+
+
+
+
+
+
+
+
+
+
+1002. Oracle 10g linux 安装笔记
+一. 新建用户及目录
+
+  1. 新建用户组
+[~]# /usr/sbin/groupadd oinstall
+[~]# /usr/sbin/groupadd dba
+
+  2. 新建用户并设置密码
+[~]# /usr/sbin/useradd -g oinstall -G dba oracle
+[~]# passwd oracle
+
+  3. 建立目录(以可以在一个目录下分两个子目录)
+ /ora10g/app/oracle
+ /ora10b/oradata
+
+  4.设置目录权权限
+[~]# chown -R oracle:oinstall /ora10g/app/oracle /ora10b/oradata
+[~]# chmod -R 775 /ora10g/app/oracle /ora10b/oradata
+
+二. 配置内核参数
+  1.  检查内核参数如下表, 当前系统参数值因该大于等于:
+==============================================================================
+Parameter		|Value		|		File|查看命令
+-----------------+---------------+-------------------------------+------------
+semmsl		|250|/proc/sys/kernel/sem|#/sbin/sysctl-a|grepsem
+semmns		|32000		|		|
+semopm		|100		|		|
+semmni		|128		|		|
+-----------------+---------------+-------------------------------+------------
+shmall	|2097152		|/proc/sys/kernel/shmall|#/sbin/sysctl-a|grepshm
+-----------------+---------------+-------------------------------+------------
+shmmax		|物理内存的一半|/proc/sys/kernel/shmmax		|
+-----------------+---------------+-------------------------------+------------
+shmmni		|4096		|/proc/sys/kernel/shmmni|
+-----------------+---------------+-------------------------------+------------
+file-max	|65536		|/proc/sys/fs/file-max|#/sbin/sysctl-a|grepfile-max
+-----------------+---------------+-------------------------------+------------
+ip_local_port_range|102465000|/proc/sys/net/ipv4/ip_local_port_range|#sysctl-a|grepip_local_port_range
+=================+===============+============================================
+  如果有任何的不同, 修改内核配置文件/etc/sysctl.conf ,运行#/sbin/sysctl -p 使配置立即生效.
+
+三. 设置Oracle用户的Shell限制
+=============================================+===============+================
+ShellLimit|Iteminlimits.conf|HardLimit
+---------------------------------------------+---------------+----------------
+Maximumnumberofopenfiledescriptors|nofile		|65536
+---------------------------------------------+---------------+----------------
+Maximumnumberofprocessesavailabletoasingleuser|nproc		|16384
+=============================================+===============+================
+
+将下列配置加到 /etc/security/limits.conf 文件中:
+*		 soft    nproc   2047
+*		 hard    nproc   16384
+*		 soft    nofile  1024
+*		 hard    nofile  65536
+增加下列配置到 /etc/pam.d/login  文件中:
+session    required     /lib/security/pam_limits.so
+对于单独使用Oracle用户的shell,增加下列脚本到配置文件/etc/profile 中:
+if [ $USER = "oracle" ]; then
+        if [ $SHELL = "/bin/ksh" ]; then
+		ulimit -p 16384
+		ulimit -n 65536
+        else
+		ulimit -u 16384 -n 65536
+        fi
+fi
+
+四. 设置用户oracle的环境变量
+ 1. 以用户oracle登录:
+    在配置文件.bash_profile文件中增加: umask 022  设置该用户的默认umask
+    执行$ . ./.bash_profile 配置生效.
+ 2. 设置临时文件目录
+    $ TEMP=/directory
+    $ TMPDIR=/directory
+    $ export TEMP TMPDIR
+ 3. 如果不是本地安装, 设置DISPLAY变量, 使X窗口能显示在当前系统中
+    $ DISPLAY=your IP:0.0 ; export DISPLAY
+ 4. 设置ORACLE_BASE和ORACLE_SID变量
+    $ ORACLE_BASE= /ora10g/app/oracle      //这是在前面建立的Oracle的主程序目录
+    $ ORACLE_SID=sales
+    $ export ORACLE_BASE ORACLE_SID
+ 5. 确认ORACLE_HOME和TNS_ADMIN环境变量没有设置, 如有设置用 unset ORACLE_HOME 删除
+
+五. 开始吧, 前面的活不能白干吧
+ 运行runInstaller开始安装
+      安装FAQ: 如果提示权限不够, 直接用oracel用户登录启动X, 不要用root启动在su -oracle的方式切换用户.
+		提示不能显示X窗口这样提示, 检查前面的DISPLAY设置.
+		当出现的窗口显示的是乱码时, 改下列环境变量:
+		     $ export LANG=en_US.UTF-8
+		     $ export LC_CTYPE=en_US.UTF-8
+		安装Oracle 10g对linux的版本有要求, 可用下面的参数跳过10g对支持系统的检查:
+		     runInstall -ignoreSysPrereqs
+		ps:开始在FC5上安装不知道这个参数, 过不去, 又重装了一个红旗DC4, 才装上了 ^_^.
+
+六. 开始安装
+    1. 输入cd-key以后选择安装目录和用户组, 如果前面的环境变量设置正确, 这是目录应该在设定的Oracle目录下, 用户组为oinstall.
+    2.点下一步后会弹出一个窗口提示运行orainstRoot.sh的脚本. 这时开一个终端以root运行后, 点继续
+    3. 点两次next, 出现选择安装类型, 在点next, 开始检查安装需要的条件, 完成后点next.
+    4.选择建立一个一般数据库, 在点next.
+    5. 前面我们设的ORACLE_SID出现在数据库名中, 选择相应的字符集后next.在这里我们选上建立一个例子数据库.
+    6. 点两次next,选择安装数据库的位置, 选择我们前面建立的/ora10g/oradata
+    7.点两次next输入管理用户的密码后next.
+    8.确认选择无误后点install,开始安装
+    9. 安装完成后弹出一个窗口, 其中显示用管理工具的URL, 点OK后弹出一个提示要求运行root.sh脚本.
+  OK, 安装结束
+
+
+安装完成后会显示类式下面的一些工具的URL,
+Ultra Search URL:
+http://localhost.localdomain:5620/ultrasearch
+
+Ultra Search Administration Tool URL:
+http://localhost.localdomain:5620/ultrasearch/admin
+
+iSQL*Plus URL:
+http://localhost.localdomain:5560/isqlplus
+
+Enteprise Manager 10g Database Control URL:
+http://localhost.localdomain:5500/em
+
+
+七. 启动和停止数据库及工具
+用oracle用户登录后设置下列变量
+export ORACLE_BASE=/ora10g/app/oracle
+export ORACLE_SID=sales
+export ORACLE_HOME=$ORACLE_BASE/product/10.1.0/db_1
+export PATH=$PATH:$ORACLE_HOME/bin
+
+启动和停止监听:
+    lsnrctl start
+    lsnrctl stop
+
+启动和停止Oracle Enterprise Manager:
+   emctl start dbconsole
+   emctl stop dbconsole
+
+启动和停止iSQL*Plus
+    isqlplusctl start
+    isqlplusctl stop
+
+启动和停止数据库
+  启动:
+   sqlplus
+   Enter usr-name: / as syadba
+   SQL>startup
+  停止:
+   SQL>shutdown immediate

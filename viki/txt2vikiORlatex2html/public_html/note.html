@@ -1,0 +1,1835 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="zh_CN">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="NuoErlz">
+<meta name="language" content="zh_CN">
+<meta name="date" content="2010-09-22">
+<meta name="generator" content="deplate.rb 0.8.5">
+<title>NOTES</title>
+<link rel="start" href="note.html" title="Frontpage">
+<link rel="chapter" href="note.html#hd001" title="1 用svn对vimfiles进行版本控制">
+<link rel="chapter" href="note.html#hd002" title="2 用googlecode对vimfiles进行版本控制(svn)">
+<link rel="chapter" href="note.html#hd003" title="3 yum insatll mplayer smplayer">
+<link rel="chapter" href="note.html#hd004" title="4 yum install amule">
+<link rel="chapter" href="note.html#hd005" title="5 用googlecode对vimf72进行版本控制(svn)">
+<link rel="chapter" href="note.html#hd006" title="6 mplayersmplayer 播放rmvb有声音没图像">
+<link rel="chapter" href="note.html#hd007" title="7 sudo的使用">
+<link rel="chapter" href="note.html#hd008" title="8 在XMMS中享受APE">
+<link rel="chapter" href="note.html#hd009" title="9 图形化 root 登陆">
+<link rel="chapter" href="note.html#hd0010" title="10 smplayer没声音解决办法">
+<link rel="chapter" href="note.html#hd0011" title="11 网页视频没声音解决办法">
+<link rel="chapter" href="note.html#hd0012" title="12 minix study googlecode">
+<link rel="chapter" href="note.html#hd0013" title="13 开机为文本界面由文本界面切换到图形界面">
+<link rel="chapter" href="note.html#hd0014" title="14 把rm转换成avi视频">
+<link rel="chapter" href="note.html#hd0015" title="15 firefox">
+<link rel="chapter" href="note.html#hd0016" title="16 开机启动速度超级的慢 停留在sendmail启动的那个阶段的解决方法">
+<link rel="chapter" href="note.html#hd0017" title="17 fedora11 没声音的解决办法">
+<link rel="chapter" href="note.html#hd0018" title="18 配置环境变量">
+<link rel="chapter" href="note.html#hd0019" title="19 error notes">
+<link rel="chapter" href="note.html#hd0020" title="20 kernel">
+<link rel="chapter" href="note.html#hd0021" title="21 vim">
+<link rel="chapter" href="note.html#hd0022" title="22 tcpdump的安装">
+<link rel="chapter" href="note.html#hd0023" title="23 java-tomcat">
+<link rel="chapter" href="note.html#hd0024" title="24 last">
+<link rel="chapter" href="note.html#hd0025" title="25 Oracle 10g linux 安装笔记">
+<link rel="stylesheet" type="text/css" href="moon.css" title="moon" media="screen">
+<link rel="stylesheet" type="text/css" href="bright.css">
+</head>
+<body >
+<a name="#pagetop"></a>
+
+<center> <div class="tabBodyFrame" style="max-width:650pt; text-align:left"> <div class="tabBody">
+<div class="title">
+<p class="title">NOTES</p>
+<p class="author"><a href="NuoErlz.html">NuoErlz</a><a name="idx001"></a></p>
+<p class="date">22. Sep 2010</p>
+</div>
+<div id="Table_of_Contents">
+<div id="Table_of_ContentsBlock" class="toc">
+<h1 class="toc">Ŀ¼</h1>
+<ul class="toc">
+    <li class="Itemize-1 toc">
+        <a href="#hd001" class="toc">1 用svn对vimfiles进行版本控制</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd002" class="toc">2 
+        用googlecode对vimfiles进行版本控制(svn)</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd003" class="toc">3 yum insatll mplayer smplayer</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd004" class="toc">4 yum install amule</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd005" class="toc">5 
+        用googlecode对vimf72进行版本控制(svn)</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd006" class="toc">6 mplayersmplayer 
+        播放rmvb有声音没图像</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd007" class="toc">7 sudo的使用</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd007001" class="toc">7.1 
+                配置sudo必须通过编辑/etc/sudoers文件</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd007001001" class="toc">7.1.1 
+                        现在我们一起来看一下神秘的配置文件</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd007001002" class="toc">7.1.2 修改</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd007001003" class="toc">7.1.3 再修改</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd007002" class="toc">7.2 日志与安全</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd007003" class="toc">7.3 再谈sudo</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd007003001" class="toc">7.3.1 第一种方法suid或guid</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd007003002" class="toc">7.3.2 
+                        第二种方法是使用sudo程序</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd008" class="toc">8 在XMMS中享受APE</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd009" class="toc">9 图形化 root 登陆</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0010" class="toc">10 smplayer没声音解决办法</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0011" class="toc">11 网页视频没声音解决办法</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0012" class="toc">12 minix study googlecode</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0013" class="toc">13 
+        开机为文本界面由文本界面切换到图形界面</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0014" class="toc">14 把rm转换成avi视频</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0015" class="toc">15 firefox</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0015001" class="toc">15.1 
+                禁止firefox在网络断线时自动转换为脱机状态的方法:</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0015002" class="toc">15.2 
+                npviewer.bin进程占用cpu过高</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0015003" class="toc">15.3 安装扩展 FireMule 链接 
+                (未测试成功)</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0015004" class="toc">15.4 firefox plugins</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0015004001" class="toc">15.4.1 Line Marker 批注</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0016" class="toc">16 开机启动速度超级的慢 
+        停留在sendmail启动的那个阶段的解决方法</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0017" class="toc">17 fedora11 没声音的解决办法</a>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0018" class="toc">18 配置环境变量</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0018001" class="toc">18.1 修改用户环境变量</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0018002" class="toc">18.2 
+                修改所有用户的环境变量</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0019" class="toc">19 error notes</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0019001" class="toc">19.1 linux 
+                下执行.sh文件总是提示permission denied</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0020" class="toc">20 kernel</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0020001" class="toc">20.1 加载模块的方法</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0021" class="toc">21 vim</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0021001" class="toc">21.1 vim-latex</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0021001001" class="toc">21.1.1 latex2html</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0022" class="toc">22 tcpdump的安装</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0022001" class="toc">22.1 rpm包的形式安装</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0022002" class="toc">22.2 源程序的安装</a>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0023" class="toc">23 java-tomcat</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0023001" class="toc">23.1 配置tomcat环境 
+                使可以运行jsp</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023001001" class="toc">23.1.1 安装jdk</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023001002" class="toc">23.1.2 配置jdk</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023001003" class="toc">23.1.3 安装tomcat</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023001004" class="toc">23.1.4 配置tomcat</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0023002" class="toc">23.2 配置使用 JSTL :</a>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0023003" class="toc">23.3 
+                要使用JSTL必须要有jstl.jar和standard.jar 
+                使用jstl-xml还要有serializer.jar和xalan.jar</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023003001" class="toc">23.3.1 安装 jstl.jar 和 
+                        standard.jar</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023003002" class="toc">23.3.2 安装 serializer.jar 和 
+                        xalan.jar</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0023004" class="toc">23.4 配置使用 JSF</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023004001" class="toc">23.4.1 所需要的 jar 包:</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023004002" class="toc">23.4.2 
+                        经测试得出必须要有的包为:</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023004003" class="toc">23.4.3 FAQ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="Itemize-3 toc">
+                <a href="#hd0023005" class="toc">23.5 编译出错处理记录</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023005001" class="toc">23.5.1 软件包 javax.servlet 
+                        不存在</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023005002" class="toc">23.5.2 软件包 javax.servlet.jsp 
+                        不存在</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0023005003" class="toc">23.5.3 
+                        java.lang.NoClassDefFoundError: javax/ &gt; &gt; el/ELResolver 
+                        04/13/2009</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0024" class="toc">24 last</a>
+        <ul class="toc">
+            <li class="Itemize-3 toc">
+                <a href="#hd0024001" class="toc">24.1 开机启动项</a>
+                <ul class="toc">
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0024001001" class="toc">24.1.1 新增</a>
+                    </li>
+                    <li class="Itemize-5 toc">
+                        <a href="#hd0024001002" class="toc">24.1.2 新减</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="Itemize-1 toc">
+        <a href="#hd0025" class="toc">25 Oracle 10g linux 安装笔记</a>
+    </li>
+</ul>
+</div></div>
+<a name="file000"></a>
+<p>createProject</p>
+
+<p><span class="remote"><a href="http://code.google.com/hosting/createProject" class="remote">http://code.google.com/hosting/createProject</a></span></p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<span style="background-color: #ffff00"><font color="#0000ff">
+Note:</font></span>
+svn add 不能add.svn中记录有的目录或文件
+
+<h1 id="hd001">1&nbsp;用svn对vimfiles进行版本控制</h1>
+
+<div class="code">
+<span style="color: #a52a2a;">&nbsp;1 </span><span style="color: #a52a2a;"><b>[~]$ mkdir -p /var/svn/repos</b></span><br />
+<span style="color: #a52a2a;">&nbsp;2 </span><span style="color: #a52a2a;"><b>[~]$ svnadmin create /var/svn/repos</b></span><br />
+<span style="color: #a52a2a;">&nbsp;3 </span><span style="color: #a52a2a;"><b>[~]$ mkdir -p /tmp/mp/{trunk,tags,branches}</b></span><br />
+<span style="color: #a52a2a;">&nbsp;4 </span><span style="color: #a52a2a;"><b>[~]$ mv -f /usr/local/share/vim/vimfiles/* /tmp/mp/trunk</b></span><br />
+<span style="color: #a52a2a;">&nbsp;5 </span><span style="color: #a52a2a;"><b>[~]$ svn import /tmp/mp file:///var/svn/repos/vimfiles -m &quot;initial import&quot;</b></span><br />
+<span style="color: #a52a2a;">&nbsp;6 </span><span style="color: #a52a2a;"><b>[~]$ cd /usr/local/share/vim</b></span><br />
+<span style="color: #a52a2a;">&nbsp;7 </span><span style="color: #a52a2a;"><b>[~]$ svn checkout file:///var/svn/repos/vimfiles svn</b></span><br />
+<span style="color: #a52a2a;">&nbsp;8 </span><span style="color: #a52a2a;"><b>[~]$ ln -s svn/trunk vimfiles</b></span><br />
+<span style="color: #a52a2a;">&nbsp;9 </span><span style="color: #a52a2a;"><b>[~]$ cd svn</b></span><br />
+<span style="color: #a52a2a;">10 </span>......<br />
+<span style="color: #a52a2a;">11 </span><span style="color: #a52a2a;"><b>[~]$ svn commit -m &quot;版本2&quot;</b></span><br />
+</div>
+
+
+<h1 id="hd002">2&nbsp;用googlecode对vimfiles进行版本控制(svn)</h1>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        home: 
+        <span class="remote"><a href="http://code.google.com/p/nal-vimfiles/" class="remote">http://code.google.com/p/nal-vimfiles/</a></span>
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        if you plan to make changes,
+        <br class="itempara" />if you plan to make changes, use this command to check out the code as
+        <br class="itempara" />yourself using HTTPS:
+        <br class="itempara" />// Project members authenticate over HTTPS to allow committing changes.
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ svn checkout <a href="https://nal-vimfiles.googlecode.com/svn/trunk/">https://nal-vimfiles.googlecode.com/svn/trunk/</a> nal-vimfiles --username nuoerlz</b></span><br />
+</div>
+<p>密码:Zp3mQ2Cg2Zd3</p>
+
+<p>When prompted, enter your generated googlecode.com password.</p>
+
+<p>Use this command to anonymously check out the latest project source code:</p>
+
+<p>// Non-members may check out a read-only working copy anonymously over 
+HTTP.</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ svn checkout <a href="http://nal-vimfiles.googlecode.com/svn/trunk/">http://nal-vimfiles.googlecode.com/svn/trunk/</a> nal-vimfiles-read-only</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]$ cd /tmp/nal-vimfiles/</b></span><br />
+<span style="color: #a52a2a;">3 </span><span style="color: #a52a2a;"><b>[~]$ cp -r /tmp/mp/* .</b></span><br />
+<span style="color: #a52a2a;">4 </span><span style="color: #a52a2a;"><b>[~]$ svn add branches tags trunk</b></span><br />
+<span style="color: #a52a2a;">5 </span><span style="color: #a52a2a;"><b>[~]$ svn add * --force</b></span><br />
+<span style="color: #a52a2a;">6 </span><span style="color: #a52a2a;"><b>[~]$ svn commit -m &quot;init ready&quot;</b></span><br />
+</div>
+
+
+<h1 id="hd003">3&nbsp;yum insatll mplayer smplayer</h1>
+
+<p><span class="remote"><a href="http://baixuewang.blog.163.com/blog/static/223872520091026105410297/" class="remote">http://baixuewang.blog.163.com/blog/static/223872520091026105410297/</a></span></p>
+
+<p><span class="remote"><a href="http://blog.csdn.net/ajaxDreamer/archive/2009/08/21/4469862.aspx" class="remote">http://blog.csdn.net/ajaxDreamer/archive/2009/08/21/4469862.aspx</a></span></p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        添加软件仓库
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ rpm -ivh <a href="http://rpm.livna.org/livna-release.rpm">http://rpm.livna.org/livna-release.rpm</a></b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]$ rpm -Uvh <a href="http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm">http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm</a></b></span><br />
+<span style="color: #a52a2a;">3 </span><span style="color: #a52a2a;"><b>[~]$ rpm -Uvh <a href="http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm">http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm</a></b></span><br />
+</div>
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        使用yum安装mplayer smplayer
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ yum install mplayer -y</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]$ yum install -y smplayer</b></span><br />
+</div>
+
+
+<h1 id="hd004">4&nbsp;yum install amule</h1>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ rpm -ivh <a href="http://www.webalice.it/iz0bbz/amule/repo/10/amuleSVNrepo-1-1.noarch.rpm">http://www.webalice.it/iz0bbz/amule/repo/10/amuleSVNrepo-1-1.noarch.rpm</a></b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]$ yum install amule amule-nogui -y</b></span><br />
+</div>
+
+
+<h1 id="hd005">5&nbsp;用googlecode对vimf72进行版本控制(svn)</h1>
+
+<p><span class="remote"><a href="http://code.google.com/hosting/" class="remote">http://code.google.com/hosting/</a></span></p>
+
+<p><span class="remote"><a href="http://code.google.com/p/my-nal-vim/" class="remote">http://code.google.com/p/my-nal-vim/</a></span></p>
+
+<p>Zp3mQ2Cg2Zd3</p>
+
+<p>If you plan to make changes, use this command to check out the code as 
+yourself using HTTPS:</p>
+
+<p># Project members authenticate over HTTPS to allow committing changes.</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ svn checkout <a href="https://my-nal-vim.googlecode.com/svn/trunk/">https://my-nal-vim.googlecode.com/svn/trunk/</a> my-nal-vim --username nuoerlz</b></span><br />
+</div>
+<p>When prompted, enter your generated googlecode.com password.</p>
+
+<p>Use this command to anonymously check out the latest project source code:</p>
+
+<p># Non-members may check out a read-only working copy anonymously over 
+HTTP.</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]$ svn checkout <a href="http://my-nal-vim.googlecode.com/svn/trunk/">http://my-nal-vim.googlecode.com/svn/trunk/</a> my-nal-vim-read-only</b></span><br />
+</div>
+
+
+<h1 id="hd006">6&nbsp;mplayersmplayer 播放rmvb有声音没图像</h1>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        安装win32code
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        ubuntu的Mplayer老是出现这样的错误.
+    </li>
+</ul>
+
+<p>Error opening/initializing the selected video_out (-vo) device</p>
+
+<p>没有办法播放视频. 其实解决的方法很简单:</p>
+
+<p>打开MPLAYER.</p>
+
+<p>右击</p>
+
+<p>选择&ldquo;preferences&rdquo;&rarr;&ldquo;Video&rdquo;选项卡&rarr;在&ldquo;Availabe 
+Drivers&rdquo;中选择&ldquo;X11&rdquo;.</p>
+
+<p>点&ldquo;OK&rdquo;关闭设置. 重启Mplayer.</p>
+
+<p>打开个视频看看.</p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        smplayer只有声音没图像
+    </li>
+</ul>
+
+<p>选项&rarr;常规&rarr;输出设备&rarr;视频(v)&rarr;X11</p>
+
+
+
+<h1 id="hd007">7&nbsp;sudo的使用</h1>
+
+
+<h2 id="hd007001">7.1&nbsp;配置sudo必须通过编辑/etc/sudoers文件</h2>
+
+<span style="background-color: #ffff00"><font color="#0000ff">
+Note:</font></span>
+配置sudo必须要用visudo命令打开:
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[root ~]# visudo</b></span><br />
+</div>
+
+<h3 id="hd007001001">7.1.1&nbsp;现在我们一起来看一下神秘的配置文件</h3>
+
+<p>打开配置文件, 可以看到类似下面几行:</p>
+
+<p># Runas alias specification# User privilege specification</p>
+
+<p>root ALL=(ALL) ALL</p>
+
+<p>表明root有所有权限. (用tab作为空白):</p>
+
+
+
+<h3 id="hd007001002">7.1.2&nbsp;修改</h3>
+
+<p>foobar  localhost=	/sbin/ifconfig,   /bin/ls</p>
+
+<p>再来执行命令:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ sudo head -5 /etc/shadow</b></span><br />
+<span style="color: #a52a2a;">2 </span>&nbsp;Password:Sorry, user foobar is not allowed to execute '/usr/bin/head -5<br />
+<span style="color: #a52a2a;">3 </span>&nbsp;/etc/shadow' as root on localhost.localdomain.<br />
+<span style="color: #a52a2a;">4 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ sudo /sbin/ifconfig eth0</b></span><br />
+<span style="color: #a52a2a;">5 </span>&nbsp;Link encap:Ethernet&nbsp;&nbsp;HWaddr 00:14:85:EC:E9:9B...<br />
+</div>
+<p>Analysis:</p>
+
+<p>现在让我们来看一下那三个ALL到底是什么意思. 
+第1个ALL是指网络中的主机, 我们后面</p>
+
+<p>把它改成了主机名, 它指明 
+foobar可以在此主机上执行后面的命令. 第2个括号里的ALL</p>
+
+<p>是指目标用户, 也就是以谁的身份去执行命令. 最后1个 
+ALL当然就是指命令名了. 例如</p>
+
+<p>, 
+我们想让foobar用户在linux主机上以jimmy或rene的身份执行kill命令, 
+这样编写配置</p>
+
+<p>文件:</p>
+
+
+
+<h3 id="hd007001003">7.1.3&nbsp;再修改</h3>
+
+<p>foobar	linux=(jimmy,rene)	/bin/kill</p>
+
+<p>Defaults:foobar	runas_default=rene	#默认为rene执行</p>
+
+<p>foobar  localhost=NOPASSWD:     /bin/cat, /bin/ls	
+#不用每次都执行密码</p>
+
+<p>再来sudo一下:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ sudo ls /rootanaconda-ks.cfg&nbsp;&nbsp;Desktop&nbsp;&nbsp;install.log</b></span><br />
+<span style="color: #a52a2a;">2 </span>install.log.syslog<br />
+</div>
+
+
+<h2 id="hd007002">7.2&nbsp;日志与安全</h2>
+
+<p>sudo为安全考虑得很周到, 不仅可以记录日志, 
+还能在有必要时向系统管理员报告. 但是</p>
+
+<p>, sudo的日志功能不是自动的, 必须由管理员开启. 
+这样来做:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[]# touch /var/log/sudo</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[]# vi /etc/syslog.conf</b></span><br />
+</div>
+<p>在syslog.conf最后面加一行(必须用tab分割开)并保存:</p>
+
+<p>local2.debug         	/var/log/sudo</p>
+
+<p>重启日志守候进程,</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[]# ps aux | grep syslogd</b></span><br />
+</div>
+<p>把得到的syslogd进程的PID(输出的第二列是PID)填入下面:</p>
+
+<p>kill -HUP PID</p>
+
+<p>这样, sudo就可以写日志了:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ sudo ls /rootanaconda-ks.cfg&nbsp;&nbsp;Desktop&nbsp;&nbsp;install.log</b></span><br />
+<span style="color: #a52a2a;">2 </span>install.log.syslog$cat /var/log/sudoJul 28 22:52:54 localhost sudo:&nbsp;&nbsp; foobar :<br />
+<span style="color: #a52a2a;">3 </span>TTY=pts/1 ; PWD=/home/foobar ; USER=root ; COMMAND=/bin/ls /root<br />
+</div>
+<p>不过, 有一个小小的&rdquo;缺陷&rdquo;, 
+sudo记录日志并不是很忠实:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ sudo cat /etc/shadow &gt; /dev/null</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ cat /var/log/sudo</b></span><br />
+<span style="color: #a52a2a;">3 </span>&nbsp;&nbsp; Jul 28 23:10:24 localhost sudo:&nbsp;&nbsp; foobar : TTY=pts/1 ;<br />
+<span style="color: #a52a2a;">4 </span>PWD=/home/foobar ; USER=root ; COMMAND=/bin/cat /etc/shadow<br />
+</div>
+<p>重定向没有被记录在案!为什么?因为在命令运行之前, 
+shell把重定向的工作做完了,</p>
+
+<p>sudo根本就没看到重定向. 这也有个好处, 
+下面的手段不会得逞:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[foobar@localhost ~]$ sudo ls /root &gt; /etc/shadowbash: /etc/shadow: 权限不够</b></span><br />
+</div>
+<p>sudo 有自己的方式来保护安全. 以root的身份执行sudo -V, 
+查看一下sudo的设置. 因为</p>
+
+<p>考虑到安全问题, 
+一部分环境变量并没有传递给sudo后面的命令, 
+或者被检查后再传递的</p>
+
+<p>, 比如: PATH, HOME,  SHELL等. 当然, 
+你也可以通过sudoers来配置这些环境变量.</p>
+
+
+
+<h2 id="hd007003">7.3&nbsp;再谈sudo</h2>
+
+<p>让普通用户安全执行管理员程序</p>
+
+<p>在多人共用一台电脑或管理局域网时, 
+常常会遇到这种情况: 普通用户必须执行某个命令</p>
+
+<p>, 比如关机. 但普通用户却不具备足够的权限, 
+而出于隐私和安全的考虑我们又不希望把</p>
+
+<p>root密码告诉别人.</p>
+
+<p>有两种方法可以解决这一问题:</p>
+
+
+<h3 id="hd007003001">7.3.1&nbsp;第一种方法suid或guid</h3>
+
+<p>设置命令文件的suid, 
+可以使普通用户以此文件的拥有者的身份运行该程序</p>
+
+<p>, 具体命令为 chmod u+s file , 
+file为你想让别人执行的文件. 还可以设置guid, 让用</p>
+
+<p>户以文件所属组的身份运行程序, 命令为 chmod g+s file.</p>
+
+
+
+<h3 id="hd007003002">7.3.2&nbsp;第二种方法是使用sudo程序</h3>
+
+<p>它可以使某个用户以特定的身份去运行程序, 
+当然也能以</p>
+
+<p>root身份去运行, 它相比第一种方法更安全也便于维护. 
+在<a href="RedHat.html">RedHat</a><a name="idx002"></a>发行版的光盘里就有这</p>
+
+<p>个工具. 使用方法为, 在终端中输入visudo编辑sudoers文件, 
+在空白处添加以下四行:</p>
+
+<p>Host_Alias MYHOST=localhost</p>
+
+<p>User_Alias MYUSER=A的用户名, B的用户名</p>
+
+<p>Cmnd_Alias MYFILE=A和B要运行的程序路径</p>
+
+<p>MYUSER MYHOST=NOPASSWD: MYFILE</p>
+
+<p>注意大小写, 以后要增加新的程序或用户时, 
+直接更改前三行即可. 如果要让某个不知道</p>
+
+<p>root密码的用户具有全部权限, 
+除了运行某些危险程序(如格式化), 只需增加:</p>
+
+<p>Cmnd_Alias DANGER=危险程序的路径</p>
+
+<p>C的用户名 ALL=(ALL) NOPASSWD: ALL, !DANGER</p>
+
+<p>设置完成后, 和vi一样保存退出, 
+编辑器会自动检查你的语法是否正确, 如果出错按 e 可</p>
+
+<p>以回去修改. 
+然后该用户即可以&ldquo;sudo+空格+某命令&rdquo;的格式运行具体命令了. 
+(佚名)</p>
+
+
+
+<h1 id="hd008">8&nbsp;在XMMS中享受APE</h1>
+
+<p>APE是一种无损音乐压缩格式, 
+在Linux中的媒体播放器XMMS中享受它的高品质音乐, 需要</p>
+
+<p>编译monkey audio plugin For XMMS(本文以Fedora Core2发行版为例).</p>
+
+<p>先到下载页面<span class="remote"><a href="http://supermmx.org/linux/mac/下载libxmms_mac-0.2.0.tar.gz" class="remote">http://supermmx.org/linux/mac/下载libxmms_mac-0.2.0.tar.gz</a></span></p>
+
+<p>mac-3.99-linux.tar.gz文件, 
+然后开始解压编译(在命令终端中):</p>
+
+<div class="code">
+<span style="color: #a52a2a;">&nbsp;1 </span><span style="color: #a52a2a;"><b>[~]# tar xzvf libxmms_mac-0.2.0.tar.gz</b></span><br />
+<span style="color: #a52a2a;">&nbsp;2 </span><span style="color: #a52a2a;"><b>[~]# tar xzvf mac-3.99-linux.tar.gz</b></span><br />
+<span style="color: #a52a2a;">&nbsp;3 </span><span style="color: #a52a2a;"><b>[~]# cd mac-3.99</b></span><br />
+<span style="color: #a52a2a;">&nbsp;4 </span><span style="color: #a52a2a;"><b>[~]# ./configure</b></span><br />
+<span style="color: #a52a2a;">&nbsp;5 </span>如果系统提示少了nasm,加载FC2-i386-disc2.iso<span style="color: #ff00ff;">(或第2张系统安装盘)</span>装上它:<br />
+<span style="color: #a52a2a;">&nbsp;6 </span><span style="color: #a52a2a;"><b>[~]# rpm -ivh nasm-0.98.38-2.i386.rpm</b></span><br />
+<span style="color: #a52a2a;">&nbsp;7 </span><span style="color: #a52a2a;"><b>[~]# make</b></span><br />
+<span style="color: #a52a2a;">&nbsp;8 </span><span style="color: #a52a2a;"><b>[~]# sudo make install</b></span><br />
+<span style="color: #a52a2a;">&nbsp;9 </span><span style="color: #a52a2a;"><b>[~]# cd plugin</b></span><br />
+<span style="color: #a52a2a;">10 </span><span style="color: #a52a2a;"><b>[~]# ./configure</b></span><br />
+<span style="color: #a52a2a;">11 </span>如果发现无法找到xmms-config, 在FC2-i386-disc4.iso<span style="color: #ff00ff;">(或第4张系统安装盘)</span>里找到<br />
+<span style="color: #a52a2a;">12 </span>xmms-devel装上:<br />
+<span style="color: #a52a2a;">13 </span><span style="color: #a52a2a;"><b>[~]# rpm -ivh xmms-devel-1.2.10-2.p.i386.rpm</b></span><br />
+<span style="color: #a52a2a;">14 </span><span style="color: #a52a2a;"><b>[~]# make</b></span><br />
+<span style="color: #a52a2a;">15 </span><span style="color: #a52a2a;"><b>[~]# sudo make install</b></span><br />
+</div>
+
+
+<h1 id="hd009">9&nbsp;图形化 root 登陆</h1>
+
+<p>Fedora 11 默认并不允许在 GDM 中以 root 登陆, 
+而必须使用正常用户登陆后在终端中成</p>
+
+<p>为 root 权限. 然后很多用户仍然想以 root 登陆. 
+虽然我不赞成但还是说一下怎么做.</p>
+
+<p>请不要忘记一旦你使用 root 登陆后会毁坏你的系统, 
+所以请不要输入下面的命令, 除非</p>
+
+<p>你知道你在做什么.</p>
+
+<p>打开终端输入:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# su -c 'gedit /etc/pam.d/gdm'</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]# su -c 'gedit /etc/pam.d/gdm-password'</b></span><br />
+<span style="color: #a52a2a;">3 </span>找到下面这行:<br />
+<span style="color: #a52a2a;">4 </span>auth required pam_succeed_if.so user != root quiet<br />
+<span style="color: #a52a2a;">5 </span>将这一行备注掉:<br />
+<span style="color: #a52a2a;">6 </span><span style="color: #0000ff;">#auth required pam_succeed_if.so user != root quiet</span><br />
+<span style="color: #a52a2a;">7 </span>保存这个文件后登出, 然后你就可以以 root 登陆了.<br />
+</div>
+
+
+<h1 id="hd0010">10&nbsp;smplayer没声音解决办法</h1>
+
+<p>smplaye 设置: 输出设备中的音频输出默认是pulse, 
+要改成alsa才行的, 否则部分avi和</p>
+
+<p>rmvb会没有声音.</p>
+
+<p>或者反过来!!</p>
+
+
+
+<h1 id="hd0011">11&nbsp;网页视频没声音解决办法</h1>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# ps aux | grep pulseaudio (^ 查找该进程id ^)</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]# kill id (^ kill掉使其自动重新启动 ^)</b></span><br />
+</div>
+
+
+<h1 id="hd0012">12&nbsp;minix study googlecode</h1>
+
+<p>Zp3mQ2Cg2Zd3</p>
+
+<p>If you plan to make changes, use this command to check out the code as 
+yourself using HTTPS:</p>
+
+<p># Project members authenticate over HTTPS to allow committing changes.</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# svn checkout <a href="https://minix-study.googlecode.com/svn/trunk/">https://minix-study.googlecode.com/svn/trunk/</a> minix-study --username nuoerlz</b></span><br />
+</div>
+<p>When prompted, enter your generated googlecode.com password.</p>
+
+<p>Use this command to anonymously check out the latest project source code:</p>
+
+<p># Non-members may check out a read-only working copy anonymously over 
+HTTP.</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# svn checkout <a href="http://minix-study.googlecode.com/svn/trunk/">http://minix-study.googlecode.com/svn/trunk/</a> minix-study-read-only</b></span><br />
+</div>
+
+
+<h1 id="hd0013">13&nbsp;开机为文本界面由文本界面切换到图形界面</h1>
+
+<p>开机为文本界面, 由文本界面切换到图形界面:</p>
+
+<a name="startx"></a>
+<p>方法1: 运行命令</p>
+
+<p>方法2: 修改/etc/inittab文件中的</p>
+
+<p>id:3:initdefault ,  将3改为5 , 重新启动系统;</p>
+
+<p>13.1</p>
+
+<p>真机环境中, 在图形界面和文本界面间切换:</p>
+
+<p>Ctrl+Alt+F(n) , 其中F(n)为F1-F6 , 为6个控制台;</p>
+
+<p>Ctrl+ALT+F7 ;</p>
+
+<p>13.2</p>
+
+<p>虚拟机环境, 在图形界面和文本界面间切换:</p>
+
+<p>VMWare虚拟机下, 由图形界面切换到文本界面, 
+和虚拟机设置有关, 默认VM占用</p>
+
+<p>Ctrl+Alt为热键, 
+所以由图形界面切换到文本界面的组合键为:</p>
+
+<p>Ctrl+Alt+Shift+F(n) , 其中F(n)为F1-F6 ;</p>
+
+<p>由文本界面切换回图形界面的组合键为:</p>
+
+<p>Alt+F7 ;</p>
+
+<p>在文本界面不同控制台界面之间切换:</p>
+
+<p>Alt+F(n) ,  其中F(n)为F1-F6, 为6个控制台;</p>
+
+
+
+<h1 id="hd0014">14&nbsp;把rm转换成avi视频</h1>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# sudo yum install mencoder</b></span><br />
+</div>
+<p>使用方法:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# mencoder -ovc lavc basket.rm -oac mp3lame -o basket.avi</b></span><br />
+</div>
+
+
+<h1 id="hd0015">15&nbsp;firefox</h1>
+
+
+<h2 id="hd0015001">15.1&nbsp;禁止firefox在网络断线时自动转换为脱机状态的方法:</h2>
+
+<p>在地址栏里输入: about:config</p>
+
+<p>把toolkit.networkmanager.disable的值设为true</p>
+
+
+
+<h2 id="hd0015002">15.2&nbsp;npviewer.bin进程占用cpu过高</h2>
+
+<p>表现:	    使用firefox上网时, 使用Rhythmbox听音乐, 
+发现滚轮转动时, 网页很卡,</p>
+
+<p>top一下, 发现npviewer.bin占用了43％的CPU.</p>
+
+<p>解决方法:   firefox安装flashblock插件. 
+这时npviewer进程没有了. 这时网页上的</p>
+
+<p>flash都变成了图标, 如果想看内容要点击才行.</p>
+
+<p>参考:	    
+<span class="remote"><a href="http://www.linuxsir.com/bbs/lastpostinthread346660.html" class="remote">http://www.linuxsir.com/bbs/lastpostinthread346660.html</a></span></p>
+
+
+
+<h2 id="hd0015003">15.3&nbsp;安装扩展 <a href="FireMule.html">FireMule</a><a name="idx003"></a> 链接 (未测试成功)</h2>
+
+<p>在windows下,你需要安装电骡或电驴, 
+这个链接是为这些软件用的. 在一些情况下, 可能</p>
+
+<p>需要安装扩展 
+<a href="FireMule.html">FireMule</a><a name="idx004"></a>.</p>
+
+<p>如果您使用linux,用的是xMule一样的软件, 
+那么你可以这样做</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="1">
+        在地址栏输入about:config, 进入配置页面.
+    </li>
+    <li class="Ordered-1 Ordered" value="2">
+        在列表上单击右键, 新建一个布尔值(Boolean)值, 名字是
+        <br class="itempara" />network.protocol-handler.external.ed2k, 赋值为true.
+    </li>
+    <li class="Ordered-1 Ordered" value="3">
+        再新建一个字符串值(String), 
+        名字是network.protocol-handler.app.ed2k, 赋值
+        <br class="itempara" />为你的启动程序, 例如 &ldquo;/usr/bin/amule&rdquo;.
+    </li>
+</ol>
+
+<p>这样, 当点出ed2k:   //的链接时, 
+就会把地址加入相应软件了.</p>
+
+
+
+<h2 id="hd0015004">15.4&nbsp;firefox plugins</h2>
+
+
+<h3 id="hd0015004001">15.4.1&nbsp;Line Marker 批注</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        网址, 教程
+        <br class="itempara" />Adds a new menu &ldquo;Line Marker&rdquo; to the context menu. It 
+        changes color of
+        <br class="itempara" />selection.  Status of markers are saved to your profile.
+        <br class="itempara" /><span class="remote"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/1931/" class="remote">https://addons.mozilla.org/zh-CN/firefox/addon/1931/</a></span>
+        <br class="itempara" /><span class="remote"><a href="http://piro.sakura.ne.jp/xul/_linemarker.html.en" class="remote">http://piro.sakura.ne.jp/xul/_linemarker.html.en</a></span>
+        <br class="itempara" /><span class="remote"><a href="http://piro.sakura.ne.jp/xul/xul.html.en" class="remote">http://piro.sakura.ne.jp/xul/xul.html.en</a></span>
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        配置文件:
+        <br class="itempara" />/home/scr/.mozilla/firefox/zuq4l4dk.default/linemarker.rdf
+        <br class="itempara" />/home/scr/.mozilla/firefox/zuq4l4dk.default/linemarker.txt
+    </li>
+</ul>
+
+
+
+<h1 id="hd0016">16&nbsp;开机启动速度超级的慢 停留在sendmail启动的那个阶段的解决方法</h1>
+
+<p>service sendmail restart</p>
+
+<p>解决办法:</p>
+
+<p>修改 /etc/hosts 文件, 在 127.0.0.1 行未加上主机名(hostname 
+命令显示的主机名):</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[scr ~]$ hostname</b></span><br />
+<span style="color: #a52a2a;">2 </span>nuoaila<br />
+</div>
+<p>修改前:</p>
+
+<p>127.0.0.1   localhost localhost.localdomain localhost4 
+localhost4.localdomain4</p>
+
+<p>修改后:</p>
+
+<p>127.0.0.1   localhost localhost.localdomain localhost4 
+localhost4.localdomain4 nuoaila</p>
+
+
+
+<h1 id="hd0017">17&nbsp;fedora11 没声音的解决办法</h1>
+
+<p>卸载pulseaudio:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[]# yum -y erase pulseaudio</b></span><br />
+</div>
+
+
+<h1 id="hd0018">18&nbsp;配置环境变量</h1>
+
+
+<h2 id="hd0018001">18.1&nbsp;修改用户环境变量</h2>
+
+<p>假设使用java的用户为 kunp, 
+编辑该用户的.bashrc文件进行环境变量设置.</p>
+
+<p>在 .bashrc文件中加入:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# vi /home/kunp/.bashrc</b></span><br />
+<span style="color: #a52a2a;">2 </span>export JAVA_HOME=/usr/java/j2sdk1.4.2_04<br />
+<span style="color: #a52a2a;">3 </span>export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib<br />
+<span style="color: #a52a2a;">4 </span>export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin<br />
+</div>
+<p>在该文件中加入:</p>
+
+
+
+<h2 id="hd0018002">18.2&nbsp;修改所有用户的环境变量</h2>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# vi /etc/profile</b></span><br />
+<span style="color: #a52a2a;">2 </span>export JAVA_HOME=/usr/java/j2sdk1.4.2_04<br />
+<span style="color: #a52a2a;">3 </span>export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib<br />
+<span style="color: #a52a2a;">4 </span>export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin<br />
+</div>
+<span style="background-color: #ffff00"><font color="#0000ff">
+Note:</font></span>
+如果是以root身份登陆的, 只用做第二步就可以了, 因为它已经包含了第一步的设置.
+<p>还有一点要注意的就是, 
+在改动过之后如果要测试是否成功, 
+要重新启动一次机器才可以</p>
+
+<p>哦, 我就是因为没有重起, 所以输入java 
+-version一直提示没有成功, 害我郁闷了老久.</p>
+
+
+
+<h1 id="hd0019">19&nbsp;error notes</h1>
+
+
+<h2 id="hd0019001">19.1&nbsp;linux 下执行.sh文件总是提示permission denied</h2>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        增加执行权限
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# chmod 777 *.sh</b></span><br />
+</div>
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        设置selinux
+        <br class="itempara" />在linux上安装有些东西时会出现 Permission denied 的情况: 
+        以下就是解决它的办
+        <br class="itempara" />法之一:
+        <br class="itempara" />// 编辑 /etc/selinux/config , 找到这段:
+        <br class="itempara" />SELINUX=enforcing
+        <br class="itempara" />// 把 SELINUX=enforcing 注释掉: #SELINUX=enforcing , 
+        然后新加一行为:
+        <br class="itempara" />SELINUX=disabled
+        <br class="itempara" />// 保存, 关闭.
+    </li>
+</ul>
+
+<p># &hellip;&hellip;</p>
+
+<p>// 编辑/etc/sysconfig/selinux, 找到:</p>
+
+<p>SELINUX=enforcing</p>
+
+<p>// 如果SELINUX已经是 SELINUX=disabled, 那么就不用改了, 
+否则就把</p>
+
+<p>// SELINUX=enforcing 注释掉, 新加一行:</p>
+
+<p>SELINUX=disabled</p>
+
+<p>// 保存, 退出.</p>
+
+
+
+<h1 id="hd0020">20&nbsp;kernel</h1>
+
+
+<h2 id="hd0020001">20.1&nbsp;加载模块的方法</h2>
+
+<p>// 执行命令</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# insmod hello.ko</b></span><br />
+</div>
+<p>// 同时在另一个窗口,用命令察看日志文件,你会看到</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# tail -f /var/log/messages</b></span><br />
+<span style="color: #a52a2a;">2 </span>Hello world<br />
+</div>
+<p>// 再执行命令,</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# rmmod hello.ko</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #0000ff;">// 此时,在另一窗口你会看到 Goodbye,cruel world!被打印了出来.</span><br />
+</div>
+
+
+<h1 id="hd0021">21&nbsp;vim</h1>
+
+
+<h2 id="hd0021001">21.1&nbsp;vim-latex</h2>
+
+
+<h3 id="hd0021001001">21.1.1&nbsp;latex2html</h3>
+
+<p>增加文件: ~/.latex2html-init</p>
+
+
+
+<h1 id="hd0022">22&nbsp;tcpdump的安装</h1>
+
+<p>在linux下tcpdump的安装十分简单, 一般由两种安装方式. 
+一种是以rpm包的形式来进行</p>
+
+<p>安装. 另外一种是以源程序的形式安装.</p>
+
+
+<h2 id="hd0022001">22.1&nbsp;rpm包的形式安装</h2>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# rpm -ivh tcpdump-3_4a5.rpm</b></span><br />
+</div>
+<p>这样tcpdump就顺利地安装到你的linux系统中. 怎么样, 
+很简单吧.</p>
+
+
+
+<h2 id="hd0022002"><a name="tar"></a>22.2&nbsp;源程序的安装</h2>
+
+<a name="rpm"></a>
+<p>rpm的包可以使用如下命令安装:</p>
+
+<p>这样就把tcpdump的源代码解压到/usr/src/redhat/SOURCES目录下.</p>
+
+<p>第二步 做好编译源程序前的准备活动</p>
+
+<p>在编译源程序之前, 
+最好已经确定库文件libpcap已经安装完毕, 
+这个库文件是tcpdump软</p>
+
+<p>件所需的库文件 . 同样, 
+你同时还要有一个标准的c语言编译器. 在linux下标准的c 
+语</p>
+
+<p>言编译器一般是gcc.  在tcpdump的源程序目录中. 
+有一个文件是Makefile.in,</p>
+
+<p>configure命令就是从Makefile.in文件中自动产生Makefile文件. 
+在Makefile.in文</p>
+
+<p>件中, 可以根据系统的配置来修改BINDEST 和 MANDEST 
+这两个宏定义, 缺省值是</p>
+
+<p>BINDEST = @sbindir@</p>
+
+<p>MANDEST = @mandir@</p>
+
+<p>第一个宏值表明安装tcpdump的二进制文件的路径名, 
+第二个表明tcpdump的man 帮助页的</p>
+
+<p>路径名,你可以修改它们来满足系统的需求.</p>
+
+<p>第三步 编译源程序</p>
+
+<p>使用源程序目录中的configure脚本, 
+它从系统中读出各种所需的属性. 并且根据</p>
+
+<p>Makefile.in文件自动生成Makefile文件, 以便编译使用.make 
+命令则根据Makefile文件</p>
+
+<p>中的规则编译tcpdump的源程序. 使用make 
+install命令安装编译好的tcpdump的二进制文</p>
+
+<p>件.</p>
+
+<p>总结一下就是:</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# tar xvfz tcpdump-3_4a5.tar.Z</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]# vi Makefile.in</b></span><br />
+<span style="color: #a52a2a;">3 </span><span style="color: #a52a2a;"><b>[~]# . /configure</b></span><br />
+<span style="color: #a52a2a;">4 </span><span style="color: #a52a2a;"><b>[~]# make</b></span><br />
+<span style="color: #a52a2a;">5 </span><span style="color: #a52a2a;"><b>[~]# make install</b></span><br />
+<span style="color: #a52a2a;">6 </span>关于tcpdump更详细的信息, 请查看Man tcpdump.<br />
+</div>
+
+
+<h1 id="hd0023">23&nbsp;java-tomcat</h1>
+
+
+<h2 id="hd0023001">23.1&nbsp;配置tomcat环境 使可以运行jsp</h2>
+
+
+<h3 id="hd0023001001">23.1.1&nbsp;安装jdk</h3>
+
+
+
+<h3 id="hd0023001002">23.1.2&nbsp;配置jdk</h3>
+
+<p>在 /etc/profile 文件中加入:</p>
+
+<p>export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0</p>
+
+<p>export 
+CLASSPATH=$CLASSPATH:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.</p>
+
+<p>export PATH=$PATH:$JAVA_HOME/bin</p>
+
+
+
+<h3 id="hd0023001003">23.1.3&nbsp;安装tomcat</h3>
+
+<p>sudo yum -y install tomcat6*</p>
+
+
+
+<h3 id="hd0023001004">23.1.4&nbsp;配置tomcat</h3>
+
+<p>在 /etc/profile 文件中加入:</p>
+
+<p>export JASPER_HOME=/usr/share/tomcat6</p>
+
+<p>export CATALINA_TMPDIR=/usr/share/tomcat6/temp</p>
+
+<p>export JAVA_ENDORSED_DIRS=/usr/share/tomcat6/common/endorsed</p>
+
+
+
+<h2 id="hd0023002">23.2&nbsp;配置使用 JSTL :</h2>
+
+
+
+<h2 id="hd0023003">23.3&nbsp;要使用JSTL必须要有jstl.jar和standard.jar 使用jstl-xml还要有serializer.jar和xalan.jar</h2>
+
+<span style="background-color: #ffff00"><font color="#0000ff">
+Note:</font></span>
+为了使得所有的程序都可用, 请把它们放到 %TOMCAT_HOME%/common/lib 目录下.
+
+<h3 id="hd0023003001">23.3.1&nbsp;安装 jstl.jar 和 standard.jar</h3>
+
+<p>从 jakarta-taglibs-standard-1.1.2.zip 解压出该两文件放到 
+WEB-INF/lib/ 目录下.</p>
+
+
+
+<h3 id="hd0023003002">23.3.2&nbsp;安装 serializer.jar 和 xalan.jar</h3>
+
+<p>从 xalan-j_2_7_1-bin.zip 解压出该两文件放到 WEB-INF/lib/ 
+目录下.</p>
+
+
+
+<h2 id="hd0023004">23.4&nbsp;配置使用 JSF</h2>
+
+
+<h3 id="hd0023004001">23.4.1&nbsp;所需要的 jar 包:</h3>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        Six JSF JARs:
+        <br class="itempara" />commons-beanutils.jar, commons-collections.jar,
+        <br class="itempara" />commons-digester.jar, commons-logging.jar, jsf-api.jar,
+        <br class="itempara" />jsf-impl.jar
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        Two JSTL JARs:
+        <br class="itempara" />jstl.jar, standard.jar
+    </li>
+</ul>
+
+
+
+<h3 id="hd0023004002">23.4.2&nbsp;经测试得出必须要有的包为:</h3>
+
+<p>myfaces-api-2.0.0.jar</p>
+
+<p>myfaces-impl-2.0.0.jar</p>
+
+<p>jstl.jar</p>
+
+<p>standard.jar</p>
+
+<p>javac -classpath  
+/usr/share/tomcat6/lib/jsp-api.jar:/usr/share/tomcat6/lib/servlet-api.jar: 
+/home/scr/book/JSP/Pro_JSP_e3/code-e4/jsf/myfaces-impl-2.0.0.jar: 
+/home/scr/book/JSP/Pro_JSP_e3/code-e4/jsf/myfaces-api-2.0.0.jar: -d 
+WEB-INF/classes/ src/com/apress/projsp/*.java</p>
+
+<p>//*/</p>
+
+
+
+<h3 id="hd0023004003">23.4.3&nbsp;FAQ</h3>
+
+<p>Error:</p>
+
+<p>HTTP Status 404 - Servlet Faces Servlet is not available</p>
+
+<p>type Status report</p>
+
+<p>message Servlet Faces Servlet is not available</p>
+
+<p>description The requested resource (Servlet Faces Servlet is not 
+available) is not available.</p>
+
+<p>Apache Tomcat/6.0.20</p>
+
+<p>Analysis:</p>
+
+<span style="background-color: #ffff00"><font color="#0000ff">
+Note:</font></span>
+用目录的软链接方式是无效的!!!!!
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[scr WEB-INF]$ pwd</b></span><br />
+<span style="color: #a52a2a;">2 </span>/home/scr/book/JSP/Pro_JSP_e3/code-e4/Chapter05/Jsf02/WEB-INF<br />
+<span style="color: #a52a2a;">3 </span><span style="color: #a52a2a;"><b>[scr WEB-INF]$ ln -s ../../Jsf01/WEB-INF/lib/ lib</b></span><br />
+</div>
+
+
+<h2 id="hd0023005">23.5&nbsp;编译出错处理记录</h2>
+
+
+<h3 id="hd0023005001">23.5.1&nbsp;软件包 javax.servlet 不存在</h3>
+
+<p>Error:</p>
+
+<p>[javac] 
+/home/scr/projsp/<a href="ErrorServlet.html">ErrorServlet</a><a name="idx005"></a>.java:4:软件包javax.servlet 
+不存在</p>
+
+<p>Analysis:</p>
+
+<p>Linux中安装的tomcat6的servlet包是tomcat6-servlet-2.5-api-6.0.20.jar, 
+而不是</p>
+
+<p>servlet-api.jar</p>
+
+<p>Solution 1:</p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        建立软链接
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[root lib]$ pwd</b></span><br />
+<span style="color: #a52a2a;">2 </span>/usr/share/tomcat6/lib<br />
+<span style="color: #a52a2a;">3 </span><span style="color: #a52a2a;"><b>[root lib]$ ln -s tomcat6-servlet-2.5-api-6.0.20.jar servlet-api.jar</b></span><br />
+</div>
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        使用 javac 的 -classpath 选项:
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[scr ~]$ javac -classpath /usr/share/tomcat6/lib/jsp-api.jar:/usr/share/tomcat6/lib/servlet-api.jar -d WEB-INF/classes/ src/com/apress/projsp/*.java</b></span><br />
+</div>
+
+
+<h3 id="hd0023005002">23.5.2&nbsp;软件包 javax.servlet.jsp 不存在</h3>
+
+<p>Error:</p>
+
+<p>[javac] /home/scr/book/Functions.java:9: 软件包 javax.servlet.jsp 
+不存在</p>
+
+<p>Solution 1:</p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        建立软链接
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[root lib]$ pwd</b></span><br />
+<span style="color: #a52a2a;">2 </span>/usr/share/tomcat6/lib<br />
+<span style="color: #a52a2a;">3 </span><span style="color: #a52a2a;"><b>[root lib]$ ln -s tomcat6-jsp-2.1-api-6.0.20.jar&nbsp;&nbsp;jsp-api.jar</b></span><br />
+</div>
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        使用 javac 的 -classpath 选项:
+    </li>
+</ul>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[scr ~]$ javac -classpath /usr/share/tomcat6/lib/jsp-api.jar:/usr/share/tomcat6/lib/servlet-api.jar -d WEB-INF/classes/ src/com/apress/projsp/*.java</b></span><br />
+</div>
+
+
+<h3 id="hd0023005003">23.5.3&nbsp;java.lang.<a href="NoClassDefFoundError.html">NoClassDefFoundError</a><a name="idx006"></a>: javax/ &gt; &gt; el/ELResolver 04/13/2009</h3>
+
+<p>Error:</p>
+
+<p>javax.servlet.<a href="ServletException.html">ServletException</a><a name="idx007"></a>: 
+java.lang.<a href="NoClassDefFoundError.html">NoClassDefFoundError</a><a name="idx008"></a>: 
+javax/ &gt; &gt; el/ELResolver 04/13/2009</p>
+
+<p>0 Comment(s)</p>
+
+<p>Analysis</p>
+
+<p>Our testing phase was going one and I got a bug. To solve that I 
+installed</p>
+
+<p>fresh copy of tomcat 6.0.18. When I ran the server this was what I was 
+getting</p>
+
+<p>on the screen. Server console was showing everything ok, but UI was 
+showing</p>
+
+<p>this exception.</p>
+
+<p>Solution:</p>
+
+<p>So, if You ever get this exception, here is the check list that You all 
+need</p>
+
+<p>to check.</p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize dash">
+        check that You have set environment variable CATALINA_HOME to the tomcat 
+        home.
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        You have el-api.jar in tomcat&rsquo;s lib directory.
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        Make sure that there are no older versions of servlet-api.jar and // Note
+        <br class="itempara" />jsp-api.jar files on the classpath.
+    </li>
+    <li class="Itemize-1 Itemize dash">
+        Web.xml is correct and not having any incomplete tag.
+        <br class="itempara" />These are all the things that You need to check and most of the times, 
+        You
+        <br class="itempara" />will  end up with exception gone.
+    </li>
+</ul>
+
+
+
+<h1 id="hd0024">24&nbsp;last</h1>
+
+
+<h2 id="hd0024001">24.1&nbsp;开机启动项</h2>
+
+
+<h3 id="hd0024001001">24.1.1&nbsp;新增</h3>
+
+
+
+<h3 id="hd0024001002">24.1.2&nbsp;新减</h3>
+
+<p>qbittorrent</p>
+
+<p>stardict</p>
+
+<span style="background-color: #ffff00"><font color="#0000ff">
+Note:</font></span>
+#=============================================================================
+#=============================================================================
+(2010年 03月 05日 星期五 20:46:38 CST)
+#=============================================================================
+* Bash Shell 快捷键
+CTRL 键
+Ctrl + b - Move back a char
+Ctrl + f - Move forward a char
+Ctrl + h - 删除当前字符
+Ctrl + u - Delete backward from cursor // 密码输入错误的时候比较有用
+Ctrl + xx - Move between EOL and current cursor position
+    Ctrl + a - Jump to the start of the line
+    Ctrl + c - Terminate the command  //用的最多了吧?
+    Ctrl + d - Delete from under the cursor
+    Ctrl + e - Jump to the end of the line
+    Ctrl + k - Delete to EOL
+    Ctrl + l - Clear the screen  //清屏, 类似 clear 命令
+    Ctrl + R - Search the history backwards with multi occurrence
+    Ctrl + r - Search the history backwards  //查找历史命令
+    Ctrl + w - 删除最后输入的单词
+    Ctrl + z - Suspend/ Stop the command
+        Ctrl + x @ - Show possible hostname completions
+<p>ALT 键</p>
+
+<p>Alt + b - Move backward</p>
+
+<p>Alt + c - Capitalize the word (^ 首字母大写 ^)</p>
+
+<p>Alt + d - Delete word</p>
+
+<p>Alt + f - Move forward</p>
+
+<p>Alt + l - Make word lowercase</p>
+
+<p>Alt + r - Recall command (^ Ctrl + u 
+<span class="marker"><em class="marker">???</em></span>?? ^)</p>
+
+<p>Alt + t - Move words around (^ Esc + t ^)</p>
+
+<p>Alt + u - Make word uppercase</p>
+
+<p>Alt + . - Yank last argument to previous command</p>
+
+<p>Alt + / - Attempt to complete filename</p>
+
+<p>Alt + * - Insert all possible completions</p>
+
+<p>Alt + back-space - Delete backward from cursor</p>
+
+<p>Alt + &lt; - Move to the first line in the history</p>
+
+<p>Alt + &gt; - Move to the last line in the history</p>
+
+<p>Alt + n - Search the history forwards non-incremental</p>
+
+<p>Alt + p - Search the history backwards non-incremental</p>
+
+<p>Alt + ? - Show current completion list</p>
+
+<p>// SecureCRT 如果没有配置好, 这个就很管用了.</p>
+
+<p>其他特定的键绑定:</p>
+
+<p>输入 bind -P 可以查看所有的键盘绑定. 
+这一系列我觉得更为实用.</p>
+
+<p>Here &ldquo;2T&rdquo; means Press TAB twice</p>
+
+<p>$ 2T - All available commands(common) //命令行补全, 我认为是 
+Bash 最好用的一点</p>
+
+<p>$ (string)2T - All available commands starting with (string)</p>
+
+<p>$ /2T - Entire directory structure including Hidden one</p>
+
+<p>$ ./2T - Only Sub Dirs inside including Hidden one</p>
+
+<p>$ *2T - Only Sub Dirs inside without Hidden one</p>
+
+<p>$ ~2T - All Present Users on system from &ldquo;/etc/passwd&rdquo; 
+//第一次见到, 很好用</p>
+
+<p>$ $2T - All Sys variables //写Shell脚本的时候很实用</p>
+
+<p>$ @2T - Entries from &ldquo;/etc/hosts&rdquo;  //第一次见到</p>
+
+<p>$ =2T - Output like ls or dir //好像还不如 ls 快捷</p>
+
+<p>补充:</p>
+
+<p>Esc + T - 交换光标前面的两个单词</p>
+
+<p>fcitx 开机自动启动的方法:(还没有测试)</p>
+
+<p>新建:</p>
+
+<p>~/.xinput.d/default</p>
+
+<p>在其中输入:</p>
+
+<p>XMODIFIERS=&rdquo;@im=fcitx&rdquo;</p>
+
+<p>XIM=fcitx</p>
+
+<p>XIM_PROGRAM=fcitx</p>
+
+
+
+<h1 id="hd0025">25&nbsp;Oracle 10g linux 安装笔记</h1>
+
+<p>一. 新建用户及目录</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="1">
+        新建用户组
+    </li>
+</ol>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# /usr/sbin/groupadd oinstall</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]# /usr/sbin/groupadd dba</b></span><br />
+</div>
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="2">
+        新建用户并设置密码
+    </li>
+</ol>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# /usr/sbin/useradd -g oinstall -G dba oracle</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]# passwd oracle</b></span><br />
+</div>
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="3">
+        建立目录(以可以在一个目录下分两个子目录)
+    </li>
+</ol>
+
+<p>/ora10g/app/oracle</p>
+
+<p>/ora10b/oradata</p>
+
+<p>4.设置目录权权限</p>
+
+<div class="code">
+<span style="color: #a52a2a;">1 </span><span style="color: #a52a2a;"><b>[~]# chown -R oracle:oinstall /ora10g/app/oracle /ora10b/oradata</b></span><br />
+<span style="color: #a52a2a;">2 </span><span style="color: #a52a2a;"><b>[~]# chmod -R 775 /ora10g/app/oracle /ora10b/oradata</b></span><br />
+</div>
+<p>二. 配置内核参数</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="1">
+        检查内核参数如下表, 当前系统参数值因该大于等于:
+    </li>
+</ol>
+
+<p>&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;</p>
+
+<p>Parameter		|Value		|		File|查看命令</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>semmsl		|250|/proc/sys/kernel/sem|#/sbin/sysctl-a|grepsem</p>
+
+<p>semmns		|32000		|		|</p>
+
+<p>semopm		|100		|		|</p>
+
+<p>semmni		|128		|		|</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>shmall	|2097152		|/proc/sys/kernel/shmall|#/sbin/sysctl-a|grepshm</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>shmmax		|物理内存的一半|/proc/sys/kernel/shmmax		|</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>shmmni		|4096		|/proc/sys/kernel/shmmni|</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>file-max	|65536		|/proc/sys/fs/file-max|#/sbin/sysctl-a|grepfile-max</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>ip_local_port_range|102465000|/proc/sys/net/ipv4/ip_local_port_range|#sysctl-a|grepip_local_port_range</p>
+
+<p>&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;=+&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;=+&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;</p>
+
+<p>如果有任何的不同, 修改内核配置文件/etc/sysctl.conf 
+,运行#/sbin/sysctl -p 使配置立即生效.</p>
+
+<p>三. 设置Oracle用户的Shell限制</p>
+
+<p>&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;=+&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;=+&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;</p>
+
+<p><a href="ShellLimit.html">ShellLimit</a><a name="idx009"></a>|Iteminlimits.conf|<a href="HardLimit.html">HardLimit</a><a name="idx0010"></a></p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>Maximumnumberofopenfiledescriptors|nofile		|65536</p>
+
+<p>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;-+&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</p>
+
+<p>Maximumnumberofprocessesavailabletoasingleuser|nproc		|16384</p>
+
+<p>&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;=+&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;=+&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;&equiv;</p>
+
+<p>将下列配置加到 /etc/security/limits.conf 文件中:</p>
+
+<ul class="Itemize">
+    <li class="Itemize-1 Itemize asterisk">
+        soft    nproc   2047
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        hard    nproc   16384
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        soft    nofile  1024
+    </li>
+    <li class="Itemize-1 Itemize asterisk">
+        hard    nofile  65536
+    </li>
+</ul>
+
+<p>增加下列配置到 /etc/pam.d/login  文件中:</p>
+
+<p>session    required     /lib/security/pam_limits.so</p>
+
+<p>对于单独使用Oracle用户的shell,增加下列脚本到配置文件/etc/profile 
+中:</p>
+
+<p>if [ $USER = &ldquo;oracle&rdquo; ]; then</p>
+
+<p>if [ $SHELL = &ldquo;/bin/ksh&rdquo; ]; then</p>
+
+<p>ulimit -p 16384</p>
+
+<p>ulimit -n 65536</p>
+
+<p>else</p>
+
+<p>ulimit -u 16384 -n 65536</p>
+
+<p>fi</p>
+
+<p>fi</p>
+
+<p>四. 设置用户oracle的环境变量</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="1">
+        以用户oracle登录:
+        <br class="itempara" />在配置文件.bash_profile文件中增加: umask 022  
+        设置该用户的默认umask
+        <br class="itempara" />执行$ . ./.bash_profile 配置生效.
+    </li>
+    <li class="Ordered-1 Ordered" value="2">
+        设置临时文件目录
+        <br class="itempara" />$ TEMP=/directory
+        <br class="itempara" />$ TMPDIR=/directory
+        <br class="itempara" />$ export TEMP TMPDIR
+    </li>
+    <li class="Ordered-1 Ordered" value="3">
+        如果不是本地安装, 设置DISPLAY变量, 
+        使X窗口能显示在当前系统中
+        <br class="itempara" />$ DISPLAY=your IP:0.0 ; export DISPLAY
+    </li>
+    <li class="Ordered-1 Ordered" value="4">
+        设置ORACLE_BASE和ORACLE_SID变量
+        <br class="itempara" />$ ORACLE_BASE= /ora10g/app/oracle      
+        //这是在前面建立的Oracle的主程序目录
+        <br class="itempara" />$ ORACLE_SID=sales
+        <br class="itempara" />$ export ORACLE_BASE ORACLE_SID
+    </li>
+    <li class="Ordered-1 Ordered" value="5">
+        确认ORACLE_HOME和TNS_ADMIN环境变量没有设置, 如有设置用 
+        unset ORACLE_HOME 删除
+    </li>
+</ol>
+
+<p>五. 开始吧, 前面的活不能白干吧</p>
+
+<p>运行runInstaller开始安装</p>
+
+<p>安装FAQ: 如果提示权限不够, 直接用oracel用户登录启动X, 
+不要用root启动在su -oracle的方式切换用户.</p>
+
+<p>提示不能显示X窗口这样提示, 检查前面的DISPLAY设置.</p>
+
+<p>当出现的窗口显示的是乱码时, 改下列环境变量:</p>
+
+<p>$ export LANG=en_US.UTF-8</p>
+
+<p>$ export LC_CTYPE=en_US.UTF-8</p>
+
+<p>安装Oracle 10g对linux的版本有要求, 
+可用下面的参数跳过10g对支持系统的检查:</p>
+
+<p>runInstall -ignoreSysPrereqs</p>
+
+<p>ps:开始在FC5上安装不知道这个参数, 过不去, 
+又重装了一个红旗DC4, 才装上了 ^_^.</p>
+
+<p>六. 开始安装</p>
+
+<ol class="Ordered numeric">
+    <li class="Ordered-1 Ordered" value="1">
+        输入cd-key以后选择安装目录和用户组, 
+        如果前面的环境变量设置正确, 
+        这是目录应该在设定的Oracle目录下, 用户组为oinstall.
+        <br class="itempara" />2.点下一步后会弹出一个窗口提示运行orainstRoot.sh的脚本. 
+        这时开一个终端以root运行后, 点继续
+    </li>
+    <li class="Ordered-1 Ordered" value="3">
+        点两次next, 出现选择安装类型, 在点next, 
+        开始检查安装需要的条件, 完成后点next.
+        <br class="itempara" />4.选择建立一个一般数据库, 在点next.
+    </li>
+    <li class="Ordered-1 Ordered" value="5">
+        前面我们设的ORACLE_SID出现在数据库名中, 
+        选择相应的字符集后next.在这里我们选上建立一个例子数据库.
+    </li>
+    <li class="Ordered-1 Ordered" value="6">
+        点两次next,选择安装数据库的位置, 
+        选择我们前面建立的/ora10g/oradata
+        <br class="itempara" />7.点两次next输入管理用户的密码后next.
+        <br class="itempara" />8.确认选择无误后点install,开始安装
+    </li>
+    <li class="Ordered-1 Ordered" value="9">
+        安装完成后弹出一个窗口, 其中显示用管理工具的URL, 
+        点OK后弹出一个提示要求运行root.sh脚本.
+    </li>
+</ol>
+
+<p>OK, 安装结束</p>
+
+<p>安装完成后会显示类式下面的一些工具的URL,</p>
+
+<p>Ultra Search URL:</p>
+
+<p><span class="remote"><a href="http://localhost.localdomain:5620/ultrasearch" class="remote">http://localhost.localdomain:5620/ultrasearch</a></span></p>
+
+<p>Ultra Search Administration Tool URL:</p>
+
+<p><span class="remote"><a href="http://localhost.localdomain:5620/ultrasearch/admin" class="remote">http://localhost.localdomain:5620/ultrasearch/admin</a></span></p>
+
+<p>iSQL*Plus URL:</p>
+
+<p><span class="remote"><a href="http://localhost.localdomain:5560/isqlplus" class="remote">http://localhost.localdomain:5560/isqlplus</a></span></p>
+
+<p>Enteprise Manager 10g Database Control URL:</p>
+
+<p><span class="remote"><a href="http://localhost.localdomain:5500/em" class="remote">http://localhost.localdomain:5500/em</a></span></p>
+
+<p>七. 启动和停止数据库及工具</p>
+
+<p>用oracle用户登录后设置下列变量</p>
+
+<p>export ORACLE_BASE=/ora10g/app/oracle</p>
+
+<p>export ORACLE_SID=sales</p>
+
+<p>export ORACLE_HOME=$ORACLE_BASE/product/10.1.0/db_1</p>
+
+<p>export PATH=$PATH:$ORACLE_HOME/bin</p>
+
+<p>启动和停止监听:</p>
+
+<p>lsnrctl start</p>
+
+<p>lsnrctl stop</p>
+
+<p>启动和停止Oracle Enterprise Manager:</p>
+
+<p>emctl start dbconsole</p>
+
+<p>emctl stop dbconsole</p>
+
+<p>启动和停止iSQL*Plus</p>
+
+<p>isqlplusctl start</p>
+
+<p>isqlplusctl stop</p>
+
+<p>启动和停止数据库</p>
+
+<p>启动:</p>
+
+<p>sqlplus</p>
+
+<p>Enter usr-name: / as syadba</p>
+
+<p>SQL&gt;startup</p>
+
+<p>停止:</p>
+
+<p>SQL&gt;shutdown immediate</p>
+
+
+</div>
+
+<p align="center"> <table border="0" cellspacing="0" cellpadding="0"> <tr> <td> <a href="http://www.vim.org" target="_blank"><img border="0" src="created_with_vim.png" alt="Created with Vim" height="36" width="90"></a><br> <a href="http://deplate.sourceforge.net" target="_blank"><img src="deplate-mini.png" border="0" alt="deplate Logo" height="31" width="88"></a> </td> <td>
+
+<!--<script type="text/javascript">--> <!--google_ad_client = "pub-6027327391667521";--> <!--google_ad_width = 180;--> <!--google_ad_height = 60;--> <!--google_ad_format = "180x60_as_rimg";--> <!--google_cpa_choice = "CAAQ0cX8zwEaCEpGRZ0Cl8yyKPu_93M";--> <!--google_ad_channel = "";--> <!--</script>--> <!--<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--> <!--</script>--> <!--</td>--> <!--<td>--> <!--<script type="text/javascript">--> <!--google_ad_client = "pub-6027327391667521";--> <!--google_ad_width = 234;--> <!--google_ad_height = 60;--> <!--google_ad_format = "234x60_as";--> <!--google_ad_type = "text_image";--> <!--google_ad_channel = "0487030161";--> <!--google_color_border = "FFA500";--> <!--google_color_bg = "FFFFFF";--> <!--google_color_link = "000000";--> <!--google_color_text = "000000";--> <!--google_color_url = "0000FF";--> <!--google_ui_features = "rc:0";--> <!--</script>--> <!--<script type="text/javascript"-->   <!--src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--> <!--</script>--> <!--<script type="text/javascript">--> <!--google_ad_client = "pub-6027327391667521";--> <!--google_ad_width = 234;--> <!--google_ad_height = 60;--> <!--google_ad_format = "234x60_as";--> <!--google_ad_type = "text_image";--> <!--google_ad_channel ="";--> <!--google_color_border = "FFA500";--> <!--google_color_bg = "FFFFFF";--> <!--google_color_link = "000000";--> <!--google_color_url = "0000FF";--> <!--google_color_text = "000000";--> <!--</script>--> <!--<script type="text/javascript"--> <!--src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--> <!--</script>--> <!--<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">--> <!--</script>--> <!--<script type="text/javascript">--> <!--_uacct = "UA-1413228-1";--> <!--urchinTracker();-->
+
+<!--</script>--> <!--</td>--> <!--<td>--> <!--<script language="javascript" type="text/javascript" src="http://js.users.51.la/59490.js"></script> <noscript><a href="http://www.51.la/?59490" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/59490.asp" style="border:none" /></a></noscript>--> </td> </tr> </table> </div> </center>
+
+</body>
+</html>
+

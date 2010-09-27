@@ -1,0 +1,19 @@
+# Name: awkro
+# Usage: ./awkro infile1 ...
+# Description: 对输入文件的大写缩写替换成对应的全称
+#       CICS ==> Customer Information Control System (CICS)
+# Example:
+
+# 文件件名: ...
+# input: ...
+# (...)
+# usage: ...
+
+管道
+==
+&&
+~
+输入循环
+!~
+组合其它工具
+FILENAME
