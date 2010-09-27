@@ -1,0 +1,23 @@
+1.1 lsfj
+#
+* ljfj
+sfjajf      //*/
+
+[~]$ ls
+[~]$ cat              //*/
+...
+[~]$ head
+
+lllllll
+
+
+[~]$ rlogin
+[~]$ less //*/
+...
+[~]$ tail
+
+
+Note:
+jjjj liaojjjj
+
+gg
