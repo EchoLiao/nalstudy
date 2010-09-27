@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# 还原grep的选项
+export GREP_OPTIONS=
+export GREP_COLOR=
+
+
 iffiles="/etc/sysconfig/network-scripts/ifcfg-eth*"
 tmpfile1="/tmp/tmpAAAAAAAAAAAA1"
 tmpfile2="/tmp/tmpAAAAAAAAAAAA2"
 ifdevname=""
-ifdevname_real="eth0"
+ifdevname_real=""
 
 do_pre()
 {

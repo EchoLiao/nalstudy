@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export GREP_OPTIONS='--color=always'
+export GREP_COLOR='1;32'
+
 gxfile="/usr/local/nat/gxnat.sh"
 preflag=0
 curflag=0
