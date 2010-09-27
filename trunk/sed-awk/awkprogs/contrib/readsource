@@ -1,4 +1,4 @@
-:
+#!/bin/bash
 # Copyright 1990 by EDV-Beratung Martin Weitzel, D-6100 Darmstadt
 # ==================================================================
 # PROJECT:	Printing Tools
@@ -48,7 +48,7 @@
 # as \t and \n. Backslashes that should "go thru" to the output as
 # such, should be doubled. (The latter is only *required* in a few
 # special cases, but it does no harm the other cases).
-# 
+#
 #!
 # BUGS:
 # Slow - but may serve as prototype for a faster implementation.
@@ -58,7 +58,7 @@
 # to do it with sed. If you have no need for tab expansion, you may
 # change the program. Another option would be to use gsub(), which
 # would limit the program to environments with nawk.)
-# 
+#
 # Others bugs may be, please mail me.
 #!
 # AUTHOR:	Martin Weitzel, D-6100 DA (martin@mwtech.UUCP)
@@ -136,5 +136,3 @@ BEGIN {
 	printf("\\&%s\n", line);
 }
 ' $*
-
-

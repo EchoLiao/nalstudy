@@ -7,9 +7,6 @@ No implementation found for style `booktabs'
 
 redefining command \arraystretch 
 
-The hello.aux file was not found, so sections will not be numbered 
-and cross-references will be shown as icons.
+hello.tex is newer than hello.aux: Please rerun latex.
 
 ? brace missing for \
-
-No number for "aaaaaa"
