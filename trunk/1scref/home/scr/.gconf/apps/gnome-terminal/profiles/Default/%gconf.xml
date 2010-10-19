@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="font" mtime="1276702674" type="string">
+		<stringvalue>Monospace 12</stringvalue>
+	</entry>
+	<entry name="scrollbar_position" mtime="1282306271" type="string">
+		<stringvalue>right</stringvalue>
+	</entry>
+	<entry name="scroll_background" mtime="1267842541" type="bool" value="true"/>
+	<entry name="scrollback_lines" mtime="1286511820" type="int" value="5512"/>
+	<entry name="background_darkness" mtime="1286511820" type="float" value="0.89999997615814209"/>
+	<entry name="background_type" mtime="1267877755" type="string">
+		<stringvalue>solid</stringvalue>
+	</entry>
+	<entry name="palette" mtime="1286511820" type="string">
+		<stringvalue>#2E2E34343636:#CCCC00000000:#5ACEA829730B:#C4C4A0A00000:#2D105B5D96E6:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#575BA2E51BBC:#FCFCE9E94F4F:#4F2291BED8CA:#ADAD7F7FA8A8:#2B95C807C807:#EEEEEEEEECEC</stringvalue>
+	</entry>
+	<entry name="use_theme_colors" mtime="1286511820" type="bool" value="false"/>
+	<entry name="use_custom_command" mtime="1268058114" type="bool" value="false"/>
+	<entry name="login_shell" mtime="1267842380" type="bool" value="false"/>
+	<entry name="use_system_font" mtime="1276702674" type="bool" value="true"/>
+	<entry name="allow_bold" mtime="1276702641" type="bool" value="true"/>
+	<entry name="default_show_menubar" mtime="1286511820" type="bool" value="false"/>
+	<entry name="visible_name" mtime="1286511820" type="string">
+		<stringvalue>默认</stringvalue>
+	</entry>
+	<entry name="background_color" mtime="1286511820" type="string">
+		<stringvalue>#CFCFE8E8CCCC</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1286511820" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+</gconf>

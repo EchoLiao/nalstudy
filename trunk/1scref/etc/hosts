@@ -1,0 +1,45 @@
+#
+# @_@ net-host-name-alias
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 nuoaila lc
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6 lc
+
+# 10.3.10.29  nuoaila nal
+#10.3.10.64  nuoaila nal
+
+
+#10.3.10.29 gx guoxiang guo
+10.3.10.52 wangyang wy wang
+10.3.10.54 yangliang yl yang
+10.3.10.254 ruijie rj
+
+
+#10.3.1.44 gx guoxiang guo
+#10.3.1.4  gateway gt gw scr
+10.3.1.46  ljx
+10.3.1.47  mt
+10.3.1.71  minix mx mn
+10.3.1.72  minix2 mx2 mn2
+#10.3.1.45 ngm nieguoming nie
+#10.3.1.43 yww yuweiwei yu
+#10.3.1.92 aix
+#10.3.1.32 solaris so
+#10.3.1.11 gemini gmn gm ge
+##10.3.1.29 sun sun1
+
+172.18.13.33 sun3
+#172.18.13.34 svr4
+#172.18.13.35 bsdi bsdi3
+#172.18.13.36 xp
+#172.18.13.66 bsdi bsdi6
+#172.18.13.65 slip
+
+#10.3.1.183 netb
+
+10.3.7.66   ljb LuJingBo lu
+
+
+202.108.22.142 www.baidu.com baidu bd
+202.108.22.5 www.baidu.com baidu bd bd2
+61.135.196.102 www.youku.com youku.com youku yk
+72.167.180.212 www.oldict.com oldict sdcv sd
+180.168.35.35 dict.cn

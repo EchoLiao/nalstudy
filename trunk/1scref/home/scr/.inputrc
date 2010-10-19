@@ -1,0 +1,4 @@
+# function see ~/.bashrc
+# 以下两行的作用见: ~/.bashrc
+"\e[A": history-search-backward
+"\e[B": history-search-forward
