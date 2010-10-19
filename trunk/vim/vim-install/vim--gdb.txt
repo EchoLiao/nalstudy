@@ -1,0 +1,49 @@
+[ 打补丁 ] 
+
+运行下面的命令，解压源码文件，并打上补丁： 
+
+cd install/
+tar xjf vim-7.1.tar.bz2
+tar xzf vimgdb71-1.12.tar.gz
+patch -d vim71 --backup -p0 < vimgdb/vim71.diff 
+[ 定制vim的功能 ] 
+
+缺省的vim配置已经适合大多数人，但有些时候你可能需要一些额外的功能，这时就需要自己定制一下vim。定制vim很简单，进入~/install/vim71/src文件，编辑Makefile文件。这是一个注释很好的文档，根据注释来选择： 
+
+如果你不想编译gvim，可以打开--disable-gui选项； 
+如果你想把perl, python, tcl, ruby等接口编译进来的话，打开相应的选项，例如，我打开了--enable-tclinterp选项； 
+如果你想在vim中使用cscope的话，打开--enable-cscope选项； 
+我们刚才打的vimgdb补丁，自动在Makefile中加入了--enable-gdb选项； 
+如果你希望在vim使用中文，使能--enable-multibyte和--enable-xim选项； 
+可以通过--with-features=XXX选项来选择所编译的vim特性集，缺省是--with-features=normal； 
+如果你没有root权限，可以把vim装在自己的home目录，这时需要打开prefix = $(HOME)选项； 
+编辑好此文件后，就可以编辑安装vim了。如果你需要更细致的定制vim，可以修改config.h文件，打开/关闭你想要的特性。 
+
+[ 编译安装 ] 
+
+编译和安装vim非常简单，使用下面两个命令： 
+
+make
+make install 
+你不需要手动运行./configure命令，make命令会自动调用configure命令。 
+
+上面的命令执行完后，vim就安装成功了。 
+
+我在编译时打开了"prefix = $(HOME)"选项，因此我的vim被安装在~/bin目录。这时需要修改一下PATH变量，以使其找到我编辑好的vim。在~/.bashrc文件中加入下面这两句话： 
+
+PATH=$HOME/bin:$PATH
+export PATH 
+退出再重新登录，现在再敲入vim命令，发现已经运行我们编译的vim了。 
+
+[ 安装vimgdb的runtime文件 ] 
+
+运行下面的命令，解压vimgdb的runtime文件到你的~/.vim/目录： 
+
+cd ~/install/vimgdb/
+tar zxf vimgdb_runtime.tgz –C~/.vim/ 
+现在启动vim，在vim中运行下面的命令以生成帮助文件索引： 
+
+:helptags ~/.vim/doc 
+现在，你可以使用":help vimgdb"命令查看vimgdb的帮助了。 
+
+至此，我们重新编译了vim，并为之打上了vimgdb补丁。下面我以一个例子来说明如何在vim中完成"编码—编译—调试"一条龙服务
