@@ -1,0 +1,20 @@
+# Networking Interface
+DEVICE='eth2'
+BOOTPROTO=none
+TYPE=Ethernet
+DEFROUTE=yes
+ONBOOT=yes
+
+#HWADDR=00:1E:90:13:E0:25
+#IPADDR=10.3.10.19
+IPADDR=10.3.10.29
+
+NETMASK=255.255.255.0
+GATEWAY=10.3.10.254
+#DNS1=211.64.120.2
+#DNS2=168.96.1.1
+PREFIX=24
+#SEARCH=nuoerlz.com
+#DOMAIN=nuoerlz.com
+NAME="System eth0"
+UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03
