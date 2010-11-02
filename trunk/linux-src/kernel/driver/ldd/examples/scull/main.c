@@ -643,7 +643,7 @@ static void scull_setup_cdev(struct scull_dev *dev, int index)
     /* cdev_init 中的参数 scull_fops 的作用是什么? QQQQQ */
     cdev_init(&dev->cdev, &scull_fops); /* 初始化 cdev */
     dev->cdev.owner = THIS_MODULE;
-    dev->cdev.ops = &scull_fops; /* MMMMM */ /* 没有该语句可以吗? QQQQQ */
+    /* dev->cdev.ops = &scull_fops; [>没有该语句可以吗? 可以! QQQQQ<] */
     /* 通告内核该结构(cdev)的信息(把cdev信息保存在inode中). MMMMM */
     err = cdev_add(&dev->cdev, devno, 1); /* devno 是第一个设备编号 */
     /* Fail gracefully if need be */
@@ -701,7 +701,7 @@ int scull_init_module(void)
     }
 
     /* At this point call the init function for any friend device */
-    /* 初始化 scullpipe, sculla,  要使用的编号是紧接着 scull 的后边. */
+    /* 建立 scullpipe, sculla,  要使用的编号是紧接着 scull 的后边. */
     dev = MKDEV(scull_major, scull_minor + scull_nr_devs);
     dev += scull_p_init(dev); /* 初始化 scullpipe */
     dev += scull_access_init(dev); /* 初始化 sculla */

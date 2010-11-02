@@ -163,3 +163,33 @@ aaaaaaaaaaa // 说明 nal 的打开操作被阻塞了!
 [root proc]# cat /dev/scullwuid
 xxxxxxxxx // 再次证明 nal 之前的打开操作是被阻塞了!
 xkkkkk
+
+4.6 scullpriv
+
+static int scull_c_open(struct inode *inode, struct file *filp)
+    dev = scull_c_lookfor_device(key); /* 查找, 找不到则复制一个新的 */
+        lptr = kmalloc(sizeof(struct scull_listitem), GFP_KERNEL);
+    filp->private_data = dev; /* 操作集没变, 但改变操作对象 */
+
+// 在第一个终端执行
+[root dev 1]# cat > scullpriv
+fjajajj
+kkkkkkkkkkkkkkkkkkkkkkk
+
+[root dev 1]# cat scullpriv
+fjajajj
+kkkkkkkkkkkkkkkkkkkkkkk
+
+
+// 在第二个终端执行
+[root dev 2]# cat > scullpriv
+jdfjajf
+adjfja
+[root dev 2]# cat scullpriv
+jdfjajf
+adjfja
+
+// 在第一个终端执行
+[root dev 1]# cat scullpriv
+fjajajj // 同一设备, 内容不相同, 说明该设置对不同的终端是私有的!
+kkkkkkkkkkkkkkkkkkkkkkk

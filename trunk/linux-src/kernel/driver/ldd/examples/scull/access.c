@@ -267,6 +267,7 @@ static struct scull_dev *scull_c_lookfor_device(dev_t key)
 
     /* initialize the device */
     memset(lptr, 0, sizeof(struct scull_listitem));
+    /* lptr->device->cdev 在这用不到! 因为能调度到这,说明已经能识别操作集了 */
     lptr->key = key;
     scull_trim(&(lptr->device)); /* initialize it */
     init_MUTEX(&(lptr->device.sem));
@@ -292,7 +293,7 @@ static int scull_c_open(struct inode *inode, struct file *filp)
 
     /* look for a scullc device in the list */
     spin_lock(&scull_c_lock);
-    dev = scull_c_lookfor_device(key);
+    dev = scull_c_lookfor_device(key); /* 查找, 找不到则复制一个新的 */
     spin_unlock(&scull_c_lock);
 
     if (!dev)
@@ -301,7 +302,7 @@ static int scull_c_open(struct inode *inode, struct file *filp)
     /* then, everything else is copied from the bare scull device */
     if ( (filp->f_flags & O_ACCMODE) == O_WRONLY)
         scull_trim(dev);
-    filp->private_data = dev;
+    filp->private_data = dev; /* 操作集没变, 但改变操作对象 */
     return 0;          /* success */
 }
 
@@ -310,6 +311,8 @@ static int scull_c_release(struct inode *inode, struct file *filp)
     /*
      * Nothing to do, because the device is persistent.
      * A `real' cloned device should be freed on last close
+     *
+     * 在 scull_access_cleanup 会把所有的克隆版本都清除了!
      */
     return 0;
 }
@@ -360,7 +363,7 @@ static void scull_access_setup (dev_t devno, struct scull_adev_info *devinfo)
     init_MUTEX(&dev->sem); /* 初始化信号量为 1 */
 
     /* Do the cdev stuff. */
-    cdev_init(&dev->cdev, devinfo->fops);
+    cdev_init(&dev->cdev, devinfo->fops); /* 设置操作集? */
     kobject_set_name(&dev->cdev.kobj, devinfo->name); /* QQQQQ */
     dev->cdev.owner = THIS_MODULE;
     err = cdev_add (&dev->cdev, devno, 1); /* 通告内核 */
