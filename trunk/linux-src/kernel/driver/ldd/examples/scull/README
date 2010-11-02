@@ -1,0 +1,13 @@
+        <<修改设备参数的方法>>
+
+相关的变量定义在 scull.h 文件中.
+
+1. 编译时修改 scull.h 对应的宏
+
+
+2. 加载模块时修改设备参数值
+
+./scull_load scull_quantum=8000 scull_qset=100
+
+
+3. 运行时使用 ioctl 修改设备的参数值

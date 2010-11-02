@@ -1,1 +1,0 @@
-cmd_/home/scr/.rt/lang/linux-src/driver/ldd/examples/scull/scull.o := ld -m elf_i386   -r -o /home/scr/.rt/lang/linux-src/driver/ldd/examples/scull/scull.o /home/scr/.rt/lang/linux-src/driver/ldd/examples/scull/main.o /home/scr/.rt/lang/linux-src/driver/ldd/examples/scull/pipe.o 
