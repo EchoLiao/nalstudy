@@ -22,23 +22,36 @@
 
 char buffer[4096];
 
+/* 测试非阻塞型操作 */
 int main(int argc, char **argv)
 {
-	int delay = 1, n, m = 0;
+    int delay = 1, n, m = 0;
 
-	if (argc > 1)
-		delay=atoi(argv[1]);
-	fcntl(0, F_SETFL, fcntl(0,F_GETFL) | O_NONBLOCK); /* stdin */
-	fcntl(1, F_SETFL, fcntl(1,F_GETFL) | O_NONBLOCK); /* stdout */
+    if (argc > 1)
+        delay=atoi(argv[1]);
+    fcntl(0, F_SETFL, fcntl(0,F_GETFL) | O_NONBLOCK); /* stdin */
+    fcntl(1, F_SETFL, fcntl(1,F_GETFL) | O_NONBLOCK); /* stdout */
 
-	while (1) {
-		n = read(0, buffer, 4096);
-		if (n >= 0)
-			m = write(1, buffer, n);
-		if ((n < 0 || m < 0) && (errno != EAGAIN))
-			break;
-		sleep(delay);
-	}
-	perror(n < 0 ? "stdin" : "stdout");
-	exit(1);
+    while (1) {
+        /* 没有数据可读时, 第一次返回0, 之后返回负值. */
+        n = read(0, buffer, 4096); /* 立即返回 */
+
+        if (n >= 0) /* 可以把该语句注释后再对比测试 */
+        {
+            m = write(1, buffer, n);
+            n = -1;
+        }
+
+        if ((n < 0 || m < 0) && (errno != EAGAIN))
+            break;
+        if ( n == 0 || m == 0)
+        {
+            printf("end of file\n");
+            /* exit(0); */
+        }
+
+        sleep(delay);
+    }
+    perror(n < 0 ? "read from stdin, but no data" : "write to stdout, but");
+    exit(1);
 }
