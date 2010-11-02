@@ -1,0 +1,48 @@
+
+1. asynctest.c
+[<P169>]
+
+
+1.1 注册 SIGIO 信号处理函数:
+
+action.sa_handler = sighandler;
+
+1)
+[scr misc-progs]$ ./asynctest
+a
+a
+
+2)
+## 测试 scullpipe
+# 从 /dev/scullpipe 中读取数据
+[scr misc-progs]$ ./asynctest < /dev/scullpipe
+jj
+llllllllll
+
+# 写入数据到 /dev/scullpipe
+[root misc-progs]# cat > /dev/scullpipe
+jj
+llllllllll
+
+
+
+
+1.2 没有注册 SIGIO 信号处理函数:
+
+action.sa_handler = sighandler;
+
+[scr misc-progs]$ ./asynctest
+aI/O possible
+
+出错信息表明: I/O可用了!
+
+
+
+2. nbtest.c
+
+测试非阻塞型操作
+
+[scr misc-progs]$ ./nbtest
+end of file
+j
+j

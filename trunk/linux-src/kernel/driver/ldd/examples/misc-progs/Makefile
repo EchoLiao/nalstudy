@@ -1,6 +1,9 @@
 
-FILES = nbtest load50 mapcmp polltest mapper setlevel setconsole inp outp \
-	datasize dataalign netifdebug
+FILES = nbtest load50 mapcmp polltest mapper setlevel setconsole \
+	datasize dataalign netifdebug \
+	asynctest \
+	#outp \
+	#inp\
 
 KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 INCLUDEDIR = $(KERNELDIR)/include
@@ -10,4 +13,3 @@ all: $(FILES)
 
 clean:
 	rm -f $(FILES) *~ core
-
