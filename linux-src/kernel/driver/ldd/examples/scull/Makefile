@@ -31,9 +31,12 @@ endif
 
 
 clean:
-	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions \
-	    modules.order *.init module.markers module.symvers
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions
 
+cleanall:
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions \
+	    modules.order *.init module.markers module.symvers \
+	    cscope.* tags
 
 depend .depend dep:
 	$(CC) $(CFLAGS) -M *.c > .depend
