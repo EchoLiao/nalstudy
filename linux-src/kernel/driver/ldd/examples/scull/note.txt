@@ -1,0 +1,165 @@
+0. 修改设备参数的方法
+
+相关的变量定义在 scull.h 文件中.
+
+0.1 编译时修改 scull.h 对应的宏
+
+
+0.2 加载模块时修改设备参数值
+
+./scull_load scull_quantum=8000 scull_qset=100
+
+0.3 运行时使用 ioctl 修改设备的参数值
+
+
+1. scull
+
+1.1 /proc/devices
+1.2 /proc/scullseq
+1.3 /proc/scullmem
+
+
+
+2. scullpipe
+
+2.1 异步通知
+
+static int scull_p_fasync(int fd, struct file *filp, int mode)
+    /* 把需要异步通知服务的进程(应用程序)的相关信息保存在 async_queue 中?
+     * QQQQQ */
+    return fasync_helper(fd, filp, mode, &dev->async_queue); /* MMMMM */
+
+static ssize_t scull_p_write(struct file *filp ... )
+    if (dev->async_queue) /* 给所注册了异步通知的进程发送SIGIO信号 */
+        kill_fasync(&dev->async_queue, SIGIO, POLL_IN);
+
+static int scull_p_release(struct inode *inode, struct file *filp)
+    scull_p_fasync(-1, filp, 0); /* 从异步通知列表中删除该 filp */
+
+
+2.2 /proc/scullpipe
+
+int scull_p_init(dev_t firstdev)
+    create_proc_read_entry("scullpipe", 0, NULL, scull_read_p_mem, NULL);
+
+[root proc]# cat scullpipe
+Default buffersize is 4000
+
+Device 0: c50a1400
+   Buffer: c6ec6000 to c6ec6fa0 (4000 bytes)
+       rp c6ec6003   wp c6ec6003
+          readers 3   writers 1
+
+          Device 1: c50a14d4
+             Buffer: 00000000 to 00000000 (0 bytes)
+       rp 00000000   wp 00000000
+          readers 0   writers 0
+
+          Device 2: c50a15a8
+             Buffer: 00000000 to 00000000 (0 bytes)
+       rp 00000000   wp 00000000
+          readers 0   writers 0
+
+          Device 3: c50a167c
+             Buffer: 00000000 to 00000000 (0 bytes)
+       rp 00000000   wp 00000000
+          readers 0   writers 0
+
+[root misc-progs]# cat > /dev/scullpipe
+jjjjjjjjjjjj
+kkkkkkkkkkkkkkk
+jj
+[root misc-progs]# cat /dev/scullpipe
+jjjjjjjjjjjj
+kkkkkkkkkkkkkkk
+jj
+
+
+4. sculla
+
+4.1 /var/log/messages
+int scull_access_init(dev_t firstdev)
+    scull_access_setup(firstdev + i, scull_access_devs + i);
+        printk(KERN_NOTICE "%s registered at %x\n", devinfo->name, devno);
+
+[root var]# tail -f /var/log/messages
+Nov  1 15:15:34 scr kernel: scullsingle registered at fe00008
+Nov  1 15:15:34 scr kernel: sculluid registered at fe00009
+Nov  1 15:15:34 scr kernel: scullwuid registered at fe0000a
+Nov  1 15:15:34 scr kernel: sullpriv registered at fe0000b
+
+
+4.2 scullsingle
+
+独享设置: 一次只允许一个进程打开设备.
+
+[root proc]# cat > /dev/scullsingle
+
+[1]+  Stopped                 cat >/dev/scullsingle
+[root proc]# cat > /dev/scullsingle
+bash: /dev/scullsingle: 设备或资源忙
+[root proc]# cat /dev/scullsingle
+cat: /dev/scullsingle: 设备或资源忙
+[root proc]# jobs
+[1]+  Stopped                 cat >/dev/scullsingle
+[root proc]# fg
+cat >/dev/scullsingle
+// Ctrl+C
+[root proc]# cat /dev/scullsingle
+[root proc]# cat > /dev/scullsingle
+
+
+4.3 sculluid
+
+1)  验证操作用具有相关权限:
+[scr dev]$ groups nal
+nal : nal scr
+[scr dev]$ ll /dev/sculluid
+crw-rw-r--  1 root scr 254, 9 11月  1 15:17 /dev/sculluid
+
+2)  测试
+[scr dev]$ cat /dev/sculluid
+
+[scr misc-progs]$ cat > /dev/sculluid
+jjj // 能正常打开
+kkkkkk
+[scr dev]$ cat /dev/sculluid
+jjj // 同一用户, 能正常打开
+kkkkkk
+[nal proc]# cat /dev/sculluid
+cat: /dev/sculluid: 设备或资源忙 // 另一用户, 不能打开
+
+[root proc]# cat >> /dev/sculluid
+kkk // root, 可以正常打开!
+kk
+[scr dev]$ cat /dev/sculluid
+kkk  // 可见后来的 writer 会覆盖前者写入的数据!
+kk
+
+[nal proc]# cat >> /dev/sculluid
+bash: /dev/sculluid: 设备或资源忙 // 另一用户, 不能打开
+
+[nal proc]# cat >> /dev/sculluid
+jfjjf // scr 和 root 的操作都终止后, nal 用户能正常打开.
+
+
+4.5 scullwuid
+
+// 要用 root 查看信息
+[root proc]# cat /dev/scullwuid
+
+[scr misc-progs]$ cat > /dev/scullwuid
+aaaaaaaaaaa // 能正常打开
+[root proc]# cat /dev/scullwuid
+aaaaaaaaaaa // 能正常写入数据
+
+[nal proc]# cat > /dev/scullwuid
+xxxxxxxxx // 能正常打开??
+xkkkkk
+[root proc]# cat /dev/scullwuid
+aaaaaaaaaaa // 说明 nal 的打开操作被阻塞了!
+
+// 在这终止 scr 的写入操作.
+[root proc]# cat /dev/scullwuid
+xxxxxxxxx // 再次证明 nal 之前的打开操作是被阻塞了!
+xkkkkk

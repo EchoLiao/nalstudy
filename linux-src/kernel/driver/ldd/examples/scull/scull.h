@@ -27,10 +27,11 @@
 #undef PDEBUG             /* undef it, just in case */
 #ifdef SCULL_DEBUG
 #  ifdef __KERNEL__
-     /* This one if debugging is on, and kernel space */
-#    define PDEBUG(fmt, args...) printk( KERN_DEBUG "scull: " fmt, ## args)
+/* This one if debugging is on, and kernel space */
+/* #    define PDEBUG(fmt, args...) printk( KERN_DEBUG "sbull: " fmt, ## args) */
+#    define PDEBUG(fmt, args...) printk(KERN_NOTICE "scull: " fmt, ## args)
 #  else
-     /* This one for user space */
+/* This one for user space */
 #    define PDEBUG(fmt, args...) fprintf(stderr, fmt, ## args)
 #  endif
 #else
@@ -40,6 +41,9 @@
 #undef PDEBUGG
 #define PDEBUGG(fmt, args...) /* nothing: it's a placeholder */
 
+
+/* ########################################################### */
+/* 以下参数在编译或运行时可以动态修改 */
 #ifndef SCULL_MAJOR
 #define SCULL_MAJOR 0   /* dynamic major by default */
 #endif
@@ -75,27 +79,30 @@
 #ifndef SCULL_P_BUFFER
 #define SCULL_P_BUFFER 4000
 #endif
+/* ########################################################### */
 
 /*
  * Representation of scull quantum sets.
  */
 struct scull_qset {
-	void **data;
-	struct scull_qset *next;
+    void **data; /* 指向量子集(头) */
+    struct scull_qset *next;
 };
 
+/* scull 设备所需的信息集打包 */
 struct scull_dev {
-	struct scull_qset *data;  /* Pointer to first quantum set */
-	int quantum;              /* the current quantum size */
-	int qset;                 /* the current array size */
-	unsigned long size;       /* amount of data stored here */
-	unsigned int access_key;  /* used by sculluid and scullpriv */
-	struct semaphore sem;     /* mutual exclusion semaphore     */
-	struct cdev cdev;	  /* Char device structure		*/
+    /* 最多可以存储的数据量为 (quantum * qset) */
+    struct scull_qset *data;  /* Pointer to first quantum set */
+    int quantum;              /* the current quantum size */
+    int qset;                 /* the current array size *//* 量子集中量子数 */
+    unsigned long size;       /* amount of data stored here */
+    unsigned int access_key;  /* used by sculluid and scullpriv */
+    struct semaphore sem;     /* mutual exclusion semaphore     */
+    struct cdev cdev;	      /* Char device structure		*/
 };
 
 /*
- * Split minors in two parts
+ * Split minors in two parts QQQQQ
  */
 #define TYPE(minor)	(((minor) >> 4) & 0xf)	/* high nibble */
 #define NUM(minor)	((minor) & 0xf)		/* low  nibble */
@@ -124,27 +131,29 @@ void    scull_access_cleanup(void);
 int     scull_trim(struct scull_dev *dev);
 
 ssize_t scull_read(struct file *filp, char __user *buf, size_t count,
-                   loff_t *f_pos);
+        loff_t *f_pos);
 ssize_t scull_write(struct file *filp, const char __user *buf, size_t count,
-                    loff_t *f_pos);
+        loff_t *f_pos);
 loff_t  scull_llseek(struct file *filp, loff_t off, int whence);
 int     scull_ioctl(struct inode *inode, struct file *filp,
-                    unsigned int cmd, unsigned long arg);
+        unsigned int cmd, unsigned long arg);
 
 
 /*
  * Ioctl definitions
  */
 
+/* [<P140>] */
 /* Use 'k' as magic number */
 #define SCULL_IOC_MAGIC  'k'
 /* Please use a different 8-bit number in your code */
 
+/* 把设备参数重置为默认值 */
 #define SCULL_IOCRESET    _IO(SCULL_IOC_MAGIC, 0)
 
-/*
- * S means "Set" through a ptr,
- * T means "Tell" directly with the argument value
+/* ioctl 命令:
+ * S means "Set" through a ptr. 通过指针传值来设置
+ * T means "Tell" directly with the argument value. 通过"值"来设置
  * G means "Get": reply by setting through a pointer
  * Q means "Query": response is on the return value
  * X means "eXchange": switch G and S atomically
@@ -173,5 +182,6 @@ int     scull_ioctl(struct inode *inode, struct file *filp,
 /* ... more to come */
 
 #define SCULL_IOC_MAXNR 14
+
 
 #endif /* _SCULL_H_ */
