@@ -14,7 +14,7 @@
  *
  * $Id: jiq.c,v 1.7 2004/09/26 07:02:43 gregkh Exp $
  */
- 
+
 #include <linux/config.h>
 #include <linux/module.h>
 #include <linux/moduleparam.h>
@@ -53,7 +53,7 @@ module_param(delay, long, 0);
 static DECLARE_WAIT_QUEUE_HEAD (jiq_wait);
 
 
-static struct work_struct jiq_work;
+static struct work_struct jiq_work; /* 定义一个共享队列 */
 
 
 
@@ -61,18 +61,20 @@ static struct work_struct jiq_work;
  * Keep track of info we need between task queue runs.
  */
 static struct clientdata {
-	int len;
-	char *buf;
-	unsigned long jiffies;
-	long delay;
-} jiq_data;
+    int len;
+    char *buf;
+    unsigned long jiffies;
+    long delay;
+} jiq_data; /* 作为 jiq_print_wq 等的传入参数 */
 
 #define SCHEDULER_QUEUE ((task_queue *) 1)
 
 
 
 static void jiq_print_tasklet(unsigned long);
-static DECLARE_TASKLET(jiq_tasklet, jiq_print_tasklet, (unsigned long)&jiq_data);
+/* 初始化 tasklet */
+static DECLARE_TASKLET(jiq_tasklet, jiq_print_tasklet,
+        (unsigned long)&jiq_data);
 
 
 /*
@@ -80,31 +82,32 @@ static DECLARE_TASKLET(jiq_tasklet, jiq_print_tasklet, (unsigned long)&jiq_data)
  */
 static int jiq_print(void *ptr)
 {
-	struct clientdata *data = ptr;
-	int len = data->len;
-	char *buf = data->buf;
-	unsigned long j = jiffies;
+    struct clientdata *data = ptr;
+    int len = data->len;
+    char *buf = data->buf;
+    unsigned long j = jiffies;
 
-	if (len > LIMIT) { 
-		wake_up_interruptible(&jiq_wait);
-		return 0;
-	}
+    if (len > LIMIT) { /* buffer 已满 */
+        wake_up_interruptible(&jiq_wait); /* 唤醒休眠在 jiq_wait 上的进程 */
+        return 0;
+    }
 
-	if (len == 0)
-		len = sprintf(buf,"    time  delta preempt   pid cpu command\n");
-	else
-		len =0;
+    if (len == 0)
+        len = sprintf(buf,"    time  delta preempt   pid cpu command\n");
+    else
+        len =0;
 
-  	/* intr_count is only exported since 1.3.5, but 1.99.4 is needed anyways */
-	len += sprintf(buf+len, "%9li  %4li     %3i %5i %3i %s\n",
-			j, j - data->jiffies,
-			preempt_count(), current->pid, smp_processor_id(),
-			current->comm);
+    /* intr_count is only exported since 1.3.5, but 1.99.4
+     * is needed anyways */
+    len += sprintf(buf+len, "%9li  %4li     %3i %5i %3i %s\n",
+            j, j - data->jiffies,
+            preempt_count(), current->pid, smp_processor_id(),
+            current->comm); /* preempt_count() ? QQQQQ */
 
-	data->len += len;
-	data->buf += len;
-	data->jiffies = j;
-	return 1;
+    data->len += len;
+    data->buf += len;
+    data->jiffies = j;
+    return 1;
 }
 
 
@@ -113,56 +116,58 @@ static int jiq_print(void *ptr)
  */
 static void jiq_print_wq(void *ptr)
 {
-	struct clientdata *data = (struct clientdata *) ptr;
-    
-	if (! jiq_print (ptr))
-		return;
-    
-	if (data->delay)
-		schedule_delayed_work(&jiq_work, data->delay);
-	else
-		schedule_work(&jiq_work);
+    struct clientdata *data = (struct clientdata *) ptr;
+
+    if (! jiq_print (ptr)) /* buffer 已满 */
+        return;
+
+    if (data->delay)
+        schedule_delayed_work(&jiq_work, data->delay);
+    else
+        schedule_work(&jiq_work);
 }
 
 
 
 static int jiq_read_wq(char *buf, char **start, off_t offset,
-                   int len, int *eof, void *data)
+        int len, int *eof, void *data)
 {
-	DEFINE_WAIT(wait);
-	
-	jiq_data.len = 0;                /* nothing printed, yet */
-	jiq_data.buf = buf;              /* print in this place */
-	jiq_data.jiffies = jiffies;      /* initial time */
-	jiq_data.delay = 0;
-    
-	prepare_to_wait(&jiq_wait, &wait, TASK_INTERRUPTIBLE);
-	schedule_work(&jiq_work);
-	schedule();
-	finish_wait(&jiq_wait, &wait);
+    DEFINE_WAIT(wait);
 
-	*eof = 1;
-	return jiq_data.len;
+    jiq_data.len = 0;                /* nothing printed, yet */
+    jiq_data.buf = buf;              /* print in this place */
+    jiq_data.jiffies = jiffies;      /* initial time */
+    jiq_data.delay = 0;
+
+    prepare_to_wait(&jiq_wait, &wait, TASK_INTERRUPTIBLE);
+    /* 将工作提交到共享队列, 不作迟延; 内核将在将来的某个时候调用之前注册的输
+     * 出函数(jiq_print_wq). */
+    schedule_work(&jiq_work);
+    schedule(); /* 休眠, 等待事件发生(buffer被填满) */
+    finish_wait(&jiq_wait, &wait);
+
+    *eof = 1;
+    return jiq_data.len;
 }
 
 
 static int jiq_read_wq_delayed(char *buf, char **start, off_t offset,
-                   int len, int *eof, void *data)
+        int len, int *eof, void *data)
 {
-	DEFINE_WAIT(wait);
-	
-	jiq_data.len = 0;                /* nothing printed, yet */
-	jiq_data.buf = buf;              /* print in this place */
-	jiq_data.jiffies = jiffies;      /* initial time */
-	jiq_data.delay = delay;
-    
-	prepare_to_wait(&jiq_wait, &wait, TASK_INTERRUPTIBLE);
-	schedule_delayed_work(&jiq_work, delay);
-	schedule();
-	finish_wait(&jiq_wait, &wait);
+    DEFINE_WAIT(wait);
 
-	*eof = 1;
-	return jiq_data.len;
+    jiq_data.len = 0;                /* nothing printed, yet */
+    jiq_data.buf = buf;              /* print in this place */
+    jiq_data.jiffies = jiffies;      /* initial time */
+    jiq_data.delay = delay;
+
+    prepare_to_wait(&jiq_wait, &wait, TASK_INTERRUPTIBLE);
+    schedule_delayed_work(&jiq_work, delay); /* 以迟延模式提交到工作队列 */
+    schedule();
+    finish_wait(&jiq_wait, &wait);
+
+    *eof = 1;
+    return jiq_data.len;
 }
 
 
@@ -173,24 +178,25 @@ static int jiq_read_wq_delayed(char *buf, char **start, off_t offset,
  */
 static void jiq_print_tasklet(unsigned long ptr)
 {
-	if (jiq_print ((void *) ptr))
-		tasklet_schedule (&jiq_tasklet);
+    if (jiq_print((void *) ptr))
+        tasklet_schedule (&jiq_tasklet);
+        /* tasklet_hi_schedule (&jiq_tasklet); */
 }
 
 
 
 static int jiq_read_tasklet(char *buf, char **start, off_t offset, int len,
-                int *eof, void *data)
+        int *eof, void *data)
 {
-	jiq_data.len = 0;                /* nothing printed, yet */
-	jiq_data.buf = buf;              /* print in this place */
-	jiq_data.jiffies = jiffies;      /* initial time */
+    jiq_data.len = 0;                /* nothing printed, yet */
+    jiq_data.buf = buf;              /* print in this place */
+    jiq_data.jiffies = jiffies;      /* initial time */
 
-	tasklet_schedule(&jiq_tasklet);
-	interruptible_sleep_on(&jiq_wait);    /* sleep till completion */
+    tasklet_schedule(&jiq_tasklet);  /* 把工作提交到 tasklet */
+    interruptible_sleep_on(&jiq_wait);    /* sleep till completion */
 
-	*eof = 1;
-	return jiq_data.len;
+    *eof = 1;
+    return jiq_data.len;
 }
 
 
@@ -204,31 +210,33 @@ static struct timer_list jiq_timer;
 
 static void jiq_timedout(unsigned long ptr)
 {
-	jiq_print((void *)ptr);            /* print a line */
-	wake_up_interruptible(&jiq_wait);  /* awake the process */
+    /* 当该函数被调用执行时, ptr->len(即: jiq_data.len)已不等于0. */
+    jiq_print((void *)ptr);            /* print a line */
+    wake_up_interruptible(&jiq_wait);  /* awake the process */
 }
 
 
 static int jiq_read_run_timer(char *buf, char **start, off_t offset,
-                   int len, int *eof, void *data)
+        int len, int *eof, void *data)
 {
 
-	jiq_data.len = 0;           /* prepare the argument for jiq_print() */
-	jiq_data.buf = buf;
-	jiq_data.jiffies = jiffies;
+    jiq_data.len = 0;     /* prepare the argument for jiq_print() */
+    jiq_data.buf = buf;
+    jiq_data.jiffies = jiffies;
 
-	init_timer(&jiq_timer);              /* init the timer structure */
-	jiq_timer.function = jiq_timedout;
-	jiq_timer.data = (unsigned long)&jiq_data;
-	jiq_timer.expires = jiffies + HZ; /* one second */
+    init_timer(&jiq_timer);              /* init the timer structure */
+    jiq_timer.function = jiq_timedout; /* 定时函数 */
+    jiq_timer.data = (unsigned long)&jiq_data;
+    jiq_timer.expires = jiffies + HZ; /* one second */
 
-	jiq_print(&jiq_data);   /* print and go to sleep */
-	add_timer(&jiq_timer);
-	interruptible_sleep_on(&jiq_wait);  /* RACE */
-	del_timer_sync(&jiq_timer);  /* in case a signal woke us up */
-    
-	*eof = 1;
-	return jiq_data.len;
+    /* print and go to sleep */
+    jiq_print(&jiq_data);    /* 打印表头 */
+    add_timer(&jiq_timer);
+    interruptible_sleep_on(&jiq_wait); /* 休眠, 等待超时, 或被事件发生 */
+    del_timer_sync(&jiq_timer);  /* in case a signal woke us up */
+
+    *eof = 1;
+    return jiq_data.len;
 }
 
 
@@ -240,25 +248,31 @@ static int jiq_read_run_timer(char *buf, char **start, off_t offset,
 static int jiq_init(void)
 {
 
-	/* this line is in jiq_init() */
-	INIT_WORK(&jiq_work, jiq_print_wq, &jiq_data);
+    /* this line is in jiq_init() */
+    /* 彻底初始化工作队列, 第一次用 INIT_WORK, 之后用 PREPARE_WORK */
+    /* jiq_print_wq 是从工作队列调用的函数, jiq_data 是 jiq_print_wq 的参数 */
+    INIT_WORK(&jiq_work, jiq_print_wq, &jiq_data); /* [<P205>] */
 
-	create_proc_read_entry("jiqwq", 0, NULL, jiq_read_wq, NULL);
-	create_proc_read_entry("jiqwqdelay", 0, NULL, jiq_read_wq_delayed, NULL);
-	create_proc_read_entry("jitimer", 0, NULL, jiq_read_run_timer, NULL);
-	create_proc_read_entry("jiqtasklet", 0, NULL, jiq_read_tasklet, NULL);
+    /* 工作队列(共享队列) */
+    create_proc_read_entry("jiqwq", 0, NULL, jiq_read_wq, NULL);
+    create_proc_read_entry("jiqwqdelay", 0, NULL, jiq_read_wq_delayed, NULL);
 
-	return 0; /* succeed */
+    /* 使用内核定时器实现迟缓 */
+    create_proc_read_entry("jiqtimer", 0, NULL, jiq_read_run_timer, NULL);
+    /* 使用 tasklet */
+    create_proc_read_entry("jiqtasklet", 0, NULL, jiq_read_tasklet, NULL);
+
+    return 0; /* succeed */
 }
 
 static void jiq_cleanup(void)
 {
-	remove_proc_entry("jiqwq", NULL);
-	remove_proc_entry("jiqwqdelay", NULL);
-	remove_proc_entry("jitimer", NULL);
-	remove_proc_entry("jiqtasklet", NULL);
+    remove_proc_entry("jiqwq", NULL);
+    remove_proc_entry("jiqwqdelay", NULL);
+    remove_proc_entry("jiqtimer", NULL);
+    remove_proc_entry("jiqtasklet", NULL);
 }
 
 
-module_init(jiq_init);
+module_init(jiq_init); /* 工作队列 */
 module_exit(jiq_cleanup);
