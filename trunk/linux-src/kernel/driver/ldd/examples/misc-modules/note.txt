@@ -1,0 +1,256 @@
+1. hello
+
+2. 第七章 时间/延迟/延缓操作
+jit.c
+jiq.c
+
+
+2.1. files
+/proc/interrupts // 记录了从系统启动起, 各个中断线发生了多少次中断
+/proc/uptime     // 记录了系统启动了多长时间(单位: 秒)
+
+2.2. jit
+
+2.2.1 使用 jiffies 计时器；获取当前时间
+
+2.2.1.1 /proc/currentime
+
+int jit_currentime(char *buf, char **start, off_t offset ... )
+    j1 = jiffies; /* 自系统启动以来, 滴答的次数. 每秒HZ次. */
+    j2 = get_jiffies_64(); /* 对于64位的jiffies应该用专门的函数访问 */
+    do_gettimeofday(&tv1);
+    tv2 = current_kernel_time();
+
+[root proc]# head -8 currentime
+0x0045a4d8 0x000000010045a4d8 1288666919.620088
+                              1288666919.620037768
+0x0045a4d9 0x000000010045a4d9 1288666919.620098
+                              1288666919.620037768
+0x0045a4d9 0x000000010045a4d9 1288666919.620101
+                              1288666919.620037768
+0x0045a4d9 0x000000010045a4d9 1288666919.620104
+                              1288666919.620037768
+
+2.2.2 延迟执行
+
+2.2.2.1 长延迟
+
+2.2.2.1.1 /proc/jitbusy
+
+忙等待
+
+int jit_fn(char *buf, char **start, off_t offset ... )
+    while (time_before(jiffies, j1))
+        cpu_relax();
+
+[root proc]# date; dd bs=20 count=5 < /proc/jitbusy ; date
+二 11月  2 11:16:15 CST 2010
+ 5420382   5421382 // 默认迟延等待一秒
+ 5421391   5422391
+ 5422408   5423408
+ 5423415   5424415
+ 5424433   5425433 // 可以见得, 该系不是很忙碌
+读入了 5+0 个块
+输出了 5+0 个块
+二 11月  2 11:16:20 CST 2010
+
+2.2.2.1.2 /proc/jitsched
+
+让出处理器
+
+int jit_fn(char *buf, char **start, off_t offset ... )
+    while (time_before(jiffies, j1)) {
+        schedule();
+    }
+
+[root proc]# date; dd bs=20 count=5 < /proc/jitsched ; date
+二 11月  2 11:23:56 CST 2010
+ 5881609   5882609 // 这系统真闲!
+ 5882609   5883609
+ 5883609   5884609
+ 5884609   5885609
+ 5885609   5886609
+读入了 5+0 个块
+输出了 5+0 个块
+二 11月  2 11:24:01 CST 2010
+
+
+2.2.2.1.3 /proc/jitqueue
+
+超时, 同时也可以被其它进程唤醒
+
+int jit_fn(char *buf, char **start, off_t offset ... )
+    wait_event_interruptible_timeout(wait, 0, delay);
+
+[root proc]# date; dd bs=20 count=5 < /proc/jitqueue ; date
+二 11月  2 13:49:41 CST 2010
+ 6883750   6884750 // 无论是在低负荷还是在高负荷的系统上, 该方法都运行得很好.
+ 6884750   6885750
+ 6885750   6886750
+ 6886751   6887751
+ 6887751   6888751
+读入了 5+0 个块
+输出了 5+0 个块
+二 11月  2 13:49:46 CST 2010
+
+
+2.2.2.1.4 /proc/jitschedto
+
+超时2: 只有超时了才会被唤醒
+
+int jit_fn(char *buf, char **start, off_t offset ... )
+    set_current_state(TASK_INTERRUPTIBLE); /* 可中断 */
+    schedule_timeout (delay);
+
+[root proc]# date; dd bs=20 count=5 < /proc/jitschedto ; date
+二 11月  2 14:06:56 CST 2010
+ 7918876   7919876
+ 7919876   7920876
+ 7920876   7921876
+ 7921876   7922876
+ 7922876   7923876
+读入了 5+0 个块
+输出了 5+0 个块
+二 11月  2 14:07:01 CST 2010
+
+
+2.2.2.2 短延迟
+
+
+2.2.3 内核定时器: /proc/jitimer
+
+int jit_timer(char *buf, char **start, off_t offset ... )
+void jit_timer_fn(unsigned long arg)
+
+[root proc]# cat jitimer
+   time   delta  inirq    pid   cpu command
+ 8617341    0     0     11109   0   cat
+ 8617351   10     1      4741   0   gnome-terminal
+ 8617361   10     1     11110   0   ls // 当前运行的进程是: ls
+ 8617371   10     1         0   0   swapper // 系统空闲
+ 8617381   10     1         0   0   swapper
+ 8617391   10     1     10434   0   top
+
+
+2.2.4 tasklet(小任务):
+
+int jit_tasklet(char *buf, char **start, off_t offset ... )
+void jit_tasklet_fn(unsigned long arg)
+
+2.2.4.1 普通优先级: /proc/jitasklet
+
+[root proc]# cat jitasklet
+    time   delta  inirq    pid   cpu command
+ 11491520    0     0     14190   0   cat
+ 11491520    0     1         2   0   ksoftirqd/0 // CPU 空闲,
+ 11491520    0     1         2   0   ksoftirqd/0 // tasklet 得到立即执行
+ 11491520    0     1         2   0   ksoftirqd/0
+ 11491520    0     1         2   0   ksoftirqd/0
+ 11491520    0     1         2   0   ksoftirqd/0
+
+[root proc]# cat jitasklet
+    time   delta  inirq    pid   cpu command
+ 11890635    0     0     15231   0   cat
+ 11890636    1     1     14326   0   top // CPU 忙,
+ 11890636    0     1     14326   0   top // tasklet 会在下一个定时器滴答执行
+ 11890636    0     1     14326   0   top
+ 11890636    0     1     14326   0   top
+ 11890636    0     1     14326   0   top
+
+2.2.4.2 高优先级: /proc/jitasklethi
+
+[root proc]# cat jitasklethi
+    time   delta  inirq    pid   cpu command
+ 12059733    0     0     16848   0   cat
+ 12059734    1     1      4741   0   gnome-terminal
+ 12059734    0     1      4741   0   gnome-terminal
+ 12059734    0     1      4741   0   gnome-terminal
+ 12059734    0     1      4741   0   gnome-terminal
+ 12059734    0     1      4741   0   gnome-terminal
+
+2.3. jiq
+
+2.3.1 工作队列
+
+static int jiq_init(void)
+    /* 彻底初始化工作队列, 第一次用 INIT_WORK, 之后用 PREPARE_WORK */
+    INIT_WORK(&jiq_work, jiq_print_wq, &jiq_data); /* [<P205>] */
+    create_proc_read_entry("jiqwq", 0, NULL, jiq_read_wq, NULL);
+    create_proc_read_entry("jiqwqdelay", 0, NULL, jiq_read_wq_delayed, NULL);
+
+2.3.1.1 不作迟延: /proc/jiqwq
+
+static int jiq_read_wq(char *buf, char **start, off_t offset ... )
+    schedule_work(&jiq_work); /* 将工作提交到共享队列, 不作迟延 */
+
+[root proc]# cat jiqwq
+   time   delta preempt   pid cpu command  // preempt ? QQQQQ
+ 14452822     0       0     4   0 events/0 // 基本上看不到迟延
+ 14452822     0       0     4   0 events/0
+ 14452822     0       0     4   0 events/0
+ 14452822     0       0     4   0 events/0
+ 14452822     0       0     4   0 events/0
+
+2.3.1.2 迟延: /proc/jiqwqdelay
+
+static int jiq_read_wq_delayed(char *buf, char **start ... )
+    schedule_delayed_work(&jiq_work, delay); /* 以迟延模式提交到工作队列 */
+
+[root proc]# cat jiqwqdelay
+    time  delta preempt   pid cpu command
+ 14459849     1       0     4   0 events/0 // 能看到明显的迟延
+ 14459850     1       0     4   0 events/0
+ 14459851     1       0     4   0 events/0
+ 14459852     1       0     4   0 events/0
+ 14459853     1       0     4   0 events/0
+ 14459854     1       0     4   0 events/0
+ 14459855     1       0     4   0 events/0
+
+2.3.2 内核定时器: /proc/jiqtimer
+static int jiq_read_run_timer(char *buf, char **start ... )
+    jiq_timer.function = jiq_timedout; /* 定时函数 */
+    jiq_timer.data = (unsigned long)&jiq_data;
+    jiq_timer.expires = jiffies + HZ; /* one second */
+    add_timer(&jiq_timer);
+
+[scr proc]$ cat jiqtimer
+   time  delta preempt   pid cpu command
+ 1253593     0       0  6252   0 cat
+ 1254593  1000     512     0   0 swapper
+
+
+2.3.3 tasklet: /proc/jiqtasklet
+
+[scr proc]$ cat jiqtasklet
+   time  delta preempt   pid cpu command
+ 2389977     1     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389977     0     512  3808   0 X
+ 2389978     1     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389978     0     512  4640   0 gnome-terminal
+ 2389979     1     512  3808   0 X
+ 2389979     0     512  3808   0 X
+ 2389979     0     512  3808   0 X
+
+Analysis:
+Q: 为什么测试过程中, 其有时候输出的数据多有时候却少?
+A: 因为在把工作提交到 tasklet 时使用的是普通的调度优先级, 而 tasklet 是运行在
+   中断其间的! 使用得可以被其它进程中断:
+        tasklet_schedule (&jiq_tasklet);
+   可改用高的优先级的, 以达到每次输出数据都填满缓冲区:
+        tasklet_hi_schedule (&jiq_tasklet);
