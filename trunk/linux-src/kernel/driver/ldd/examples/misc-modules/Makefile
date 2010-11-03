@@ -21,6 +21,10 @@ modules_install:
 clean:
 	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions
 
+cleanall:
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions \
+	       cscope.* tags
+
 .PHONY: modules modules_install clean
 
 else
@@ -28,5 +32,3 @@ else
     obj-m := hello.o hellop.o seq.o jit.o jiq.o sleepy.o complete.o \
              silly.o faulty.o kdatasize.o kdataalign.o
 endif
-
-
