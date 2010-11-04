@@ -1,6 +1,6 @@
 
 # Comment/uncomment the following line to enable/disable debugging
-#DEBUG = y
+DEBUG = y
 
 
 ifeq ($(DEBUG),y)
@@ -37,6 +37,9 @@ install:
 clean:
 	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions
 
+cleanall:
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions \
+	       cscope.* tags
 
 depend .depend dep:
 	$(CC) $(CFLAGS) -M *.c > .depend
