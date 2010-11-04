@@ -51,7 +51,7 @@ j
 [scr misc-progs]$ strace -c ./nbtest
 jjjjjjj
 jjjjjjj
-aaaaaaaaaaaaaa
+aaaaaaaaaaaaaa // Ctrl+C
  % time     seconds  usecs/call     calls    errors syscall
  ------ ----------- ----------- --------- --------- ----------------
  43.39   0.000289         289         1             execve
