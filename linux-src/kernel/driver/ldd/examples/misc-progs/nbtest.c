@@ -33,22 +33,22 @@ int main(int argc, char **argv)
     fcntl(1, F_SETFL, fcntl(1,F_GETFL) | O_NONBLOCK); /* stdout */
 
     while (1) {
-        /* 没有数据可读时, 第一次返回0, 之后返回负值. */
+        /* 没有数据可读时: 第一次返回0, 之后返回负值. */
         n = read(0, buffer, 4096); /* 立即返回 */
 
         if (n >= 0) /* 可以把该语句注释后再对比测试 */
         {
             m = write(1, buffer, n);
-            n = -1;
+            /* n = -1; */
         }
 
         if ((n < 0 || m < 0) && (errno != EAGAIN))
             break;
-        if ( n == 0 || m == 0)
-        {
-            printf("end of file\n");
-            /* exit(0); */
-        }
+        /* if ( n == 0 || m == 0) */
+        /* { */
+            /* printf("end of file\n"); */
+            /* [>exit(0);<] */
+        /* } */
 
         sleep(delay);
     }
