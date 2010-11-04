@@ -1,0 +1,67 @@
+<web-app>
+
+  <servlet>
+    <servlet-name>login_confirm</servlet-name>
+    <servlet-class>login_confirm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/login_confirm</url-pattern>
+    <servlet-name>login_confirm</servlet-name>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>StudentSvlt</servlet-name>
+    <servlet-class>StudentSvlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/StudentSvlt</url-pattern>
+    <servlet-name>StudentSvlt</servlet-name>
+  </servlet-mapping>
+
+    <servlet>
+    <servlet-name>TeacherSvlt</servlet-name>
+    <servlet-class>TeacherSvlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/TeacherSvlt</url-pattern>
+    <servlet-name>TeacherSvlt</servlet-name>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>CourseSvlt</servlet-name>
+    <servlet-class>CourseSvlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/CourseSvlt</url-pattern>
+    <servlet-name>CourseSvlt</servlet-name>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>ClassSvlt</servlet-name>
+    <servlet-class>ClassSvlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/ClassSvlt</url-pattern>
+    <servlet-name>ClassSvlt</servlet-name>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>StudentLoginSvlt</servlet-name>
+    <servlet-class>StudentLoginSvlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/StudentLoginSvlt</url-pattern>
+    <servlet-name>StudentLoginSvlt</servlet-name>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>MarkSvlt</servlet-name>
+    <servlet-class>MarkSvlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/MarkSvlt</url-pattern>
+    <servlet-name>MarkSvlt</servlet-name>
+  </servlet-mapping>
+
+</web-app>
+
