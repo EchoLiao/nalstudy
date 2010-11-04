@@ -1,0 +1,31 @@
+        <<使用整页的scull: scullp [<P223>]>>
+
+ssize_t scullp_write (struct file *filp, const char __user *buf ... )
+    dptr->data[s_pos] = (void *)__get_free_pages(GFP_KERNEL, dptr->order);
+
+int scullp_trim(struct scullp_dev *dev)
+    free_pages((unsigned long)(dptr->data[i]), dptr->order);
+
+1. /dev/scullp*
+
+
+2. /proc/scullpmem
+
+int scullp_init(void)
+    create_proc_read_entry("scullpmem", 0, NULL, scullp_read_procmem, NULL);
+int scullp_read_procmem(char *buf, char **start, off_t offset ... )
+
+
+[scr proc]$ cat scullpmem
+
+Device 0: qset 500, order 0, sz 0
+item at cf732400, qset at 00000000
+
+Device 1: qset 500, order 0, sz 0
+item at cf73248c, qset at 00000000
+
+Device 2: qset 500, order 0, sz 0
+item at cf732518, qset at 00000000
+
+Device 3: qset 500, order 0, sz 0
+item at cf7325a4, qset at 00000000
