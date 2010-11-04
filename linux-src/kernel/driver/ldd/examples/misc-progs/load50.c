@@ -1,5 +1,5 @@
 /*
- * load50.c -- a simple busy-looping tool. 
+ * load50.c -- a simple busy-looping tool.
  * Obviously, this runs with any kernel and any Unix
  *
  * Copyright (C) 2001 Alessandro Rubini and Jonathan Corbet
@@ -12,27 +12,30 @@
  * Drivers" by Alessandro Rubini and Jonathan Corbet, published
  * by O'Reilly & Associates.   No warranty is attached;
  * we cannot take responsibility for errors or fitness for use.
- */ 
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
+/*
+   创建 load 个新进程, 然后进入死循环, 使用得它们不断地运行!
+   用于模拟高负荷系统
+   */
 int main(int argc, char **argv)
 {
-	int i, load=50;
+    int i, load=50;
 
-	if (argc==2) {
-		load=atoi(argv[1]);
-	}
-	printf("Bringing load to %i\n",load);
-  
-	for (i=0; i<load; i++)
-		if (fork()==0)
-			break;
+    if (argc==2) {
+        load=atoi(argv[1]);
+    }
+    printf("Bringing load to %i\n",load);
 
-	while(1)
-		;
-	return 0;
+    for (i=0; i<load; i++)
+        if (fork()==0)
+            break;
+
+    while(1)
+        ;
+    return 0;
 }
-
