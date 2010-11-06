@@ -22,8 +22,7 @@ clean:
 
 .PHONY: modules modules_install clean
 
+# called from kernel build system: just declare what our modules are
 else
-    # called from kernel build system: just declare what our modules are
-#default:
-	obj-m := hello.o
+    obj-m := hello.o
 endif
