@@ -18,5 +18,5 @@ while [ 1 ]; do
         echo "had connected, ruijie MAC: $rjMAC_curr"
     fi
 
-    sleep 2
+    sleep 5
 done
