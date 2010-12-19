@@ -65,7 +65,7 @@ fi
 # ${string%substring}	Strip shortest match of $substring from back of $string
 count=1
 for file in ./*.$ifix; do # 遍历目录 (keyline)
-    if [ ! -e $file ]; then continue; fi
+    if [ ! -e "$file" ]; then continue; fi
 
     file=${file##*/} # 只保留最短的文件名
 
@@ -77,7 +77,7 @@ for file in ./*.$ifix; do # 遍历目录 (keyline)
     fi
 
     if [ $pre ]; then
-        newname=$pre"_"$newname
+        newname=$pre""$newname
     fi
 
     # 确定扩展名

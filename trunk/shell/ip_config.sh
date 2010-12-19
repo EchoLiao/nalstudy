@@ -51,6 +51,7 @@ do_chrc()
     sed "s/$ifdevname/$ifdevname_real/g" $rcfile > $tmpfile1
     rm -f $rcfile
     mv $tmpfile1 $rcfile
+    chmod +x $rcfile
 }
 
 do_chnat()
@@ -59,6 +60,7 @@ do_chnat()
     sed "s/$ifdevname/$ifdevname_real/g" $natfile > $tmpfile1
     rm -f $natfile
     mv $tmpfile1 $natfile
+    chmod +x $natfile
 }
 
 
