@@ -1,10 +1,18 @@
 #! /bin/sh
 # opttest - test getopt handling of options
 
-set -- `getopt "ab:" "$@"` || {
+parm=`getopt "ab:" "$@"`
+res=$?
+echo $parm, $res
+
+[[ $res != 0 ]] && {
     echo "Usage: `basename $0` [-a] [-b name] [files]" 1>&2
     exit 1
 }
+
+# "set --" : 重新设置命令行参数
+set -- $parm
+
 echo "Before loop, command line has: $*"
 aflag=0  name=NONE
 while :
@@ -17,4 +25,5 @@ do
     shift
 done
 shift    # Remove the trailing --
-echo "aflag=$aflag / name=$name / Files are $*"
+
+echo "aflag=$aflag , name=$name , Files are $*"
