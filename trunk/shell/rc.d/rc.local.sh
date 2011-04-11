@@ -3,6 +3,27 @@
 ##
 # run in /etc/rc.d/rc.local file.
 
+############################ In gongsi ######################
+
+## for network
+service network restart
+service iptables stop
+service nfs restart
+
+## for svnserve
+svn=`ps aux | grep svnserve | grep -v grep`
+[[ $svn ]] || svnserve -d -r /var/svn
+
+## mount
+mount -t cifs -o nolock //192.168.1.129/rsync /media/win_rsync_dir/ -o username=administrator -o password=hql12345
+mount -t cifs -o nolock //192.168.1.129/bk /media/win_bk_dir/ -o username=administrator -o password=hql12345
+mount -t cifs -o nolock //192.168.1.129/whxlog /home/log -o username=administrator -o password=hql12345
+
+
+
+
+exit 0
+############################ In school ######################
 ## ruijie nat ...
 # ifconfig eth3 hw ether 00:1E:90:13:e0:25
     # ifconfig eth3 hw ether 00:1B:38:A1:8C:B9
