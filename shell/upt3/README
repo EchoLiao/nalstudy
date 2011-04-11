@@ -1,2 +1,1257 @@
-相关例子或程序的下载地址或链接
+1. 相关例子或程序的下载地址或链接
+UNIX.Shells.by.Example.3rd.Edition
 http://examples.oreilly.com/9780596003302/
+
+http://examples.oreilly.com/9780596003302/#the-list
+
+
+2. Descriptions of programs and examples
+
+http://examples.oreilly.com/9780596003302/#the-list
+
+The rest of this page contains descriptions of each program and example with
+links to their files.
+
+If you know the names of the files you want, click on one of the names below;
+it'll take you to the description of that file and a link to it. Or, if you
+feel like browsing, scroll down and read through the descriptions.
+
+! | .emacs_ml | .enter.csh | .enter.sh | .exit.csh | .exit.sh | age_files |
+agrep | awf | behead | bkedit | blinkprompt.csh | blinkprompt.sh | bzip2 |
+c.csh | c.sh | catsaway | center | cgrep | checksed | chmod.csh | chmod.sh |
+chmod_edit | cleanup | column | commer | count.it | count_types | csh_init |
+csplit | curl | cut | cw | dateprompt.sh | dd | dedent | del | deroff | df |
+diff | dircolors | dirsprompt.bash | dirsprompt.csh | dirstailprompt.csh |
+emacs | env | expect | exrc | fac.sh | false | file | fileutils | find.csh |
+find.sh | fmt | fmt.sh | ftpfile | gawk | gnroff | grabchars | grep | gzip |
+hgrep | if-else-alias.csh | ispell | join | lensort | lndir | look | lookfor |
+ls | mailto | makealias.csh | md5sum | metamail | mimencode | mkfifo |
+mlprompt.csh | mlprompt.sh | mx.sh | namesort | namesort.pl | ndown | netpbm |
+nl | nohup | nom | nom2 | nup | offset | oldlinks | opttest | paircheck |
+paste | patch | perl | pick | printenv | proxynotify | python | qterm |
+rcsegrep.fast | rcsgrep | rcsrevs | recomment | requote | rot | rpm |
+run-parts | runsed | samba | script.tidy | scriptprompt.zsh | search.el |
+setprompt.csh | setprompt.sh | sh_init | shellutils | showargs | showenv |
+showmatch | sl | sleep | spell | split | split.pl | ssh | stattitle.csh |
+stattitle.sh | strings | stripper | stty | sysmgr | tail | tar | tcl+tk | tee
+| textutils | touch | tpipe | tr | true | umask.csh | umask.sh | uniq | uptime
+| users | vgrep | vis | vnc | watchq | wget | ww.csh | ww.sh | xargs | xgrep |
+xwrist | zap
+
+
+.emacs_ml
+
+The .emacs_ml file contains a listing of Mike's favorite Emacs commands. If
+you like them, put them in your own $HOME/.emacs file. (See article 19.7.)
+[Overview] [List]
+
+.enter.csh
+
+.enter.csh is an example of a C shell script you might want to run when your C
+shell enters a particular directory. It is meant to be used with an alias
+(which can be found in the csh_init file) and with a .exit.csh script. (See
+        article 31.13.)
+[Overview] [List]
+
+.enter.sh
+
+.enter.sh is an example of a Bourne shell script you might want to run when
+your Bourne-type shell (including ksh and bash) enters a particular directory.
+It is meant to be used with a shell function (which can be found in the
+        sh_init file) and with a .exit.sh script. (See article 31.13.)
+[Overview] [List]
+
+.exit.csh
+
+.exit.csh is an example of a shell script you might want to run when your C
+shell leaves a particular directory. It is meant to be used with an alias
+(which can be found in the csh_init file) and with a .enter.csh script. (See
+        article 31.13.)
+[Overview] [List]
+
+.exit.sh
+
+.exit.sh is an example of a shell script you might want to run when your
+Bourne-type shell (including ksh and bash) leaves a particular directory. It
+is meant to be used with a shell function (which can be found in the sh_init
+        file) and with a .enter.sh script. (See article 31.13.)
+[Overview] [List]
+
+!
+
+The ! command (pronounced "bang") creates a temporary file to be used with a
+program that requires a filename in its command line. This is useful with
+shells that don't support process substitution. For example, to diff two files
+after sorting them, you might do:
+
+diff `! sort file1` `! sort file2`
+
+(See article 28.1.)
+[Overview] [List]
+
+age_files
+
+The age_files shell script reports the size of the files in a given directory
+by age. (See article 8.14.)
+[Overview] [List]
+
+agrep
+
+agrep looks for approximate matches. It can search by lines or by records.
+(See article 13.6.)
+
+    * Source (note: compressed with compress, not gzip!):
+        * ftp://ftp.cs.arizona.edu/agrep/agrep-2.04.tar.Z
+    * Udi Manber's Software page: http://glimpse.cs.arizona.edu/software.html
+
+[Overview] [List]
+
+awf
+
+awf (Amazingly Workable Formatter) is an nroff -man or nroff -ms clone written
+entirely in (old) awk. It is slow and has many restrictions, but does a decent
+job on most manual pages and simple -ms documents. It is also a text formatter
+that is simple enough to be tinkered with, for people who want to experiment.
+(See article 3.21.)
+[Overview] [List]
+
+behead
+
+The behead shell script removes all lines in a file up to the first blank
+line. This effectively removes the header from files saved from mail or news.
+(See article 21.5.)
+[Overview] [List]
+
+bkedit
+
+bkedit is a simple shell script that makes a backup copy of a file before
+using the vi editor on it. (See article 35.16.)
+[Overview] [List]
+
+blinkprompt.csh
+
+blinkprompt.csh has short sequences of code that makes a tcsh or csh shell
+prompt with the blinking word "root". This reminds root users of their
+superuser power (and its dangers). (See article 4.10.)
+[Overview] [List]
+
+blinkprompt.sh
+
+blinkprompt.sh has short sequences of code that makes a Bourne-type shell
+prompt (for bash, sh, and zsh, among others) with the blinking word "root".
+This reminds root users of their superuser power (and its dangers). (See
+        article 4.10.)
+[Overview] [List]
+
+bzip2
+
+The bzip2 utility compresses files. It often makes files smaller than gzip
+(but it also often takes longer to run).
+
+In addition to the bzip2 program itself, the package includes bunzip2 and
+bzcat. (See article 15.6.)
+
+    * Home page: http://sources.redhat.com/bzip2/
+
+[Overview] [List]
+
+catsaway
+
+The catsaway shell script is included here as an example of using a loop to
+repeat a command until it fails. (See article 35.15.) See also sysmgr.
+[Overview] [List]
+
+c.csh
+
+c.csh has two C shell aliases that let you change to a different current
+directory by typing the initial letter(s) of each pathname element. One
+version works if you already have an alias for cd; the other, which is
+slightly simpler, should work for everyone else. (See article 31.10.)
+[Overview] [List]
+
+c.sh
+
+c.sh has a Bourne shell function that lets you change to another current
+directory by typing the initial letter(s) of each pathname element. (See
+        article 31.10.)
+[Overview] [List]
+
+center
+
+center is an awk script that centers each line of a file. (See article 21.8.)
+[Overview] [List]
+
+cgrep
+
+cgrep is a context-grep Perl script for showing the given string with several
+lines of surrounding text. (See article 13.9.)
+[Overview] [List]
+
+checksed
+
+The checksed shell script runs the sed commands in a file called sedscr on the
+specified files, showing the edits with diff and a pager program. (See article
+        34.4.) See also runsed.
+[Overview] [List]
+
+chmod.csh
+
+chmod.csh has two C shell aliases named -w and +w that make it easy to change
+write permission on a file or directory. (See article 50.7.) See also cw, c-w,
+      cx.
+[Overview] [List]
+
+chmod.sh
+
+chmod.sh has two Bourne shell functions named -w and +w that make it easy to
+change write permission on a file or directory. (See article 50.7.) See also
+cw, c-w, cx.
+[Overview] [List]
+
+chmod_edit
+
+The chmod_edit shell script adds write permission to a file, places you in
+your favorite editor, and then removes write permission again. (See article
+        50.7.)
+[Overview] [List]
+
+cleanup
+
+cleanup is an example of a shell script to be run by cron. By combining
+multiple find conditions, the find command is run only once instead of
+multiple times. (See article 14.19.)
+[Overview] [List]
+
+column
+
+column neatens text into columns. (See article 21.16.)
+[Overview] [List]
+
+commer
+
+commer is a shell script that uses comm to compare two sorted files; it
+processes comm's output to make it easier to read. (See article 11.9.)
+[Overview] [List]
+
+count.it
+
+count.it reports the difference in word length between two files. (See article
+        16.6.)
+[Overview] [List]
+
+count_types
+
+count_types is a shell script that counts the number of files of each type, as
+reported by the file command. (See article 8.13.)
+[Overview] [List]
+
+csh_init
+
+The csh_init file has C shell alias definitions that work with the .enter.csh
+and .exit.csh files to enable automatic command execution as you move into and
+out of directories. These are also available as Bourne shell functions in the
+sh_init file. (See article 31.13.)
+[Overview] [List]
+
+csplit
+
+The csplit program splits a file according to context. It's part of the GNU
+textutils. See also split. (See article 21.10.)
+[Overview] [List]
+
+curl
+
+cURL, or curl, is similar to wget, but it works with more protocols. It also
+supports kerberos, cookies, user authentication, file transfer resume and
+more. (See article 40.8.)
+
+    * Home page: http://curl.haxx.se/
+
+[Overview] [List]
+
+cut
+
+cut extracts characters from particular locations on each line of a text file.
+It's part of the GNU textutils. See also paste. (See article 21.18.)
+[Overview] [List]
+
+cw, c-w, cx
+
+The shell script named cw adds write permission to the file(s) on its command
+line. It has a link named c-w that removes write permission and another named
+cx that adds execute permission. See also chmod.sh, chmod.csh. (See article
+        50.8.)
+[Overview] [List]
+
+dateprompt.sh
+
+dateprompt.sh sets a prompt on old Bourne shells that don't support other ways
+to set the promot dynamically. It works by starting a background program that
+periodically updates the prompt string and sends a signal to the shell, which
+traps that signal. (See article 4.15.) Most modern shells don't need this
+kludge to set a prompt, but the technique (sending a signal to your shell) is
+still useful to know.
+[Overview] [List]
+
+dd
+
+dd is a handy (but cryptic) utility for processing text. (See article 21.6.)
+    It's part of the GNU fileutils.
+[Overview] [List]
+
+dedent
+
+dedent is a directly-executable sed script that removes all whitespace from
+the beginning of each line of text. (See article 5.21.) If your system can't
+directly execute files starting with #!, add a shell wrapper; see article
+36.3.
+[Overview] [List]
+
+del
+
+del is a file-removing shell script that works more quickly, for large numbers
+of files, than rm -i. If there are three or fewer files to remove, it runs rm
+-i; otherwise, it shows all of the filenames and asks you just once. Train
+your fingers to use del -- instead of aliasing rm to actually run rm -i, which
+can be dangerous if you go to an account without that alias and expect an
+interactive file-removal command. (See article 14.7.)
+[Overview] [List]
+
+deroff
+
+deroff removes troff-style formatting markup from manual page sources and
+other similar files. (See article 16.9.)
+
+    * Home page: http://www.moria.de/~michael/deroff/
+
+[Overview] [List]
+
+df
+
+The df utility shows filesystem capacity and how much space is currently
+available on each. The GNU version has a more flexible output format than many
+others. df is part of the GNU fileutils. (See article 15.8.)
+[Overview] [List]
+
+diff
+
+The diff utility shows the differences between two files, or between all files
+in two directories, in a variety of formats. It's part of the GNU diffutils.
+
+    * http://ftp.gnu.org/pub/gnu/diffutils/ (See article 11.3 and others.)
+
+[Overview] [List]
+
+dircolors
+
+The dircolors utility outputs commands to set the LS_COLORS environment
+variable, which sets the colors used by GNU ls. dircolors is part of the GNU
+fileutils. (See article 8.6.)
+[Overview] [List]
+
+dirsprompt.bash
+
+dirsprompt.bash makes a prompt for bash showing the current directory stack.
+(See article 4.14.)
+[Overview] [List]
+
+dirsprompt.csh
+
+dirsprompt.csh is a set of aliases that make a tcsh or csh shell prompt
+showing the current directory stack. (See article 4.14.) See also
+dirstailprompt.
+[Overview] [List]
+
+dirstailprompt.csh
+
+dirstailprompt.csh is a set of aliases that make a tcsh or csh shell prompt
+showing a shortened version (only the pathname tails) of the current directory
+stack. (See article 4.14.) See also dirsprompt.csh.
+[Overview] [List]
+
+emacs
+
+GNU Emacs is the GNU incarnation of the advanced, self-documenting,
+    customizable, extensible real-time display editor Emacs. (See article
+            19.1.)
+
+    * http://www.gnu.org/directory/GNU/emacs.html
+
+[Overview] [List]
+
+env
+
+The env utility shows a list of the currently-set environment variables,
+    sorted by name. (See article 35.3.) It's part of the GNU shellutils. See
+    also printenv and showenv.
+[Overview] [List]
+
+expect
+
+Expect is a program to control interactive applications, such as telnet and
+passwd, that prompt you to type something at the prompt. You can write simple
+Expect scripts to automate these interactions. Then the Expect script can run
+the "interactive" program non-interactively. (See article 28.18.) Expect
+programs are almost always written using Tcl/tk.
+[Overview] [List]
+
+exrc
+
+The exrc file is a collection of vi and ex commands that are shown throughout
+the book. Others aren't shown in the book and are only available in this file.
+In its distribution form, each set of commands is commented out and needs to
+be explicitly uncommented before you can use them; this is because many of the
+definitions override or conflict with one another. You can copy this file into
+your .exrc file, and then enable the definitions that you want. (See articles
+        18.5, 18.11, and 18.13.)
+[Overview] [List]
+
+fac.sh
+
+fac.sh is a Bourne shell function that uses recursion to calculate factorials.
+It's meant more for demonstration than for serious use: most shells, except
+zsh, will quickly overflow and give incorrect results. (See article 29.11.)
+[Overview] [List]
+
+false
+
+The false utility simply returns a nonzero exit status. It's so simple that
+this GNU version doesn't add any functionality to the version available on
+almost all Unix-type systems -- so you probably won't need to install this.
+It's part of the GNU shellutils. (See article 35.12.) See also true.
+[Overview] [List]
+
+file
+
+The file utility reads the file(s) named on its command line and tries to
+guess the file type. (Because Unix-type systems and utilities generally don't
+        require filename "extensions" like .txt, a file with any name can
+        contain almost anything.) (See article 12.6.)
+[Overview] [List]
+
+fileutils
+
+The GNU file utilities have significant advantages over their standard UNIX
+counterparts, such as greater speed, additional options, and fewer arbitrary
+limits. Programs included are: chmod, chgrp, chown, cp, dd, df, du, install,
+    ln, ls, mkdir, mkfifo, mknod, mv, rm, rmdir, and touch. Most of these
+    programs are covered throughout the book.
+
+    * http://ftp.gnu.org/gnu/fileutils/fileutils-4.1.tar.gz
+
+[Overview] [List]
+
+find.csh
+
+find.csh has two C shell aliases, named find. and find.ls, that use the find
+operator -prune to do searches in the current directory only. If your version
+of find doesn't have -prune, it might have another operator, such as -maxdepth
+1, that you can use instead. (See article 9.26.)
+[Overview] [List]
+
+find.sh
+
+find.sh has two Bourne shell functions, named Find and Findls, that use the
+find operator -prune to do searches in the current directory only. If your
+version of find doesn't have -prune, it might have another operator, such as
+-maxdepth 1, that you can use instead. (See article 9.26.)
+[Overview] [List]
+
+fmt
+
+fmt neatens text into paragraphs that are (by default) no longer than 72
+characters. This GNU version has several other formatting features. (See
+        article 21.2.) It's part of the GNU textutils.
+[Overview] [List]
+
+fmt.sh
+
+fmt.sh is a shell script that uses sed and nroff to simulate the behavior of
+the fmt command. It is meant for systems that are not distributed with fmt
+already installed. (See article 21.3.)
+[Overview] [List]
+
+ftpfile
+
+ftpfile is a shell script for anonymously ftp'ing a file. It is included in
+the archive as an example of a here document. (See article 27.16.)
+[Overview] [List]
+
+gawk
+
+gawk is a version of awk from the Free Software Foundation. It has many more
+features than the original awk. (See article 20.11.)
+
+    * http://www.gnu.org/directory/GNU/gawk.html
+
+[Overview] [List]
+
+gnroff
+
+gnroff is the GNU version of the nroff text formatter, used to format manpages
+(and also handy for other plain-text document formatting). It's part of the
+groff package. (See article 3.21.)
+
+    * http://www.gnu.org/directory/GNU/groff.html
+
+[Overview] [List]
+
+grabchars
+
+grabchars gets one or more keystrokes from the user without requiring the
+RETURN key. It was written to make all types of shell scripts more
+interactive. (See article 35.18.)
+[Overview] [List]
+
+grep
+
+The GNU utilities grep, egrep and fgrep find lines of text that match a
+pattern. They have many other features, including showing lines of context
+around a matching line. (See article 13.8.)
+
+    * http://www.gnu.org/directory/grep.html
+
+[Overview] [List]
+
+gzip
+
+GNU gzip allows compression of files. In addition to the gzip program itself,
+    the package includes gunzip and zcat. (See article 15.6.) See also bzip2.
+
+    * http://www.gnu.org/directory/GNU/gzip.html
+
+[Overview] [List]
+
+hgrep
+
+hgrep is a trivial, but cute, front-end for grep. It takes the results of the
+grep and highlights the word that was searched for. (See article 13.16.)
+[Overview] [List]
+
+if-else-alias.csh
+
+if-else-alias.csh demonstrates how to put an if-else-endif test into a C shell
+alias. It isn't pretty, but it works (as far as we know... if it doesn't work
+        on your csh, please tell us!). (See article 29.9.)
+[Overview] [List]
+
+ispell
+
+ispell is a fast screen-oriented spelling checker that shows your errors in
+the context of the original file, and suggests possible corrections when it
+can figure them out. Compared to UNIX spell, it is faster and much easier to
+use. ispell can also handle languages other than English. (See article 16.2.)
+
+    * http://www.gnu.org/directory/ispell.html
+
+[Overview] [List]
+
+join
+
+join joins two files with multiple fields or columns -- similar to a
+relational database "join" operation. It's part of the GNU textutils. (See
+        article 21.19.)
+[Overview] [List]
+
+lensort
+
+lensort sorts lines from shortest to longest. (See article 22.7.)
+[Overview] [List]
+
+lndir
+
+lndir is a safe way to duplicate a directory structure elsewhere on the
+filesystem. It's necessary because a cd into a straight symbolic link actually
+changes to the directory pointed to by the link, which can be confusing or
+even dangerous if the link is in a sensitive area of the filesystem. lndir
+recursively re-creates a directory structure, making symbolic links to all the
+files in the directory. (See article 10.7.)
+[Overview] [List]
+
+look
+
+look is a fairly fast, fairly portable version of look, the program for
+searching sorted files. (See article 13.14.)
+[Overview] [List]
+
+lookfor
+
+The lookfor script finds all files in the given directory tree that contain
+the given string(s). (See article 9.22.)
+[Overview] [List]
+
+ls
+
+The GNU version of the well-known utility ls has many features, including the
+ability to make listings in color. ls is part of the GNU fileutils. (See
+        article 8.6.)
+[Overview] [List]
+
+mailto
+
+The mailto utility encodes and sends MIME-format email messages. It's part of
+the Metamail utilities. (See article 21.12.)
+[Overview] [List]
+
+makealias.csh
+
+makealias.csh contains two C shell aliases that build other aliases. makealias
+"knows" how to quote special characters within the alias definition to make
+the C shell happy; to do this, it calls the quote alias. As the book's
+description says, "Pretty gross, but they do the job." (See article 29.10.)
+[Overview] [List]
+
+md5sum
+
+The md5sum utility both generates and validates file checksums. It's an
+improved version of the original Unix sum utilities and comes from the GNU
+textutils. (See article 50.13.)
+[Overview] [List]
+
+metamail
+
+The Metamail utilities handle the MIME email format. Although Metamail is old
+(it was released as MIME was originally being developed and standardized),
+    it's still useful for scripting and decoding common MIME formats.
+
+NOTE: Metamail has an obscure security vulnerability; see CERT advisory
+CA-1997-14.html for a description and workarounds. The problem seems to be
+only with incoming messages processed by metamail, not with messages you
+create using mailto and mimencode, but you may want to verify this yourself.
+
+See also mailto and mimencode.
+
+    * ftp://ftp.funet.fi/pub/unix/mail/metamail/mm2.7.tar.Z (Europe)
+    * ftp://ftp.research.telcordia.com/pub/nsb/mm2.7.tar.Z (USA)
+
+[Overview] [List]
+
+mimencode
+
+The mimencode utility encodes files into the MIME format for emailing. You'll
+need to add the message header and any multipart separators, so mimencode is
+most useful for building messages within scripts. It's part of the Metamail
+utilities. (See article 21.12.) See also mailto.
+[Overview] [List]
+
+mkfifo
+
+The mkfifo utility creates a FIFO, a named pipe, that processes can write to
+and read from like a pipe on the command line (|). mkfifo is part of the GNU
+fileutils. (See article 43.11.)
+[Overview] [List]
+
+mlprompt.csh
+
+mlprompt.csh has short sequences of code that makes a multiline tcsh or csh
+shell prompt. This is useful when you want to put so much information in your
+single-line prompt that there's no room left to type the command. (See article
+        4.7.)
+[Overview] [List]
+
+mlprompt.sh
+
+mlprompt.sh has short sequences of code that makes a multiline prompt for
+Bourne-type shells such as ksh and bash. This is useful when you want to put
+so much information in your single-line prompt that there's no room left to
+type the command. (See article 4.7.)
+[Overview] [List]
+
+mx.sh
+
+mx.sh has a Bourne shell function that looks up the DNS MX (mail exchanger)
+for one or more Internet hosts. (See article 29.11.)
+[Overview] [List]
+
+namesort
+
+The namesort program sorts a list of names by the last name. (See article
+        22.8.) See also namesort.pl.
+[Overview] [List]
+
+namesort.pl
+
+The namesort.pl script uses the Perl module Lingua::EN::NameParse to sort a
+list of names by the last name. (See article 22.8.) See also namesort.
+[Overview] [List]
+
+ndown
+
+ndown brings down a network connection and removes a small reminder window on
+the display. It's actually a link to (another name for) the file nup. (See
+        article 24.22.)
+[Overview] [List]
+
+netpbm
+
+netpbm is the latest version of pbmplus, the Extended Portable Bitmap Toolkit.
+netpbm converts various image formats to and from portable formats, and
+therefore to and from one another. In addition to the converters, the package
+includes some simple tools for manipulating the portable formats. (See article
+        45.19.)
+[Overview] [List]
+
+nl
+
+nl numbers the lines of a text file with various output formats. It's part of
+the GNU textutils. (See article 12.13.)
+[Overview] [List]
+
+nohup
+
+nohup runs a program, ignoring hangup signals. It's part of the GNU
+shellutils. (See article 23.10.)
+[Overview] [List]
+
+nom
+
+nom ("no match") supplies the names of the files in the current directory that
+"don't" match the given shell wildcards. For example, to edit all files in the
+current directory that don't end in .o, try:
+
+vi `nom *.o`
+
+(See article 33.8.) See also nom2.
+[Overview] [List]
+
+nom2
+
+nom2 is a version of nom that uses process substitution. (See article 33.8.)
+[Overview] [List]
+
+nup
+
+nup starts a network connection and puts a small reminder window on the
+display. It's actually a link to (another name for) the file ndown. (See
+        article 24.22.)
+[Overview] [List]
+
+offset
+
+The offset Perl script indents text for printing or other uses. (See article
+        21.7.)
+[Overview] [List]
+
+oldlinks
+
+The oldlinks script finds symbolic links that point to non-existent files.
+(See article 8.16.)
+[Overview] [List]
+
+opttest
+
+opttest is a shell script for parsing getopt output. It's meant to demonstrate
+getopt's behavior. (See article 35.24.)
+[Overview] [List]
+
+paircheck
+
+paircheck is a gawk script that checks an HTML document to be sure each <ul>
+tag has a corresponding </ul> tag. (See article 16.8.)
+[Overview] [List]
+
+paste
+
+paste assembles text strings into a file, line by line. It's part of the GNU
+textutils. See also cut. (See article 21.18.)
+[Overview] [List]
+
+patch
+
+patch is Larry Wall's program for distributing source patches to files. By
+using diff files (generally "context diffs"), patch can intelligently apply
+patches to a file even if modifications have been made to the source in the
+meantime. patch is used extensively to communicate source changes throughout
+the world.
+
+    * http://www.gnu.org/directory/GNU/patch.html (See article 20.9.)
+
+[Overview] [List]
+
+perl
+
+Perl is a very popular interpreted programming language with an eclectic
+syntax that will remind you of bits of awk, sed, the Bourne shell, and also of
+nothing else :-). (See article 41.2.)
+
+    * http://www.cpan.org/src/stable.tar.gz
+
+[Overview] [List]
+
+pick
+
+The pick shell script lets you pick one of a series of choices. (You give
+        those choices on pick's command line.) pick comes from the classic
+book The Unix Programming Environment by Kernighan & Pike. (See article
+        24.16.) See also zap.
+[Overview] [List]
+
+printenv
+
+The printenv utility shows an unsorted list of all currently-set environment
+variables -- or, if you name a variable, it shows only that variable. It's
+part of the GNU shellutils. (See article 35.3.) See also env and showenv.
+[Overview] [List]
+
+proxynotify
+
+proxynotify is a demonstration of using shell functions. It's a shell script
+that incorporates the mx() function from a library file, then uses it to email
+form letters to postmasters. (See article 35.30.)
+[Overview] [List]
+
+python
+
+Python is a popular object-oriented, interpreted, programming language. Its
+syntax and its modular design are designed to make code that's both clear and
+concise. (See article 42.2.)
+
+    * http://www.python.org/
+
+[Overview] [List]
+
+qterm
+
+qterm is a program that queries terminals to find out what kind of terminal is
+responding. It is useful to "automagically" define your terminal type. It
+prints the name of the terminal (such as "vt100") to standard output. (This
+        name is hopefully compatible with a termcap/terminfo name on your
+        system.) (See article 5.4.)
+[Overview] [List]
+
+rcsegrep.fast
+
+rcsegrep.fast is a shell script (written mostly in nawk) that searches the
+most recent revision of one or more RCS files for a given string. It's fast
+because it reads the RCS file directly. Only recommended when you have a lot
+of files to search; use the rcsgrep scripts otherwise. (See article 13.7.)
+[Overview] [List]
+
+rcsgrep
+
+rcsgrep is a shell script that searches revisions of RCS files for a given
+string. Can also be called through links named rcsegrep and rcsfgrep. (See
+        article 13.7.) See also rcsegrep.fast.
+[Overview] [List]
+
+rcsrevs
+
+rcsrevs is a shell script that lists all the revision numbers archived in an
+RCS file. (See article 39.6.)
+[Overview] [List]
+
+recomment
+
+The recomment shell script runs fmt on files with lines that are commented
+out, with wrapped lines recommented. (See article 21.4.)
+[Overview] [List]
+
+requote
+
+The requote shell script reformats text that has been quoted. (Here, "quoted"
+        means preceding each line of text with one or more characters, such as
+        > in email messages or # in many programming languages.) (See article
+            5.21.) See also fmt.
+[Overview] [List]
+
+rot
+
+rot rotates a file, so that lines become columns, and vice versa. Without any
+options, the file will be rotated clockwise. (See article 21.21.)
+[Overview] [List]
+
+rpm
+
+RPM is a popular tool used to find and install software packages. It's often
+used on Linux, but RPM also works with Solaris, HP-UX, FreeBSD, NetBSD, and
+other systems. (See article 40.11.)
+
+    * http://www.rpm.org/
+
+[Overview] [List]
+
+run-parts
+
+The run-parts shell script looks into a directory and runs all programs that
+it should. It's typically called from a crontab entry. (See article 25.2.)
+[Overview] [List]
+
+runsed
+
+The runsed shell script runs the sed commands in a file called sedscr on the
+specified files, overwriting the original files. (See article 34.4.) See also
+checksed.
+[Overview] [List]
+
+samba
+
+Samba lets your Unix machine participate in Microsoft Windows file sharing and
+print services. (See article 47.2.)
+
+    * http://www.samba.org/
+
+[Overview] [List]
+
+scriptprompt.zsh
+
+scriptprompt.zsh sets a Z shell prompt that changes when the shell is being
+run from inside the script utility. This shows how to change a prompt by using
+the values of variables. (See article 4.6.)
+[Overview] [List]
+
+script.tidy
+
+script.tidy uses sed to clean up files generated with the script program. (See
+        article 37.8.)
+[Overview] [List]
+
+search.el
+
+The search.el file contains a set of Emacs search commands. To use these
+commands, use the load-file command in your $HOME/.emacs file to point to this
+file. (See article 19.8.)
+[Overview] [List]
+
+setprompt.csh
+
+setprompt.csh is a sample C shell alias that's intended to set your shell
+prompt. It can hold the code that actually sets your prompt; other aliases can
+call it when the prompt needs to be updated. (See article 4.1.)
+[Overview] [List]
+
+setprompt.sh
+
+setprompt.sh is a sample Bourne-type shell function that's intended to set
+your shell prompt. It can hold the code that actually sets your prompt; other
+aliases can call it when the prompt needs to be updated. (See article 4.1.)
+[Overview] [List]
+
+shellutils
+
+The GNU shell utilities have significant advantages over their standard UNIX
+counterparts, such as greater speed, additional options, and fewer arbitrary
+limits. Programs included are: basename, chroot, date, dirname, echo, env,
+    expr, factor, false, groups, hostname, id, logname, nice, nohup, pathchk,
+    pinky, printenv, printf, pwd, seq, sleep, stty, su, tee, test, true, tty,
+    uname, uptime, users, who, whoami, and yes. Most of these programs are
+    covered throughout the book.
+
+    * http://ftp.gnu.org/gnu/sh-utils/sh-utils-2.0.tar.gz
+
+[Overview] [List]
+
+sh_init
+
+The sh_init file has Bourne-type shell functions and alias definitions that
+work with the .enter.sh and .exit.sh files to enable automatic command
+execution as you move into and out of directories. These are also available as
+C shell aliases in the csh_init file. (See article 31.13.)
+[Overview] [List]
+
+showargs
+
+The showargs shell script shows each of its command line arguments, one by
+one, in a way that helps you see spaces within the arguments. It's handy for
+practice with shell quoting. (See article 27.5.)
+[Overview] [List]
+
+showenv
+
+The showenv shell script shows one or all currently-set environment variables
+in another process. It depends on the /proc filesystem; note that, because
+this isn't standardized on all Unix and Linux versions, showenv may not work
+completely or may need to be tweaked. If you don't have /proc, you may be able
+to get the same results with a command like the BSD-style ps eww and some
+hacking -- or try a program that uses your system's library routines. (See
+        article 24.9.) See also env and printenv.
+[Overview] [List]
+
+showmatch
+
+The showmatch shell script shows the strings in a given file that match the
+specified regular expression. (See article 32.17.)
+[Overview] [List]
+
+sl
+
+sl is a Perl script for showing the actual filenames for symbolic links. (See
+        article 10.8.)
+[Overview] [List]
+
+sleep
+
+The sleep utility simply waits the specified number of seconds, then exits.
+This GNU version takes an optional "units" parameter when you want to specify
+a number of minutes, hours, or days. (See article 25.9.) It's part of the GNU
+shellutils.
+[Overview] [List]
+
+spell
+
+The GNU spell program is a front-end to the ispell interactive speller. It
+makes a command-line interface similar to that of the standard Unix spell
+program. (See article 16.1.) It doesn't have the interface described in
+article 16.4, though; if you're looking for that, try to find the original
+version.
+
+    * http://www.gnu.org/directory/spell.html
+
+[Overview] [List]
+
+split
+
+The split program splits a file into smaller files at fixed points. It's part
+of the GNU textutils. (See article 21.9.) See also split.pl and csplit.
+[Overview] [List]
+
+split.pl
+
+split.pl is a Perl script that splits files into smaller ones. (See article
+        21.9.) See also split and csplit.
+[Overview] [List]
+
+SSH
+
+SSH, Secure Shell, is a package of programs that use public-key encryption to
+make secure network connections between hosts. (See articles 5.22, 46.6.)
+
+    * OpenSSH
+    * ssh.com (commercial product)
+    * Getting Started with SSH
+
+[Overview] [List]
+
+stattitle.csh
+
+stattitle.csh has code for the tcsh and csh shells to put some text (by
+        default, the hostname and current directory name) into the status line
+or titlebar of a terminal or window. (See article 4.8.)
+[Overview] [List]
+
+stattitle.sh
+
+stattitle.sh has code for the Korn shell and bash to put some text (by
+        default, the hostname and current directory name) into the status line
+or titlebar of a terminal or window. (See article 4.8.)
+[Overview] [List]
+
+strings
+
+The strings utility searches a file (typically a non-text file like a
+        program's object file) for printable character sequences. strings is
+part of the GNU binutils. (See article 13.15.)
+[Overview] [List]
+
+stripper
+
+stripper is a shell script that uses file to find the unstripped binary
+executable files in your personal bin directory and asks you if you want to
+run strip on each one. It may need to be adjusted for your system and for your
+version of file. (See article 15.10.)
+[Overview] [List]
+
+stty
+
+The stty utility displays and sets your tty, the device that's displayed in
+your terminal or terminal window. (See article 5.7.) stty is part of the GNU
+shellutils.
+[Overview] [List]
+
+sysmgr
+
+The sysmgr shell script is included here as an example of using a loop to
+repeat a command until it succeeds. (See article 35.15.) See also catsaway.
+[Overview] [List]
+
+tail
+
+tail shows the last lines (by default, the last 10 lines) of a text file. It
+also can watch a file, showing all lines that are added to the file; this is
+very useful for monitoring background processes and system logs. (See article
+        12.11.) tail is part of the GNU textutils.
+[Overview] [List]
+
+tar
+
+GNU tar is upwards compatible with the traditional tar utility. It adds many
+new features including remote devices, compression, multi-volume archives, the
+ability to extract to standard output, the ability to extract using wildcards,
+        interactive confirmation, the ability to extract only "missing" files,
+        and the ability to store only files newer than a given date. (See
+                article 15.7.)
+
+    * http://www.gnu.org/software/tar/
+
+[Overview] [List]
+
+tcl+tk
+
+Tcl is a popular interpreted programming language. Tk gives Tcl a programmable
+graphical interface. (See article 28.18.)
+
+    * http://www.tcl.tk/software/tcltk/
+
+[Overview] [List]
+
+tee
+
+tee reads its standard input, then writes that same data to both its standard
+output and to one or more files. This is handy for seeing what's going through
+a pipeline. (See article 43.8.) tee is part of the GNU shellutils.
+[Overview] [List]
+
+textutils
+
+The GNU text processing utilities have significant advantages over their
+standard UNIX counterparts, such as greater speed, additional options, and
+fewer arbitrary limits. Most of these programs are covered throughout the
+book.
+
+    * http://www.gnu.org/directory/GNU/textutils.html
+
+[Overview] [List]
+
+touch
+
+The touch utility creates an empty (zero-length) file and/or changes the
+timestamp of an existing file without modifying its contents. touch is part of
+the GNU fileutils. (See article 9.8.)
+[Overview] [List]
+
+tpipe
+
+tpipe is a simple utility program that can be used to split a UNIX pipeline
+into two pipelines. Like tee, tpipe transcribes its standard input to its
+standard output. But where tee writes an additional copy of its input to a
+file, tpipe writes the additional copy to the input of another pipeline that
+is specified as the argument to tpipe. (See article 43.10.)
+[Overview] [List]
+
+tr
+
+tr translates a set of characters to a corresponding set; both sets are named
+on its command line. It's part of the GNU textutils. (See article 21.11.)
+[Overview] [List]
+
+true
+
+The true utility simply returns a zero exit status. It's so simple that this
+GNU version doesn't add any functionality to the version available on almost
+all Unix-type systems -- so you probably won't need to install this. It's part
+of the GNU shellutils. See also false. (See article 35.12.)
+[Overview] [List]
+
+umask.csh
+
+umask.csh has two C shell aliases named open and shut that make it easy to
+change the default file-creation permission. (See article 50.2.)
+[Overview] [List]
+
+umask.sh
+
+umask.sh has two Bourne shell functions named open and shut that make it easy
+to change the default file-creation permission. (See article 50.2.)
+[Overview] [List]
+
+uniq
+
+uniq reads a file and compares adjacent lines. It's part of the GNU textutils.
+(See article 21.20.)
+[Overview] [List]
+
+uptime
+
+The uptime utility displays how long the system has been up (how much time has
+        passed since the system was last booted) and three average
+measurements of the system's load. uptime is part of the GNU shellutils. (See
+        article 26.4.)
+[Overview] [List]
+
+users
+
+The users utility displays the usernames of all users currently logged on to
+the system. users is part of the GNU shellutils. (See article 35.25.)
+[Overview] [List]
+
+vgrep
+
+The vgrep shell script supplies a list of filenames that don't contain the
+given string. It's sort of a grep -v for complete files instead of for
+individual lines. (See article 33.7.)
+[Overview] [List]
+
+vis
+
+vis is a program that repeatedly executes a specified command and refreshes
+the display of its output on the screen. (See article 28.11.)
+[Overview] [List]
+
+vnc
+
+VNC is a client/server system that allows users to manipulate desktop
+environments remotely. (See article 47.7.)
+[Overview] [List]
+
+watchq
+
+watchq is a daemon that monitors the queues for several printers and sends
+messages to users when errors occur. (See article 24.14.)
+[Overview] [List]
+
+wget
+
+wget lets you download files from the Internet using HTTP, HTTPS, and FTP
+protocols -- non-interactively, without needing a web browser. If the transfer
+is interrupted, you can restart and resume where you left off. (See article
+        40.7.) See also curl.
+
+    * http://www.gnu.org/directory/GNU/wget.html
+
+[Overview] [List]
+
+ww.csh
+
+ww.csh has two C shell aliases named ww that show repeated words. One alias is
+for Berkeley tr; the other is for the System V version. (See article 16.7.)
+[Overview] [List]
+
+ww.sh
+
+ww.sh has two Bourne shell functions named ww that show repeated words. One
+function is for Berkeley tr; the other is for the System V version. (See
+        article 16.7.)
+[Overview] [List]
+
+xargs
+
+The GNU version of the xargs utility is used to collect arguments for a
+command before executing it. Its -0 option works with GNU find to avoid
+problems in the standard xargs. (See article 28.17.) It's part of the GNU
+findutils.
+
+    * http://ftp.gnu.org/pub/gnu/findutils/findutils-4.1.tar.gz
+
+[Overview] [List]
+
+xgrep
+
+Most grep-like programs search for lines that match a regular expression, then
+output the entire lines. xgrep is a sed script that retrieves only the
+matching text--not (necessarily) a whole line. (See article 32.17.)
+[Overview] [List]
+
+xwrist
+
+xwrist is a shell script that opens reminder windows (by default, every ten
+        minutes) to remind you to give your wrists a break from typing. It's
+useful on its own, but it's also meant as a demonstration of programming with
+the X Window System utility xmessage. (See article 36.26.)
+[Overview] [List]
+
+zap
+
+zap interactively allows you to kill processes by running ps and then querying
+you about killing each process reported by ps. zap comes from the classic book
+The Unix Programming Environment by Kernighan & Pike. (See article 24.16.) See
+also pick.
+[Overview] [List]
