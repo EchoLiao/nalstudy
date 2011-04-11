@@ -29,8 +29,9 @@ fi
 
 
 cd /
-find $curpwd -name '*.java' -or -name '*.jsp' -or -name '*.xml' -or -name \
-    '*.html' -or -name '*.htm' -or -name README > $curpwd/cscope.files
+find $curpwd -name '*.java' -or -name '*.jsp' -or -name '*.xml' -or \
+    -name '*.html' -or -name '*.htm' -or -name '*.tld' -or -name README \
+    > $curpwd/cscope.files
 
 cd $curpwd
 cscope -bq
