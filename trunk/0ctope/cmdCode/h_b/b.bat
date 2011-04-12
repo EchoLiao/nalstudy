@@ -1,4 +1,4 @@
 @echo off 
-cd D:\ 
-D:  
+cd E:\scr\home\scr\bin\cmdCode 
+E:  
 cls 
