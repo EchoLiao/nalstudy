@@ -2,13 +2,13 @@
 
 function Usage()
 {
-    echo
+    echo 1>&2
     echo "Usage: `basename $0` -s src -d des [-k] [-b bkdir] [-u] [-a] [-r] [-e file] [-p file]" 1>&2
-    echo "       -k         isUseBkDir"
-    echo "       -u         isOnlyUpdate"
-    echo "       -a         isSaveAllPro"
-    echo "       -r         isRealSyn"
-    echo
+    echo "       -k         isUseBkDir"   1>&2
+    echo "       -u         isOnlyUpdate" 1>&2
+    echo "       -a         isSaveAllPro" 1>&2
+    echo "       -r         isRealSyn"    1>&2
+    echo 1>&2
     exit 1;
 }
 
@@ -23,7 +23,7 @@ set -- $parm
 SRC=
 #DES="/tmp/rs"
 DES=
-BKDIRFIX="/tmp/bk/"
+BKDIRFIX="/tmp/bk"
 SFX="-`date +%Y-%m-%d`"
 ExcludeFile="/home/sre/.rsyncd/exclude.files"
 PassFile="/home/sre/.rsyncd/rsyncd.secrets"
