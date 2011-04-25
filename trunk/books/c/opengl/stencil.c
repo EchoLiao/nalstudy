@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -43,9 +43,9 @@
 /*
  *  stencil.c
  *  This program demonstrates use of the stencil buffer for
- *  masking nonrectangular regions.  
- *  Whenever the window is redrawn, a value of 1 is drawn 
- *  into a diamond-shaped region in the stencil buffer.  
+ *  masking nonrectangular regions.
+ *  Whenever the window is redrawn, a value of 1 is drawn
+ *  into a diamond-shaped region in the stencil buffer.
  *  Elsewhere in the stencil buffer, the value is 0.
  *  Then a blue sphere is drawn where the stencil value is 1,
  *  and yellow torii are drawn where the stencil value is not 1.
@@ -56,7 +56,7 @@
 #define YELLOWMAT   1
 #define BLUEMAT 2
 
-void init (void) 
+void init (void)
 {
    GLfloat yellow_diffuse[] = { 0.7, 0.7, 0.0, 1.0 };
    GLfloat yellow_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -115,7 +115,7 @@ void display(void)
    glPopMatrix();
 }
 
-/*  Whenever the window is reshaped, redefine the 
+/*  Whenever the window is reshaped, redefine the
  *  coordinate system and redraw the stencil area.
  */
 void reshape(int w, int h)
@@ -167,7 +167,7 @@ void keyboard(unsigned char key, int x, int y)
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
-   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB 
+   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB
                         | GLUT_DEPTH | GLUT_STENCIL);
    glutInitWindowSize (400, 400);
    glutInitWindowPosition (100, 100);
@@ -179,4 +179,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

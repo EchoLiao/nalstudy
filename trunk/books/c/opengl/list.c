@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,8 +42,8 @@
 
 /*
  *  list.c
- *  This program demonstrates how to make and execute a 
- *  display list.  Note that attributes, such as current 
+ *  This program demonstrates how to make and execute a
+ *  display list.  Note that attributes, such as current
  *  color and matrix, are changed.
  */
 #include <GL/glut.h>
@@ -92,11 +92,11 @@ void reshape(int w, int h)
    glViewport(0, 0, w, h);
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
-   if (w <= h) 
-      gluOrtho2D (0.0, 2.0, -0.5 * (GLfloat) h/(GLfloat) w, 
+   if (w <= h)
+      gluOrtho2D (0.0, 2.0, -0.5 * (GLfloat) h/(GLfloat) w,
          1.5 * (GLfloat) h/(GLfloat) w);
-   else 
-      gluOrtho2D (0.0, 2.0 * (GLfloat) w/(GLfloat) h, -0.5, 1.5); 
+   else
+      gluOrtho2D (0.0, 2.0 * (GLfloat) w/(GLfloat) h, -0.5, 1.5);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
 }
@@ -111,7 +111,7 @@ void keyboard(unsigned char key, int x, int y)
 }
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  RGBA display mode, and handle input events.
  */
 int main(int argc, char** argv)
@@ -127,4 +127,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

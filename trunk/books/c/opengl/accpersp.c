@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -54,35 +54,35 @@
 
 /* accFrustum()
  * The first 6 arguments are identical to the glFrustum() call.
- *  
- * pixdx and pixdy are anti-alias jitter in pixels. 
+ *
+ * pixdx and pixdy are anti-alias jitter in pixels.
  * Set both equal to 0.0 for no anti-alias jitter.
- * eyedx and eyedy are depth-of field jitter in pixels. 
+ * eyedx and eyedy are depth-of field jitter in pixels.
  * Set both equal to 0.0 for no depth of field effects.
  *
- * focus is distance from eye to plane in focus. 
+ * focus is distance from eye to plane in focus.
  * focus must be greater than, but not equal to 0.0.
  *
- * Note that accFrustum() calls glTranslatef().  You will 
- * probably want to insure that your ModelView matrix has been 
+ * Note that accFrustum() calls glTranslatef().  You will
+ * probably want to insure that your ModelView matrix has been
  * initialized to identity before calling accFrustum().
  */
-void accFrustum(GLdouble left, GLdouble right, GLdouble bottom, 
-   GLdouble top, GLdouble zNear, GLdouble zFar, GLdouble pixdx, 
+void accFrustum(GLdouble left, GLdouble right, GLdouble bottom,
+   GLdouble top, GLdouble zNear, GLdouble zFar, GLdouble pixdx,
    GLdouble pixdy, GLdouble eyedx, GLdouble eyedy, GLdouble focus)
 {
-   GLdouble xwsize, ywsize; 
+   GLdouble xwsize, ywsize;
    GLdouble dx, dy;
    GLint viewport[4];
 
    glGetIntegerv (GL_VIEWPORT, viewport);
-	
+
    xwsize = right - left;
    ywsize = top - bottom;
-	
+
    dx = -(pixdx*xwsize/(GLdouble) viewport[2] + eyedx*zNear/focus);
    dy = -(pixdy*ywsize/(GLdouble) viewport[3] + eyedy*zNear/focus);
-	
+
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    glFrustum (left + dx, right + dx, bottom + dy, top + dy, zNear, zFar);
@@ -92,20 +92,20 @@ void accFrustum(GLdouble left, GLdouble right, GLdouble bottom,
 }
 
 /* accPerspective()
- * 
+ *
  * The first 4 arguments are identical to the gluPerspective() call.
- * pixdx and pixdy are anti-alias jitter in pixels. 
+ * pixdx and pixdy are anti-alias jitter in pixels.
  * Set both equal to 0.0 for no anti-alias jitter.
- * eyedx and eyedy are depth-of field jitter in pixels. 
+ * eyedx and eyedy are depth-of field jitter in pixels.
  * Set both equal to 0.0 for no depth of field effects.
  *
- * focus is distance from eye to plane in focus. 
+ * focus is distance from eye to plane in focus.
  * focus must be greater than, but not equal to 0.0.
  *
  * Note that accPerspective() calls accFrustum().
  */
-void accPerspective(GLdouble fovy, GLdouble aspect, 
-   GLdouble zNear, GLdouble zFar, GLdouble pixdx, GLdouble pixdy, 
+void accPerspective(GLdouble fovy, GLdouble aspect,
+   GLdouble zNear, GLdouble zFar, GLdouble pixdx, GLdouble pixdy,
    GLdouble eyedx, GLdouble eyedy, GLdouble focus)
 {
    GLdouble fov2,left,right,bottom,top;
@@ -136,7 +136,7 @@ void init(void)
    glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lm_ambient);
-    
+
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
    glEnable(GL_DEPTH_TEST);
@@ -146,26 +146,26 @@ void init(void)
    glClearAccum(0.0, 0.0, 0.0, 0.0);
 }
 
-void displayObjects(void) 
+void displayObjects(void)
 {
    GLfloat torus_diffuse[] = { 0.7, 0.7, 0.0, 1.0 };
    GLfloat cube_diffuse[] = { 0.0, 0.7, 0.7, 1.0 };
    GLfloat sphere_diffuse[] = { 0.7, 0.0, 0.7, 1.0 };
    GLfloat octa_diffuse[] = { 0.7, 0.4, 0.4, 1.0 };
-    
+
    glPushMatrix ();
-   glTranslatef (0.0, 0.0, -5.0); 
+   glTranslatef (0.0, 0.0, -5.0);
    glRotatef (30.0, 1.0, 0.0, 0.0);
 
    glPushMatrix ();
-   glTranslatef (-0.80, 0.35, 0.0); 
+   glTranslatef (-0.80, 0.35, 0.0);
    glRotatef (100.0, 1.0, 0.0, 0.0);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, torus_diffuse);
    glutSolidTorus (0.275, 0.85, 16, 16);
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (-0.75, -0.50, 0.0); 
+   glTranslatef (-0.75, -0.50, 0.0);
    glRotatef (45.0, 0.0, 0.0, 1.0);
    glRotatef (45.0, 1.0, 0.0, 0.0);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, cube_diffuse);
@@ -173,14 +173,14 @@ void displayObjects(void)
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (0.75, 0.60, 0.0); 
+   glTranslatef (0.75, 0.60, 0.0);
    glRotatef (30.0, 1.0, 0.0, 0.0);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, sphere_diffuse);
    glutSolidSphere (1.0, 16, 16);
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (0.70, -0.90, 0.25); 
+   glTranslatef (0.70, -0.90, 0.25);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, octa_diffuse);
    glutSolidOctahedron ();
    glPopMatrix ();
@@ -200,8 +200,8 @@ void display(void)
    glClear(GL_ACCUM_BUFFER_BIT);
    for (jitter = 0; jitter < ACSIZE; jitter++) {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      accPerspective (50.0, 
-         (GLdouble) viewport[2]/(GLdouble) viewport[3], 
+      accPerspective (50.0,
+         (GLdouble) viewport[2]/(GLdouble) viewport[3],
          1.0, 15.0, j8[jitter].x, j8[jitter].y, 0.0, 0.0, 1.0);
       displayObjects ();
       glAccum(GL_ACCUM, 1.0/ACSIZE);
@@ -242,4 +242,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

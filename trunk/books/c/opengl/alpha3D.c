@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -43,9 +43,9 @@
 /*
  *  alpha3D.c
  *  This program demonstrates how to intermix opaque and
- *  alpha blended polygons in the same scene, by using 
- *  glDepthMask.  Press the 'a' key to animate moving the 
- *  transparent object through the opaque object.  Press 
+ *  alpha blended polygons in the same scene, by using
+ *  glDepthMask.  Press the 'a' key to animate moving the
+ *  transparent object through the opaque object.  Press
  *  the 'r' key to reset the scene.
  */
 #include <GL/glut.h>
@@ -177,4 +177,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

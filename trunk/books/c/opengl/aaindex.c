@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -43,8 +43,8 @@
 /*
  *  aaindex.c
  *  This program draws shows how to draw anti-aliased lines in color
- *  index mode. It draws two diagonal lines to form an X; when 'r' 
- *  is typed in the window, the lines are rotated in opposite 
+ *  index mode. It draws two diagonal lines to form an X; when 'r'
+ *  is typed in the window, the lines are rotated in opposite
  *  directions.
  */
 #include <GL/glut.h>
@@ -111,11 +111,11 @@ void reshape(int w, int h)
    glViewport(0, 0, (GLsizei) w, (GLsizei) h);
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
-   if (w <= h) 
-      gluOrtho2D (-1.0, 1.0, 
+   if (w <= h)
+      gluOrtho2D (-1.0, 1.0,
          -1.0*(GLfloat)h/(GLfloat)w, 1.0*(GLfloat)h/(GLfloat)w);
-   else 
-      gluOrtho2D (-1.0*(GLfloat)w/(GLfloat)h, 
+   else
+      gluOrtho2D (-1.0*(GLfloat)w/(GLfloat)h,
          1.0*(GLfloat)w/(GLfloat)h, -1.0, 1.0);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -128,7 +128,7 @@ void keyboard(unsigned char key, int x, int y)
       case 'R':
          rotAngle += 20.;
          if (rotAngle >= 360.) rotAngle = 0.;
-         glutPostRedisplay();	
+         glutPostRedisplay();
          break;
       case 27:  /*  Escape Key */
          exit(0);
@@ -139,7 +139,7 @@ void keyboard(unsigned char key, int x, int y)
 }
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  color index display mode, and handle input events.
  */
 int main(int argc, char** argv)
@@ -155,4 +155,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -49,7 +49,7 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 
-/*  Initialize z-buffer, projection matrix, light source, 
+/*  Initialize z-buffer, projection matrix, light source,
  *  and lighting model.  Do not specify a material property here.
  */
 void init(void)
@@ -74,7 +74,7 @@ void init(void)
    glEnable(GL_LIGHT0);
 }
 
-/*  Draw twelve spheres in 3 rows with 4 columns.  
+/*  Draw twelve spheres in 3 rows with 4 columns.
  *  The spheres in the first row have materials with no ambient reflection.
  *  The second row has materials with significant ambient reflection.
  *  The third row has materials with colored ambient reflection.
@@ -104,7 +104,7 @@ void display(void)
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 /*  draw sphere in first row, first column
- *  diffuse reflection only; no ambient or specular  
+ *  diffuse reflection only; no ambient or specular
  */
    glPushMatrix();
    glTranslatef (-3.75, 3.0, 0.0);
@@ -156,7 +156,7 @@ void display(void)
    glPopMatrix();
 
 /*  draw sphere in second row, first column
- *  ambient and diffuse reflection; no specular  
+ *  ambient and diffuse reflection; no specular
  */
    glPushMatrix();
    glTranslatef (-3.75, 0.0, 0.0);
@@ -208,7 +208,7 @@ void display(void)
    glPopMatrix();
 
 /*  draw sphere in third row, first column
- *  colored ambient and diffuse reflection; no specular  
+ *  colored ambient and diffuse reflection; no specular
  */
    glPushMatrix();
    glTranslatef (-3.75, -3.0, 0.0);
@@ -268,10 +268,10 @@ void reshape(int w, int h)
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    if (w <= (h * 2))
-      glOrtho (-6.0, 6.0, -3.0*((GLfloat)h*2)/(GLfloat)w, 
+      glOrtho (-6.0, 6.0, -3.0*((GLfloat)h*2)/(GLfloat)w,
          3.0*((GLfloat)h*2)/(GLfloat)w, -10.0, 10.0);
    else
-      glOrtho (-6.0*(GLfloat)w/((GLfloat)h*2), 
+      glOrtho (-6.0*(GLfloat)w/((GLfloat)h*2),
          6.0*(GLfloat)w/((GLfloat)h*2), -3.0, 3.0, -10.0, 10.0);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -297,7 +297,5 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc (keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-
-

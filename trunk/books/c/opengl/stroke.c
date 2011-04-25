@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -41,10 +41,10 @@
  */
 
 /*
- *  stroke.c 
- *  This program demonstrates some characters of a 
+ *  stroke.c
+ *  This program demonstrates some characters of a
  *  stroke (vector) font.  The characters are represented
- *  by display lists, which are given numbers which 
+ *  by display lists, which are given numbers which
  *  correspond to the ASCII values of the characters.
  *  Use of glCallLists() is demonstrated.
  */
@@ -62,7 +62,7 @@ typedef struct charpoint {
 } CP;
 
 CP Adata[] = {
-   { 0, 0, PT}, {0, 9, PT}, {1, 10, PT}, {4, 10, PT}, 
+   { 0, 0, PT}, {0, 9, PT}, {1, 10, PT}, {4, 10, PT},
    {5, 9, PT}, {5, 0, STROKE}, {0, 5, PT}, {5, 5, END}
 };
 
@@ -72,18 +72,18 @@ CP Edata[] = {
 };
 
 CP Pdata[] = {
-   {0, 0, PT}, {0, 10, PT},  {4, 10, PT}, {5, 9, PT}, {5, 6, PT}, 
+   {0, 0, PT}, {0, 10, PT},  {4, 10, PT}, {5, 9, PT}, {5, 6, PT},
    {4, 5, PT}, {0, 5, END}
 };
 
 CP Rdata[] = {
-   {0, 0, PT}, {0, 10, PT},  {4, 10, PT}, {5, 9, PT}, {5, 6, PT}, 
+   {0, 0, PT}, {0, 10, PT},  {4, 10, PT}, {5, 9, PT}, {5, 6, PT},
    {4, 5, PT}, {0, 5, STROKE}, {3, 5, PT}, {5, 0, END}
 };
 
 CP Sdata[] = {
-   {0, 1, PT}, {1, 0, PT}, {4, 0, PT}, {5, 1, PT}, {5, 4, PT}, 
-   {4, 5, PT}, {1, 5, PT}, {0, 6, PT}, {0, 9, PT}, {1, 10, PT}, 
+   {0, 1, PT}, {1, 0, PT}, {4, 0, PT}, {5, 1, PT}, {5, 4, PT},
+   {4, 5, PT}, {1, 5, PT}, {0, 6, PT}, {0, 9, PT}, {1, 10, PT},
    {4, 10, PT}, {5, 9, END}
 };
 
@@ -176,7 +176,7 @@ void keyboard(unsigned char key, int x, int y)
 }
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  RGBA display mode, and handle input events.
  */
 int main(int argc, char** argv)
@@ -192,4 +192,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

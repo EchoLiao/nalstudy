@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,9 +42,9 @@
 
 /*
  *  tesswind.c
- *  This program demonstrates the winding rule polygon 
- *  tessellation property.  Four tessellated objects are drawn, 
- *  each with very different contours.  When the w key is pressed, 
+ *  This program demonstrates the winding rule polygon
+ *  tessellation property.  Four tessellated objects are drawn,
+ *  each with very different contours.  When the w key is pressed,
  *  the objects are drawn with a different winding rule.
  */
 #include <GL/glut.h>
@@ -60,38 +60,38 @@ int currentShape = 0;
 GLUtesselator *tobj;
 GLuint list;
 
-/*  Make four display lists, 
- *  each with a different tessellated object. 
+/*  Make four display lists,
+ *  each with a different tessellated object.
  */
 void makeNewLists (void) {
    int i;
-   static GLdouble rects[12][3] = 
-      {50.0, 50.0, 0.0, 300.0, 50.0, 0.0, 
+   static GLdouble rects[12][3] =
+      {50.0, 50.0, 0.0, 300.0, 50.0, 0.0,
        300.0, 300.0, 0.0, 50.0, 300.0, 0.0,
-       100.0, 100.0, 0.0, 250.0, 100.0, 0.0, 
+       100.0, 100.0, 0.0, 250.0, 100.0, 0.0,
        250.0, 250.0, 0.0, 100.0, 250.0, 0.0,
-       150.0, 150.0, 0.0, 200.0, 150.0, 0.0, 
+       150.0, 150.0, 0.0, 200.0, 150.0, 0.0,
        200.0, 200.0, 0.0, 150.0, 200.0, 0.0};
-   static GLdouble spiral[16][3] = 
-      {400.0, 250.0, 0.0, 400.0, 50.0, 0.0, 
-       50.0, 50.0, 0.0, 50.0, 400.0, 0.0, 
-       350.0, 400.0, 0.0, 350.0, 100.0, 0.0, 
-       100.0, 100.0, 0.0, 100.0, 350.0, 0.0, 
-       300.0, 350.0, 0.0, 300.0, 150.0, 0.0, 
-       150.0, 150.0, 0.0, 150.0, 300.0, 0.0, 
-       250.0, 300.0, 0.0, 250.0, 200.0, 0.0, 
+   static GLdouble spiral[16][3] =
+      {400.0, 250.0, 0.0, 400.0, 50.0, 0.0,
+       50.0, 50.0, 0.0, 50.0, 400.0, 0.0,
+       350.0, 400.0, 0.0, 350.0, 100.0, 0.0,
+       100.0, 100.0, 0.0, 100.0, 350.0, 0.0,
+       300.0, 350.0, 0.0, 300.0, 150.0, 0.0,
+       150.0, 150.0, 0.0, 150.0, 300.0, 0.0,
+       250.0, 300.0, 0.0, 250.0, 200.0, 0.0,
        200.0, 200.0, 0.0, 200.0, 250.0, 0.0};
-   static GLdouble quad1[4][3] = 
-      {50.0, 150.0, 0.0, 350.0, 150.0, 0.0, 
+   static GLdouble quad1[4][3] =
+      {50.0, 150.0, 0.0, 350.0, 150.0, 0.0,
       350.0, 200.0, 0.0, 50.0, 200.0, 0.0};
    static GLdouble quad2[4][3] =
-      {100.0, 100.0, 0.0, 300.0, 100.0, 0.0, 
+      {100.0, 100.0, 0.0, 300.0, 100.0, 0.0,
        300.0, 350.0, 0.0, 100.0, 350.0, 0.0};
    static GLdouble tri[3][3] =
       {200.0, 50.0, 0.0, 250.0, 300.0, 0.0,
        150.0, 300.0, 0.0};
- 
-   gluTessProperty(tobj, GLU_TESS_WINDING_RULE, 
+
+   gluTessProperty(tobj, GLU_TESS_WINDING_RULE,
                    currentWinding);
 
    glNewList(list, GL_COMPILE);
@@ -158,7 +158,7 @@ void makeNewLists (void) {
 void display (void) {
    glClear(GL_COLOR_BUFFER_BIT);
    glColor3f(1.0, 1.0, 1.0);
-   glPushMatrix(); 
+   glPushMatrix();
    glCallList(list);
    glTranslatef(0.0, 500.0, 0.0);
    glCallList(list+1);
@@ -166,7 +166,7 @@ void display (void) {
    glCallList(list+2);
    glTranslatef(0.0, 500.0, 0.0);
    glCallList(list+3);
-   glPopMatrix(); 
+   glPopMatrix();
    glFlush();
 }
 
@@ -191,7 +191,7 @@ void CALLBACK endCallback(void)
 
 /*  combineCallback is used to create a new vertex when edges
  *  intersect.  coordinate location is trivial to calculate,
- *  but weight[4] may be used to average color, normal, or texture 
+ *  but weight[4] may be used to average color, normal, or texture
  *  coordinate data.
  */
 void CALLBACK combineCallback(GLdouble coords[3], GLdouble *data[4],
@@ -206,21 +206,21 @@ void CALLBACK combineCallback(GLdouble coords[3], GLdouble *data[4],
    *dataOut = vertex;
 }
 
-void init(void) 
+void init(void)
 {
    glClearColor(0.0, 0.0, 0.0, 0.0);
-   glShadeModel(GL_FLAT);    
+   glShadeModel(GL_FLAT);
 
    tobj = gluNewTess();
-   gluTessCallback(tobj, GLU_TESS_VERTEX, 
+   gluTessCallback(tobj, GLU_TESS_VERTEX,
                    glVertex3dv);
-   gluTessCallback(tobj, GLU_TESS_BEGIN, 
+   gluTessCallback(tobj, GLU_TESS_BEGIN,
                    beginCallback);
-   gluTessCallback(tobj, GLU_TESS_END, 
+   gluTessCallback(tobj, GLU_TESS_END,
                    endCallback);
-   gluTessCallback(tobj, GLU_TESS_ERROR, 
+   gluTessCallback(tobj, GLU_TESS_ERROR,
                    errorCallback);
-   gluTessCallback(tobj, GLU_TESS_COMBINE, 
+   gluTessCallback(tobj, GLU_TESS_COMBINE,
                    combineCallback);
 
    list = glGenLists(4);
@@ -277,6 +277,5 @@ int main(int argc, char** argv)
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
    glutMainLoop();
-   return 0;  
+   return 0;
 }
-
