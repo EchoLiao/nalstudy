@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,11 +42,11 @@
 
 /*
  *  fog.c
- *  This program draws 5 red spheres, each at a different 
- *  z distance from the eye, in different types of fog.  
- *  Pressing the f key chooses between 3 types of 
- *  fog:  exponential, exponential squared, and linear.  
- *  In this program, there is a fixed density value, as well 
+ *  This program draws 5 red spheres, each at a different
+ *  z distance from the eye, in different types of fog.
+ *  Pressing the f key chooses between 3 types of
+ *  fog:  exponential, exponential squared, and linear.
+ *  In this program, there is a fixed density value, as well
  *  as fixed start and end values for the linear fog.
  */
 #include <GL/glut.h>
@@ -56,7 +56,7 @@
 
 static GLint fogMode;
 
-/*  Initialize depth buffer, fog, light source, 
+/*  Initialize depth buffer, fog, light source,
  *  material property, and lighting model.
  */
 static void init(void)
@@ -69,9 +69,9 @@ static void init(void)
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
    {
-      GLfloat mat[3] = {0.1745, 0.01175, 0.01175};	
+      GLfloat mat[3] = {0.1745, 0.01175, 0.01175};
       glMaterialfv (GL_FRONT, GL_AMBIENT, mat);
-      mat[0] = 0.61424; mat[1] = 0.04136; mat[2] = 0.04136;	
+      mat[0] = 0.61424; mat[1] = 0.04136; mat[2] = 0.04136;
       glMaterialfv (GL_FRONT, GL_DIFFUSE, mat);
       mat[0] = 0.727811; mat[1] = 0.626959; mat[2] = 0.626959;
       glMaterialfv (GL_FRONT, GL_SPECULAR, mat);
@@ -159,7 +159,7 @@ void keyboard(unsigned char key, int x, int y)
 
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  RGBA display mode, depth buffer, and handle input events.
  */
 int main(int argc, char** argv)
@@ -175,4 +175,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

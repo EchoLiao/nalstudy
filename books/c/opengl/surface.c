@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,10 +42,10 @@
 
 /*
  *  surface.c
- *  This program draws a NURBS surface in the shape of a 
- *  symmetrical hill.  The 'c' keyboard key allows you to 
- *  toggle the visibility of the control points themselves.  
- *  Note that some of the control points are hidden by the  
+ *  This program draws a NURBS surface in the shape of a
+ *  symmetrical hill.  The 'c' keyboard key allows you to
+ *  toggle the visibility of the control points themselves.
+ *  Note that some of the control points are hidden by the
  *  surface itself.
  */
 #include <GL/glut.h>
@@ -78,8 +78,8 @@ void init_surface(void)
          else
             ctlpoints[u][v][2] = -3.0;
       }
-   }				
-}				
+   }
+}
 
 void CALLBACK nurbsError(GLenum errorCode)
 {
@@ -89,7 +89,7 @@ void CALLBACK nurbsError(GLenum errorCode)
    fprintf (stderr, "Nurbs Error: %s\n", estring);
    exit (0);
 }
-			
+
 /*  Initialize material property and depth buffer.
  */
 void init(void)
@@ -114,7 +114,7 @@ void init(void)
    theNurb = gluNewNurbsRenderer();
    gluNurbsProperty(theNurb, GLU_SAMPLING_TOLERANCE, 25.0);
    gluNurbsProperty(theNurb, GLU_DISPLAY_MODE, GLU_FILL);
-   gluNurbsCallback(theNurb, GLU_ERROR, 
+   gluNurbsCallback(theNurb, GLU_ERROR,
                     nurbsError);
 }
 
@@ -130,9 +130,9 @@ void display(void)
    glScalef (0.5, 0.5, 0.5);
 
    gluBeginSurface(theNurb);
-   gluNurbsSurface(theNurb, 
+   gluNurbsSurface(theNurb,
                    8, knots, 8, knots,
-                   4 * 3, 3, &ctlpoints[0][0][0], 
+                   4 * 3, 3, &ctlpoints[0][0][0],
                    4, 4, GL_MAP2_VERTEX_3);
    gluEndSurface(theNurb);
 
@@ -143,7 +143,7 @@ void display(void)
       glBegin(GL_POINTS);
       for (i = 0; i < 4; i++) {
          for (j = 0; j < 4; j++) {
-	    glVertex3f(ctlpoints[i][j][0], 
+	    glVertex3f(ctlpoints[i][j][0],
                ctlpoints[i][j][1], ctlpoints[i][j][2]);
          }
       }
@@ -193,6 +193,5 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc (keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-

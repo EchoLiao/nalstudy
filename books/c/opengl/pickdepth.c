@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,12 +42,12 @@
 
 /*
  * pickdepth.c
- * Picking is demonstrated in this program.  In 
- * rendering mode, three overlapping rectangles are 
- * drawn.  When the left mouse button is pressed, 
- * selection mode is entered with the picking matrix.  
+ * Picking is demonstrated in this program.  In
+ * rendering mode, three overlapping rectangles are
+ * drawn.  When the left mouse button is pressed,
+ * selection mode is entered with the picking matrix.
  * Rectangles which are drawn under the cursor position
- * are "picked."  Pay special attention to the depth 
+ * are "picked."  Pay special attention to the depth
  * value range, which is returned.
  */
 #include <GL/glut.h>
@@ -62,8 +62,8 @@ void init(void)
    glDepthRange(0.0, 1.0);  /* The default z mapping */
 }
 
-/* The three rectangles are drawn.  In selection mode, 
- * each rectangle is given the same name.  Note that 
+/* The three rectangles are drawn.  In selection mode,
+ * each rectangle is given the same name.  Note that
  * each rectangle is drawn with a different z value.
  */
 void drawRects(GLenum mode)
@@ -97,7 +97,7 @@ void drawRects(GLenum mode)
    glEnd();
 }
 
-/*  processHits() prints out the contents of the 
+/*  processHits() prints out the contents of the
  *  selection array.
  */
 void processHits(GLint hits, GLuint buffer[])
@@ -120,8 +120,8 @@ void processHits(GLint hits, GLuint buffer[])
    }
 }
 
-/*  pickRects() sets up selection mode, name stack, 
- *  and projection matrix for picking.  Then the objects 
+/*  pickRects() sets up selection mode, name stack,
+ *  and projection matrix for picking.  Then the objects
  *  are drawn.
  */
 #define BUFSIZE 512
@@ -199,6 +199,5 @@ int main(int argc, char **argv)
    glutMouseFunc(pickRects);
    glutKeyboardFunc(keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-

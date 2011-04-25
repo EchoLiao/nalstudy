@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -94,7 +94,7 @@ void display (void)
 }
 
 /*  specify initial properties
- *  create display list with sphere  
+ *  create display list with sphere
  *  initialize lighting and depth buffer
  */
 void gfxinit (void)
@@ -141,7 +141,7 @@ void mouse(int button, int state, int x, int y) {
 	case GLUT_LEFT_BUTTON:
 	    switch (state) {
 		case GLUT_DOWN:
-		    spinx = (spinx + 5) % 360; 
+		    spinx = (spinx + 5) % 360;
                     glutPostRedisplay();
 		    break;
 		default:
@@ -151,7 +151,7 @@ void mouse(int button, int state, int x, int y) {
 	case GLUT_MIDDLE_BUTTON:
 	    switch (state) {
 		case GLUT_DOWN:
-		    spiny = (spiny + 5) % 360; 
+		    spiny = (spiny + 5) % 360;
                     glutPostRedisplay();
 		    break;
 		default:
@@ -213,7 +213,7 @@ void keyboard (unsigned char key, int x, int y)
 }
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  RGBA display mode, and handle input events.
  */
 int main(int argc, char** argv)
@@ -238,4 +238,3 @@ int main(int argc, char** argv)
     return 0;
 }
 #endif
-

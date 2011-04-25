@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -40,14 +40,14 @@
  * OpenGL(R) is a registered trademark of Silicon Graphics, Inc.
  */
 
-/*  bezcurve.c			
+/*  bezcurve.c
  *  This program uses evaluators to draw a Bezier curve.
  */
 #include <GL/glut.h>
 #include <stdlib.h>
 
 GLfloat ctrlpoints[4][3] = {
-	{ -4.0, -4.0, 0.0}, { -2.0, 4.0, 0.0}, 
+	{ -4.0, -4.0, 0.0}, { -2.0, 4.0, 0.0},
 	{2.0, -4.0, 0.0}, {4.0, 4.0, 0.0}};
 
 void init(void)
@@ -65,14 +65,14 @@ void display(void)
    glClear(GL_COLOR_BUFFER_BIT);
    glColor3f(1.0, 1.0, 1.0);
    glBegin(GL_LINE_STRIP);
-      for (i = 0; i <= 30; i++) 
+      for (i = 0; i <= 30; i++)
          glEvalCoord1f((GLfloat) i/30.0);
    glEnd();
    /* The following code displays the control points as dots. */
    glPointSize(5.0);
    glColor3f(1.0, 1.0, 0.0);
    glBegin(GL_POINTS);
-      for (i = 0; i < 4; i++) 
+      for (i = 0; i < 4; i++)
          glVertex3fv(&ctrlpoints[i][0]);
    glEnd();
    glFlush();
@@ -84,10 +84,10 @@ void reshape(int w, int h)
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    if (w <= h)
-      glOrtho(-5.0, 5.0, -5.0*(GLfloat)h/(GLfloat)w, 
+      glOrtho(-5.0, 5.0, -5.0*(GLfloat)h/(GLfloat)w,
                5.0*(GLfloat)h/(GLfloat)w, -5.0, 5.0);
    else
-      glOrtho(-5.0*(GLfloat)w/(GLfloat)h, 
+      glOrtho(-5.0*(GLfloat)w/(GLfloat)h,
                5.0*(GLfloat)w/(GLfloat)h, -5.0, 5.0, -5.0, 5.0);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -116,4 +116,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

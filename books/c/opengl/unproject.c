@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,8 +42,8 @@
 
 /*
  *  unproject.c
- *  When the left mouse button is pressed, this program 
- *  reads the mouse position and determines two 3D points 
+ *  When the left mouse button is pressed, this program
+ *  reads the mouse position and determines two 3D points
  *  from which it was transformed.  Very little is displayed.
  */
 #include <GL/glut.h>
@@ -67,7 +67,7 @@ void reshape(int w, int h)
    glLoadIdentity();
 }
 
-void mouse(int button, int state, int x, int y) 
+void mouse(int button, int state, int x, int y)
 {
    GLint viewport[4];
    GLdouble mvmatrix[16], projmatrix[16];
@@ -83,13 +83,13 @@ void mouse(int button, int state, int x, int y)
 /*  note viewport[3] is height of window in pixels  */
             realy = viewport[3] - (GLint) y - 1;
             printf ("Coordinates at cursor are (%4d, %4d)\n", x, realy);
-            gluUnProject ((GLdouble) x, (GLdouble) realy, 0.0, 
-               mvmatrix, projmatrix, viewport, &wx, &wy, &wz); 
-            printf ("World coords at z=0.0 are (%f, %f, %f)\n", 
+            gluUnProject ((GLdouble) x, (GLdouble) realy, 0.0,
+               mvmatrix, projmatrix, viewport, &wx, &wy, &wz);
+            printf ("World coords at z=0.0 are (%f, %f, %f)\n",
                wx, wy, wz);
-            gluUnProject ((GLdouble) x, (GLdouble) realy, 1.0, 
-               mvmatrix, projmatrix, viewport, &wx, &wy, &wz); 
-            printf ("World coords at z=1.0 are (%f, %f, %f)\n", 
+            gluUnProject ((GLdouble) x, (GLdouble) realy, 1.0,
+               mvmatrix, projmatrix, viewport, &wx, &wy, &wz);
+            printf ("World coords at z=1.0 are (%f, %f, %f)\n",
                wx, wy, wz);
          }
          break;
@@ -110,22 +110,21 @@ void keyboard(unsigned char key, int x, int y)
          break;
    }
 }
-   
-/* 
+
+/*
  *  Open window, register input callback functions
  */
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (500, 500); 
+   glutInitWindowSize (500, 500);
    glutInitWindowPosition (100, 100);
    glutCreateWindow (argv[0]);
-   glutDisplayFunc(display); 
-   glutReshapeFunc(reshape); 
+   glutDisplayFunc(display);
+   glutReshapeFunc(reshape);
    glutKeyboardFunc (keyboard);
    glutMouseFunc(mouse);
    glutMainLoop();
    return 0;
 }
-

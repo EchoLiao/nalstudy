@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -43,7 +43,7 @@
 /*
  *  colormat.c
  *  After initialization, the program will be in
- *  ColorMaterial mode.  Interaction:  pressing the 
+ *  ColorMaterial mode.  Interaction:  pressing the
  *  mouse buttons will change the diffuse reflection values.
  */
 #include <GL/glut.h>
@@ -54,7 +54,7 @@ GLfloat diffuseMaterial[4] = { 0.5, 0.5, 0.5, 1.0 };
 /*  Initialize material property, light source, lighting model,
  *  and depth buffer.
  */
-void init(void) 
+void init(void)
 {
    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
    GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
@@ -143,15 +143,14 @@ int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
-   glutInitWindowSize (500, 500); 
+   glutInitWindowSize (500, 500);
    glutInitWindowPosition (100, 100);
    glutCreateWindow (argv[0]);
    init ();
-   glutDisplayFunc(display); 
+   glutDisplayFunc(display);
    glutReshapeFunc(reshape);
    glutMouseFunc(mouse);
    glutKeyboardFunc(keyboard);
    glutMainLoop();
    return 0;
 }
-

@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -51,14 +51,14 @@
 #include <stdio.h>
 
 #ifdef GL_VERSION_1_1
-void init(void) 
+void init(void)
 {
    GLint proxyComponents;
 
    glTexImage2D(GL_PROXY_TEXTURE_2D, 0, GL_RGBA8,
                 64, 64, 0,
                 GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-   glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0, 
+   glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0,
                             GL_TEXTURE_COMPONENTS, &proxyComponents);
    printf ("proxyComponents are %d\n", proxyComponents);
    if (proxyComponents == GL_RGBA8)
@@ -69,7 +69,7 @@ void init(void)
    glTexImage2D(GL_PROXY_TEXTURE_2D, 0, GL_RGBA16,
                 2048, 2048, 0,
                 GL_RGBA, GL_UNSIGNED_SHORT, NULL);
-   glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0, 
+   glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0,
                             GL_TEXTURE_COMPONENTS, &proxyComponents);
    printf ("proxyComponents are %d\n", proxyComponents);
    if (proxyComponents == GL_RGBA16)
@@ -85,7 +85,7 @@ void display(void)
 
 void reshape (int w, int h)
 {
-   glViewport (0, 0, (GLsizei) w, (GLsizei) h); 
+   glViewport (0, 0, (GLsizei) w, (GLsizei) h);
    glMatrixMode (GL_PROJECTION);
    glLoadIdentity ();
 }
@@ -94,11 +94,11 @@ int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (500, 500); 
+   glutInitWindowSize (500, 500);
    glutInitWindowPosition (100, 100);
    glutCreateWindow (argv[0]);
    init ();
-   glutDisplayFunc(display); 
+   glutDisplayFunc(display);
    glutReshapeFunc(reshape);
    glutMainLoop();
    return 0;
@@ -112,4 +112,3 @@ int main(int argc, char** argv)
     return 0;
 }
 #endif
-
