@@ -1,7 +1,7 @@
 #!/bin/bash
 #Example 11-7. Using read with file redirection
 
-case "$1" in "-h" | "--help") 
+case "$1" in "-h" | "--help")
 echo "Usage: ${0##*/}";
 echo "Example 11-7. Using read with file redirection";
 echo "重定向, 输出本系统所有的用户!"
@@ -62,4 +62,3 @@ echo
 echo "\$IFS still $IFS"
 
 exit 0
-
