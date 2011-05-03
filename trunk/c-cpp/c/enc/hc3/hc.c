@@ -57,10 +57,10 @@
 #include "hclib.h"
 
 static usage(prog)
-char *prog;
+    char *prog;
 {
-    fprintf(stderr,"usage: %s -m mode -map mapping [-t t1 t2 ...] < file\n", 
-	    prog);
+    fprintf(stderr,"usage: %s -m mode -map mapping [-t t1 t2 ...] < file\n",
+            prog);
     fprintf(stderr, "\tmode is g2b or b2g\n");
     fprintf(stderr, "\tmapping is one, all, or allbutsymbols\n");
     fprintf(stderr, "\tti is a conversion table filename\n");
@@ -69,56 +69,55 @@ char *prog;
 
 
 main(argc, argv)
-int argc;
-char *argv[];
+    int argc;
+    char *argv[];
 {
     int	mode = 0, i, mapping1 = HC_DO_SINGLE;
     char *pname;
     long miss;
-    
+
     pname = argv[0];
     for( i=1; i<argc; i++)
     {
-	if ((!strcmp(argv[i], "-mode")) || (!strcmp(argv[i], "-m")))
-	{
-	    i++;
-	    if (!strcmp(argv[i], "b2g"))
-		mode = HC_BIGtoGB;
-	    else if (!strcmp(argv[i], "g2b"))
-		mode = HC_GBtoBIG;
-	    else usage(pname);
-	}
-	else if (!strcmp(argv[i], "-map"))
-	{
-	    i++;
-	    if (!strcmp(argv[i], "one"))
-		mapping1 = HC_DO_SINGLE;
-	    else if (!strcmp(argv[i], "all"))
-		mapping1 = HC_DO_ALL;
-	    else if (!strcmp(argv[i], "allbutsymbols"))
-		mapping1 = HC_DO_ALL_BUT_SYMBOLS;
-	    else usage(pname);
-	}
-	else if (!strcmp(argv[i], "-t"))
-	{
-	    while (1)
-	    {
-		if (++i >= argc) break;
-		if (argv[i][0]=='-') /* other option, put it back */
-		{
-		    i--;
-		    break;
-		}
-		else hc_readtab(argv[i]);
-	    }
-	}
-	else usage(pname);
+        if ((!strcmp(argv[i], "-mode")) || (!strcmp(argv[i], "-m")))
+        {
+            i++;
+            if (!strcmp(argv[i], "b2g"))
+                mode = HC_BIGtoGB;
+            else if (!strcmp(argv[i], "g2b"))
+                mode = HC_GBtoBIG;
+            else usage(pname);
+        }
+        else if (!strcmp(argv[i], "-map"))
+        {
+            i++;
+            if (!strcmp(argv[i], "one"))
+                mapping1 = HC_DO_SINGLE;
+            else if (!strcmp(argv[i], "all"))
+                mapping1 = HC_DO_ALL;
+            else if (!strcmp(argv[i], "allbutsymbols"))
+                mapping1 = HC_DO_ALL_BUT_SYMBOLS;
+            else usage(pname);
+        }
+        else if (!strcmp(argv[i], "-t"))
+        {
+            while (1)
+            {
+                if (++i >= argc) break;
+                if (argv[i][0]=='-') /* other option, put it back */
+                {
+                    i--;
+                    break;
+                }
+                else hc_readtab(argv[i]);
+            }
+        }
+        else usage(pname);
     }
     if ((mode!=HC_BIGtoGB)&&(mode!=HC_GBtoBIG)) usage(pname);
-    miss = hc_convert_fp(stdin, stdout, mode, mapping1); 
+    miss = hc_convert_fp(stdin, stdout, mode, mapping1);
     if (miss > 0)
-	fprintf(stderr, "number of hanzi not converted = %ld\n", miss);
+        fprintf(stderr, "number of hanzi not converted = %ld\n", miss);
 
     return 0;
 }
-
