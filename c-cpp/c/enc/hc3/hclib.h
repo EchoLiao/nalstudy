@@ -101,28 +101,26 @@ extern u_int16 hc_set_default_code(/* int mode, u_int code */);
    into the (user allocated) array 'result' of size 'n' (a small array, like
    size 16 or 32 would be more than enough since usually there are not many
    multiple mappings).
-   
+
    Meaning of return code:
    > 0 - the number of mappings;
    = 0 - no conversion and the code of the default code
-         is stored into result[0]; and
+   is stored into result[0]; and
    < 0 - for invalid code.
-*/
+   */
 extern int hc_convert(/* int mode, u_int16 code, u_int16* result, int n */);
 
 /* Convert a file stream of hanzi, depends on mode (HC_GBtoBIG or HC_BIGtoGB).
-   Hanzi that cannot be converted is replaced by a "box" character code. 
+   Hanzi that cannot be converted is replaced by a "box" character code.
    If do_mult is true, all multiple mappings will be shown in <<...>>.
-*/
+   */
 extern hc_convert_fp(/* FILE *ifp, FILE *ofp, int mode, int do_mult */);
 
 /* Convert a hanzi code according to mode, and return the converted code.
    In case of multiple mappings, an arbitrary one is returned.
    Returns the "box" code for hanzi that cannot be converted or in case
    of invalid code.
-*/
+   */
 extern u_int16 hc_convert1(/* int mode, u_int16 code */);
 
 #endif /* _HC_H */
-
-
