@@ -58,9 +58,10 @@
 #define	HC_GBtoBIG	1
 #define HC_BIGtoGB	2
 
-#define HC_DO_SINGLE		0
-#define HC_DO_ALL		1
-#define HC_DO_ALL_BUT_SYMBOLS	2
+#define HC_DO_SINGLE		    0 /* 只要转换后的第一个字 */
+#define HC_DO_ALL		        1 /* 若转换后有多个字相对应, 全要! */
+#define HC_DO_ALL_BUT_SYMBOLS	2 /* 若转换后有多个字相对应, 全要; 但对于标点
+                                     符号只要第一个 */
 
 #define HC_HB(x)	(((x)>>8) & 0xFF)
 #define HC_LB(x)	((x) & 0xFF)

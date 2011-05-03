@@ -52,6 +52,7 @@
  *
  */
 
+#include <assert.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <malloc.h>
@@ -144,6 +145,11 @@ void hc_clear_tab_entry(mode, code)
 
 
 /* Add a code to the table or the multiple mapping table. */
+/* @a1      table of save another encoding code
+ * @am
+ * @i
+ * @code
+ * */
 static void add(a1, am, i, code)
     u_int16 *a1, **am, i, code;
 {
@@ -263,10 +269,10 @@ static int cvrt(a1, am, i, result, n)
     if (am[i])
         while (x = am[i][k])
         {
-            if (k>=n) break;
+            if (k>=n) break; /* no enough space in &result */
             result[++k] = x;
         }
-    return k + 1;
+    return k + 1; /* in total: 1+k */
 }
 
 
@@ -302,16 +308,17 @@ int hc_convert_fp(ifp, ofp, mode, do_mult)
 
     while ((c1=fgetc(ifp))!=EOF)
     {
-        if (!HC_ISFIRSTBYTE(c1)) fputc(c1, ofp);
-        else
+        if (!HC_ISFIRSTBYTE(c1)) fputc(c1, ofp); /* ASCII */
+        else /* GBK Gig5 */
         {
             c2 = fgetc(ifp);
             if ((n=hc_convert(mode, DB(c1, c2), result, BUFSIZE))<=0)
                 ++unconverted;
-            if ((n<=1) || (do_mult==HC_DO_SINGLE) ||
-                    ((do_mult==HC_DO_ALL_BUT_SYMBOLS) &&
-                     (((mode == HC_GBtoBIG) && (HC_IS_GB_SYMBOL(DB(c1,c2)))) ||
-                      ((mode == HC_BIGtoGB) && (HC_IS_BIG_SYMBOL(DB(c1,c2)))))))
+            if ( ( n <= 1 )  /* 转换后只有一个字与之对应? */
+                    || (do_mult== HC_DO_SINGLE)
+                    || ((do_mult == HC_DO_ALL_BUT_SYMBOLS) &&
+                        (((mode == HC_GBtoBIG) && (HC_IS_GB_SYMBOL(DB(c1,c2)))) ||
+                         ((mode == HC_BIGtoGB) && (HC_IS_BIG_SYMBOL(DB(c1,c2)))))))
             {
                 fputc(HC_HB(result[0]), ofp);
                 fputc(HC_LB(result[0]), ofp);
