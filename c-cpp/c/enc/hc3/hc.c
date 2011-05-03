@@ -54,6 +54,7 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "hclib.h"
 
 static usage(prog)
@@ -63,7 +64,14 @@ static usage(prog)
             prog);
     fprintf(stderr, "\tmode is g2b or b2g\n");
     fprintf(stderr, "\tmapping is one, all, or allbutsymbols\n");
+    fprintf(stderr, "\t\tone:\t\t只要转换后的第一个字\n");
+    fprintf(stderr, "\t\tall:\t\t若转换后有多个字相对应, 全要!\n");
+    fprintf(stderr, "\t\tallbutsymbols\t若转换后有多个字相对应, 全要; ");
+    fprintf(stderr, "但对于标点符号只要第一个\n");
     fprintf(stderr, "\tti is a conversion table filename\n");
+    fprintf(stderr, "\n");
+    fprintf(stderr, "&[lang/c-cpp/c/enc/hc3]&\n");
+    fprintf(stderr, "\n");
     exit(1);
 }
 

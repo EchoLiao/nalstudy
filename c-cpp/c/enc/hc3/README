@@ -1,7 +1,7 @@
 This is version 3.0 of Hanzi Converter, which converts between GB and
 BIG-5 codes.  The conversion table has been revised with corrections.
 This version supports more options, including the showing of all
-multiple mappings, please see the man page for more detail. 
+multiple mappings, please see the man page for more detail.
 
 To compile:
    make
@@ -32,3 +32,5 @@ To create convenient shell scripts b2g and g2b, do:
  * DISCLAIMER
  *
  *	This software has no connection with our employers.
+
+ftp://ftp.cuhk.hk/pub/chinese/ifcss/software/unix/convert/hc-30.tar.gz
