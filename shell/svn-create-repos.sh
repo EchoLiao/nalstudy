@@ -43,6 +43,7 @@ done
 
 #===================================================================
 
+## prepare
 oldpwd=`pwd`
 echo "build up tmpdir ..."
 tmpdir="/tmp/$$"
@@ -50,12 +51,14 @@ mkdir $tmpdir
 mv $iMPT $tmpdir/trunk
 mkdir $tmpdir/{tags,branches}
 
+## import
 echo "build up svn-repost ..."
 mkdir -p /var/svn/$dBPath
 svnadmin create /var/svn/$dBPath/$dB
 echo "svn import ..."
 svn import $tmpdir file:///var/svn/$dBPath/$dB -m "initial import" > /dev/null
 
+## change configure
 echo "set up configure files ..."
 rm -f /var/svn/$dBPath/$dB/conf/{authz,passwd,svnserve.conf}
 cp /var/svn/3dai/conf/svnserve.conf /var/svn/$dBPath/$dB/conf/
@@ -63,6 +66,12 @@ cp /var/svn/3dai/conf/svnserve.conf /var/svn/$dBPath/$dB/conf/
 sed "s/^realm = .*$/realm = $comment/" /var/svn/$dBPath/$dB/conf/svnserve.conf > /tmp/svn-my-tmp
 mv -f /tmp/svn-my-tmp /var/svn/$dBPath/$dB/conf/svnserve.conf
 
+# 使得可以修改log信息
+cd /var/svn/$dBPath/$dB/hooks
+cp pre-revprop-change.tmpl pre-revprop-change
+chmod +x pre-revprop-change
+
+## Done!
 echo "... done!"
 mv $tmpdir/trunk $oldpwd/$iMPT
 rm -rf $tmpdir
