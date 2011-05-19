@@ -43,5 +43,6 @@ int main (int argc, char *argv[])
  *
  *  结论:
  *      所以 stdout buffer 的大小为 1024 字节, 因为 I/O 库只有在 buffer 被填充
- *      满之后才会把其输出终端显示.
+ *      满之后才会把其输出终端显示, 除非被强制刷新输出(如遇到"\n", 调用 fflush()
+ *      等).
  */
