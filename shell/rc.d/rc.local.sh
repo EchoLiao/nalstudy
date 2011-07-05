@@ -15,9 +15,9 @@ svn=`ps aux | grep svnserve | grep -v grep`
 [[ $svn ]] || svnserve -d -r /var/svn
 
 ## mount
-mount -t cifs -o nolock //192.168.1.129/rsync /media/win_rsync_dir/ -o username=administrator -o password=hql12345
-mount -t cifs -o nolock //192.168.1.129/bk /media/win_bk_dir/ -o username=administrator -o password=hql12345
-mount -t cifs -o nolock //192.168.1.129/whxlog /home/log -o username=administrator -o password=hql12345
+mount -t cifs -o nolock //192.168.3.129/rsync /media/win_rsync_dir/ -o username=administrator -o password=hql12345
+mount -t cifs -o nolock //192.168.3.129/bk /media/win_bk_dir/ -o username=administrator -o password=hql12345
+mount -t cifs -o nolock //192.168.3.129/whxlog /home/log -o username=administrator -o password=hql12345
 
 
 
