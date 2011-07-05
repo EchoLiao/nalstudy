@@ -9,7 +9,7 @@ find . -type f | grep "\.swo$"      > /dev/null;    swo=$?
 find . -type f | grep "\.scc$"      > /dev/null;    scc=$?
 find . -type f | grep "~$"          > /dev/null;    blx=$?
 find . -type f | grep "\.swp$"      > /dev/null;    swp=$?
-find . -type d | grep "\.svn\/"     > /dev/null;    svn=$?
+find . -type d | grep "\.svn"       > /dev/null;    svn=$?
 
 echo -e "tags   = $tag"
 echo -e "o      = $o"
@@ -47,7 +47,7 @@ find . -type f | grep "\.swo$"      | xargs rm -rf
 find . -type f | grep "\.scc$"      | xargs rm -rf
 find . -type f | grep "~$"          | xargs rm -rf
 find . -type f | grep "\.swp$"      | xargs rm -rf
-find . -type d | grep "\.svn\/"     | xargs rm -rf
+find . -type d | grep "\.svn"       | xargs rm -rf
 
 echo "Delete done."
 echo
