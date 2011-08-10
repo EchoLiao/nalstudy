@@ -12,6 +12,7 @@
 #dir cscope.*
 
 
+cscope --version
 
 #pwd
 curpwd=$PWD

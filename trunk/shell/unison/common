@@ -1,0 +1,251 @@
+## Unison preferences file
+
+
+## Addprefsto settins
+# If any new preferences are added by Unison (e.g. 'ignore' preferences added
+# via the graphical UI), then store them in the file 'common' rathen than in
+# the top-level preference file
+addprefsto      = common
+
+
+## Copymax
+# A number indicating how many instances of the external copying utility
+# Unison is allowed to run simultaneously (default to 1).
+#copymax         = 2
+
+
+## Servercmd
+# This preference can be used to explicitly set the name of the Unison
+# executable on the remote server (e.g., giving a full path name), if
+# necessary.
+#servercmd       = /bin/ssh
+
+
+## Xferbycopying
+# When this preference is set, Unison will try to avoid transferring file
+# contents across the network by recognizing when a file with the required
+# contents already exists in the target replica. This usually allows file
+# moves to be propagated very quickly. The default value istrue.
+#xferbycopying  = true
+
+
+## Sortbysize
+# When this flag is set, the user interface will list changed files by size
+# (smallest first) rather than by name. This is useful, for example, for
+# synchronizing over slow links, since it puts very large files at the end of
+# the list where they will not prevent smaller files from being transferred
+# quickly.
+#sortbysize      = true
+
+
+## Sortfirst
+# Each argument to sortfirst is a pattern pathspec, which describes a set of
+# paths. Files matching any of these patterns will be listed first in the user
+# interface. The syntax of pathspec is described in the Path Specification
+# section.
+#sortfirst      = Path jjj
+
+
+## Sortlast
+# Similar to sortfirst, except that files matching one of these patterns will
+# be listed at the very end.
+#sortlast       = Path jjj
+
+
+## Sortnewfirst
+# When this flag is set, the user interface will list newly created files
+# before all others. This is useful, for example, for checking that newly
+# created files are not `junk', i.e., ones that should be ignored or deleted
+# rather than synchronized.
+#sortnewfirst    = Path jjjj
+
+
+## silent
+# When this preference is set to true, the textual user interface will print
+# nothing at all, except in the case of errors. Setting silent to true
+# automatically sets the batch preference to true.
+#silent          = true
+
+
+## Terse
+# When this preference is set to true, the user interface will not print
+# status messages.
+#terse           = true
+
+
+## Contactquietly
+# If this flag is true, Unison will skip displaying the `Contacting server'
+# message during startup.
+contactquietly  = false
+
+
+## Times
+# When this flag is set to true, file modification times (but not directory
+# modtimes) are propagated.
+#times            = true
+
+
+## Group
+# When this flag is set to true, the group attributes of the files are
+# synchronized. Whether the group names or the group identifiers are
+# synchronized depends on the preference numericids.
+group            = true
+
+
+## Owner
+# When this flag is set to true, the owner attributes of the files are
+# synchronized. Whether the owner names or the owner identifiers are
+# synchronizeddepends on the preference numericids.
+owner            = true
+
+## Numericids
+# When this flag is set to true, groups and users are synchronized
+# numerically, rather than by name.
+numericids       = true
+
+
+## Perms
+# The integer value of this preference is a mask indicating which permission
+# bits should be synchronized. It is set by default to 0o1777: all bits but
+# the set-uid and set-gid bits are synchronised (synchronizing theses latter
+# bits can be a security hazard). If you want to synchronize all bits, you can
+# set the value of this preference to −1. If one of the replica is on a FAT
+# [Windows] filesystem, you should consider using the t fat preference instead
+# of this preference. If you need Unison not to set permissions at all, set
+# the value of this preference to 0 and set the preference t dontchmod to t
+# true.
+#perms        = 0
+
+## Ignorecase
+# When set to true, this flag causes Unison to treat filenames as case
+# insensitive—i.e., files in the two replicas whose names differ in (upper-
+# and lower-case) `spelling' are treated as the same file. When the flag is
+# set to false, Unison will treat all filenames as case sensitive. Ordinarily,
+# when the flag is set to default, filenames are automatically taken to be
+# case-insensitive if either host is running Windows or OSX. In rare
+# circumstances it may be useful to set the flag manually.
+ignorecase       = false
+
+
+## The User Interface
+# `false` will change terminal settings in text UI, so that it reads the input
+# a character at a time rather than a line at a time.
+dumbtty     = false
+
+
+## Making Unison Faster on Large Files
+# Use the external copy utility for all whole-file transfers larger than
+# 10 megabyte.
+#copythreshold   = 10000
+# Used for the first transfer of a file.
+#copyprog        = rsync --inplace --compress
+# Used when Unison sees a partially transferred temp file on the receiving
+# host.
+#copyprogrest    = rsync --partial --inplace --compress
+# Add an extra level of quoting for paths containing spaces.
+#copyquoterem    = default
+
+
+## Mount Points and Removable Media
+# Unison to check something actually exists at the path
+# 'unison-mountpoint-flag-file' on both replicas; if it does not, the Unison
+# run will abort.
+mountpoint = unison-mountpoint-flag-file
+
+
+## Merging Conflicting Versions
+# merge = <PATHSPEC> -> <MERGECMD>
+# Use the `mergebatch` preference instead of `merge` no matter the setting of
+# the batch flag.
+#merge = Name *.txt -> diff3 -m CURRENT1 CURRENTARCHOPT CURRENT2 > NEW || echo "differences detected"
+# ask for confirmation before commiting results of a merge
+#confirmmerge
+
+
+## Fast Update Detection
+# When fastcheck is set to true, unison will use file creation times as
+# 'pseudo inode numbers' when scanning replicas for updates, instead of
+# reading the full contents of every file;
+# When fastcheck is set to default, Unison will use fast checks on Unix
+# replicas and slow checks on Windows replicas.
+# value : [true, no, default]
+fastcheck  = default
+
+
+## Symbolic Link
+# To treat a symbolic link "transparently," acting as though whatever it
+# points to were physically in the replica at the point where the symbolic
+# link appears. The default value are "opaque".
+#follow = Path *
+
+
+## Links
+# When set to true, this flag causes Unison to synchronize symbolic links.
+# When the flag is set to false, symbolic links will result in an error during
+# update detection. Ordinarily, when the flag is set to default, symbolic
+# links are synchronized except when one of the hosts is running Windows. In
+# rare circumstances it may be useful to set the flag manually.
+#links   = default
+
+
+## Some regexps specifying names and paths to ignore
+ignore = Path */pilot/backup/Archive_*
+ignore = Path dev/*
+ignore = Name *.swp
+ignore = Name .*.swp
+ignore = Name temp.*
+ignore = Name *~
+ignore = Name .*~
+ignore = Name *.o
+ignore = Name *.tmp
+ignore = Name *.lo
+ignore = Name *.la
+ignore = Name *.al
+ignore = Name *.pyc
+ignore = Name *.pyo
+ignore = Name *.rej
+ignore = Name cscope.*
+ignore = Name tags
+ignore = Name *.swo
+ignore = Name .*.swo
+ignore = Name *.scc
+ignore = Name .*.scc
+ignore = Name .#*
+ignore = Name .DS_Store
+
+
+## Ignorenot
+# This preference overrides the preference ignore. It gives a list of patterns
+# (in the same format as ignore) for paths that should definitely not be
+# ignored, whether or not they happen to match one of the ignore patterns.
+#ignorenot = Name keyfile
+
+
+## Immutable
+# This preference specifies paths for directories whose immediate children are
+# all immutable files — i.e., once a file has been created, its contents
+# never changes. When scanning for updates, Unison does not check whether
+# these files have been modified; this can speed update detection
+# significantly (in particular, for mail directories).
+#immutable = Path jjjj
+
+
+## Immutablenot
+# This preference overrides immutable.
+#Immutablenot = Path jjjj
+
+
+## Window height
+height = 37
+
+
+## Use this command for displaying diffs
+diff = diff -y -W 79 --suppress-common-lines
+
+
+
+# Return value:
+# * 0: successful synchronization; everything is up-to-date now.
+# * 1: some files were skipped, but all file transfers were successful.
+# * 2: non-fatal failures occurred during file transfer.
+# * 3: a fatal error occurred, or the execution was interrupted.
