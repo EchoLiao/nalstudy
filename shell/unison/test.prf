@@ -1,0 +1,74 @@
+## Unison preferences file
+
+
+## Roots of the synchronization
+root = /home/sre/tmp/unison/tmp/a-dir
+root = /home/sre/tmp/unison/tmp/b-dir
+
+
+## Paths to synchronize
+#path = d/
+#path = a
+#path = c
+
+
+## Key
+# Used in a profile to define a numeric key (0-9) that can be used in the
+# graphical user interface to switch immediately to this profile.
+#key = 3
+
+
+## Label
+# Used in a profile to provide a descriptive string documenting its settings.
+# (This is useful for users that switch between several profiles, especially
+# using the `fast switch' feature of the graphical user interface.)
+#label   = a-dir <-> b-dir
+
+
+## batch
+# When this is set to true, the user interface will ask no questions at all.
+# Non-conflicting changes will be propagated; conflicts will be skipped.
+batch = true
+
+
+## Auto
+# When set to true, this flag causes the user interface to skip asking for
+# confirmations on non-conflicting changes. (More precisely, when the user
+# interface is done setting the propagation direction for one entry and is
+# about to move to the next, it will skip over all non-conflicting entries and
+# go directly to the next conflict.)
+auto            = true
+
+
+## Keep a backup copy of every file in a central location
+backup          = Name *
+backupcurrent   = Name *
+# It specifies which files and directories should not be backed up,
+# even if they match the `backup` pathspec.
+#backupnot      =
+backupdir       = /home/sre/backups/unison/a-b
+# Backup files be stored centrally
+backuplocation  = central
+# maxbackups controls how many previous versions of each file are kept.
+maxbackups      = 1000
+backupprefix    =
+backupsuffix    = .UBak-$VERSION
+
+
+## Log actions to the terminal
+log = true
+
+
+## Logfile
+logfile = /home/sre/.unison/log/unison.log
+
+
+## Dumparchives
+# When this preference is set, Unison will create a file unison.dump on each
+# host, containing a text summary of the archive, immediately after loading
+# it.
+#dumparchives     = true
+
+
+## Include the contents of the file common
+include common
