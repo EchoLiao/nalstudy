@@ -25,9 +25,10 @@ function addAbsolutionPath()
 }
 
 
+[[ $# < 5 ]] &&  Usage
+
 parm=`getopt "a:b:k:p:s:l:" "$@"`
 [[ $? != 0 ]] &&  Usage
-#Usage && exit 1
 
 # "set --" : 重新设置命令行参数
 set -- $parm
@@ -74,8 +75,11 @@ prf=$r1--$r2.prf
 
 mkdir -p $backupdir
 mkdir -p $logdir/$r1--$r2
+
 touch -f $root1/unison-mountpoint-flag-file
+[[ $? != 0 ]] && Usage
 touch -f $root2/unison-mountpoint-flag-file
+[[ $? != 0 ]] && Usage
 
 #echo $r1 $r2
 #echo $root1,$root2,$batch,$auto,$backupdir,$backupprefix,$backupsuffix,$logfile,$prf
