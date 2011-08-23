@@ -1,0 +1,67 @@
+
+CC=cc
+AR=ar
+
+PWD=.
+CEDARX_TOP=${PWD}
+CEDARX_CHIP_VERSION=F20
+LIBPATH=${CEDARX_TOP}/lib
+
+CFLAGS=-Wall
+CFLAGS+=-g -O0 -D__OS_LINUX
+# CFLAGS+=-I./ -I${CEDARX_TOP}/framework -I${CEDARX_TOP}/include
+CFLAGS+= -I${CEDARX_TOP}/include
+
+# LDFLAGS =-lcedarxplayer -lcedarxcomponents -lcedarxdemuxers -ldemux_mov \
+# 		 -ldemux_mkv -ldemux_ts -ldemux_asf -ldemux_rmvb -ldemux_mpg \
+# 		 -ldemux_avi -ldemux_flv -ldemux_pmp -lm3u
+# LDFLAGS +=-lcedarxrender -lsub -lsub_inline -lcedarxstream
+# LDFLAGS +=-ldemux_mplayer -lavformat -lavutil -lavcodec
+# LDFLAGS +=-lcedarv -lvecore -ljpgenc -lcedarv_osal
+# LDFLAGS +=-lcedarxalloc -lstdc++
+# LDFLAGS +=-lac3_hw -ldts_hw -lape -laac -lraac -lcook -lsipr -latrc -logg \
+# 		  -lwav -lamr -lflac -lwma -lmp3 -lGetAudio_format -laudiomix \
+# 		  -lAudioGain
+# LDFLAGS +=-lsalsa -lfreetype -lcharset -liconv -lz
+# LDFLAGS +=-lm -lpthread
+# LDFLAGS +=-L$(LIBPATH)/ -L$(LIBPATH)/VIDEO_LIB_COMMON \
+# 		  -L$(LIBPATH)/AUDIO_LIB_${CEDARX_CHIP_VERSION}
+# LDFLAGS +=-L$(LIBPATH)/salsa-lib-0.0.22/lib
+# LDFLAGS +=-L$(LIBPATH)/freetype-2.3.5/lib
+# LDFLAGS +=-L$(LIBPATH)/libiconv-1.10/lib
+# LDFLAGS +=-L$(LIBPATH)/zlib.1.2.5/lib
+
+
+LOCAL_SRC = mser.c \
+
+
+LOCAL_OBJ = $(patsubst %.c, %.o, $(LOCAL_SRC))
+
+PROG = mser
+
+# $(warning $(LOCAL_OBJ))
+
+
+all: $(PROG)
+
+$(LOCAL_OBJ): %.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+$(PROG): $(LOCAL_OBJ)
+	$(CC) $^ -o $@ $(LDFLAGS)
+
+$(shell [[ -e Makefile.def ]] || touch Makefile.def)
+def:
+	find . -name '*.c' | xargs gcc -MM > Makefile.def
+
+# find . -name '*.c' | xargs gcc -MM | \
+	sed 's/\(^[^ :]*\).o:/\1:/' > Makefile.def;
+
+include Makefile.def
+
+
+install: all
+	cp -f $(PROG) /opt/project/f20/rootfs/home
+
+clean:
+	rm -f *.o $(PROG)
