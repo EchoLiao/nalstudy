@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     struct sockaddr_in myaddr;
     struct sockaddr_in mUDPCmdAddr;
     unsigned int socklen;
-    char strTmpIP[16] = "232.0.0.101" ;
+    char strTmpIP[16] = "232.0.0.105" ;
     char m_szMyIP[16] = "192.168.3.101";
 
     if ( argc < 2 ) 
@@ -54,8 +54,15 @@ int main(int argc, char **argv)
         TDDebug("socket creating error\n");
         exit(1);
     }
+    int yes = 1;
+    if (setsockopt(hUDPCmdSocket, SOL_SOCKET, SO_REUSEADDR,
+                (char *) &yes, sizeof(yes)) == -1) 
+    {
+        TDDebug("setsockopt error 1a\n");
+        close(hUDPCmdSocket);
+        return -1;
+    }
     socklen = sizeof(struct sockaddr_in);
-
     memset(&mUDPCmdAddr, 0, socklen);
     mUDPCmdAddr.sin_family = AF_INET;
     mUDPCmdAddr.sin_port = htons(MCAST_PORT);
@@ -84,16 +91,16 @@ int main(int argc, char **argv)
     int cou = 0;
     while ( 1 )
     {
-        TDDebug("send to stb begin\r\n");
+        TDDebug("send to stb begin\r");
         char service[BUFFER_LEN] = { 0 };
-        sprintf(service, "%s %d\n", "test! send!", ++cou);
+        sprintf(service, "%s %d\n", "STBCMD:test! send!", ++cou);
         if ( sendto(hUDPCmdSocket, service, strlen(service) + 1, 0,
                     (struct sockaddr *)&mUDPCmdAddr, sizeof(struct sockaddr_in)) < 0 )
         {
             TDDebug("Send service's data error...\n");
         }
         TDDebug("send to stb end\r\n");
-        usleep(800 * 1000);
+        usleep(2000 * 1000);
     }
 
     return 0;

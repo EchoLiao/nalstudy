@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     socklen_t fromlen;
     struct sockaddr_in local, from;
     // struct timeval time_out;
-    char strTmpIP[16] = "232.0.0.101";
+    char strTmpIP[16] = "232.0.0.105";
     char gzMyIP[16] = "192.168.3.101";
     struct ip_mreq UDPCmdipmr;
 
