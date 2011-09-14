@@ -44,6 +44,7 @@
  */
 
 #include <stdio.h>
+#include <math.h>
 #include <GL/glut.h>
 #include <GL/glext.h>
 /* #include "helpers.h" */
@@ -55,8 +56,8 @@
 #define GL_COMPARE_R_TO_TEXTURE      GL_COMPARE_R_TO_TEXTURE_ARB
 #endif
 
-#define SHADOW_MAP_WIDTH      256
-#define SHADOW_MAP_HEIGHT     256
+#define SHADOW_MAP_WIDTH      512
+#define SHADOW_MAP_HEIGHT     512
 
 #define PI       3.14159265359
 
@@ -148,9 +149,9 @@ keyboard( unsigned char key, int x, int y )
         static GLboolean textureOn = GL_TRUE;
         textureOn = !textureOn;
         if ( textureOn )
-	glEnable( GL_TEXTURE_2D );
+            glEnable( GL_TEXTURE_2D );
         else
-	glDisable( GL_TEXTURE_2D );
+            glDisable( GL_TEXTURE_2D );
       }
       break;
 
@@ -217,23 +218,27 @@ drawObjects( GLboolean shadowRender )
     }
 
     glPushMatrix();
-    glTranslatef( 11, 11, 11 );
-    glRotatef( 54.73, -5, 5, 0 );
-    glRotatef( torusAngle, 1, 0, 0 );
+    glTranslatef( 11, 11, 10 );
+    // glRotatef( 54.73, -5, 5, 0 );
+    // glRotatef( torusAngle, 1, 0, 0 );
     glColor3f( 1, 0, 0 );
+    //    glutSolidTorus( 1, 4, 8, 36 );
+    glutSolidCube( 1 );
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef( 8, 8, 5 );
+    glRotatef( 54.73, -5, 5, 0 );
+    glColor3f( 0, 0, 1 );
+    //  glutSolidCube( 4 );
     glutSolidTorus( 1, 4, 8, 36 );
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef( 2, 2, 2 );
-    glColor3f( 0, 0, 1 );
-    glutSolidCube( 4 );
-    glPopMatrix();
-
-    glPushMatrix();
     glTranslatef( lightPos[0], lightPos[1], lightPos[2] );
-    glColor3f( 1, 1, 1 );
-    glutWireSphere( 0.5, 6, 6 );
+    // glTranslatef( 6, 6, 6 );
+    glColor3f( 1, 1, 0 );
+    glutWireSphere( 1.5, 6, 6 );
     glPopMatrix();
 
     if ( shadowRender && textureOn )
@@ -258,17 +263,16 @@ generateShadowMap( void )
     glPushMatrix();
     glLoadIdentity();
     gluPerspective( 80.0, 1.0, 10.0, 1000.0 );
-    glMatrixMode( GL_MODELVIEW );
 
+    glMatrixMode( GL_MODELVIEW );
     glPushMatrix();
     glLoadIdentity();
     gluLookAt( lightPos[0], lightPos[1], lightPos[2],
-	       lookat[0], lookat[1], lookat[2],
-	       up[0], up[1], up[2] );
-
+            lookat[0], lookat[1], lookat[2],
+            up[0], up[1], up[2] );
     drawObjects( GL_TRUE );
-
     glPopMatrix();
+
     glMatrixMode( GL_PROJECTION );
     glPopMatrix();
     glMatrixMode( GL_MODELVIEW );
@@ -302,7 +306,8 @@ generateTextureMatrix( void )
     glLoadIdentity();
     glTranslatef( 0.5, 0.5, 0.0 );
     glScalef( 0.5, 0.5, 1.0 );
-    gluPerspective( 60.0, 1.0, 1.0, 1000.0 );
+    //gluPerspective( 40.0, 1.0, 1.0, 1000.0 );
+    gluPerspective( 80.0, 1.0, 5.0, 1000.0 );
     gluLookAt( lightPos[0], lightPos[1], lightPos[2],
 	       lookat[0], lookat[1], lookat[2],
 	       up[0], up[1], up[2] );
@@ -330,8 +335,16 @@ display( void )
 
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
+    glMatrixMode( GL_PROJECTION );
     glPushMatrix();
-    gluLookAt( radius*cos(angle), radius*sin(angle), 30,
+    glLoadIdentity();
+    gluPerspective( 80.0, 1.0, 10.0, 1000.0 );
+    // glPopMatrix();
+    glMatrixMode( GL_MODELVIEW );
+
+    glPushMatrix();
+    // gluLookAt( radius*cos(angle), radius*sin(angle), 90,
+    gluLookAt( lightPos[0], lightPos[1], lightPos[2],
 	       lookat[0], lookat[1], lookat[2],
 	       up[0], up[1], up[2] );
     drawObjects( GL_FALSE );
@@ -346,7 +359,7 @@ main( int argc, char** argv )
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE );
     glutInitWindowSize( 512, 512 );
-    glutInitWindowPosition( 100, 100 );
+    glutInitWindowPosition( 0, 0 );
     glutCreateWindow( argv[0] );
 
     init();
