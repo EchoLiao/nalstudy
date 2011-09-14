@@ -84,10 +84,10 @@ LLDLIBS = $(GLUT) -lGLU -lGL -lXmu -lXext -lX11 -lm
 
 # 第一个为默认目标(在这是 def )
 # 在 make 前先 make def 生成依赖文件!
-def:
-	find . -name '*.c' | xargs gcc -MM | \
-	sed 's/\(^[^ :]*\).o:/\1:/' > Makefile.def ;
-	@make targets
+#def:
+#    find . -name '*.c' | xargs gcc -MM | \
+#    sed 's/\(^[^ :]*\).o:/\1:/' > Makefile.def ;
+#    @make targets
 
 targets: $(TARGETS)
 default: targets $(IMAGING_SUBSET)
