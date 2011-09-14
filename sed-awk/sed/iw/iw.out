@@ -1,0 +1,44 @@
+wlan0     Scan completed :
+          Cell 01 - Address: F4:EC:38:5A:A6:D8
+                    ESSID:"TP-Link-ipad"
+                    Protocol:IEEE 802.11bg
+                    Mode:Master
+                    Frequency:2.417 GHz (Channel 2)
+                    Encryption key:on
+                    Bit Rate:54 Mb/s
+                    (Unknown Wireless Token 0x8C05)
+                    Quality=46/100  Signal level=46/100  
+          Cell 02 - Address: B0:48:7A:52:76:64
+                    ESSID:"ceshi3"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:off
+                    Bit Rate:150 Mb/s
+                    (Unknown Wireless Token 0x8C05)
+                    Quality=76/100  Signal level=76/100  
+          Cell 03 - Address: D8:5D:4C:2D:2A:30
+                    ESSID:"Mercury_54M_mw54R"
+                    Protocol:IEEE 802.11b
+                    Mode:Master
+                    Frequency:2.427 GHz (Channel 4)
+                    Encryption key:on
+                    Bit Rate:11 Mb/s
+                    Quality=92/100  Signal level=92/100  
+          Cell 04 - Address: 54:E6:FC:7E:01:7E
+                    ESSID:"TP-WR"
+                    Protocol:IEEE 802.11bg
+                    Mode:Master
+                    Frequency:2.432 GHz (Channel 5)
+                    Encryption key:on
+                    Bit Rate:54 Mb/s
+                    (Unknown Wireless Token 0x8C05)
+                    Quality=72/100  Signal level=72/100  
+          Cell 05 - Address: E0:05:C5:F6:B7:50
+                    ESSID:"zzb_yixian"
+                    Protocol:IEEE 802.11bg
+                    Mode:Master
+                    Frequency:2.437 GHz (Channel 6)
+                    Encryption key:on
+                    Bit Rate:54 Mb/s
+                    Quality=76/100  Signal level=76/100  
