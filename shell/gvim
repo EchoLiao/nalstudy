@@ -1,0 +1,13 @@
+#!/bin/sh
+
+G=/usr/local/bin/gvim
+
+if [[ $# == 1 ]]; then
+    # gvim file:234   ==>   gvim file +234
+    # gvim file:234:  ==>   gvim file +234
+    t=`echo $1 | sed 's/:$//' | sed 's/:/ +/'`
+    $G 2>/dev/null $t
+else 
+    $G 2>/dev/null "$@"
+fi
+
