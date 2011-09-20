@@ -1,0 +1,13 @@
+#!/bin/sh
+
+V=/usr/local/bin/vim
+
+if [[ $# == 1 ]]; then
+    # vim file:234   ==>   vim file +234
+    # vim file:234:  ==>   vim file +234
+    t=`echo $1 | sed 's/:$//' | sed 's/:/ +/'`
+    $V 2>/dev/null $t
+else 
+    $V 2>/dev/null "$@"
+fi
+
