@@ -20,15 +20,36 @@ fi
 
 Definition=$(sdcv -n "$1")
 
-out1=`echo "$Definition" | tr -d '\n' |
+out1=`echo "$Definition" |
+sed -e 's:对不起，没有发现和 :ZZZZZZZZZZ:' \
+    -e 's:^$::' \
+    -e 's:^\*\[: \[:' \
+    -e 's:^\[: &:' \
+    -e 's:^a\.: &:' \
+    -e 's:^v\.: &:' \
+    -e 's:^vi\.: &:' \
+    -e 's:^vt\.: &:' \
+    -e 's:^n\.: &:' \
+    -e 's:^conj\.: &:' \
+    -e 's:^interj\.: &:' \
+    -e 's:^prep\.: &:' \
+    -e 's:^aux\.: &:' \
+    -e 's:^art\.: &:' \
+    -e 's:^[^a-zA-Z]: &:' \
+    -e 's:^  \( [a-zA-Z][a-zA-Z]*\)\( [a-zA-Z][a-zA-Z]*\)*:,&:' \
+    -e 's:^-->:@@@@@@@&:' \
+| tr -d '\n' |
 sed -e 's/发现 .* 条记录和 .* 相似。//g' |
 sed -e 's/-->WordNet-->.*-->/	/g' |
-sed -e 's/-->.*-->//g'`
+sed -e 's/-->.*-->//g' |
+sed -e 's/^[^a-zA-Z]*//' |
+sed -e 's/相关词组:,/相关词组:/'`
+
 
 echo ====================
 case "$out1" in
-    "对不起，没有发现和"*)  ;;
-    *)			    echo $out1;;
+        ZZZZZZZZZZ*) ;;
+                  *) echo $out1;;
 esac
 
 exit 0
