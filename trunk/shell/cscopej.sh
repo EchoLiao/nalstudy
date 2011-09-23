@@ -35,6 +35,7 @@ find $curpwd -name '*.java' -or -name '*.jsp' -or -name '*.xml' -or \
 
 cd $curpwd
 cscope -bq
+gtags -f cscope.files
 
 
 if [ $hb -eq 1 ]; then

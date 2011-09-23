@@ -23,3 +23,4 @@ cd /
 find $curpwd -name '*.[sSchCH]' > $curpwd/cscope.files
 cd $curpwd
 cscope -bq
+gtags -f cscope.files
