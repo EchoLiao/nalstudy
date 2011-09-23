@@ -42,3 +42,4 @@ find $curpwd -name '*.s' -or -name '*.S' -or -name '*.c' -or -name '*cpp' \
 
 cd $curpwd
 cscope -bq
+gtags -f cscope.files
