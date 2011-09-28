@@ -11,7 +11,8 @@
 #define WORDMAX 100
 
 int main()
-{   char word[WORDMAX], sig[WORDMAX], oldsig[WORDMAX];
+{
+    char word[WORDMAX], sig[WORDMAX], oldsig[WORDMAX];
     int linenum = 0;
     strcpy(oldsig, "");
     while (scanf("%s %s", sig, word) != EOF) {
