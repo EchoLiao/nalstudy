@@ -6,24 +6,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define MAXN 2000000
-int x[MAXN];
 
+int *x;
+
+/* 
+ * return random number, it's value is in [a, b].
+ * */
 int randint(int a, int b)
-{	return a + (RAND_MAX * rand() + rand()) % (b + 1 - a);
+{
+    // return a + (RAND_MAX * rand() + rand()) % (b + 1 - a);
+    return a + rand() % (b + 1 - a);
 }
 
 int main(int argc, char *argv[])
-{	int i, k, n, t, p;
-	srand((unsigned) time(NULL));
-	k = atoi(argv[1]);
-	n = atoi(argv[2]);
-	for (i = 0; i < n; i++)
-		x[i] = i;
-	for (i = 0; i < k; i++) {
-		p = randint(i, n-1);
-		t = x[p]; x[p] = x[i]; x[i] = t;
-		printf("%d\n", x[i]);
-	}
-	return 0;
+{
+    int i, n, t, p;
+    if ( argc != 2 )
+    {
+        fprintf(stderr, "Usage: %s N\n", argv[0]);
+        exit(1);
+    }
+
+    srand((unsigned) time(NULL));
+    n = atoi(argv[1]);
+    if ( (x=malloc(n * sizeof(int))) == NULL )
+    {
+        fprintf(stderr, "malloc error!\n");
+        exit(1);
+    }
+
+    for (i = 0; i < n; i++)
+        x[i] = i;
+
+    for (i = 0; i < n; i++) {
+        p = randint(i, n-1);
+        t = x[p];
+        x[p] = x[i];
+        x[i] = t;
+        printf("%d\n", x[i]);
+    }
+
+    return 0;
 }
