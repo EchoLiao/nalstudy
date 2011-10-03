@@ -31,9 +31,9 @@
 #include "scull.h"		/* local definitions */
 
 struct scull_pipe {
-    /* 无数据可读或可写时, 同休眠在对应的队列上. */
+    /* 无数据可读或可写时, 休眠在对应的队列上. */
     wait_queue_head_t inq, outq;       /* read and write queues */
-    /* 每个 pipi 设置维护一个缓冲区 buffer . */
+    /* 每个 pipe 设置维护一个缓冲区 buffer . */
     char *buffer, *end;                /* begin of buf, end of buf */
     int buffersize;                    /* used in pointer arithmetic */
     char *rp, *wp;                     /* where to read, where to write */
