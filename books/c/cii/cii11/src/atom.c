@@ -11,7 +11,7 @@ static struct atom
     struct atom *link;
     int      len;
     char    *str;
-}       *buckets[2048];
+}       *buckets[2048];         // 全局变量, 被初始化为0
 
 static unsigned long scatter[] = {
     2078917053, 143302914, 1027100827, 1953210302, 755253631, 2002600785,
@@ -65,21 +65,33 @@ const char *Atom_string(const char *str)
     return Atom_new(str, strlen(str));
 }
 
+/*==========================================================================*
+ * @Description:    把一个long类型的值转换为一个字面意思的字串
+ *
+ * @Param n
+ *
+ * @Returns:    
+ *
+ *==========================================================================*/
 const char *Atom_int(long n)
 {
-    char     str[43];
+    char     str[43];           // 这里大小是43的原因: [(P35)]
     char    *s = str + sizeof str;
     unsigned long m;
 
+    /* 先用无符号处理, 因为无符号类型能处理更大的数值,
+     * 且无符号的除和取余运算 得到的结果是唯一的! */
     if (n == LONG_MIN)
         m = LONG_MAX + 1UL;
     else if (n < 0)
         m = -n;
     else
         m = n;
+
     do
+    {
         *--s = m % 10 + '0';
-    while ((m /= 10) > 0);
+    } while ((m /= 10) > 0);
     if (n < 0)
         *--s = '-';
     return Atom_new(s, (str + sizeof str) - s);
@@ -92,11 +104,16 @@ const char *Atom_new(const char *str, int len)
     struct atom *p;
 
     assert(str);
-    assert(len >= 0);
+    assert(len >= 0);           // if len is 0, it is nul string
+
+    /* 生成要存入buckets的位置的索引 */
     for (h = 0, i = 0; i < len; i++)
+        /* 必须要用 unsigned char 进行强制转换. [(P39)] */
         h = (h << 1) + scatter[(unsigned char)str[i]];
     h &= NELEMS(buckets) - 1;
+
     for (p = buckets[h]; p; p = p->link)
+    {
         if (len == p->len)
         {
             for (i = 0; i < len && p->str[i] == str[i];)
@@ -104,27 +121,40 @@ const char *Atom_new(const char *str, int len)
             if (i == len)
                 return p->str;
         }
+    }
+
+    /* 没有, 则创建一个新的并存入 */
     p = ALLOC(sizeof(*p) + len + 1);
     p->len = len;
-    p->str = (char *)(p + 1);
+    p->str = (char *)(p + 1);   // MMMMM
     if (len > 0)
         memcpy(p->str, str, len);
     p->str[len] = '\0';
     p->link = buckets[h];
     buckets[h] = p;
+
     return p->str;
 }
 
+/*==========================================================================*
+ * @Description:    Atom_length() 返回 str 长度, str 必须已存在于 atom table 
+ *      中, 即: 其是由 Atom_new() 等返回的!
+ *
+ * @Param str
+ *
+ * @Returns:    
+ *
+ *==========================================================================*/
 int Atom_length(const char *str)
 {
     struct atom *p;
     int      i;
 
     assert(str);
-    for (i = 0; i < NELEMS(buckets); i++)
+    for (i = 0; i < (int)NELEMS(buckets); i++)
         for (p = buckets[i]; p; p = p->link)
-            if (p->str == str)
+            if (p->str == str)  // 只须要比较内存首地址
                 return p->len;
-    assert(0);
+    assert(0);                  // can't-happen
     return 0;
 }
