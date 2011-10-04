@@ -25,7 +25,7 @@ function addAbsolutionPath()
 }
 
 
-[[ $# < 5 ]] &&  Usage
+[[ $# < 4 ]] &&  Usage
 
 parm=`getopt "a:b:k:p:s:l:" "$@"`
 [[ $? != 0 ]] &&  Usage
@@ -33,14 +33,15 @@ parm=`getopt "a:b:k:p:s:l:" "$@"`
 # "set --" : 重新设置命令行参数
 set -- $parm
 
+UHOME=/home/sre
 root1=/home/ss1
 root2=/home/ss2
 batch=true
 auto=true
-backupdir=$HOME/var/backups/unison
+backupdir=$UHOME/var/backups/unison
 backupprefix=
 backupsuffix=\.UBak-\$VERSION
-logdir=$HOME/var/logs/unison
+logdir=$UHOME/var/logs/unison
 logfile=
 prf=
 
@@ -117,6 +118,7 @@ chmod 600 ~/bin/unison/common
 
 mv -f ./$prf    ~/.unison/
 cp -f ~/bin/unison/common  ~/.unison/
+echo "Start unison ... ..."
 #unison $prf -ui text
 unison $prf -ui text 1>$logfile_out 2>$logfile_err
 cat $logfile_err
