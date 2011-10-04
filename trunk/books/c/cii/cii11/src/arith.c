@@ -26,9 +26,11 @@ int Arith_min(int x, int y)
  *==========================================================================*/
 int Arith_div(int x, int y)
 {
+    const int a = -13; 
+    const int b = 5;
     /* 在编译期间, "-13 / 5 == -2" 已被求出真假, 若为真则说明编译器对"x / y"的
      * 取舍所采用的原则是: 向0方向截断, 故返回值应该是"x / y - 1" */
-    if (-13 / 5 == -2 && (x < 0) != (y < 0) && x % y != 0)
+    if (a / b == -2 && (x < 0) != (y < 0) && x % y != 0)
 	return x / y - 1;
     else
 	return x / y;
@@ -50,7 +52,9 @@ int Arith_div(int x, int y)
  *==========================================================================*/
 int Arith_mod(int x, int y)
 {
-    if (-13 / 5 == -2 && (x < 0) != (y < 0) && x % y != 0)
+    const int a = -13; 
+    const int b = 5;
+    if (a / b == -2 && (x < 0) != (y < 0) && x % y != 0)
 	return x % y + y;
     else
 	return x % y;
