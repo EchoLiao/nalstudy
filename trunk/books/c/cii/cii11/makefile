@@ -57,6 +57,7 @@ EXAMPLES=	$Bdouble$E \
 		$Bdirname$E \
 		$BtestStack$E \
 		$BtestAtom$E \
+		$BtestExcept$E \
 		#$Bsort$E \
 		#$Bspin$E \
 		#$Bsieve$E
@@ -115,6 +116,7 @@ $Bspin$O:	examples/spin.c;	$(CC) $(CFLAGS) -c -o $@ examples/spin.c
 $Bsieve$O:	examples/sieve.c;	$(CC) $(CFLAGS) -c -o $@ examples/sieve.c
 $BtestStack$O:	examples/testStack.c;	$(CC) $(CFLAGS) -c -o $@ examples/testStack.c
 $BtestAtom$O:	examples/testAtom.c;	$(CC) $(CFLAGS) -c -o $@ examples/testAtom.c
+$BtestExcept$O:	examples/testExcept.c;	$(CC) $(CFLAGS) -c -o $@ examples/testExcept.c
 
 $Bwf$O $Bxref$O $Bgetword$O:	examples/getword.h
 $Bcref$O $Binteger$O:		examples/integer.h
@@ -137,6 +139,7 @@ $Bspin$E:	$Bspin$O $Blibcii$A;		$(LD) $(LDFLAGS) -o $@ $Bspin$O $Blibcii$A
 $Bsieve$E:	$Bsieve$O $Blibcii$A;		$(LD) $(LDFLAGS) -o $@ $Bsieve$O $Blibcii$A
 $BtestStack$E:	$BtestStack$O $Blibcii$A;	$(LD) $(LDFLAGS) -o $@ $BtestStack$O $Blibcii$A
 $BtestAtom$E:	$BtestAtom$O $Blibcii$A;	$(LD) $(LDFLAGS) -o $@ $BtestAtom$O $Blibcii$A
+$BtestExcept$E:	$BtestExcept$O $Blibcii$A;	$(LD) $(LDFLAGS) -o $@ $BtestExcept$O $Blibcii$A
 
 clean::
 		$(RM) $B*$O

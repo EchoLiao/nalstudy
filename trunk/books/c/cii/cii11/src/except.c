@@ -17,9 +17,11 @@ Except_Frame *Except_stack = NULL;
 
 void Except_raise(const T * e, const char *file, int line)
 {
+    // p 是在 TRY 的时候压入栈中的!
     Except_Frame *p = Except_stack;
 
     assert(e);
+    /* p */
     if (p == NULL)
     {
         fprintf(stderr, "Uncaught exception");
@@ -31,11 +33,11 @@ void Except_raise(const T * e, const char *file, int line)
             fprintf(stderr, " raised at %s:%d\n", file, line);
         fprintf(stderr, "aborting...\n");
         fflush(stderr);
-        abort();
+        abort(); // abort program
     }
     p->exception = e;
     p->file = file;
     p->line = line;
-    Except_stack = Except_stack->prev;
-    longjmp(p->env, Except_raised);
+    Except_stack = Except_stack->prev; // 出栈
+    longjmp(p->env, EXCEPT_RAISED);
 }
