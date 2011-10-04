@@ -13,7 +13,7 @@ static struct atom
 {
     struct atom *link;
     int      len;
-    char    *str;
+    char     str[1];
 #ifdef USE_PRIME
 }       *buckets[2039];         // 用素数
 #else
@@ -131,9 +131,8 @@ const char *Atom_new(const char *str, int len)
     }
 
     /* 没有, 则创建一个新的并存入 */
-    p = ALLOC(sizeof(*p) + len + 1);
+    p = ALLOC(sizeof(*p) + len);
     p->len = len;
-    p->str = (char *)(p + 1);   // MMMMM
     if (len > 0)
         memcpy(p->str, str, len);
     p->str[len] = '\0';

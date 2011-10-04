@@ -4,5 +4,10 @@
 extern       int   Atom_length(const char *str);
 extern const char *Atom_new   (const char *str, int len);
 extern const char *Atom_string(const char *str);
+
+/*==========================================================================*
+ * @Description:    Atom_length() 返回 str 长度, str 必须已存在于 atom table 
+ *      中, 即: 其是由 Atom_new() 等返回的!
+ *==========================================================================*/
 extern const char *Atom_int   (long n);
 #endif
