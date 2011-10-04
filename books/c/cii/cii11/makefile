@@ -6,7 +6,7 @@ CC=gcc
 I=include
 CFLAGS=-g -I$I -W
 LDFLAGS=-g
-LD=cc
+LD=gcc
 AS=as
 AR=ar ruv
 RANLIB=ranlib
@@ -55,6 +55,7 @@ EXAMPLES=	$Bdouble$E \
 		$Bwords$E \
 		$Bbasename$E \
 		$Bdirname$E \
+		$BtestStack$E \
 		#$Bsort$E \
 		#$Bspin$E \
 		#$Bsieve$E
@@ -111,6 +112,7 @@ $Bcref$O:	examples/cref.c;	$(CC) $(CFLAGS) -c -o $@ examples/cref.c
 $Bsort$O:	examples/sort.c;	$(CC) $(CFLAGS) -c -o $@ examples/sort.c
 $Bspin$O:	examples/spin.c;	$(CC) $(CFLAGS) -c -o $@ examples/spin.c
 $Bsieve$O:	examples/sieve.c;	$(CC) $(CFLAGS) -c -o $@ examples/sieve.c
+$BtestStack$O:	examples/testStack.c;	$(CC) $(CFLAGS) -c -o $@ examples/testStack.c
 
 $Bwf$O $Bxref$O $Bgetword$O:	examples/getword.h
 $Bcref$O $Binteger$O:		examples/integer.h
@@ -131,6 +133,7 @@ $Bcref$E:	$Bcref$O $Binteger$O $Blibcii$A;$(LD) $(LDFLAGS) -o $@ $Bcref$O $Binte
 $Bsort$E:	$Bsort$O $Blibcii$A;		$(LD) $(LDFLAGS) -o $@ $Bsort$O $Blibcii$A
 $Bspin$E:	$Bspin$O $Blibcii$A;		$(LD) $(LDFLAGS) -o $@ $Bspin$O $Blibcii$A
 $Bsieve$E:	$Bsieve$O $Blibcii$A;		$(LD) $(LDFLAGS) -o $@ $Bsieve$O $Blibcii$A
+$BtestStack$E:	$BtestStack$O $Blibcii$A;	$(LD) $(LDFLAGS) -o $@ $BtestStack$O $Blibcii$A
 
 clean::
 		$(RM) $B*$O
@@ -167,3 +170,4 @@ $Btext$O:	$I/assert.h $I/except.h $I/fmt.h $I/text.h $I/mem.h
 $Bthread$O:	$I/assert.h $I/except.h $I/mem.h $I/thread.h $I/sem.h
 $Bthread-nt$O:	$I/assert.h $I/except.h $I/mem.h $I/thread.h $I/sem.h
 $Bxp$O:		$I/assert.h $I/except.h $I/xp.h
+$BtestStack$O:  $I/stack.h
