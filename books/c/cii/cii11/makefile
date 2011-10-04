@@ -2,9 +2,9 @@
 A=.a
 O=.o
 E=
-CC=cc
+CC=gcc
 I=include
-CFLAGS=-g -I$I
+CFLAGS=-g -I$I -W
 LDFLAGS=-g
 LD=cc
 AS=as
@@ -14,7 +14,7 @@ DIFF=diff
 RM=rm -f
 CUSTOM=custom.mk
 EXTRAS=$(BUILDDIR)/memcmp$O $(BUILDDIR)/memmove$O $(BUILDDIR)/strncmp$O
-THREADS=$(BUILDDIR)/thread$O $(BUILDDIR)/swtch$O
+#THREADS=$(BUILDDIR)/thread$O $(BUILDDIR)/swtch$O
 include $(CUSTOM)
 B=$(BUILDDIR)/
 
@@ -55,9 +55,9 @@ EXAMPLES=	$Bdouble$E \
 		$Bwords$E \
 		$Bbasename$E \
 		$Bdirname$E \
-		$Bsort$E \
-		$Bspin$E \
-		$Bsieve$E
+		#$Bsort$E \
+		#$Bspin$E \
+		#$Bsieve$E
 
 all::		$Blibcii$A $(EXAMPLES) $Bmemchk$O
 
@@ -136,7 +136,7 @@ clean::
 		$(RM) $B*$O
 		$(RM) $(EXAMPLES)
 
-clobber::	clean
+cleanall::	clean
 		$(RM) $Blibcii$A
 
 

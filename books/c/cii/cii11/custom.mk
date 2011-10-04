@@ -1,1 +1,1 @@
-#empty
+BUILDDIR=./build
