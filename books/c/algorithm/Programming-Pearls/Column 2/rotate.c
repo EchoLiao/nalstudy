@@ -215,7 +215,7 @@ void gcdrot(int rotdist, int n)
 			x[p+j..n-1  ] in final position
 		*/
 		if (i > j) {
-            // swap [p-i, p-i+j-1] with [p, p+k-1]
+            // swap [p-i, p-i+j-1] with [p, p+j-1]
 			swap(p-i, p, j);
 			i -= j;
 		} else {
