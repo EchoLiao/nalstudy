@@ -1,14 +1,25 @@
 // #include <windows.h> // use proper includes for your system
 #include <math.h>
+#include <stdio.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
 
-#define MAX_X   4.0
+static GLdouble st_func(GLdouble x);
+
+const GLdouble XL = 0.0;
+const GLdouble XH = 4.0;
+const GLdouble YL = -1.0;
+const GLdouble YH =  1.0;
 
 const int screenWidth = 640;	   // width of the screen window in pixels 
 const int screenHeight = 480;	   // height of the screen window in pixels
 GLdouble A, B, C, D;  // values used for scaling and shifting
+
+static GLdouble st_func(GLdouble x)
+{
+    return exp(-x) * cos(2 * 3.14159265 * x); 
+}
 
 //<<<<<<<<<<<<<<<<<<<<<<< myInit >>>>>>>>>>>>>>>>>>>>
 void myInit(void)
@@ -20,20 +31,21 @@ void myInit(void)
     glLoadIdentity();
     gluOrtho2D(0.0, (GLdouble)screenWidth, 0.0, (GLdouble)screenHeight);
 
-    /* 进行一些必要的缩放, 使得图形能够显示在窗口中间. [(P48)] */
-    A = screenWidth / MAX_X; // sets the values used for scaling and shifting
-    B = 0.0;
-    C = D = screenHeight / 2.0;
+    /* 进行一些必要的缩放, 使得图形能够显示在窗口中间(更通用). [(P50)] */
+    A = screenWidth / (XH - XL);
+    B = -(screenWidth * XL) / (XH - XL);
+    C = screenHeight / (YH - YL);
+    D = -(screenHeight * YL) / (YH - YL);
+    printf("A=%f, B=%f, C=%f, D=%f\n", A, B, C, D);
 }
 //<<<<<<<<<<<<<<<<<<<<<<<< myDisplay >>>>>>>>>>>>>>>>>
 void myDisplay(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);     // clear the screen 
     glBegin(GL_POINTS);
-    for(GLdouble x = 0; x < MAX_X ; x += 0.005)
+    for(GLdouble x = XL; x < XH ; x += 0.005)
     {	
-        GLdouble func = exp(-x) * cos(2 * 3.14159265 * x); 
-        glVertex2d(A * x + B, C * func + D);
+        glVertex2d(A * x + B, C * st_func(x) + D);
     }
     glEnd();	
     glFlush();		   // send all output to display 
