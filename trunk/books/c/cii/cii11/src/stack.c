@@ -11,9 +11,12 @@ static char rcsid[] =
  * */
 #define T Stack_T
 
+#define MAGICF  (0xA8)
+
 struct T
 {
     int      count;
+    unsigned char flag;
     struct elem
     {
         void    *x;
@@ -26,6 +29,7 @@ T Stack_new(void)
     T        stk;
 
     NEW(stk);                   // size is sizeof(*stk)
+    stk->flag = MAGICF;
     stk->count = 0;
     stk->head = NULL;
     return stk;
@@ -37,6 +41,8 @@ T Stack_new(void)
 int Stack_empty(T stk)
 {
     assert(stk);                // checked runtime error
+    assert(stk->flag == MAGICF);
+
     return stk->count == 0;
 }
 
@@ -45,6 +51,8 @@ void Stack_push(T stk, void *x)
     struct elem *t;
 
     assert(stk);
+    assert(stk->flag == MAGICF);
+
     NEW(t);
     t->x = x;
     /* 在链表头插入 */
@@ -59,7 +67,9 @@ void    *Stack_pop(T stk)
     struct elem *t;
 
     assert(stk);
+    assert(stk->flag == MAGICF);
     assert(stk->count > 0);
+
     t = stk->head;
     stk->head = t->link;
     stk->count--;
@@ -73,6 +83,8 @@ void Stack_free(T * stk)
     struct elem *t, *u;
 
     assert(stk && *stk);
+    assert((*stk)->flag == MAGICF);
+
     for (t = (*stk)->head; t; t = u)
     {
         u = t->link;
