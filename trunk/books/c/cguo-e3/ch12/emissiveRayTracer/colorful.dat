@@ -1,0 +1,65 @@
+light -10 0 20 .6 .6 .6
+light 10 20 10 0.6 0.6 0.6
+
+globalAmbient 0.2 0.2 0.2
+
+def Copper{
+           ambient 0.19125 0.0735 0.0225
+           diffuse 0.7038 0.27048 0.0828
+           specular 0.256777 0.137622 0.086014 specularExponent 12.8}
+def Gold{
+           ambient 0.24725 0.1995 0.0745
+           diffuse 0.75164 0.60648 0.22648
+           specular 0.628281 0.555802 0.366065 specularExponent 51.2}
+push
+scale 0.5 0.5 0.5
+use Copper cube
+pop
+
+push
+translate 0 1 0
+scale 0.5 0.5 0.5
+use Gold sphere
+pop
+
+push 
+translate -1 0 0
+rotate -90 1 0 0
+scale 0.3 0.3 1.5
+ambient 0.05 0.05 0.05
+diffuse 0.4 0.8 0.4
+specular 0.6 0.6 0.6
+specularExponent 12
+cylinder
+pop
+
+push 
+translate 2 0 0
+rotate -90 1 0 0
+scale 0.3 0.3 1.5
+ambient 0.05 0.05 0.05
+diffuse 0.4 0.8 0.4
+specular 0.6 0.6 0.6
+specularExponent 12
+cylinder
+pop
+
+push
+translate -1 0 2
+ambient 0.03 0.05 0.02
+diffuse 0.3 0.5 0.2
+specular 0.2 0.2 0.2
+specularExponent 12
+mesh basicBarn.3vn
+pop
+
+push
+translate 2 0 2
+ambient 0.01 0.05 0.07
+diffuse 0.1 0.5 0.7
+specular 0.2 0.2 0.2
+specularExponent 50
+mesh icosa.3vn
+pop
+
+
