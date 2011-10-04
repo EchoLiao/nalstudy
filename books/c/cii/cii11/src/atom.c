@@ -8,11 +8,18 @@ static char rcsid[] =
 
 #define NELEMS(x) ((sizeof (x))/(sizeof ((x)[0])))
 
+#define CREATE_HASH_INDEX(h, str, len)   do { \
+    int ix; \
+    for ((h) = 0, ix = 0; ix < (len); ix++) \
+        (h) = ((h) << 1) + scatter[(unsigned char)(str)[ix]]; \
+    (h) &= NELEMS(buckets) - 1; \
+} while (0)
+
+
 static struct atom
 {
     struct atom *link;
     int      len;
-    unsigned long h;
     char    *str;
 }       *buckets[2048];         // 全局变量, 被初始化为0
 
@@ -102,7 +109,7 @@ const char *Atom_int(long n)
 
 const char *Atom_new(const char *str, int len)
 {
-    unsigned long h, tH;
+    unsigned long h;
     int      i;
     struct atom *p;
 
@@ -110,15 +117,11 @@ const char *Atom_new(const char *str, int len)
     assert(len >= 0);           // if len is 0, it is nul string
 
     /* 生成要存入buckets的位置的索引 */
-    for (h = 0, i = 0; i < len; i++)
-        /* 必须要用 unsigned char 进行强制转换. [(P39)] */
-        h = (h << 1) + scatter[(unsigned char)str[i]];
-    tH = h;
-    h &= NELEMS(buckets) - 1;
+    CREATE_HASH_INDEX(h, str, len);
 
     for (p = buckets[h]; p; p = p->link)
     {
-        if (len == p->len && tH == p->h)
+        if (len == p->len)
         {
             for (i = 0; i < len && p->str[i] == str[i];)
                 i++;
@@ -130,7 +133,6 @@ const char *Atom_new(const char *str, int len)
     /* 没有, 则创建一个新的并存入 */
     p = ALLOC(sizeof(*p) + len + 1);
     p->len = len;
-    p->h = tH;
     p->str = (char *)(p + 1);   // MMMMM
     if (len > 0)
         memcpy(p->str, str, len);
@@ -153,13 +155,15 @@ const char *Atom_new(const char *str, int len)
 int Atom_length(const char *str)
 {
     struct atom *p;
-    int      i;
+    int         len;
+    unsigned long h = 0;
 
     assert(str);
-    for (i = 0; i < (int)NELEMS(buckets); i++)
-        for (p = buckets[i]; p; p = p->link)
-            if (p->str == str)  // 只须要比较内存首地址
-                return p->len;
+    len = strlen(str);
+    CREATE_HASH_INDEX(h, str, len);
+    for (p = buckets[h]; p; p = p->link)
+        if (p->str == str)  // 只须要比较内存首地址
+            return p->len;
     assert(0);                  // can't-happen
     return 0;
 }
