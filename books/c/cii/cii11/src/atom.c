@@ -6,19 +6,15 @@ static char rcsid[] =
 #include <limits.h>
 #include "mem.h"
 
-// #define USE_PRIME
 #define NELEMS(x) ((sizeof (x))/(sizeof ((x)[0])))
 
 static struct atom
 {
     struct atom *link;
     int      len;
-    char     str[1];
-#ifdef USE_PRIME
-}       *buckets[2039];         // 用素数
-#else
+    unsigned long h;
+    char    *str;
 }       *buckets[2048];         // 全局变量, 被初始化为0
-#endif
 
 static unsigned long scatter[] = {
     2078917053, 143302914, 1027100827, 1953210302, 755253631, 2002600785,
@@ -106,7 +102,7 @@ const char *Atom_int(long n)
 
 const char *Atom_new(const char *str, int len)
 {
-    unsigned long h;
+    unsigned long h, tH;
     int      i;
     struct atom *p;
 
@@ -117,11 +113,12 @@ const char *Atom_new(const char *str, int len)
     for (h = 0, i = 0; i < len; i++)
         /* 必须要用 unsigned char 进行强制转换. [(P39)] */
         h = (h << 1) + scatter[(unsigned char)str[i]];
+    tH = h;
     h &= NELEMS(buckets) - 1;
 
     for (p = buckets[h]; p; p = p->link)
     {
-        if (len == p->len)
+        if (len == p->len && tH == p->h)
         {
             for (i = 0; i < len && p->str[i] == str[i];)
                 i++;
@@ -131,8 +128,10 @@ const char *Atom_new(const char *str, int len)
     }
 
     /* 没有, 则创建一个新的并存入 */
-    p = ALLOC(sizeof(*p) + len);
+    p = ALLOC(sizeof(*p) + len + 1);
     p->len = len;
+    p->h = tH;
+    p->str = (char *)(p + 1);   // MMMMM
     if (len > 0)
         memcpy(p->str, str, len);
     p->str[len] = '\0';
@@ -164,3 +163,5 @@ int Atom_length(const char *str)
     assert(0);                  // can't-happen
     return 0;
 }
+
+
