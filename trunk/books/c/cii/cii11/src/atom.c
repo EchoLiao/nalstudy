@@ -160,10 +160,13 @@ int Atom_length(const char *str)
 
     assert(str);
     len = strlen(str);
+    /* 生成str在buckets中的位置的索引，算法必须与Atom_new()的相同 */
     CREATE_HASH_INDEX(h, str, len);
+
     for (p = buckets[h]; p; p = p->link)
         if (p->str == str)  // 只须要比较内存首地址
             return p->len;
+
     assert(0);                  // can't-happen
     return 0;
 }
