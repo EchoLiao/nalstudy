@@ -1,17 +1,17 @@
-#include <windows.h>   // use as needed for your system
-#include <gl/Gl.h>
-#include <gl/glu.h>
-#include <gl/glut.h>
+// #include <windows.h>   // use as needed for your system
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
 
 //<<<<<<<<<<<<<<<<<<<<<<< myInit >>>>>>>>>>>>>>>>>>>>
- void myInit(void)
- {
+void myInit(void)
+{
     glClearColor(1.0, 1.0, 1.0, 0.0);      // set the bg color to a bright white
     glColor3f(0.0f, 0.0f, 0.0f);           // set the drawing color to black 
- 	glPointSize(4.0);		            //set the point size to 4 by 4 pixels
-	glMatrixMode(GL_PROJECTION);// set up appropriate matrices- to be explained 
-	glLoadIdentity();// to be explained
-	gluOrtho2D(0.0, 640.0, 0.0, 480.0);// to be explained
+    glPointSize(4.0);		            //set the point size to 4 by 4 pixels
+    glMatrixMode(GL_PROJECTION);// set up appropriate matrices- to be explained 
+    glLoadIdentity();// to be explained
+    gluOrtho2D(0.0, 640.0, 0.0, 480.0);// to be explained
 }
 
 //<<<<<<<<<<<<<<<<<<<<<<<< myDisplay >>>>>>>>>>>>>>>>>
@@ -27,7 +27,7 @@ void myDisplay(void)
 	glFlush();		                 // send all output to display 
 }
 //<<<<<<<<<<<<<<<<<<<<<<<< main >>>>>>>>>>>>>>>>>>>>>>
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);          // initialize the toolkit
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // set the display mode
