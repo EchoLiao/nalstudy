@@ -5,13 +5,20 @@ static char rcsid[] =
 #include "assert.h"
 #include <limits.h>
 #include "mem.h"
+
+// #define USE_PRIME
 #define NELEMS(x) ((sizeof (x))/(sizeof ((x)[0])))
+
 static struct atom
 {
     struct atom *link;
     int      len;
     char    *str;
+#ifdef USE_PRIME
+}       *buckets[2039];         // 用素数
+#else
 }       *buckets[2048];         // 全局变量, 被初始化为0
+#endif
 
 static unsigned long scatter[] = {
     2078917053, 143302914, 1027100827, 1953210302, 755253631, 2002600785,
