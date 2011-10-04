@@ -1,0 +1,50 @@
+This directory, /pub/packages/cii/contrib, holds user-contributed
+software and documentation related to the book
+`C Interfaces and Implementations' by David Hanson.
+See http://www.cs.princeton.edu/software/cii/ for more information
+about this book.
+
+To make a contribution, package your files in a compressed tar file, a
+zip file, or in a `shar' file or plain text file, if the contribution
+is small. Include a README that succintly describes your contribution
+and states clearly how it depends on the C Interfaces and
+Implementations software. Using ftp, copy the file to /incoming/drh on
+ftp.cs.princeton.edu, and send email to drh at drhanson dot net
+announcing its arrival.
+
+MD5 fingerprints for the files in this directory are listed below.
+
+Contents
+========
+cii10-nt.zip
+	CII 1.0 updates to support threads under NT 4.0 (and Win95?)
+	Dave Hanson / drh@microsoft.com
+	created  Wed Jul 30 18:52:24 EDT 1997 by drh
+
+cii-lcc-win32.zip
+	Makefiles and modified sources necessary to build the CII
+	library 1.1 using the lcc-win32 compilation suite.
+	Rob Judd / judd@alphalink.com.au
+	created  Mon Nov 30 14:12:28 EST 1998 by drh
+	modified Mon Dec  7 17:59:56 EST 1998 by drh 
+
+maxalign.c
+	A program that prints -DMAXALIGN=n, when the storage alignment
+	is not equal to sizeof (union align); see src/arena.c and
+	src/memchk.c.
+	Dave Hanson / drh@microsoft.com
+	created  Fri Jul 10 16:35:53 EDT 1998 by drh
+
+thread.linux86
+	Linux x86 additions to the Thread implementation.
+	Taj Khattra / taj@intergate.bc.ca
+	modified Mon Aug  4 12:48:15 EDT 1997 by drh
+	modified Fri Dec  6 09:50:30 EST 1996 by drh
+	created  Tue Sep 10 16:59:36 EDT 1996 by drh
+
+David Hanson / drh at drhanson dot net
+MD5 (cii-lcc-win32.zip) = b3c14cd1d0d8d2ccd57ee2587c78bf2e
+MD5 (cii10-nt.zip) = 1d160569d8c18290be987e33c184a3f1
+MD5 (maxalign.c) = 5c233d1bac11667a650e6eaed56d6319
+MD5 (thread.linux86) = 299ad8fa1f2e9197c8429df0981def85
+Mon Dec  7 18:00:49 EST 1998
