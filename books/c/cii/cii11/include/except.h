@@ -23,14 +23,17 @@ struct Except_Frame
 };
 
 enum
-{ 
-    Except_entered = 0, Except_raised,
-    Except_handled, Except_finalized
+{
+    EXCEPT_ENTERED = 0, // must is 0, (require by setjmp())
+    EXCEPT_RAISED,
+    EXCEPT_HANDLED,
+    EXCEPT_FINALIZED
 };
 
 #ifdef WIN32
 __declspec(thread)
 #endif
+
 extern Except_Frame     *Except_stack;
 extern const Except_T   Assert_Failed;
 
@@ -45,33 +48,35 @@ void     Except_raise(const T * e, const char *file, int line);
 
 #define RETURN switch (Except_stack = Except_stack->prev,0) default: return
 
+// TRY 是 Except_stack 被压入其它元素的唯一地方
 #define TRY do { \
 	volatile int Except_flag; \
 	Except_Frame Except_frame; \
 	Except_frame.prev = Except_stack; \
 	Except_stack = &Except_frame;  \
 	Except_flag = setjmp(Except_frame.env); \
-	if (Except_flag == Except_entered) {
+	if (Except_flag == EXCEPT_ENTERED) {
 
+//
 #define EXCEPT(e) \
-		if (Except_flag == Except_entered) Except_stack = Except_stack->prev; \
+		if (Except_flag == EXCEPT_ENTERED) Except_stack = Except_stack->prev; \
 	} else if (Except_frame.exception == &(e)) { \
-		Except_flag = Except_handled;
+		Except_flag = EXCEPT_HANDLED;
 
 #define ELSE \
-		if (Except_flag == Except_entered) Except_stack = Except_stack->prev; \
+		if (Except_flag == EXCEPT_ENTERED) Except_stack = Except_stack->prev; \
 	} else { \
-		Except_flag = Except_handled;
+		Except_flag = EXCEPT_HANDLED;
 
 #define FINALLY \
-		if (Except_flag == Except_entered) Except_stack = Except_stack->prev; \
+		if (Except_flag == EXCEPT_ENTERED) Except_stack = Except_stack->prev; \
 	} { \
-		if (Except_flag == Except_entered) \
-			Except_flag = Except_finalized;
+		if (Except_flag == EXCEPT_ENTERED) \
+			Except_flag = EXCEPT_FINALIZED;
 
 #define END_TRY \
-		if (Except_flag == Except_entered) Except_stack = Except_stack->prev; \
-		} if (Except_flag == Except_raised) RERAISE; \
+		if (Except_flag == EXCEPT_ENTERED) Except_stack = Except_stack->prev; \
+		} if (Except_flag == EXCEPT_RAISED) RERAISE; \
 } while (0)
 
 #undef T
