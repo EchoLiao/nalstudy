@@ -53,74 +53,92 @@
 
 void setupPointer(void)
 {
-   static GLint vertices[] = {25, 25,
-                       75, 75,
-                       100, 125,
-                       150, 75,
-                       200, 175,
-                       250, 150,
-                       300, 125,
-                       100, 200,
-                       150, 250,
-                       200, 225,
-                       250, 300,
-                       300, 250};
+    static GLint vertices[] = {
+         25, 25,  /* 0 */
+         75, 75,  /* 1 */
+        100, 125, /* 2 */
+        150, 75,  /* 3 */
+        200, 175, /* 4 */
+        250, 150, /* 5 */
+        300, 125, /* 6 */
+        100, 200, /* 7 */
+        150, 250, /* 8 */
+        200, 225, /* 9 */
+        250, 300, /* 10 */
+        300, 250, /* 11 */
+    };
 
-   glEnableClientState (GL_VERTEX_ARRAY);
-   glVertexPointer (2, GL_INT, 0, vertices);
+    glEnableClientState (GL_VERTEX_ARRAY);
+    glVertexPointer (2, GL_INT, 0, vertices);
 }
 
 void init(void)
 {
-   glClearColor (0.0, 0.0, 0.0, 0.0);
-   glShadeModel (GL_SMOOTH);
-   setupPointer ();
+    glClearColor (0.0, 0.0, 0.0, 0.0);
+    glShadeModel (GL_SMOOTH);
+    setupPointer ();
 }
 
 void display(void)
 {
-   static GLubyte oneIndices[] = {0, 1, 2, 3, 4, 5, 6};
-   static GLubyte twoIndices[] = {1, 7, 8, 9, 10, 11};
-   static GLsizei count[] = {7, 6};
-   static GLvoid * indices[2] = {oneIndices, twoIndices};
+    static GLubyte oneIndices[] = {0, 1, 2, 3, 4, 5, 6};
+    static GLubyte twoIndices[] = {1, 7, 8, 9, 10, 11};
+    static GLsizei count[] = {7, 6};
+    static GLvoid * indices[2] = {oneIndices, twoIndices};
 
-   glClear (GL_COLOR_BUFFER_BIT);
-   glColor3f (1.0, 1.0, 1.0);
-   glMultiDrawElementsEXT (GL_LINE_STRIP, count, GL_UNSIGNED_BYTE,
-                           indices, 2);
-   glFlush ();
+    glClear (GL_COLOR_BUFFER_BIT);
+    glColor3f (1.0, 1.0, 1.0);
+
+#define MDES
+#ifdef MDES
+    /* 等价于多个 glDrawElements() 被调用. [(P49)] */
+    glMultiDrawElements(GL_LINE_STRIP, count, GL_UNSIGNED_BYTE, indices, 2);
+    /* glMultiDrawElementsEXT(GL_LINE_STRIP, count, GL_UNSIGNED_BYTE,
+            indices, 2); */
+#endif
+#ifdef DES_2
+    glDrawElements(GL_LINE_STRIP, 7, GL_UNSIGNED_BYTE, oneIndices);
+    glDrawElements(GL_LINE_STRIP, 6, GL_UNSIGNED_BYTE, twoIndices);
+#endif
+#ifdef DES_1
+    /* [(P48)] */
+    static GLubyte allIndices[] = {0, 1, 2, 3, 4, 5, 6, 1, 7, 8, 9, 10, 11};
+    glDrawElements(GL_LINE_STRIP, 13, GL_UNSIGNED_BYTE, allIndices);
+#endif
+
+    glFlush ();
 }
 
 void reshape (int w, int h)
 {
-   glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-   glMatrixMode (GL_PROJECTION);
-   glLoadIdentity ();
-   gluOrtho2D (0.0, (GLdouble) w, 0.0, (GLdouble) h);
+    glViewport (0, 0, (GLsizei) w, (GLsizei) h);
+    glMatrixMode (GL_PROJECTION);
+    glLoadIdentity ();
+    gluOrtho2D (0.0, (GLdouble) w, 0.0, (GLdouble) h);
 }
 
 void keyboard(unsigned char key, int x, int y)
 {
-   switch (key) {
-      case 27:
-         exit(0);
-         break;
-   }
+    switch (key) {
+        case 27:
+            exit(0);
+            break;
+    }
 }
 
 int main(int argc, char** argv)
 {
-   glutInit(&argc, argv);
-   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (350, 350);
-   glutInitWindowPosition (100, 100);
-   glutCreateWindow (argv[0]);
-   init ();
-   glutDisplayFunc(display);
-   glutReshapeFunc(reshape);
-   glutKeyboardFunc (keyboard);
-   glutMainLoop();
-   return 0;
+    glutInit(&argc, argv);
+    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize (350, 350);
+    glutInitWindowPosition (100, 100);
+    glutCreateWindow (argv[0]);
+    init ();
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+    glutKeyboardFunc (keyboard);
+    glutMainLoop();
+    return 0;
 }
 #else
 int main(int argc, char** argv)
