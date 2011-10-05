@@ -87,7 +87,7 @@ GLUT = -lglut
 LLDLIBS = $(GLUT) -lGLU -lGL -lXmu -lXext -lX11 -lm
 
 
-targets: $(TARGETS) readImage.o $(IMAGING_SUBSET)
+targets: $(TARGETS) $(IMAGING_SUBSET)
 
 
 def:
@@ -102,9 +102,9 @@ $(TARGETS): %: %.o
 	gcc -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
 
 readImage.o: readImage.c
-	gcc -c -I/usr/include -I$(TOP) $< -o $@
+	gcc -g -c -I/usr/include -I$(TOP) $< -o $@
 
-$(IMAGING_SUBSET): %: %.o 
+$(IMAGING_SUBSET): %: %.o readImage.o
 	gcc -I/usr/include -I$(TOP) $< readImage.o $(LLDLIBS) -o $@
 
 
