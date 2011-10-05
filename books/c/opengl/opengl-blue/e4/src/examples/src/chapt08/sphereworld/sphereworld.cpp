@@ -10,6 +10,9 @@
 #include "../../shared/glframe.h"   // Frame class
 #include <math.h>
 
+#define GROUND_R    (20.0f)
+#define GROUND_Y    (-0.6f)
+
 #define NUM_SPHERES      30
 GLFrame    spheres[NUM_SPHERES];
 GLFrame    frameCamera;
@@ -36,9 +39,9 @@ const char *szTextureFiles[] = {"grass.tga", "wood.tga", "orb.tga"};
 // context. 
 void SetupRC()
 {
-    M3DVector3f vPoints[3] = {{ 0.0f, -0.4f, 0.0f },
-        { 10.0f, -0.4f, 0.0f },
-        { 5.0f, -0.4f, -5.0f }};
+    M3DVector3f vPoints[3] = {{ 0.0f, GROUND_Y, 0.0f },
+        { 10.0f, GROUND_Y, 0.0f },
+        { 5.0f, GROUND_Y, -5.0f }};
     int iSphere;
     int i;
 
@@ -49,16 +52,18 @@ void SetupRC()
     // draws into it. When stencil function is enabled, only write where
     // stencil value is zero. This prevents the transparent shadow from drawing
     // over itself
+    /* 指定模板缓冲区的数据如何修改(加一). [(P318<Red>)] */
     glStencilOp(GL_INCR, GL_INCR, GL_INCR);
     glClearStencil(0);
+    /* 设置模板测试所使用的比较函数, 参考值和掩码. [(P318<Red>)] */
     glStencilFunc(GL_EQUAL, 0x0, 0x01);
 
     // Cull backs of polygons
-    glCullFace(GL_BACK);
-    glFrontFace(GL_CCW);
+    glCullFace(GL_BACK);        // 剔除背面. [(P37<Red>)]
+    glFrontFace(GL_CCW);        // 顶点顺序为逆时针方向的表面为正面
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_MULTISAMPLE_ARB);
+    glEnable(GL_MULTISAMPLE_ARB);   // QQQQQ
 
     // Setup light parameters
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, fNoLight);
@@ -68,7 +73,7 @@ void SetupRC()
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
 
-    // Calculate shadow matrix
+    // Calculate shadow matrix. // MMMMM
     M3DVector4f pPlane;
     m3dGetPlaneEquation(pPlane, vPoints[0], vPoints[1], vPoints[2]);
     m3dMakePlanarShadowMatrix(mShadowMatrix, pPlane, fLightPos);
@@ -103,6 +108,7 @@ void SetupRC()
 
         // Load this texture map
         pBytes = gltLoadTGA(szTextureFiles[i], &iWidth, &iHeight, &iComponents, &eFormat);
+        // 使用 mipmap
         gluBuild2DMipmaps(GL_TEXTURE_2D, iComponents, iWidth, iHeight, eFormat, GL_UNSIGNED_BYTE, pBytes);
         free(pBytes);
 
@@ -127,9 +133,9 @@ void ShutdownRC(void)
 // Draw the ground as a series of triangle strips
 void DrawGround(void)
 {
-    GLfloat fExtent = 20.0f;
+    GLfloat fExtent = GROUND_R;
     GLfloat fStep = 1.0f;
-    GLfloat y = -0.4f;
+    GLfloat y = GROUND_Y;
     GLfloat iStrip, iRun;
     GLfloat s = 0.0f;
     GLfloat t = 0.0f;
@@ -280,7 +286,7 @@ void TimerFunction(int value)
 {
     // Redraw the scene with new coordinates
     glutPostRedisplay();
-    glutTimerFunc(3,TimerFunction, 1);
+    glutTimerFunc(33,TimerFunction, 1);
 }
 
 void ChangeSize(int w, int h)
