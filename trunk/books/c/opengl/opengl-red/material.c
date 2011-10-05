@@ -91,15 +91,24 @@ void init(void)
 
 void display(void)
 {
+   /* 材料的环境颜色 */
    GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
    GLfloat mat_ambient[] = { 0.7, 0.7, 0.7, 1.0 };
    GLfloat mat_ambient_color[] = { 0.8, 0.8, 0.2, 1.0 };
+
+   /* 材料的散射颜色 */
    GLfloat mat_diffuse[] = { 0.1, 0.5, 0.8, 1.0 };
+
+   /* 材料的境面颜色 */
    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+
+   /* 境面指数，值越大则亮点越小越亮 */
    GLfloat no_shininess[] = { 0.0 };
    GLfloat low_shininess[] = { 5.0 };
    GLfloat high_shininess[] = { 100.0 };
-   GLfloat mat_emission[] = {0.3, 0.2, 0.2, 0.0};
+
+   /* 材料的发射颜色 */
+   GLfloat mat_emission[] = {1.0, 1.0, 0.2, 0.0};
 
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
