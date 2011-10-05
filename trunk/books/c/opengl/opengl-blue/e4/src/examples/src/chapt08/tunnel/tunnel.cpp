@@ -20,115 +20,120 @@ const char *szTextureFiles[TEXTURE_COUNT] = { "brick.tga", "floor.tga", "ceiling
 ///////////////////////////////////////////////////////////////////////////////
 // Change texture filter for each texture object
 void ProcessMenu(int value)
-	{
+{
     GLint iLoop;
-    
+
     for(iLoop = 0; iLoop < TEXTURE_COUNT; iLoop++)
-        {
+    {
         glBindTexture(GL_TEXTURE_2D, textures[iLoop]);
-        
+
         switch(value)
-            {
+        {
             case 0:
+                // 指定 mip 贴图的过滤模式
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
                 break;
-                
+
             case 1:
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
                 break;
-                
+
             case 2:
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
                 break;
-            
+
             case 3:
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
                 break;
-            
+
             case 4:
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
                 break;
-                
+
             case 5:
             default:
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
                 break;
-            }
         }
-        
+    }
+
     // Trigger Redraw
-	glutPostRedisplay();
-	}
+    glutPostRedisplay();
+}
 
 
 //////////////////////////////////////////////////////////////////
 // This function does any needed initialization on the rendering
 // context.  Here it sets up and initializes the texture objects.
 void SetupRC()
-    {
+{
     GLbyte *pBytes;
     GLint iWidth, iHeight, iComponents;
     GLenum eFormat;
     GLint iLoop;
-    
-	// Black background
-	glClearColor(0.0f, 0.0f, 0.0f,1.0f);
+
+    // Black background
+    glClearColor(0.0f, 0.0f, 0.0f,1.0f);
 
     // Textures applied as decals, no lighting or coloring effects
-	glEnable(GL_TEXTURE_2D);
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+    glEnable(GL_TEXTURE_2D);
+    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
     // Load textures
-    glGenTextures(TEXTURE_COUNT, textures);
+    glGenTextures(TEXTURE_COUNT, textures); // 分配纹理对象
     for(iLoop = 0; iLoop < TEXTURE_COUNT; iLoop++)
-        {
+    {
         // Bind to next texture object
         glBindTexture(GL_TEXTURE_2D, textures[iLoop]);
-        
-        // Load texture, set filter and wrap modes
-        pBytes = gltLoadTGA(szTextureFiles[iLoop],&iWidth, &iHeight,
-                              &iComponents, &eFormat);
 
         // Load texture, set filter and wrap modes
+        pBytes = gltLoadTGA(szTextureFiles[iLoop],&iWidth, &iHeight,
+                &iComponents, &eFormat);
+
+        // Load texture, set filter and wrap modes
+        // 自动创建经过缩放的图像, 并用 glTexImage* 将它们加载. [(P216 A)]
         gluBuild2DMipmaps(GL_TEXTURE_2D, iComponents, iWidth, iHeight, eFormat, GL_UNSIGNED_BYTE, pBytes);
+        // 指定 mip 贴图的过滤模式
+        // 放大时, 即使提供了 mipmap 层, OpenGL 也只使用基层; [(P276 A <Red>)]
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        // 缩小时, 若指定为 GL_NEAREST 或 GL_LINEAR, 则只有基层纹理图像被使用. [(P276 B <Red>)]
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        
+
         // Don't need original texture data any more
         free(pBytes);
-        }
     }
-    
+}
+
 ///////////////////////////////////////////////////
 // Shutdown the rendering context. Just deletes the
 // texture objects
 void ShutdownRC(void)
-    {
+{
     glDeleteTextures(TEXTURE_COUNT, textures);
-    }
-    
+}
+
 
 ///////////////////////////////////////////////////
 // Respond to arrow keys, move the viewpoint back
 // and forth
 void SpecialKeys(int key, int x, int y)
-	{
-	if(key == GLUT_KEY_UP)
-		zPos += 1.0f;
+{
+    if(key == GLUT_KEY_UP)
+        zPos += 1.0f;
 
-	if(key == GLUT_KEY_DOWN)
-		zPos -= 1.0f;
+    if(key == GLUT_KEY_DOWN)
+        zPos -= 1.0f;
 
-	// Refresh the Window
-	glutPostRedisplay();
-	}
+    // Refresh the Window
+    glutPostRedisplay();
+}
 
 /////////////////////////////////////////////////////////////////////
 // Change viewing volume and viewport.  Called when window is resized
 void ChangeSize(int w, int h)
-    {
+{
     GLfloat fAspect;
 
     // Prevent a divide by zero
@@ -145,107 +150,107 @@ void ChangeSize(int w, int h)
     glLoadIdentity();
 
     // Produce the perspective projection
-	gluPerspective(90.0f,fAspect,1,120);
+    gluPerspective(90.0f,fAspect,1,120);
 
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    }
+}
 
 ///////////////////////////////////////////////////////
 // Called to draw scene
 void RenderScene(void)
-    {
+{
     GLfloat z;
-    
+
     // Clear the window with current clearing color
     glClear(GL_COLOR_BUFFER_BIT);
 
     // Save the matrix state and do the rotations
     glPushMatrix();
-        // Move object back and do in place rotation
-        glTranslatef(0.0f, 0.0f, zPos);
-    
-    	// Floor
-        for(z = 60.0f; z >= 0.0f; z -= 10)
-        {
+    // Move object back and do in place rotation
+    glTranslatef(0.0f, 0.0f, zPos);
+
+    for(z = 60.0f; z >= 0.0f; z -= 10)
+    {
+        // Floor
         glBindTexture(GL_TEXTURE_2D, textures[TEXTURE_FLOOR]);
         glBegin(GL_QUADS);
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3f(-10.0f, -10.0f, z);
+        glTexCoord2f(0.0f, 0.0f);
+        glVertex3f(-10.0f, -10.0f, z);
 
-			glTexCoord2f(1.0f, 0.0f);
-			glVertex3f(10.0f, -10.0f, z);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(10.0f, -10.0f, z);
 
-			glTexCoord2f(1.0f, 1.0f);
-			glVertex3f(10.0f, -10.0f, z - 10.0f);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(10.0f, -10.0f, z - 10.0f);
 
-			glTexCoord2f(0.0f, 1.0f);
-			glVertex3f(-10.0f, -10.0f, z - 10.0f);
-		glEnd();
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-10.0f, -10.0f, z - 10.0f);
+        glEnd();
 
-		// Ceiling
-		glBindTexture(GL_TEXTURE_2D, textures[TEXTURE_CEILING]);
-		glBegin(GL_QUADS);
-			glTexCoord2f(0.0f, 1.0f);
-			glVertex3f(-10.0f, 10.0f, z - 10.0f);
+        // Ceiling
+        glBindTexture(GL_TEXTURE_2D, textures[TEXTURE_CEILING]);
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-10.0f, 10.0f, z - 10.0f);
 
-			glTexCoord2f(1.0f, 1.0f);
-			glVertex3f(10.0f, 10.0f, z - 10.0f);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(10.0f, 10.0f, z - 10.0f);
 
-			glTexCoord2f(1.0f, 0.0f);
-			glVertex3f(10.0f, 10.0f, z);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(10.0f, 10.0f, z);
 
-			glTexCoord2f(0.0f, 0.0f);
-			glVertex3f(-10.0f, 10.0f, z);
-		glEnd();
-
-		
-		// Left Wall
-		glBindTexture(GL_TEXTURE_2D, textures[TEXTURE_BRICK]);
-		glBegin(GL_QUADS);
-			glTexCoord2f(0.0f, 0.0f);
-			glVertex3f(-10.0f, -10.0f, z);
-
-			glTexCoord2f(1.0f, 0.0f);
-			glVertex3f(-10.0f, -10.0f, z - 10.0f);
-
-			glTexCoord2f(1.0f, 1.0f);
-			glVertex3f(-10.0f, 10.0f, z - 10.0f);
-
-			glTexCoord2f(0.0f, 1.0f);
-			glVertex3f(-10.0f, 10.0f, z);
-		glEnd();
+        glTexCoord2f(0.0f, 0.0f);
+        glVertex3f(-10.0f, 10.0f, z);
+        glEnd();
 
 
-		// Right Wall
-		glBegin(GL_QUADS);
-			glTexCoord2f(0.0f, 1.0f);
-			glVertex3f(10.0f, 10.0f, z);
+        // Left Wall
+        glBindTexture(GL_TEXTURE_2D, textures[TEXTURE_BRICK]);
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 0.0f);
+        glVertex3f(-10.0f, -10.0f, z);
 
-			glTexCoord2f(1.0f, 1.0f);
-			glVertex3f(10.0f, 10.0f, z - 10.0f);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(-10.0f, -10.0f, z - 10.0f);
 
-			glTexCoord2f(1.0f, 0.0f);
-			glVertex3f(10.0f, -10.0f, z - 10.0f);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(-10.0f, 10.0f, z - 10.0f);
 
-			glTexCoord2f(0.0f, 0.0f);
-			glVertex3f(10.0f, -10.0f, z);
-		glEnd();
-		}
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-10.0f, 10.0f, z);
+        glEnd();
+
+
+        // Right Wall
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(10.0f, 10.0f, z);
+
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(10.0f, 10.0f, z - 10.0f);
+
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(10.0f, -10.0f, z - 10.0f);
+
+        glTexCoord2f(0.0f, 0.0f);
+        glVertex3f(10.0f, -10.0f, z);
+        glEnd();
+    }
 
     // Restore the matrix state
     glPopMatrix();
 
     // Buffer swap
     glutSwapBuffers();
-    }
+}
 
 
 //////////////////////////////////////////////////////
 // Program entry point
 int main(int argc, char *argv[])
-    {
+{
     // Standard initialization stuff
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
@@ -254,7 +259,7 @@ int main(int argc, char *argv[])
     glutReshapeFunc(ChangeSize);
     glutSpecialFunc(SpecialKeys);
     glutDisplayFunc(RenderScene);
-    
+
     // Add menu entries to change filter
     glutCreateMenu(ProcessMenu);
     glutAddMenuEntry("GL_NEAREST",0);
@@ -264,15 +269,11 @@ int main(int argc, char *argv[])
     glutAddMenuEntry("GL_LINEAR_MIPMAP_NEAREST", 4);
     glutAddMenuEntry("GL_LINEAR_MIPMAP_LINEAR", 5);
     glutAttachMenu(GLUT_RIGHT_BUTTON);
-    
+
     // Startup, loop, shutdown
     SetupRC();
     glutMainLoop();
     ShutdownRC();
-    
-    return 0;
-    }
-    
 
-    
-  
+    return 0;
+}
