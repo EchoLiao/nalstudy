@@ -49,6 +49,8 @@
 #include <GL/glext.h>
 /* #include "helpers.h" */
 
+// #define USE_MATH_SHADOW 
+
 #ifdef GL_ARB_shadow
 #define GL_TEXTURE_COMPARE_MODE_X      GL_TEXTURE_COMPARE_MODE_ARB
 #define GL_TEXTURE_COMPARE_FUNC_X      GL_TEXTURE_COMPARE_FUNC_ARB
@@ -64,6 +66,7 @@
 GLdouble    fovy      = 60.0;
 GLdouble    nearPlane = 10.0;
 GLdouble    farPlane  = 100.0;
+GLdouble    fieldOfView;
 
 GLfloat     angle = 0.0;
 GLfloat     torusAngle = 0.0;
@@ -252,14 +255,32 @@ generateShadowMap( void )
     glGetIntegerv( GL_VIEWPORT, viewport );
 
     glViewport( 0, 0, SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT );
-
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
+#ifdef USE_MATH_SHADOW 
+    GLfloat sceneBoundingRadius = 23.0f; // based on objects in scene
+    // Save the depth precision for where it’s useful
+    GLfloat lightToSceneDistance = sqrt(lightPos[0] * lightPos[0] +
+            lightPos[1] * lightPos[1] +
+            lightPos[2] * lightPos[2]);
+    nearPlane = lightToSceneDistance - sceneBoundingRadius;
+    farPlane = nearPlane + (2.0f * sceneBoundingRadius);
+    // Keep the scene filling the depth texture
+    fieldOfView = (GLfloat)(2.0f * atan(sceneBoundingRadius /
+                lightToSceneDistance)) * 180.0 / PI;
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+    // printf("%f, %f, %f\n", fieldOfView, nearPlane, farPlane);
+    gluPerspective(fieldOfView, 1.0f, nearPlane, farPlane);
+    glMatrixMode( GL_MODELVIEW );
+#else
     glMatrixMode( GL_PROJECTION );
     glPushMatrix();
     glLoadIdentity();
     gluPerspective( 80.0, 1.0, 10.0, 1000.0 );
     glMatrixMode( GL_MODELVIEW );
+#endif
 
     glPushMatrix();
     glLoadIdentity();
@@ -288,7 +309,7 @@ generateShadowMap( void )
         glWindowPos2f( 0, 0 ); // QQQQQ
         /* 把像素数据从内存写入到帧缓冲区. [(P213 P211)] */
         glDrawPixels( SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT,
-                GL_LUMINANCE /* GL_DEPTH_COMPONENT */,
+                /* GL_LUMINANCE */ GL_DEPTH_COMPONENT,
                 GL_FLOAT, depthImage );
         /* [(P15)] */
         glutSwapBuffers();
@@ -308,8 +329,12 @@ generateTextureMatrix( void )
     glLoadIdentity();
     glTranslatef( 0.5, 0.5, 0.0 );
     glScalef( 0.5, 0.5, 1.0 );
-    // gluPerspective( 60.0, 1.0, 1.0, 1000.0 );
+#ifdef USE_MATH_SHADOW 
+    // printf("%f, %f, %f\n", fieldOfView, nearPlane, farPlane);
+    gluPerspective(fieldOfView, 1.0f, nearPlane, farPlane);
+#else
     gluPerspective( 60.0, 1.0, 8.0, 1000.0 );
+#endif
     gluLookAt( lightPos[0], lightPos[1], lightPos[2],
             lookat[0], lookat[1], lookat[2],
             up[0], up[1], up[2] );
@@ -338,7 +363,7 @@ display( void )
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
     glPushMatrix();
-    gluLookAt( radius*cos(angle), radius*sin(angle), 30,
+    gluLookAt( radius*cos(angle), radius*sin(angle), 60,
             lookat[0], lookat[1], lookat[2],
             up[0], up[1], up[2] );
     drawObjects( GL_FALSE );
