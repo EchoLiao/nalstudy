@@ -122,12 +122,26 @@ void display(void)
  */
    glPushMatrix();
    glTranslatef (-3.75, 3.0, 0.0);
+
+   /* 使用额外裁剪平面 */
+   glRotatef(-25, 1.0, -1.0, 0.0); // 旋转裁剪平面, 使能看见球的内部
+   GLdouble eqn[4] = {0.0, 1.0, 0.0, 0.0};
+   GLdouble eqn2[4] = {1.0, 0.0, 0.0, 0.0};
+   glClipPlane (GL_CLIP_PLANE0, eqn);
+   glClipPlane (GL_CLIP_PLANE1, eqn2);
+   glEnable (GL_CLIP_PLANE0);
+   glEnable (GL_CLIP_PLANE1);
+
    glMaterialfv(GL_FRONT, GL_AMBIENT, no_mat);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
    glMaterialfv(GL_FRONT, GL_SPECULAR, no_mat);
    glMaterialfv(GL_FRONT, GL_SHININESS, no_shininess);
    glMaterialfv(GL_FRONT, GL_EMISSION, no_mat);
    glutSolidSphere(1.0, 16, 16);
+
+   /* 禁用额外裁剪平面 */
+   glDisable (GL_CLIP_PLANE0);
+   glDisable (GL_CLIP_PLANE1);
    glPopMatrix();
 
 /*  draw sphere in first row, second column
