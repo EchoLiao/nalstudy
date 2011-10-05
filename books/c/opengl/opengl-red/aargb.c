@@ -46,6 +46,9 @@
  *  two diagonal lines to form an X; when 'r' is typed in the window,
  *  the lines are rotated in opposite directions.
  */
+
+/* RGBA模式下的抗锯齿
+ * */
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -59,18 +62,18 @@ static float rotAngle = 0.;
 void init(void)
 {
    GLfloat values[2];
-   glGetFloatv (GL_LINE_WIDTH_GRANULARITY, values);
+   glGetFloatv (GL_LINE_WIDTH_GRANULARITY, values); // 线条的精确度
    printf ("GL_LINE_WIDTH_GRANULARITY value is %3.1f\n", values[0]);
-
    glGetFloatv (GL_LINE_WIDTH_RANGE, values);
-   printf ("GL_LINE_WIDTH_RANGE values are %3.1f %3.1f\n",
-      values[0], values[1]);
+   printf ("GL_LINE_WIDTH_RANGE values are %3.1f %3.1f\n", values[0],
+           values[1]);
 
-   glEnable (GL_LINE_SMOOTH);
-   glEnable (GL_BLEND);
+   /* 可通过注释以下两行代码来观察抗锯齿的效果 */
+   glEnable (GL_LINE_SMOOTH);   // 启用线条抗锯齿功能
+   glEnable (GL_BLEND);         // 抗锯齿是通过混合实现的
    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-   glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
-   glLineWidth (1.5);
+   glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE); // 设置线条采样质量提示
+   glLineWidth (3.5);
 
    glClearColor(0.0, 0.0, 0.0, 0.0);
 }
@@ -81,7 +84,7 @@ void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
 
-   glColor3f (0.0, 1.0, 0.0);
+   glColor4f (0.0, 1.0, 0.0, 0.9);
    glPushMatrix();
    glRotatef(-rotAngle, 0.0, 0.0, 0.1);
    glBegin (GL_LINES);
@@ -90,7 +93,7 @@ void display(void)
    glEnd ();
    glPopMatrix();
 
-   glColor3f (0.0, 0.0, 1.0);
+   glColor4f (1.0, 0.0, 0.0, 0.8);
    glPushMatrix();
    glRotatef(rotAngle, 0.0, 0.0, 0.1);
    glBegin (GL_LINES);
