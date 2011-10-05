@@ -72,6 +72,10 @@ void init(void)
 {
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel (GL_SMOOTH);
+
+   glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.8);     // 线性衰减因子
+   glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 1.2);  // 二次衰减因子
+
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
    glEnable(GL_DEPTH_TEST);
