@@ -1,25 +1,34 @@
+# you need to modify follow two line
 MAIN = shadowmap
-LIBDIRS = -L /usr/local/lib
-INCDIRS = -I /usr/include -I /usr/local/include/GL -I ../../../../src/shared -I/usr/include/GL
-SRCPATH = ../../../../src/chapt14/$(MAIN)/
-SHAREDPATH = ../../../../src/shared/
+MAIN_PATH = chapt14
 
-CC = gcc
-CFLAGS = $(COMPILERFLAGS) -g $(INCDIRS)
+LIBDIRS = -L/usr/local/lib
+INCDIRS = -I/usr/include -I/usr/local/include/GL -I../../../../src/shared -I/usr/include/GL
+MAIN_SRCPATH = ../../../../src/$(MAIN_PATH)/$(MAIN)
+SHAREDPATH = ../../../../src/shared
+
+CXX = g++
+CPPFLAGS = $(COMPILERFLAGS) -g $(INCDIRS)
 LIBS = -lglut -lGL -lGLU -lm
 
-prog : $(MAIN)
+main_objects = $(MAIN).o
+share_objects = math3d.o gltools.o
+glee_object = GLee.o
 
-$(MAIN).o : $(SRCPATH)$(MAIN).cpp
+all : $(MAIN)
 
-math3d.o : $(SHAREDPATH)math3d.cpp
 
-gltools.o : $(SHAREDPATH)gltools.cpp
+$(main_objects) : %.o : $(MAIN_SRCPATH)/%.cpp
+	$(CXX) -c $(CPPFLAGS) $< -o $@
 
-$(MAIN) : $(MAIN).o gltools.o math3d.o
-	$(CC) $(CFLAGS) -o $(MAIN) $(LIBDIRS) $(SRCPATH)$(MAIN).cpp $(SHAREDPATH)math3d.cpp $(SHAREDPATH)gltools.cpp $(SHAREDPATH)GLee.c $(LIBS)
+$(share_objects) : %.o : $(SHAREDPATH)/%.cpp
+	$(CXX) -c $(CPPFLAGS) $< -o $@
+
+$(glee_object) : %.o : $(SHAREDPATH)/%.c
+	$(CXX) -c $(CPPFLAGS) $< -o $@
+
+$(MAIN) : $(main_objects) $(share_objects) $(glee_object)
+	$(CXX) $(CPPFLAGS) -o $@ $(LIBDIRS) $^ $(LIBS)
 
 clean:
-	rm -f *.o
-
-
+	rm -f *.o $(MAIN)
