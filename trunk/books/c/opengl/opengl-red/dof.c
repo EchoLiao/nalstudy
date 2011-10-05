@@ -66,6 +66,7 @@ GLuint teapotList;
  * eyedx and eyedy are depth-of field jitter in pixels.
  * Set both equal to 0.0 for no depth of field effects.
  *
+ * @focus 是观察点与聚焦面的距离. 
  * focus is distance from eye to plane in focus.
  * focus must be greater than, but not equal to 0.0.
  *
@@ -197,6 +198,7 @@ void display(void)
 
    for (jitter = 0; jitter < 8; jitter++) {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
       accPerspective (45.0,
          (GLdouble) viewport[2]/(GLdouble) viewport[3],
          1.0, 15.0, 0.0, 0.0,
