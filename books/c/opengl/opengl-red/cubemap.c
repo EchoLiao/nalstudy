@@ -55,6 +55,7 @@
 #include <stdio.h>
 
 #define	imageSize 4
+/* 立方图纹理(由6幅二维纹理图像构成) [(P294)] */
 static GLubyte image1[imageSize][imageSize][4];
 static GLubyte image2[imageSize][imageSize][4];
 static GLubyte image3[imageSize][imageSize][4];
@@ -73,16 +74,16 @@ void makeImages(void)
          c = ((((i&0x1)==0)^((j&0x1))==0))*255;
          image1[i][j][0] = (GLubyte) c;
          image1[i][j][1] = (GLubyte) c;
-         image1[i][j][2] = (GLubyte) c;
+         image1[i][j][2] = (GLubyte) 255;
          image1[i][j][3] = (GLubyte) 255;
 
          image2[i][j][0] = (GLubyte) c;
-         image2[i][j][1] = (GLubyte) c;
+         image2[i][j][1] = (GLubyte) 255;
          image2[i][j][2] = (GLubyte) 0;
          image2[i][j][3] = (GLubyte) 255;
 
          image3[i][j][0] = (GLubyte) c;
-         image3[i][j][1] = (GLubyte) 0;
+         image3[i][j][1] = (GLubyte) 255;
          image3[i][j][2] = (GLubyte) c;
          image3[i][j][3] = (GLubyte) 255;
 
@@ -114,11 +115,14 @@ void init(void)
 
    makeImages();
    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
    glTexParameteri(GL_TEXTURE_CUBE_MAP_EXT, GL_TEXTURE_WRAP_S, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_CUBE_MAP_EXT, GL_TEXTURE_WRAP_T, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_CUBE_MAP_EXT, GL_TEXTURE_WRAP_R, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_CUBE_MAP_EXT, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
    glTexParameteri(GL_TEXTURE_CUBE_MAP_EXT, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+   /* [(P294)] */
    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT, 0, GL_RGBA, imageSize,
                 imageSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, image1);
    glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X_EXT, 0, GL_RGBA, imageSize,
@@ -131,16 +135,18 @@ void init(void)
                 imageSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, image3);
    glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT, 0, GL_RGBA, imageSize,
                 imageSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, image6);
-   glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_NORMAL_MAP_EXT);
-   glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_NORMAL_MAP_EXT);
-   glTexGeni(GL_R, GL_TEXTURE_GEN_MODE, GL_NORMAL_MAP_EXT);
+
+   /* GL_NORMAL_MAP: [(P295)] */
+   glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_NORMAL_MAP);
+   glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_NORMAL_MAP);
+   glTexGeni(GL_R, GL_TEXTURE_GEN_MODE, GL_NORMAL_MAP);
    glEnable(GL_TEXTURE_GEN_S);
    glEnable(GL_TEXTURE_GEN_T);
    glEnable(GL_TEXTURE_GEN_R);
 
    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-   glEnable(GL_TEXTURE_CUBE_MAP_EXT);
+   glEnable(GL_TEXTURE_CUBE_MAP_EXT); // 启用立方纹理 
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
    glEnable(GL_AUTO_NORMAL);
