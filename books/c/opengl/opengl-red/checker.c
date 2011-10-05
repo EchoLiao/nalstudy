@@ -57,7 +57,7 @@
 static GLubyte checkImage[checkImageHeight][checkImageWidth][4];
 
 #ifdef GL_VERSION_1_1
-static GLuint texName;
+static GLuint texName; /* 标识纹理名称 */ 
 #endif
 
 void makeCheckImage(void)
@@ -85,15 +85,28 @@ void init(void)
    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 #ifdef GL_VERSION_1_1
-   glGenTextures(1, &texName);
+   /* 获取未使用的纹理名称. [(P277)] */ 
+   glGenTextures(1, &texName); 
+   /* 初次绑定纹理: 创建一个纹理对象, 并把它命名为texName; 后续的
+    * glTexParameter*() 对该纹理生效! [(P278)] */
    glBindTexture(GL_TEXTURE_2D, texName);
 #endif
 
+   /* 设置纹理 texName 的一些属性. [(P287)] 
+    * */
+   /* 纹理在s和t方向都使用了重复. [(P287 A)] */
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+   // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+   // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+
+   /* 指定用于放大和缩小的过虑方法. [(P275)]
+    * 边框纹理受其影响. [(P286 d)] */
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
 #ifdef GL_VERSION_1_1
+   /* [(P252)] */
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, checkImageWidth, checkImageHeight,
                 0, GL_RGBA, GL_UNSIGNED_BYTE, checkImage);
 #else
@@ -108,14 +121,15 @@ void display(void)
    glEnable(GL_TEXTURE_2D);
    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 #ifdef GL_VERSION_1_1
+   /* 再次绑定纹理: 激活纹理texName */
    glBindTexture(GL_TEXTURE_2D, texName);
 #endif
 
    glBegin(GL_QUADS);
    glTexCoord2f(0.0, 0.0); glVertex3f(-2.0, -1.0, 0.0);
-   glTexCoord2f(0.0, 1.0); glVertex3f(-2.0, 1.0, 0.0);
-   glTexCoord2f(1.0, 1.0); glVertex3f(0.0, 1.0, 0.0);
-   glTexCoord2f(1.0, 0.0); glVertex3f(0.0, -1.0, 0.0);
+   glTexCoord2f(0.0, 4.0); glVertex3f(-2.0, 1.0, 0.0);
+   glTexCoord2f(4.0, 4.0); glVertex3f(0.0, 1.0, 0.0);
+   glTexCoord2f(4.0, 0.0); glVertex3f(0.0, -1.0, 0.0);
 
    glTexCoord2f(0.0, 0.0); glVertex3f(1.0, -1.0, 0.0);
    glTexCoord2f(0.0, 1.0); glVertex3f(1.0, 1.0, 0.0);
