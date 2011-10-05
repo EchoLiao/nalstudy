@@ -75,16 +75,21 @@ void display (void)
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, gray);
     glMaterialfv(GL_FRONT, GL_SPECULAR, black);
     glMaterialf(GL_FRONT, GL_SHININESS, 0.0);
+
+
+    /* 在启用多边形偏移,光照的情况下渲染实体 */
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_POLYGON_OFFSET_FILL);
-    glPolygonOffset(polyfactor, polyunits);
+    glPolygonOffset(polyfactor, polyunits); // 设置用于计算偏移值的因子
     glCallList (list);
     glDisable(GL_POLYGON_OFFSET_FILL);
 
+    /* 在禁用多边形偏移,光照的情况下渲染边框 */
+    /* 必须禁用光照使边框的绘制不受光照影响 */
     glDisable(GL_LIGHTING);
     glDisable(GL_LIGHT0);
-    glColor3f (1.0, 1.0, 1.0);
+    glColor3f (1.0, 0.0, 0.0);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glCallList (list);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -130,6 +135,7 @@ void reshape(int width, int height)
     glLoadIdentity ();
     gluPerspective(45.0, (GLdouble)width/(GLdouble)height,
 	    1.0, 10.0);
+
     glMatrixMode (GL_MODELVIEW);
     glLoadIdentity ();
     gluLookAt (0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
@@ -148,20 +154,11 @@ void mouse(int button, int state, int x, int y) {
 		    break;
             }
             break;
-	case GLUT_MIDDLE_BUTTON:
+	case GLUT_RIGHT_BUTTON:
 	    switch (state) {
 		case GLUT_DOWN:
 		    spiny = (spiny + 5) % 360;
                     glutPostRedisplay();
-		    break;
-		default:
-		    break;
-            }
-            break;
-	case GLUT_RIGHT_BUTTON:
-	    switch (state) {
-		case GLUT_UP:
-		    exit(0);
 		    break;
 		default:
 		    break;
@@ -206,6 +203,9 @@ void keyboard (unsigned char key, int x, int y)
          polyunits = polyunits - 1.0;
 	 printf ("polyunits is %f\n", polyunits);
          glutPostRedisplay();
+         break;
+      case 27:
+         exit(0);
          break;
       default:
          break;
