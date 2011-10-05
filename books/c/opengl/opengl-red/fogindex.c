@@ -62,19 +62,20 @@ static void init(void)
 
    glEnable(GL_DEPTH_TEST);
 
+   /* 创建颜色表 */
    for (i = 0; i < NUMCOLORS; i++) {
       GLfloat shade;
       shade = (GLfloat) (NUMCOLORS-i)/(GLfloat) NUMCOLORS;
       glutSetColor (RAMPSTART + i, shade, shade, shade);
    }
-   glEnable(GL_FOG);
 
+   glEnable(GL_FOG);
    glFogi (GL_FOG_MODE, GL_LINEAR);
-   glFogi (GL_FOG_INDEX, NUMCOLORS);
+   glFogi (GL_FOG_INDEX, NUMCOLORS); // 指定雾的颜色索引值
    glFogf (GL_FOG_START, 1.0);
    glFogf (GL_FOG_END, 6.0);
-   glHint (GL_FOG_HINT, GL_NICEST);
-   glClearIndex((GLfloat) (NUMCOLORS+RAMPSTART-1));
+   glHint (GL_FOG_HINT, GL_NICEST);  // 设置雾计算是根据像素进行 [(P164)]
+   glClearIndex((GLfloat) (NUMCOLORS+RAMPSTART-1)); // 把背景色清除为雾颜色
 }
 
 static void renderSphere (GLfloat x, GLfloat y, GLfloat z)
@@ -90,7 +91,7 @@ static void renderSphere (GLfloat x, GLfloat y, GLfloat z)
 void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   glIndexi (RAMPSTART);
+   glIndexi (RAMPSTART); // 未雾化的颜色
 
    renderSphere (-2., -0.5, -1.0);
    renderSphere (-1., -0.5, -2.0);
@@ -112,6 +113,7 @@ void reshape(int w, int h)
    else
       glOrtho (-2.5*(GLfloat)w/(GLfloat)h,
          2.5*(GLfloat)w/(GLfloat)h, -2.5, 2.5, -10.0, 10.0);
+
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity ();
 }
