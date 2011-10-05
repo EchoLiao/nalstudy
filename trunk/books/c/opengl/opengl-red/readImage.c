@@ -53,6 +53,7 @@
 GLubyte*
 readImage( const char* filename, GLsizei* width, GLsizei *height )
 {
+    printf("readImage\n");
     int       n;
     GLubyte*  pixels;
 

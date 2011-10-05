@@ -60,6 +60,7 @@ accanti: accanti.c jitter.h
 20e-5: 20e-5.c
 font: font.c
 alpha3D: alpha3D.c
+movelight-2: movelight-2.c
 model: model.c
 unproject: unproject.c
 mvarray: mvarray.c
@@ -77,4 +78,5 @@ minmax: minmax.c
 pickdepth: pickdepth.c
 20e-3: 20e-3.c
 image: image.c
+pboimage: pboimage.c
 texprox: texprox.c
