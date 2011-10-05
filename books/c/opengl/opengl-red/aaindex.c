@@ -65,11 +65,14 @@ void init(void)
 {
    int i;
 
+   /* 创建颜色表，颜色的变化是从背景过渡到物体的颜色 */
    for (i = 0; i < RAMPSIZE; i++) {
       GLfloat shade;
       shade = (GLfloat) i/(GLfloat) RAMPSIZE;
-      glutSetColor(RAMP1START+(GLint)i, 0., shade, 0.);
-      glutSetColor(RAMP2START+(GLint)i, 0., 0., shade);
+
+      /* glutSetColor( color, red, green, blue ) */
+      glutSetColor(RAMP1START+(GLint)i, 0., shade, 0.); // line 1
+      glutSetColor(RAMP2START+(GLint)i, 0., 0., shade); // line 2
    }
 
    glEnable (GL_LINE_SMOOTH);
@@ -85,6 +88,7 @@ void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
 
+   /* 为什么画出的线条是白色的? QQQQQ */
    glIndexi(RAMP1START);
    glPushMatrix();
    glRotatef(-rotAngle, 0.0, 0.0, 0.1);
