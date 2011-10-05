@@ -91,6 +91,7 @@ void init(void)
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel(GL_FLAT);
    makeCheckImage();
+   // 像素数据按一字节对齐 [(P219)]
    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 }
 
@@ -128,7 +129,8 @@ void motion(int x, int y)
 
    screeny = height - (GLint) y;
    glRasterPos2i (x, screeny);
-   glPixelZoom (zoomFactor, zoomFactor);
+   glPixelZoom (zoomFactor, zoomFactor); // 放缩或翻转图像 [(P222)]
+   // 复制指定区域的像素到当前光栅处 [(P214)]
    glCopyPixels (0, 0, checkImageWidth, checkImageHeight, GL_COLOR);
    glPixelZoom (1.0, 1.0);
    glFlush ();
@@ -174,7 +176,7 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
-   glutMotionFunc(motion);
+   glutMotionFunc(motion); // 注册 L-BUTTON-DOWN & MOVE function
    glutMainLoop();
    return 0;
 }
