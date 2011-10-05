@@ -13,6 +13,13 @@ Chapter 2: State Management and Drawing Geometric Objects
 	polys.c		(1.0)
 	varray.c	(1.1)
 	mvarray.c	(1.4)
+        primrestart.c   ...
+        20e.c           20面体
+        20e-2.c         20面体, 并求出各个面的法线向量
+        20e-3.c         20面体, 模拟着色球体, 并求出各个顶点的法线向量
+        20e-4.c         80面体, 模拟着色球体, 用"单次细分"法
+        20e-5.c         X面体,  模拟着色球体, 用"递归细分"法
+        20e-6.c         X面体,  模拟着色球体, 用"通用细分"法
 
 Chapter 3: Vieweing
 
