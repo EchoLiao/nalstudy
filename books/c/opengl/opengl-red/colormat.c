@@ -62,13 +62,20 @@ void init(void)
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel (GL_SMOOTH);
    glEnable(GL_DEPTH_TEST);
+
+   /* 材料的散射颜色 */
    glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseMaterial);
    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
    glMaterialf(GL_FRONT, GL_SHININESS, 25.0);
+
    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
 
+   /* 颜色材料模式: [(P143)]
+    * */
+   /* 使正面的材料属性(GL_DIFFUSE)总是使用当前颜色 */
    glColorMaterial(GL_FRONT, GL_DIFFUSE);
    glEnable(GL_COLOR_MATERIAL);
 }
@@ -99,7 +106,7 @@ void mouse(int button, int state, int x, int y)
 {
    switch (button) {
       case GLUT_LEFT_BUTTON:
-         if (state == GLUT_DOWN) {
+         if (state == GLUT_DOWN) { /* R */ 
             diffuseMaterial[0] += 0.1;
             if (diffuseMaterial[0] > 1.0)
                diffuseMaterial[0] = 0.0;
@@ -108,7 +115,7 @@ void mouse(int button, int state, int x, int y)
          }
          break;
       case GLUT_MIDDLE_BUTTON:
-         if (state == GLUT_DOWN) {
+         if (state == GLUT_DOWN) { /* G */ 
             diffuseMaterial[1] += 0.1;
             if (diffuseMaterial[1] > 1.0)
                diffuseMaterial[1] = 0.0;
@@ -117,7 +124,7 @@ void mouse(int button, int state, int x, int y)
          }
          break;
       case GLUT_RIGHT_BUTTON:
-         if (state == GLUT_DOWN) {
+         if (state == GLUT_DOWN) { /* B */ 
             diffuseMaterial[2] += 0.1;
             if (diffuseMaterial[2] > 1.0)
                diffuseMaterial[2] = 0.0;
@@ -135,6 +142,29 @@ void keyboard(unsigned char key, int x, int y)
    switch (key) {
       case 27:
          exit(0);
+         break;
+      case 'r':
+         diffuseMaterial[0] += 0.1;
+         if (diffuseMaterial[0] > 1.0)
+            diffuseMaterial[0] = 0.0;
+         glColor4fv(diffuseMaterial);
+         glutPostRedisplay();
+         break;
+      case 'g':
+         diffuseMaterial[1] += 0.1;
+         if (diffuseMaterial[1] > 1.0)
+            diffuseMaterial[1] = 0.0;
+         glColor4fv(diffuseMaterial);
+         glutPostRedisplay();
+         break;
+      case 'b':
+         diffuseMaterial[2] += 0.1;
+         if (diffuseMaterial[2] > 1.0)
+            diffuseMaterial[2] = 0.0;
+         glColor4fv(diffuseMaterial);
+         glutPostRedisplay();
+         break;
+      default:
          break;
    }
 }
