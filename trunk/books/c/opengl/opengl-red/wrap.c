@@ -144,6 +144,7 @@ void reshape(int w, int h)
 void keyboard (unsigned char key, int x, int y)
 {
    switch (key) {
+      // GL_CLAMP & GL_REPEAT
       case 's':
          glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
          glutPostRedisplay();
