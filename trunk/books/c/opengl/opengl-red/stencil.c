@@ -86,6 +86,7 @@ void init (void)
 
    /* 把模板缓冲区清除值设为0. [(P312)] */
    glClearStencil(0x0);
+   glClearColor(1.0, 1.0, 1.0, 0.0);
    glEnable(GL_STENCIL_TEST);
 }
 
@@ -159,7 +160,7 @@ void reshape(int w, int h)
 #else
    // 应该画一个平面圆更合适, 而不是一个球, 因为现在的需求是: 在屏幕范围(2D)内
    // 确定一个区域用来作为模板.
-   glutSolidSphere (0.5, 15, 15);
+   glutSolidSphere (0.8, 15, 15);
 #endif
 
 
