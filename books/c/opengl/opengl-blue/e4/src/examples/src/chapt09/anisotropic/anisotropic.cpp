@@ -97,6 +97,7 @@ void SetupRC()
 
         // Load texture, set filter and wrap modes
         pBytes = gltLoadTGA(szTextureFiles[iLoop],&iWidth, &iHeight, &iComponents, &eFormat);
+        // auto generate mipmap
         gluBuild2DMipmaps(GL_TEXTURE_2D, iComponents, iWidth, iHeight, eFormat, GL_UNSIGNED_BYTE, pBytes);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -175,9 +176,9 @@ void RenderScene(void)
     // Move object back and do in place rotation
     glTranslatef(0.0f, 0.0f, zPos);
 
-    // Floor
     for(z = 60.0f; z >= 0.0f; z -= 10)
     {
+        // Floor
         glBindTexture(GL_TEXTURE_2D, textures[TEXTURE_FLOOR]);
         glBegin(GL_QUADS);
         glTexCoord2f(0.0f, 0.0f);
