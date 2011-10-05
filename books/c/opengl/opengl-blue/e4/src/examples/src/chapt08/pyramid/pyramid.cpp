@@ -13,7 +13,7 @@ static GLfloat yRot = 0.0f;
 
 // Change viewing volume and viewport.  Called when window is resized
 void ChangeSize(int w, int h)
-    {
+{
     GLfloat fAspect;
 
     // Prevent a divide by zero
@@ -34,18 +34,18 @@ void ChangeSize(int w, int h)
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    }
+}
 
 
 // This function does any needed initialization on the rendering
 // context.  Here it sets up and initializes the lighting for
 // the scene.
 void SetupRC()
-    {
+{
     GLbyte *pBytes;
     GLint iWidth, iHeight, iComponents;
     GLenum eFormat;
-    
+
     // Light values and coordinates
     GLfloat  whiteLight[] = { 0.05f, 0.05f, 0.05f, 1.0f };
     GLfloat  sourceLight[] = { 0.25f, 0.25f, 0.25f, 1.0f };
@@ -67,150 +67,152 @@ void SetupRC()
 
     // Enable color tracking
     glEnable(GL_COLOR_MATERIAL);
-	
+
     // Set Material properties to follow glColor values
     glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 
     // Black blue background
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f );
-    
+
     // Load texture
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     pBytes = gltLoadTGA("stone.tga", &iWidth, &iHeight, &iComponents, &eFormat);
+    // 加载纹理
     glTexImage2D(GL_TEXTURE_2D, 0, iComponents, iWidth, iHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
     free(pBytes);
-    
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
+
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glEnable(GL_TEXTURE_2D);
-    }
+}
 
 // Respond to arrow keys
 void SpecialKeys(int key, int x, int y)
-	{
-	if(key == GLUT_KEY_UP)
-		xRot-= 5.0f;
+{
+    if(key == GLUT_KEY_UP)
+        xRot-= 5.0f;
 
-	if(key == GLUT_KEY_DOWN)
-		xRot += 5.0f;
+    if(key == GLUT_KEY_DOWN)
+        xRot += 5.0f;
 
-	if(key == GLUT_KEY_LEFT)
-		yRot -= 5.0f;
+    if(key == GLUT_KEY_LEFT)
+        yRot -= 5.0f;
 
-	if(key == GLUT_KEY_RIGHT)
-		yRot += 5.0f;
-                
-        xRot = (GLfloat)((const int)xRot % 360);
-        yRot = (GLfloat)((const int)yRot % 360);
+    if(key == GLUT_KEY_RIGHT)
+        yRot += 5.0f;
 
-	// Refresh the Window
-	glutPostRedisplay();
-	}
+    xRot = (GLfloat)((const int)xRot % 360);
+    yRot = (GLfloat)((const int)yRot % 360);
+
+    // Refresh the Window
+    glutPostRedisplay();
+}
 
 
 // Called to draw scene
 void RenderScene(void)
-    {
+{
     M3DVector3f vNormal;
     M3DVector3f vCorners[5] = { { 0.0f, .80f, 0.0f },     // Top           0
-                              { -0.5f, 0.0f, -.50f },    // Back left     1
-                              { 0.5f, 0.0f, -0.50f },    // Back right    2
-                              { 0.5f, 0.0f, 0.5f },      // Front right   3
-                              { -0.5f, 0.0f, 0.5f }};    // Front left    4
-                              
+        { -0.5f, 0.0f, -.50f },    // Back left     1
+        { 0.5f, 0.0f, -0.50f },    // Back right    2
+        { 0.5f, 0.0f, 0.5f },      // Front right   3
+        { -0.5f, 0.0f, 0.5f }};    // Front left    4
+
     // Clear the window with current clearing color
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Save the matrix state and do the rotations
     glPushMatrix();
-        // Move object back and do in place rotation
-        glTranslatef(0.0f, -0.25f, -4.0f);
-        glRotatef(xRot, 1.0f, 0.0f, 0.0f);
-        glRotatef(yRot, 0.0f, 1.0f, 0.0f);
+    // Move object back and do in place rotation
+    glTranslatef(0.0f, -0.25f, -4.0f);
+    glRotatef(xRot, 1.0f, 0.0f, 0.0f);
+    glRotatef(yRot, 0.0f, 1.0f, 0.0f);
 
-        // Draw the Pyramid
-        glColor3f(1.0f, 1.0f, 1.0f);
-        glBegin(GL_TRIANGLES);
-            // Bottom section - two triangles
-            glNormal3f(0.0f, -1.0f, 0.0f);
-            glTexCoord2f(1.0f, 1.0f);
-            glVertex3fv(vCorners[2]);
-            
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3fv(vCorners[4]);
-            
-            glTexCoord2f(0.0f, 1.0f);
-            glVertex3fv(vCorners[1]);
-            
-            
-            glTexCoord2f(1.0f, 1.0f);
-            glVertex3fv(vCorners[2]);
-            
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex3fv(vCorners[3]);
-            
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3fv(vCorners[4]);
-            
-            // Front Face
-            m3dFindNormal(vNormal, vCorners[0], vCorners[4], vCorners[3]);
-            glNormal3fv(vNormal);
-            glTexCoord2f(0.5f, 1.0f);
-            glVertex3fv(vCorners[0]);
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3fv(vCorners[4]);
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex3fv(vCorners[3]);
-            
-            // Left Face
-            m3dFindNormal(vNormal, vCorners[0], vCorners[1], vCorners[4]);
-            glNormal3fv(vNormal);
-            glTexCoord2f(0.5f, 1.0f);
-            glVertex3fv(vCorners[0]);
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3fv(vCorners[1]);
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex3fv(vCorners[4]);
+    // Draw the Pyramid
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glBegin(GL_TRIANGLES);
+    // Bottom section - two triangles
+    glNormal3f(0.0f, -1.0f, 0.0f); // 底面法线
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3fv(vCorners[2]);
 
-            // Back Face
-            m3dFindNormal(vNormal, vCorners[0], vCorners[2], vCorners[1]);
-            glNormal3fv(vNormal);
-            glTexCoord2f(0.5f, 1.0f);
-            glVertex3fv(vCorners[0]);
-            
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3fv(vCorners[2]);
-            
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex3fv(vCorners[1]);
-            
-            // Right Face
-            m3dFindNormal(vNormal, vCorners[0], vCorners[3], vCorners[2]);
-            glNormal3fv(vNormal);
-            glTexCoord2f(0.5f, 1.0f);
-            glVertex3fv(vCorners[0]);
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex3fv(vCorners[3]);
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex3fv(vCorners[2]);
-        glEnd();
-    
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3fv(vCorners[4]);
+
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3fv(vCorners[1]);
+
+
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3fv(vCorners[2]);
+
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3fv(vCorners[3]);
+
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3fv(vCorners[4]);
+
+    // Front Face
+    // 求三点一面的法线
+    m3dFindNormal(vNormal, vCorners[0], vCorners[4], vCorners[3]);
+    glNormal3fv(vNormal);
+    glTexCoord2f(0.5f, 1.0f);
+    glVertex3fv(vCorners[0]);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3fv(vCorners[4]);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3fv(vCorners[3]);
+
+    // Left Face
+    m3dFindNormal(vNormal, vCorners[0], vCorners[1], vCorners[4]);
+    glNormal3fv(vNormal);
+    glTexCoord2f(0.5f, 1.0f);
+    glVertex3fv(vCorners[0]);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3fv(vCorners[1]);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3fv(vCorners[4]);
+
+    // Back Face
+    m3dFindNormal(vNormal, vCorners[0], vCorners[2], vCorners[1]);
+    glNormal3fv(vNormal);
+    glTexCoord2f(0.5f, 1.0f);
+    glVertex3fv(vCorners[0]);
+
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3fv(vCorners[2]);
+
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3fv(vCorners[1]);
+
+    // Right Face
+    m3dFindNormal(vNormal, vCorners[0], vCorners[3], vCorners[2]);
+    glNormal3fv(vNormal);
+    glTexCoord2f(0.5f, 1.0f);
+    glVertex3fv(vCorners[0]);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3fv(vCorners[3]);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3fv(vCorners[2]);
+    glEnd();
+
 
     // Restore the matrix state
     glPopMatrix();
 
     // Buffer swap
     glutSwapBuffers();
-    }
+}
 
 
 
 int main(int argc, char *argv[])
-    {
+{
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(800, 600);
@@ -220,9 +222,6 @@ int main(int argc, char *argv[])
     glutDisplayFunc(RenderScene);
     SetupRC();
     glutMainLoop();
-    
+
     return 0;
-    }
-    
-    
-  
+}
