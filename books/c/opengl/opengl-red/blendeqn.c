@@ -58,14 +58,14 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 
-static GLfloat srcR = 1.0, srcG = 1.0, srcB = 0.0, srcA = 0.75;
-static GLfloat desR = 0.2, desG = 0.6, desB = 0.3, desA = 0.05;
+static GLfloat srcR = 0.3, srcG = 0.5, srcB = 0.6, srcA = 0.55;
+static GLfloat desR = 0.6, desG = 0.2, desB = 0.3, desA = 0.35;
 
 void init(void)
 {
    glClearColor(desR, desG, desB, desA);
 
-   glBlendFunc(GL_ONE, GL_ONE);
+   glBlendFunc(GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR);
    glEnable(GL_BLEND);
 }
 
@@ -79,10 +79,10 @@ void display(void)
    /* 验证混合后的效果 */
    glDisable(GL_BLEND);
    glColor4f(
-           srcR * 1.0 + desR * 1.0, 
-           srcG * 1.0 + desG * 1.0, 
-           srcB * 1.0 + desB * 1.0, 
-           srcA * 1.0 + desA * 1.0); 
+           srcR * srcR + desR * (1.0 - srcR), 
+           srcG * srcG + desG * (1.0 - srcG), 
+           srcB * srcB + desB * (1.0 - srcB), 
+           srcA * srcA + desA * (1.0 - srcA)); 
    glRectf(0.0, 0.0, 0.5, 0.5);
    glEnable(GL_BLEND);
 
