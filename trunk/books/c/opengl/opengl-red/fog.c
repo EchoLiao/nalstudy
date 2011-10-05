@@ -78,18 +78,22 @@ static void init(void)
       glMaterialf (GL_FRONT, GL_SHININESS, 0.6*128.0);
    }
 
-   glEnable(GL_FOG);
+
+   /* 使用默认雾坐标(观察点和片断中心的视觉坐标距离) [(P175)] */
+   glEnable(GL_FOG); // 启用雾效果 [(P173)]
    {
       GLfloat fogColor[4] = {0.5, 0.5, 0.5, 1.0};
 
       fogMode = GL_EXP;
-      glFogi (GL_FOG_MODE, fogMode);
-      glFogfv (GL_FOG_COLOR, fogColor);
+      glFogi (GL_FOG_MODE, fogMode);    // 设置雾混合因子
+      glFogfv (GL_FOG_COLOR, fogColor); // 设置雾颜色 [(P176)]
+      // 分别设置雾方程式中的 density, start, end 的值. [(P175)]
       glFogf (GL_FOG_DENSITY, 0.35);
       glHint (GL_FOG_HINT, GL_DONT_CARE);
       glFogf (GL_FOG_START, 1.0);
       glFogf (GL_FOG_END, 5.0);
    }
+   /* 为了产生更逼真的效果把背景颜色清除为雾的颜色 */
    glClearColor(0.5, 0.5, 0.5, 1.0);  /* fog color */
 }
 
@@ -106,7 +110,8 @@ static void renderSphere (GLfloat x, GLfloat y, GLfloat z)
 void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   renderSphere (-2., -0.5, -1.0);
+   renderSphere (0.0, 0.5, 0.0);
+   renderSphere (-2., -0.5, -5.0);
    renderSphere (-1., -0.5, -2.0);
    renderSphere (0., -0.5, -3.0);
    renderSphere (1., -0.5, -4.0);
@@ -125,8 +130,10 @@ void reshape(int w, int h)
    else
       glOrtho (-2.5*(GLfloat)w/(GLfloat)h,
          2.5*(GLfloat)w/(GLfloat)h, -2.5, 2.5, -10.0, 10.0);
+
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity ();
+   /* 观察点默认在原点 */
 }
 
 void keyboard(unsigned char key, int x, int y)
