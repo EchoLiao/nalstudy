@@ -123,6 +123,9 @@ void display(void)
    glPushMatrix();
    glTranslatef (-3.75, 3.0, 0.0);
 
+   /* 使用双面光照 */
+   glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
+
    /* 使用额外裁剪平面 */
    glRotatef(-25, 1.0, -1.0, 0.0); // 旋转裁剪平面, 使能看见球的内部
    GLdouble eqn[4] = {0.0, 1.0, 0.0, 0.0};
