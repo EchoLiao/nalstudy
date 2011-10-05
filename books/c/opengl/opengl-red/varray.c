@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -90,11 +90,11 @@ void setupInterleave(void)
        0.2, 1.0, 0.2, 200.0, 300.0, 0.0,
        0.2, 1.0, 1.0, 300.0, 200.0, 0.0,
        0.2, 0.2, 1.0, 200.0, 100.0, 0.0};
-   
+
    glInterleavedArrays (GL_C3F_V3F, 0, intertwined);
 }
 
-void init(void) 
+void init(void)
 {
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel (GL_SMOOTH);
@@ -105,7 +105,7 @@ void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT);
 
-   if (derefMethod == DRAWARRAY) 
+   if (derefMethod == DRAWARRAY)
       glDrawArrays (GL_TRIANGLES, 0, 6);
    else if (derefMethod == ARRAYELEMENT) {
       glBegin (GL_TRIANGLES);
@@ -149,11 +149,11 @@ void mouse (int button, int state, int x, int y)
       case GLUT_MIDDLE_BUTTON:
       case GLUT_RIGHT_BUTTON:
          if (state == GLUT_DOWN) {
-            if (derefMethod == DRAWARRAY) 
+            if (derefMethod == DRAWARRAY)
                derefMethod = ARRAYELEMENT;
-            else if (derefMethod == ARRAYELEMENT) 
+            else if (derefMethod == ARRAYELEMENT)
                derefMethod = DRAWELEMENTS;
-            else if (derefMethod == DRAWELEMENTS) 
+            else if (derefMethod == DRAWELEMENTS)
                derefMethod = DRAWARRAY;
             glutPostRedisplay();
          }
@@ -176,11 +176,11 @@ int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (350, 350); 
+   glutInitWindowSize (350, 350);
    glutInitWindowPosition (100, 100);
    glutCreateWindow (argv[0]);
    init ();
-   glutDisplayFunc(display); 
+   glutDisplayFunc(display);
    glutReshapeFunc(reshape);
    glutMouseFunc(mouse);
    glutKeyboardFunc (keyboard);
@@ -196,4 +196,3 @@ int main(int argc, char** argv)
     return 0;
 }
 #endif
-

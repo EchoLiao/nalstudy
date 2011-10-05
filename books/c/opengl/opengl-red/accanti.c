@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -62,7 +62,7 @@ void init(void)
    glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lm_ambient);
-    
+
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
    glEnable(GL_DEPTH_TEST);
@@ -72,25 +72,25 @@ void init(void)
    glClearAccum(0.0, 0.0, 0.0, 0.0);
 }
 
-void displayObjects(void) 
+void displayObjects(void)
 {
    GLfloat torus_diffuse[] = { 0.7, 0.7, 0.0, 1.0 };
    GLfloat cube_diffuse[] = { 0.0, 0.7, 0.7, 1.0 };
    GLfloat sphere_diffuse[] = { 0.7, 0.0, 0.7, 1.0 };
    GLfloat octa_diffuse[] = { 0.7, 0.4, 0.4, 1.0 };
-    
+
    glPushMatrix ();
    glRotatef (30.0, 1.0, 0.0, 0.0);
 
    glPushMatrix ();
-   glTranslatef (-0.80, 0.35, 0.0); 
+   glTranslatef (-0.80, 0.35, 0.0);
    glRotatef (100.0, 1.0, 0.0, 0.0);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, torus_diffuse);
    glutSolidTorus (0.275, 0.85, 16, 16);
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (-0.75, -0.50, 0.0); 
+   glTranslatef (-0.75, -0.50, 0.0);
    glRotatef (45.0, 0.0, 0.0, 1.0);
    glRotatef (45.0, 1.0, 0.0, 0.0);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, cube_diffuse);
@@ -98,14 +98,14 @@ void displayObjects(void)
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (0.75, 0.60, 0.0); 
+   glTranslatef (0.75, 0.60, 0.0);
    glRotatef (30.0, 1.0, 0.0, 0.0);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, sphere_diffuse);
    glutSolidSphere (1.0, 16, 16);
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (0.70, -0.90, 0.25); 
+   glTranslatef (0.70, -0.90, 0.25);
    glMaterialfv(GL_FRONT, GL_DIFFUSE, octa_diffuse);
    glutSolidOctahedron ();
    glPopMatrix ();
@@ -128,7 +128,7 @@ void display(void)
       glPushMatrix ();
 /*	Note that 4.5 is the distance in world space between
  *	left and right and bottom and top.
- *	This formula converts fractional pixel movement to 
+ *	This formula converts fractional pixel movement to
  *	world coordinates.
  */
       glTranslatef (j8[jitter].x*4.5/viewport[2],
@@ -146,9 +146,9 @@ void reshape(int w, int h)
    glViewport(0, 0, (GLsizei) w, (GLsizei) h);
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
-   if (w <= h) 
+   if (w <= h)
       glOrtho (-2.25, 2.25, -2.25*h/w, 2.25*h/w, -10.0, 10.0);
-   else 
+   else
       glOrtho (-2.25*w/h, 2.25*w/h, -2.25, 2.25, -10.0, 10.0);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -179,6 +179,5 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc(keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-

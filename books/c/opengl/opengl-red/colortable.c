@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -44,7 +44,7 @@
  *  colortable.c
  *  Invert a passed block of pixels.  This program illustrates the
  *  use of the glColorTable() function.
- *  
+ *
  */
 #include <GL/glut.h>
 #include <stdlib.h>
@@ -59,12 +59,12 @@ void init(void)
 {
    int   i;
    GLubyte  colorTable[256][3];
-   
+
    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
    glClearColor(0.0, 0.0, 0.0, 0.0);
 
    /* Set up an inverse color table */
-   
+
    for ( i = 0; i < 256; ++i ) {
        colorTable[i][0] = 255 - i;
        colorTable[i][1] = 255 - i;
@@ -102,12 +102,12 @@ void keyboard(unsigned char key, int x, int y)
 }
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  RGBA display mode, and handle input events.
  */
 int main(int argc, char** argv)
 {
-   pixels = readImage("Data/leeds.bin", &width, &height);    
+   pixels = readImage("Data/leeds.bin", &width, &height);
 
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
@@ -121,4 +121,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

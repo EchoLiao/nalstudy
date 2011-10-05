@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -43,7 +43,7 @@
 /*
  *  scene.c
  *  This program demonstrates the use of the GL lighting model.
- *  Objects are drawn using a grey material characteristic. 
+ *  Objects are drawn using a grey material characteristic.
  *  A single light source illuminates the objects.
  */
 #include <GL/glut.h>
@@ -63,7 +63,7 @@ void init (void)
    glLightfv (GL_LIGHT0, GL_DIFFUSE, light_diffuse);
    glLightfv (GL_LIGHT0, GL_SPECULAR, light_specular);
    glLightfv (GL_LIGHT0, GL_POSITION, light_position);
-   
+
    glEnable (GL_LIGHTING);
    glEnable (GL_LIGHT0);
    glEnable(GL_DEPTH_TEST);
@@ -77,19 +77,19 @@ void display (void)
    glRotatef (20.0, 1.0, 0.0, 0.0);
 
    glPushMatrix ();
-   glTranslatef (-0.75, 0.5, 0.0); 
+   glTranslatef (-0.75, 0.5, 0.0);
    glRotatef (90.0, 1.0, 0.0, 0.0);
    glutSolidTorus (0.275, 0.85, 15, 15);
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (-0.75, -0.5, 0.0); 
+   glTranslatef (-0.75, -0.5, 0.0);
    glRotatef (270.0, 1.0, 0.0, 0.0);
    glutSolidCone (1.0, 2.0, 15, 15);
    glPopMatrix ();
 
    glPushMatrix ();
-   glTranslatef (0.75, 0.0, -1.0); 
+   glTranslatef (0.75, 0.0, -1.0);
    glutSolidSphere (1.0, 15, 15);
    glPopMatrix ();
 
@@ -102,11 +102,11 @@ void reshape(int w, int h)
    glViewport (0, 0, (GLsizei) w, (GLsizei) h);
    glMatrixMode (GL_PROJECTION);
    glLoadIdentity ();
-   if (w <= h) 
-      glOrtho (-2.5, 2.5, -2.5*(GLfloat)h/(GLfloat)w, 
+   if (w <= h)
+      glOrtho (-2.5, 2.5, -2.5*(GLfloat)h/(GLfloat)w,
                2.5*(GLfloat)h/(GLfloat)w, -10.0, 10.0);
-   else 
-      glOrtho (-2.5*(GLfloat)w/(GLfloat)h, 
+   else
+      glOrtho (-2.5*(GLfloat)w/(GLfloat)h,
                2.5*(GLfloat)w/(GLfloat)h, -2.5, 2.5, -10.0, 10.0);
    glMatrixMode (GL_MODELVIEW);
    glLoadIdentity ();
@@ -122,7 +122,7 @@ void keyboard(unsigned char key, int x, int y)
 }
 
 /*  Main Loop
- *  Open window with initial window size, title bar, 
+ *  Open window with initial window size, title bar,
  *  RGBA display mode, and handle input events.
  */
 int main(int argc, char** argv)
@@ -136,6 +136,5 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc (keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-
