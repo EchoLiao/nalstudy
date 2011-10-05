@@ -164,7 +164,7 @@ void display(void)
    glPushMatrix();
    glBindTexture(GL_TEXTURE_2D, texName[1]);
    glTranslatef(2.0, 5.0, 0.0);
-   glCallList(1);
+   //glCallList(1);
    glPopMatrix();
 
 /*  different combine modes enabled; 1 texture unit
@@ -175,6 +175,7 @@ void display(void)
  *  glTexEnvf(GL_TEXTURE_ENV, GL_OPERAND1_RGB_ARB, GL_SRC_COLOR);
  */
    glBindTexture(GL_TEXTURE_2D, texName[0]);
+   // [(P299)]
    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_COMBINE_ARB);
    glTexEnvf(GL_TEXTURE_ENV, GL_COMBINE_RGB_ARB, GL_REPLACE);
    glTexEnvf(GL_TEXTURE_ENV, GL_SOURCE0_RGB_ARB, GL_TEXTURE);
@@ -335,6 +336,7 @@ void display(void)
    glCallList(1);
    glPopMatrix();
 
+   /* 重画后, 结果是只使用 GL_TEXTURE0_ARB! [(P299 A)] */
    glActiveTextureARB (GL_TEXTURE1_ARB);  /*  deactivate multitexturing  */
    glDisable (GL_TEXTURE_2D);
    glActiveTextureARB (GL_TEXTURE0_ARB);  /*  activate single texture unit  */
