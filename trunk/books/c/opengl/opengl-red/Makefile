@@ -79,25 +79,24 @@ IMAGING_SUBSET = colormatrix colortable convolution histogram minmax
 TOP = .
 
 GLUT = -lglut
+#LLDLIBS = -lGLEW $(GLUT) -lGLU -lGL -lXmu -lXext -lX11 -lm
 LLDLIBS = $(GLUT) -lGLU -lGL -lXmu -lXext -lX11 -lm
 
 
-# 第一个为默认目标(在这是 def )
-# 在 make 前先 make def 生成依赖文件!
+targets: $(TARGETS)
+default: targets $(IMAGING_SUBSET)
+
+
 def:
 	find . -name '*.c' | xargs gcc -MM | \
 	sed 's/\(^[^ :]*\).o:/\1:/' > Makefile.def ;
-	@make targets
-
-targets: $(TARGETS)
-default: targets $(IMAGING_SUBSET)
 
 
 # 使用"静态模式"书写规则
 #.PRECIOUS : %.o
 #$(TARGETS) $(IMAGING_SUBSET): %: %.c
 $(TARGETS) $(IMAGING_SUBSET): %: %.o
-	gcc -I/usr/include -I$(TOP) $(LLDLIBS) $< -o $@
+	gcc -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
 
 
 include Makefile.def
@@ -105,6 +104,3 @@ include Makefile.def
 
 clean:
 	-rm -f *.o $(TARGETS) $(IMAGING_SUBSET)
-
-cleanall: clean
-	-rm -f Makefile.def
