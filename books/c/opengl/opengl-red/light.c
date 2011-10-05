@@ -76,7 +76,7 @@ void init(void)
 void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   glutSolidSphere (1.0, 20, 16);
+   glutSolidSphere (1.0, 20, 16); // 其已计算顶点法向量
    glFlush ();
 }
 
