@@ -87,8 +87,7 @@ GLUT = -lglut
 LLDLIBS = $(GLUT) -lGLU -lGL -lXmu -lXext -lX11 -lm
 
 
-targets: $(TARGETS)
-default: targets $(IMAGING_SUBSET)
+targets: $(TARGETS) readImage.o $(IMAGING_SUBSET)
 
 
 def:
@@ -99,8 +98,14 @@ def:
 # 使用"静态模式"书写规则
 #.PRECIOUS : %.o
 #$(TARGETS) $(IMAGING_SUBSET): %: %.c
-$(TARGETS) $(IMAGING_SUBSET): %: %.o
+$(TARGETS): %: %.o
 	gcc -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
+
+readImage.o: readImage.c
+	gcc -c -I/usr/include -I$(TOP) $< -o $@
+
+$(IMAGING_SUBSET): %: %.o 
+	gcc -I/usr/include -I$(TOP) $< readImage.o $(LLDLIBS) -o $@
 
 
 include Makefile.d
