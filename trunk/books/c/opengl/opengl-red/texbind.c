@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -41,7 +41,7 @@
  */
 
 /*  texbind.c
- *  This program demonstrates using glBindTexture() by 
+ *  This program demonstrates using glBindTexture() by
  *  creating and managing two textures.
  */
 #include <GL/glut.h>
@@ -60,7 +60,7 @@ static GLuint texName[2];
 void makeCheckImages(void)
 {
    int i, j, c;
-    
+
    for (i = 0; i < checkImageHeight; i++) {
       for (j = 0; j < checkImageWidth; j++) {
          c = ((((i&0x8)==0)^((j&0x8))==0))*255;
@@ -78,7 +78,7 @@ void makeCheckImages(void)
 }
 
 void init(void)
-{    
+{
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel(GL_FLAT);
    glEnable(GL_DEPTH_TEST);
@@ -90,9 +90,9 @@ void init(void)
    glBindTexture(GL_TEXTURE_2D, texName[0]);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, 
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
                    GL_NEAREST);
-   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, 
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
                    GL_NEAREST);
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, checkImageWidth,
                 checkImageHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE,
@@ -104,8 +104,8 @@ void init(void)
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, checkImageWidth, 
-                checkImageHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, 
+   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, checkImageWidth,
+                checkImageHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE,
                 otherImage);
    glEnable(GL_TEXTURE_2D);
 }
@@ -162,7 +162,7 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc (keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
 #else
 int main(int argc, char** argv)
@@ -173,5 +173,3 @@ int main(int argc, char** argv)
     return 0;
 }
 #endif
-
-

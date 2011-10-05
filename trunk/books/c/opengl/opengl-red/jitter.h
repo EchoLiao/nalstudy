@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -51,11 +51,11 @@ Values are floating point in the range -.5 < x < .5, -.5 < y < .5, and
 have a gaussian distribution around the origin.
 
 Use these to do model jittering for scene anti-aliasing and view volume
-jittering for depth of field effects. Use in conjunction with the 
+jittering for depth of field effects. Use in conjunction with the
 accwindow() routine.
 */
 
-typedef struct 
+typedef struct
 {
 	GLfloat x, y;
 } jitter_point;
@@ -225,4 +225,3 @@ jitter_point j66[] =
 	{-0.073036, -0.355064},
 	{ 0.145087,  0.221726}
 };
-

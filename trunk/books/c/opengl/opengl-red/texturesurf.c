@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -50,17 +50,17 @@
 #include <math.h>
 
 GLfloat ctrlpoints[4][4][3] = {
-   {{ -1.5, -1.5, 4.0}, { -0.5, -1.5, 2.0}, 
-    {0.5, -1.5, -1.0}, {1.5, -1.5, 2.0}}, 
-   {{ -1.5, -0.5, 1.0}, { -0.5, -0.5, 3.0}, 
-    {0.5, -0.5, 0.0}, {1.5, -0.5, -1.0}}, 
-   {{ -1.5, 0.5, 4.0}, { -0.5, 0.5, 0.0}, 
-    {0.5, 0.5, 3.0}, {1.5, 0.5, 4.0}}, 
-   {{ -1.5, 1.5, -2.0}, { -0.5, 1.5, -2.0}, 
+   {{ -1.5, -1.5, 4.0}, { -0.5, -1.5, 2.0},
+    {0.5, -1.5, -1.0}, {1.5, -1.5, 2.0}},
+   {{ -1.5, -0.5, 1.0}, { -0.5, -0.5, 3.0},
+    {0.5, -0.5, 0.0}, {1.5, -0.5, -1.0}},
+   {{ -1.5, 0.5, 4.0}, { -0.5, 0.5, 0.0},
+    {0.5, 0.5, 3.0}, {1.5, 0.5, 4.0}},
+   {{ -1.5, 1.5, -2.0}, { -0.5, 1.5, -2.0},
     {0.5, 1.5, 0.0}, {1.5, 1.5, -1.0}}
 };
 
-GLfloat texpts[2][2][2] = {{{0.0, 0.0}, {0.0, 1.0}}, 
+GLfloat texpts[2][2][2] = {{{0.0, 0.0}, {0.0, 1.0}},
 			{{1.0, 0.0}, {1.0, 1.0}}};
 
 void display(void)
@@ -79,7 +79,7 @@ void makeImage(void)
 {
    int i, j;
    float ti, tj;
-   
+
    for (i = 0; i < imageWidth; i++) {
       ti = 2.0*3.14159265*i/imageWidth;
       for (j = 0; j < imageHeight; j++) {
@@ -96,7 +96,7 @@ void init(void)
 {
    glMap2f(GL_MAP2_VERTEX_3, 0, 1, 3, 4,
            0, 1, 12, 4, &ctrlpoints[0][0][0]);
-   glMap2f(GL_MAP2_TEXTURE_COORD_2, 0, 1, 2, 2, 
+   glMap2f(GL_MAP2_TEXTURE_COORD_2, 0, 1, 2, 2,
            0, 1, 4, 2, &texpts[0][0][0]);
    glEnable(GL_MAP2_TEXTURE_COORD_2);
    glEnable(GL_MAP2_VERTEX_3);
@@ -120,10 +120,10 @@ void reshape(int w, int h)
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    if (w <= h)
-      glOrtho(-4.0, 4.0, -4.0*(GLfloat)h/(GLfloat)w, 
+      glOrtho(-4.0, 4.0, -4.0*(GLfloat)h/(GLfloat)w,
               4.0*(GLfloat)h/(GLfloat)w, -4.0, 4.0);
    else
-      glOrtho(-4.0*(GLfloat)w/(GLfloat)h, 
+      glOrtho(-4.0*(GLfloat)w/(GLfloat)h,
               4.0*(GLfloat)w/(GLfloat)h, -4.0, 4.0, -4.0, 4.0);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -153,4 +153,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

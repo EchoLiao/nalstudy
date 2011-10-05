@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,27 +42,27 @@
 
 /*
  * select.c
- * This is an illustration of the selection mode and 
- * name stack, which detects whether objects which collide 
- * with a viewing volume.  First, four triangles and a 
- * rectangular box representing a viewing volume are drawn 
- * (drawScene routine).  The green triangle and yellow 
- * triangles appear to lie within the viewing volume, but 
- * the red triangle appears to lie outside it.  Then the 
- * selection mode is entered (selectObjects routine).  
- * Drawing to the screen ceases.  To see if any collisions 
- * occur, the four triangles are called.  In this example, 
- * the green triangle causes one hit with the name 1, and 
+ * This is an illustration of the selection mode and
+ * name stack, which detects whether objects which collide
+ * with a viewing volume.  First, four triangles and a
+ * rectangular box representing a viewing volume are drawn
+ * (drawScene routine).  The green triangle and yellow
+ * triangles appear to lie within the viewing volume, but
+ * the red triangle appears to lie outside it.  Then the
+ * selection mode is entered (selectObjects routine).
+ * Drawing to the screen ceases.  To see if any collisions
+ * occur, the four triangles are called.  In this example,
+ * the green triangle causes one hit with the name 1, and
  * the yellow triangles cause one hit with the name 3.
  */
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-/* draw a triangle with vertices at (x1, y1), (x2, y2) 
+/* draw a triangle with vertices at (x1, y1), (x2, y2)
  * and (x3, y3) at z units away from the origin.
  */
-void drawTriangle (GLfloat x1, GLfloat y1, GLfloat x2, 
+void drawTriangle (GLfloat x1, GLfloat y1, GLfloat x2,
     GLfloat y2, GLfloat x3, GLfloat y3, GLfloat z)
 {
    glBegin (GL_TRIANGLES);
@@ -73,7 +73,7 @@ void drawTriangle (GLfloat x1, GLfloat y1, GLfloat x2,
 }
 
 /* draw a rectangular box with these outer x, y, and z values */
-void drawViewVolume (GLfloat x1, GLfloat x2, GLfloat y1, 
+void drawViewVolume (GLfloat x1, GLfloat x2, GLfloat y1,
                      GLfloat y2, GLfloat z1, GLfloat z2)
 {
    glColor3f (1.0, 1.0, 1.0);
@@ -147,10 +147,10 @@ void processHits (GLint hits, GLuint buffer[])
    }
 }
 
-/* selectObjects "draws" the triangles in selection mode, 
+/* selectObjects "draws" the triangles in selection mode,
  * assigning names for the triangles.  Note that the third
- * and fourth triangles share one name, so that if either 
- * or both triangles intersects the viewing/clipping volume, 
+ * and fourth triangles share one name, so that if either
+ * or both triangles intersects the viewing/clipping volume,
  * only one hit will be registered.
  */
 #define BUFSIZE 512
@@ -184,9 +184,9 @@ void selectObjects(void)
 
    hits = glRenderMode (GL_RENDER);
    processHits (hits, selectBuf);
-} 
+}
 
-void init (void) 
+void init (void)
 {
    glEnable(GL_DEPTH_TEST);
    glShadeModel(GL_FLAT);
@@ -222,6 +222,5 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc(keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-

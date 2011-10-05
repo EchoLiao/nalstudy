@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -67,7 +67,7 @@ void CALLBACK errorCallback(GLenum errorCode)
    exit(0);
 }
 
-void init(void) 
+void init(void)
 {
    GLUquadricObj *qobj;
    GLfloat mat_ambient[] = { 0.5, 0.5, 0.5, 1.0 };
@@ -94,7 +94,7 @@ void init(void)
  */
    startList = glGenLists(4);
    qobj = gluNewQuadric();
-   gluQuadricCallback(qobj, GLU_ERROR, 
+   gluQuadricCallback(qobj, GLU_ERROR,
                       errorCallback);
 
    gluQuadricDrawStyle(qobj, GLU_FILL); /* smooth shaded */
@@ -180,14 +180,13 @@ int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
-   glutInitWindowSize(500, 500); 
+   glutInitWindowSize(500, 500);
    glutInitWindowPosition(100, 100);
    glutCreateWindow(argv[0]);
    init();
-   glutDisplayFunc(display); 
+   glutDisplayFunc(display);
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
    glutMainLoop();
    return 0;
 }
-

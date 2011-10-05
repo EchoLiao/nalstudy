@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -75,9 +75,8 @@ readImage( const char* filename, GLsizei* width, GLsizei *height )
     }
 
     fread( pixels, sizeof( GLubyte ), n, infile );
-    
+
     fclose( infile );
 
     return pixels;
 }
-

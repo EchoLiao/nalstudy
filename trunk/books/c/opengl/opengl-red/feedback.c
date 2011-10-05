@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -44,7 +44,7 @@
  * feedback.c
  * This program demonstrates use of OpenGL feedback.  First,
  * a lighting environment is set up and a few lines are drawn.
- * Then feedback mode is entered, and the same lines are 
+ * Then feedback mode is entered, and the same lines are
  * drawn.  The results in the feedback buffer are printed.
  */
 #include <GL/glut.h>
@@ -59,8 +59,8 @@ void init(void)
    glEnable(GL_LIGHT0);
 }
 
-/* Draw a few lines and two points, one of which will 
- * be clipped.  If in feedback mode, a passthrough token 
+/* Draw a few lines and two points, one of which will
+ * be clipped.  If in feedback mode, a passthrough token
  * is issued between the each primitive.
  */
 void drawGeometry (GLenum mode)
@@ -85,7 +85,7 @@ void drawGeometry (GLenum mode)
 }
 
 /* Write contents of one vertex to stdout.	*/
-void print3DcolorVertex (GLint size, GLint *count, 
+void print3DcolorVertex (GLint size, GLint *count,
                          GLfloat *buffer)
 {
    int i;
@@ -171,6 +171,5 @@ int main(int argc, char** argv)
    glutDisplayFunc(display);
    glutKeyboardFunc (keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-

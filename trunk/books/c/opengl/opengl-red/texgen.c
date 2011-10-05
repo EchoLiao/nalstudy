@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -41,7 +41,7 @@
  */
 
 /*  texgen.c
- *  This program draws a texture mapped teapot with 
+ *  This program draws a texture mapped teapot with
  *  automatically generated texture coordinates.  The
  *  texture is rendered as stripes on the teapot.
  *  Initially, the object is drawn with texture coordinates
@@ -49,7 +49,7 @@
  *  and distance from the plane x = 0.  Pressing the 'e'
  *  key changes the coordinate generation to eye coordinates
  *  of the vertex.  Pressing the 'o' key switches it back
- *  to the object coordinates.  Pressing the 's' key 
+ *  to the object coordinates.  Pressing the 's' key
  *  changes the plane to a slanted one (x + y + z = 0).
  *  Pressing the 'x' key switches it back to x = 0.
  */
@@ -68,7 +68,7 @@ static GLuint texName;
 void makeStripeImage(void)
 {
    int j;
-    
+
    for (j = 0; j < stripeImageWidth; j++) {
       stripeImage[4*j] = (GLubyte) ((j<=4) ? 255 : 0);
       stripeImage[4*j+1] = (GLubyte) ((j>4) ? 255 : 0);
@@ -147,10 +147,10 @@ void reshape(int w, int h)
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    if (w <= h)
-      glOrtho (-3.5, 3.5, -3.5*(GLfloat)h/(GLfloat)w, 
+      glOrtho (-3.5, 3.5, -3.5*(GLfloat)h/(GLfloat)w,
                3.5*(GLfloat)h/(GLfloat)w, -3.5, 3.5);
    else
-      glOrtho (-3.5*(GLfloat)w/(GLfloat)h, 
+      glOrtho (-3.5*(GLfloat)w/(GLfloat)h,
                3.5*(GLfloat)w/(GLfloat)h, -3.5, 3.5, -3.5, 3.5);
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -209,4 +209,3 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
-

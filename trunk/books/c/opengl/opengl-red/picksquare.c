@@ -23,7 +23,7 @@
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  *
- * US Government Users Restricted Rights 
+ * US Government Users Restricted Rights
  * Use, duplication, or disclosure by the Government is subject to
  * restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
  * (c)(1)(ii) of the Rights in Technical Data and Computer Software
@@ -42,9 +42,9 @@
 
 /*
  * picksquare.c
- * Use of multiple names and picking are demonstrated.  
- * A 3x3 grid of squares is drawn.  When the left mouse 
- * button is pressed, all squares under the cursor position 
+ * Use of multiple names and picking are demonstrated.
+ * A 3x3 grid of squares is drawn.  When the left mouse
+ * button is pressed, all squares under the cursor position
  * have their color changed.
  */
 #include <GL/glut.h>
@@ -57,16 +57,16 @@ int board[3][3];   /*  amount of color for each square	*/
 void init(void)
 {
    int i, j;
-   for (i = 0; i < 3; i++) 
+   for (i = 0; i < 3; i++)
       for (j = 0; j < 3; j ++)
          board[i][j] = 0;
    glClearColor (0.0, 0.0, 0.0, 0.0);
 }
 
-/*  The nine squares are drawn.  In selection mode, each 
- *  square is given two names:  one for the row and the 
- *  other for the column on the grid.  The color of each 
- *  square is determined by its position on the grid, and 
+/*  The nine squares are drawn.  In selection mode, each
+ *  square is given two names:  one for the row and the
+ *  other for the column on the grid.  The color of each
+ *  square is determined by its position on the grid, and
  *  the value in the board[][] array.
  */
 void drawSquares(GLenum mode)
@@ -78,7 +78,7 @@ void drawSquares(GLenum mode)
       for (j = 0; j < 3; j ++) {
          if (mode == GL_SELECT)
             glPushName (j);
-         glColor3f ((GLfloat) i/3.0, (GLfloat) j/3.0, 
+         glColor3f ((GLfloat) i/3.0, (GLfloat) j/3.0,
                     (GLfloat) board[i][j]/3.0);
          glRecti (i, j, i+1, j+1);
          if (mode == GL_SELECT)
@@ -87,7 +87,7 @@ void drawSquares(GLenum mode)
    }
 }
 
-/*  processHits prints out the contents of the 
+/*  processHits prints out the contents of the
  *  selection array.
  */
 void processHits (GLint hits, GLuint buffer[])
@@ -116,8 +116,8 @@ void processHits (GLint hits, GLuint buffer[])
    }
 }
 
-/*  pickSquares() sets up selection mode, name stack, 
- *  and projection matrix for picking.  Then the 
+/*  pickSquares() sets up selection mode, name stack,
+ *  and projection matrix for picking.  Then the
  *  objects are drawn.
  */
 #define BUFSIZE 512
@@ -143,7 +143,7 @@ void pickSquares(int button, int state, int x, int y)
    glPushMatrix ();
    glLoadIdentity ();
 /*  create 5x5 pixel picking region near cursor location	*/
-   gluPickMatrix ((GLdouble) x, (GLdouble) (viewport[3] - y), 
+   gluPickMatrix ((GLdouble) x, (GLdouble) (viewport[3] - y),
                   5.0, 5.0, viewport);
    gluOrtho2D (0.0, 3.0, 0.0, 3.0);
    drawSquares (GL_SELECT);
@@ -155,7 +155,7 @@ void pickSquares(int button, int state, int x, int y)
    hits = glRenderMode (GL_RENDER);
    processHits (hits, selectBuf);
    glutPostRedisplay();
-} 
+}
 
 void display(void)
 {
@@ -193,10 +193,9 @@ int main(int argc, char** argv)
    glutCreateWindow (argv[0]);
    init ();
    glutReshapeFunc (reshape);
-   glutDisplayFunc(display); 
+   glutDisplayFunc(display);
    glutMouseFunc (pickSquares);
    glutKeyboardFunc (keyboard);
    glutMainLoop();
-   return 0; 
+   return 0;
 }
-
