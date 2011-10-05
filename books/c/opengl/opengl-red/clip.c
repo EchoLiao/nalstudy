@@ -44,69 +44,103 @@
  *  clip.c
  *  This program demonstrates arbitrary clipping planes.
  */
+
 #include <GL/glut.h>
-/*#include <stdlib.h>  */
+#include <stdlib.h> 
+#include <stdio.h>
+
+static GLdouble X, Y, Z = 5;
 
 void init(void)
 {
-   glClearColor (0.0, 0.0, 0.0, 0.0);
-   glShadeModel (GL_FLAT);
+    glClearColor (0.0, 0.0, 0.0, 0.0);
+    glShadeModel (GL_FLAT);
 }
 
 void display(void)
 {
-   GLdouble eqn[4] = {0.0, 1.0, 0.0, 0.0};
-   GLdouble eqn2[4] = {1.0, 0.0, 0.0, 0.0};
+    GLdouble eqn[4] = {0.0, 1.0, 0.0, 0.0};
+    GLdouble eqn2[4] = {1.0, 0.0, 0.0, 0.0};
 
-   glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f (1.0, 1.0, 1.0);
 
-   glColor3f (1.0, 1.0, 1.0);
-   glPushMatrix();
-   glTranslatef (0.0, 0.0, -5.0);
+    glPushMatrix();
+    {
+        /* 注意: glTranslatef 和 glClipPlane 的调用顺序不同则会产生不同效果!
+         *       原因: [(P103 A)] */
+        glTranslatef (X, Y, -Z);
+        printf("X=%f, Y=%f, Z=%f\n" , X, Y, Z);
 
-/*    clip lower half -- y < 0          */
-   glClipPlane (GL_CLIP_PLANE0, eqn);
-   glEnable (GL_CLIP_PLANE0);
-/*    clip left half -- x < 0           */
-   glClipPlane (GL_CLIP_PLANE1, eqn2);
-   glEnable (GL_CLIP_PLANE1);
+        /*    clip lower half -- y < 0          */
+        glClipPlane (GL_CLIP_PLANE0, eqn);
+        glEnable (GL_CLIP_PLANE0);
+        /*    clip left half -- x < 0           */
+        glClipPlane (GL_CLIP_PLANE1, eqn2);
+        glEnable (GL_CLIP_PLANE1);
 
-   glRotatef (90.0, 1.0, 0.0, 0.0);
-   glutWireSphere(1.0, 20, 16);
-   glPopMatrix();
+        /* glTranslatef (X, Y, -Z);
+        printf("X=%f, Y=%f, Z=%f\n" , X, Y, Z); */
 
-   glFlush ();
+        glRotatef (90.0, 1.0, 0.0, 0.0);
+        glutWireSphere(1.0, 20, 16);
+    }
+    glPopMatrix();
+
+    glFlush ();
 }
 
 void reshape (int w, int h)
 {
-   glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-   glMatrixMode (GL_PROJECTION);
-   glLoadIdentity ();
-   gluPerspective(60.0, (GLfloat) w/(GLfloat) h, 1.0, 20.0);
-   glMatrixMode (GL_MODELVIEW);
+    glViewport (0, 0, (GLsizei) w, (GLsizei) h);
+    glMatrixMode (GL_PROJECTION);
+    glLoadIdentity ();
+    gluPerspective(60.0, (GLfloat) w/(GLfloat) h, 1.0, 20.0);
+
+    glMatrixMode (GL_MODELVIEW);
 }
 
 void keyboard(unsigned char key, int x, int y)
 {
-   switch (key) {
-      case 27:
-         exit(0);
-         break;
-   }
+    switch (key) {
+        case 'x':
+            X -= 0.1;
+            break;
+        case 'X':
+            X += 0.1;
+            break;
+        case 'y':
+            Y -= 0.1;
+            break;
+        case 'Y':
+            Y += 0.1;
+            break;
+        case 'z':
+            Z -= 0.1;
+            break;
+        case 'Z':
+            Z += 0.1;
+            break;
+        case 27:
+            exit(0);
+            break;
+    }
+    /* 代码写这有个缺点: 无论按下什么键这些代码都被执行!!!!! */
+    printf("(key) X=%f, Y=%f, Z=%f\n" , X, Y, Z);
+    glutPostRedisplay();
 }
 
 int main(int argc, char** argv)
 {
-   glutInit(&argc, argv);
-   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (500, 500);
-   glutInitWindowPosition (100, 100);
-   glutCreateWindow (argv[0]);
-   init ();
-   glutDisplayFunc(display);
-   glutReshapeFunc(reshape);
-   glutKeyboardFunc(keyboard);
-   glutMainLoop();
-   return 0;
+    glutInit(&argc, argv);
+    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize (500, 500);
+    glutInitWindowPosition (480, 100);
+    glutCreateWindow (argv[0]);
+    init ();
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+    glutKeyboardFunc(keyboard);
+    glutMainLoop();
+    return 0;
 }
