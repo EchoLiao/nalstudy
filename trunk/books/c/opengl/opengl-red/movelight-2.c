@@ -87,7 +87,9 @@ void display(void)
        glLoadIdentity();
        /* 改变观察点的位置, 即移动画笔; (光源的位置是视觉坐标的形式存储的, 所
         * 以 gluLookAt 也会影响到光源的位置). 
-        * 也可以理解为: [(P137)]*/
+        * 也可以理解为: [(P137)] . 
+        * (gluLookAt的本质是 glTranslated, glRotated 等)
+        * */
        gluLookAt(ex, ey, ez, 0.0, 0.0, 0.0, upx, upy, upz);
 
        glutSolidTorus (0.275, 0.85, 8, 15);
