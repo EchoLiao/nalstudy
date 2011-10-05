@@ -44,19 +44,20 @@
  */
 
 #include <stdio.h>
+#include <math.h>
 #include <GL/glut.h>
 #include <GL/glext.h>
 /* #include "helpers.h" */
 
 #ifdef GL_ARB_shadow
-#define GL_TEXTURE_COMPARE_MODE      GL_TEXTURE_COMPARE_MODE_ARB
-#define GL_TEXTURE_COMPARE_FUNC      GL_TEXTURE_COMPARE_FUNC_ARB
-#define GL_DEPTH_TEXTURE_MODE        GL_DEPTH_TEXTURE_MODE_ARB
-#define GL_COMPARE_R_TO_TEXTURE      GL_COMPARE_R_TO_TEXTURE_ARB
+#define GL_TEXTURE_COMPARE_MODE_X      GL_TEXTURE_COMPARE_MODE_ARB
+#define GL_TEXTURE_COMPARE_FUNC_X      GL_TEXTURE_COMPARE_FUNC_ARB
+#define GL_DEPTH_TEXTURE_MODE_X        GL_DEPTH_TEXTURE_MODE_ARB
+#define GL_COMPARE_R_TO_TEXTURE_X      GL_COMPARE_R_TO_TEXTURE_ARB
 #endif
 
-#define SHADOW_MAP_WIDTH      256
-#define SHADOW_MAP_HEIGHT     256
+#define SHADOW_MAP_WIDTH      512
+#define SHADOW_MAP_HEIGHT     512
 
 #define PI       3.14159265359
 
@@ -73,14 +74,15 @@ GLfloat     up[] = { 0.0, 0.0, 1.0 };
 
 GLboolean showShadow = GL_FALSE;
 
-void
+    void
 init( void )
 {
     GLfloat  white[] = { 1.0, 1.0, 1.0, 1.0 };
 
+    /* 创建深度纹理 */
     glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
-  		  SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT, 0,
-		  GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, NULL );
+            SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT, 0,
+            GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, NULL );
 
     glLightfv( GL_LIGHT0, GL_POSITION, lightPos );
     glLightfv( GL_LIGHT0, GL_SPECULAR, white );
@@ -90,10 +92,10 @@ init( void )
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL );
-    glTexParameteri( GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_LUMINANCE );
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE,
-		     GL_COMPARE_R_TO_TEXTURE );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC_X, GL_LEQUAL );
+    glTexParameteri( GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE_X, GL_LUMINANCE );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE_X,
+            GL_COMPARE_R_TO_TEXTURE_X );
 
     glTexGeni( GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR );
     glTexGeni( GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR );
@@ -116,7 +118,7 @@ init( void )
     glEnable( GL_CULL_FACE );
 }
 
-void
+    void
 reshape( int width, int height )
 {
     glViewport( 0, 0, width, height );
@@ -127,7 +129,7 @@ reshape( int width, int height )
     glMatrixMode( GL_MODELVIEW );
 }
 
-void
+    void
 idle( void )
 {
     angle += PI / 10000;
@@ -135,60 +137,59 @@ idle( void )
     glutPostRedisplay();
 }
 
-
-void
+    void
 keyboard( unsigned char key, int x, int y )
 {
     switch( key ) {
-    case 27:  /* Escape */
-      exit( 0 );
-      break;
+        case 27:  /* Escape */
+            exit( 0 );
+            break;
 
-    case 't': {
-        static GLboolean textureOn = GL_TRUE;
-        textureOn = !textureOn;
-        if ( textureOn )
-	glEnable( GL_TEXTURE_2D );
-        else
-	glDisable( GL_TEXTURE_2D );
-      }
-      break;
+        case 't': {
+                      static GLboolean textureOn = GL_TRUE;
+                      textureOn = !textureOn;
+                      if ( textureOn )
+                          glEnable( GL_TEXTURE_2D );
+                      else
+                          glDisable( GL_TEXTURE_2D );
+                  }
+                  break;
 
-    case 'm': {
-        static GLboolean compareMode = GL_TRUE;
-        compareMode = !compareMode;
-        printf( "Compare mode %s\n", compareMode ? "On" : "Off" );
-        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE,
-		         compareMode ? GL_COMPARE_R_TO_TEXTURE : GL_NONE );
-      }
-      break;
+        case 'm': {
+                      static GLboolean compareMode = GL_TRUE;
+                      compareMode = !compareMode;
+                      printf( "Compare mode %s\n", compareMode ? "On" : "Off" );
+                      glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE_X,
+                              compareMode ? GL_COMPARE_R_TO_TEXTURE_X : GL_NONE );
+                  }
+                  break;
 
-    case 'f': {
-        static GLboolean funcMode = GL_TRUE;
-        funcMode = !funcMode;
-        printf( "Operator %s\n", funcMode ? "GL_LEQUAL" : "GL_GEQUAL" );
-        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC,
-		         funcMode ? GL_LEQUAL : GL_GEQUAL );
-      }
-      break;
+        case 'f': {
+                      static GLboolean funcMode = GL_TRUE;
+                      funcMode = !funcMode;
+                      printf( "Operator %s\n", funcMode ? "GL_LEQUAL" : "GL_GEQUAL" );
+                      glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC_X,
+                              funcMode ? GL_LEQUAL : GL_GEQUAL );
+                  }
+                  break;
 
-    case 's':
-      showShadow = !showShadow;
-      break;
+        case 's':
+                  showShadow = !showShadow;
+                  break;
 
-    case 'p': {
-        static GLboolean  animate = GL_TRUE;
-        animate = !animate;
-        glutIdleFunc( animate ? idle : NULL );
-      }
-      break;
+        case 'p': {
+                      static GLboolean  animate = GL_TRUE;
+                      animate = !animate;
+                      glutIdleFunc( animate ? idle : NULL );
+                  }
+                  break;
     }
 
     glutPostRedisplay();
 }
 
 
-void
+    void
 transposeMatrix( GLfloat m[16] )
 {
     GLfloat  tmp;
@@ -202,7 +203,7 @@ transposeMatrix( GLfloat m[16] )
 #undef Swap
 }
 
-void
+    void
 drawObjects( GLboolean shadowRender )
 {
     GLboolean textureOn = glIsEnabled( GL_TEXTURE_2D );
@@ -241,7 +242,7 @@ drawObjects( GLboolean shadowRender )
 }
 
 
-void
+    void
 generateShadowMap( void )
 {
     GLint    viewport[4];
@@ -263,8 +264,8 @@ generateShadowMap( void )
     glPushMatrix();
     glLoadIdentity();
     gluLookAt( lightPos[0], lightPos[1], lightPos[2],
-	       lookat[0], lookat[1], lookat[2],
-	       up[0], up[1], up[2] );
+            lookat[0], lookat[1], lookat[2],
+            up[0], up[1], up[2] );
 
     drawObjects( GL_TRUE );
 
@@ -273,23 +274,28 @@ generateShadowMap( void )
     glPopMatrix();
     glMatrixMode( GL_MODELVIEW );
 
+    /* 把所产生的深度图像复制到纹理内存中 [(P255)] */
     glCopyTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, 0, 0,
-		      SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT, 0 );
+            SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT, 0 );
 
     glViewport( viewport[0], viewport[1], viewport[2], viewport[3] );
 
     if ( showShadow ) {
-      GLfloat depthImage[SHADOW_MAP_WIDTH][SHADOW_MAP_HEIGHT];
-      glReadPixels( 0, 0, SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT,
-		    GL_DEPTH_COMPONENT, GL_FLOAT, depthImage );
-      glWindowPos2f( viewport[2]/2, 0 );
-      glDrawPixels( SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT, GL_LUMINANCE,
-		    GL_FLOAT, depthImage );
-      glutSwapBuffers();
+        GLfloat depthImage[SHADOW_MAP_WIDTH][SHADOW_MAP_HEIGHT];
+        /* 把像素数据从帧缓冲区读取到内存. [(P210)] */
+        glReadPixels( 0, 0, SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT,
+                GL_DEPTH_COMPONENT, GL_FLOAT, depthImage );
+        glWindowPos2f( 0, 0 ); // QQQQQ
+        /* 把像素数据从内存写入到帧缓冲区. [(P213 P211)] */
+        glDrawPixels( SHADOW_MAP_WIDTH, SHADOW_MAP_HEIGHT,
+                GL_LUMINANCE /* GL_DEPTH_COMPONENT */,
+                GL_FLOAT, depthImage );
+        /* [(P15)] */
+        glutSwapBuffers();
     }
 }
 
-void
+    void
 generateTextureMatrix( void )
 {
     GLfloat  tmpMatrix[16];
@@ -302,10 +308,11 @@ generateTextureMatrix( void )
     glLoadIdentity();
     glTranslatef( 0.5, 0.5, 0.0 );
     glScalef( 0.5, 0.5, 1.0 );
-    gluPerspective( 60.0, 1.0, 1.0, 1000.0 );
+    // gluPerspective( 60.0, 1.0, 1.0, 1000.0 );
+    gluPerspective( 60.0, 1.0, 8.0, 1000.0 );
     gluLookAt( lightPos[0], lightPos[1], lightPos[2],
-	       lookat[0], lookat[1], lookat[2],
-	       up[0], up[1], up[2] );
+            lookat[0], lookat[1], lookat[2],
+            up[0], up[1], up[2] );
     glGetFloatv( GL_MODELVIEW_MATRIX, tmpMatrix );
     glPopMatrix();
 
@@ -317,7 +324,7 @@ generateTextureMatrix( void )
     glTexGenfv( GL_Q, GL_OBJECT_PLANE, &tmpMatrix[12] );
 }
 
-void
+    void
 display( void )
 {
     GLfloat  radius = 30;
@@ -326,21 +333,21 @@ display( void )
     generateTextureMatrix();
 
     if ( showShadow )
-      return;
+        return;
 
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
     glPushMatrix();
     gluLookAt( radius*cos(angle), radius*sin(angle), 30,
-	       lookat[0], lookat[1], lookat[2],
-	       up[0], up[1], up[2] );
+            lookat[0], lookat[1], lookat[2],
+            up[0], up[1], up[2] );
     drawObjects( GL_FALSE );
     glPopMatrix();
 
     glutSwapBuffers();
 }
 
-int
+    int
 main( int argc, char** argv )
 {
     glutInit( &argc, argv );
