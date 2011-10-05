@@ -144,21 +144,24 @@ void init (void)
 
    startList = glGenLists(2);
 
+   /* 创建一个新的分格化对象. [(P343)] */
    tobj = gluNewTess();
-   gluTessCallback(tobj, GLU_TESS_VERTEX,
-                   glVertex3dv);
-   gluTessCallback(tobj, GLU_TESS_BEGIN,
-                   beginCallback);
-   gluTessCallback(tobj, GLU_TESS_END,
-                   endCallback);
-   gluTessCallback(tobj, GLU_TESS_ERROR,
-                   errorCallback);
+
+/* 第一个多边形 */
+   /* 设置分格化的需要的回调函数. [(P344)] */
+   gluTessCallback(tobj, GLU_TESS_VERTEX, glVertex3dv);
+   gluTessCallback(tobj, GLU_TESS_BEGIN, beginCallback);
+   gluTessCallback(tobj, GLU_TESS_END, endCallback);
+   gluTessCallback(tobj, GLU_TESS_ERROR, errorCallback);
 
    /*  rectangle with triangular hole inside  */
    glNewList(startList, GL_COMPILE);
    glShadeModel(GL_FLAT);
+   /* 开始对需要分格化的多边形的指定. [(P350)] */
    gluTessBeginPolygon(tobj, NULL);
+      /* 开始一条闭合轮廓线的指定. [(P350)] */
       gluTessBeginContour(tobj);
+         /* 指定分格化对象当前轮廓线的一个顶点. [(P350)] */
          gluTessVertex(tobj, rect[0], rect[0]);
          gluTessVertex(tobj, rect[1], rect[1]);
          gluTessVertex(tobj, rect[2], rect[2]);
@@ -172,22 +175,20 @@ void init (void)
    gluTessEndPolygon(tobj);
    glEndList();
 
-   gluTessCallback(tobj, GLU_TESS_VERTEX,
-                   vertexCallback);
-   gluTessCallback(tobj, GLU_TESS_BEGIN,
-                   beginCallback);
-   gluTessCallback(tobj, GLU_TESS_END,
-                   endCallback);
-   gluTessCallback(tobj, GLU_TESS_ERROR,
-                   errorCallback);
-   gluTessCallback(tobj, GLU_TESS_COMBINE,
-                   combineCallback);
+
+/* 第二个多边形 */
+   gluTessCallback(tobj, GLU_TESS_VERTEX, vertexCallback);
+   gluTessCallback(tobj, GLU_TESS_BEGIN, beginCallback);
+   gluTessCallback(tobj, GLU_TESS_END, endCallback);
+   gluTessCallback(tobj, GLU_TESS_ERROR, errorCallback);
+   gluTessCallback(tobj, GLU_TESS_COMBINE, combineCallback); // [(P446 1)]
 
    /*  smooth shaded, self-intersecting star  */
    glNewList(startList + 1, GL_COMPILE);
    glShadeModel(GL_SMOOTH);
-   gluTessProperty(tobj, GLU_TESS_WINDING_RULE,
-                   GLU_TESS_WINDING_POSITIVE);
+   /* 指定环尧规则; 默认值是 GLU_TESS_WINDING_ODD. [(P347)] */
+   gluTessProperty(tobj, GLU_TESS_WINDING_RULE, GLU_TESS_WINDING_POSITIVE);
+   // gluTessProperty(tobj, GLU_TESS_BOUNDARY_ONLY, GL_TRUE);
    gluTessBeginPolygon(tobj, NULL);
       gluTessBeginContour(tobj);
          gluTessVertex(tobj, star[0], star[0]);
