@@ -68,8 +68,8 @@ static void torus(int numc, int numt)
             s = (i + k) % numc + 0.5;
             t = j % numt;
 
-            x = (1+.1*cos(s*twopi/numc))*cos(t*twopi/numt);
-            y = (1+.1*cos(s*twopi/numc))*sin(t*twopi/numt);
+            x = (1+.1*cos(s*twopi/numc)) * cos(t*twopi/numt);
+            y = (1+.1*cos(s*twopi/numc)) * sin(t*twopi/numt);
             z = .1 * sin(s * twopi / numc);
             glVertex3f(x, y, z);
          }
@@ -81,6 +81,7 @@ static void torus(int numc, int numt)
 /* Create display list with Torus and initialize state */
 static void init(void)
 {
+   /* 创建一个显示列表 */
    theTorus = glGenLists (1);
    glNewList(theTorus, GL_COMPILE);
    torus(8, 25);
@@ -95,7 +96,7 @@ void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
    glColor3f (1.0, 1.0, 1.0);
-   glCallList(theTorus);
+   glCallList(theTorus); // 调用执行显示列表
    glFlush();
 }
 
@@ -106,6 +107,7 @@ void reshape(int w, int h)
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    gluPerspective(30, (GLfloat) w/(GLfloat) h, 1.0, 100.0);
+
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
    gluLookAt(0, 0, 10, 0, 0, 0, 0, 1, 0);
@@ -115,6 +117,7 @@ void reshape(int w, int h)
    when "y" typed; "i" returns torus to original view */
 void keyboard(unsigned char key, int x, int y)
 {
+   /* 实现围绕物体观察物体的另一种方法:  */
    switch (key) {
    case 'x':
    case 'X':
@@ -128,6 +131,7 @@ void keyboard(unsigned char key, int x, int y)
       break;
    case 'i':
    case 'I':
+      // reset model-view matrix
       glLoadIdentity();
       gluLookAt(0, 0, 10, 0, 0, 0, 0, 1, 0);
       glutPostRedisplay();
