@@ -74,26 +74,29 @@ void display (void)
    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
    glPushMatrix ();
-   glRotatef (20.0, 1.0, 0.0, 0.0);
+       glRotatef (20.0, 1.0, 0.0, 0.0);
 
-   glPushMatrix ();
-   glTranslatef (-0.75, 0.5, 0.0);
-   glRotatef (90.0, 1.0, 0.0, 0.0);
-   glutSolidTorus (0.275, 0.85, 15, 15);
+       /* 圆环 */
+       glPushMatrix ();
+           glTranslatef (-0.75, 0.5, 0.0);
+           glRotatef (90.0, 1.0, 0.0, 0.0);
+           glutSolidTorus (0.275, 0.85, 15, 15);
+       glPopMatrix ();
+
+       /* 圆锥 */
+       glPushMatrix ();
+           glTranslatef (-0.75, -0.5, 0.0);
+           glRotatef (270.0, 1.0, 0.0, 0.0);
+           glutSolidCone (1.0, 2.0, 15, 15);
+       glPopMatrix ();
+
+       /* 球 */
+       glPushMatrix ();
+           glTranslatef (0.75, 0.0, -1.0);
+           glutSolidSphere (1.0, 15, 15);
+       glPopMatrix ();
    glPopMatrix ();
 
-   glPushMatrix ();
-   glTranslatef (-0.75, -0.5, 0.0);
-   glRotatef (270.0, 1.0, 0.0, 0.0);
-   glutSolidCone (1.0, 2.0, 15, 15);
-   glPopMatrix ();
-
-   glPushMatrix ();
-   glTranslatef (0.75, 0.0, -1.0);
-   glutSolidSphere (1.0, 15, 15);
-   glPopMatrix ();
-
-   glPopMatrix ();
    glFlush ();
 }
 
