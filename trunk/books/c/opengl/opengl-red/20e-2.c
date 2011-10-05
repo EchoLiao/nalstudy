@@ -111,6 +111,7 @@ void reshape (int w, int h)
     /* 为了使得场景画到视口后是1:1的比例, 而不被拉申或压缩, 必须得根据视口的宽
      * 与高(在这是 w 和 h, 由 glViewport 设定)作一些调整: 使得视景体的截面与视
      * 口相似(相似四边形) */
+
     if ( w >= h )
         glOrtho (-fat * (GLfloat)w / (GLfloat)h,
              fat * (GLfloat)w / (GLfloat)h, -fat, fat, -10.0, 10.0);
