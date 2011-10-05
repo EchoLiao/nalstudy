@@ -89,7 +89,8 @@ void SetupRC()
     for(iSphere = 0; iSphere < NUM_SPHERES; iSphere++)
     {
         // Pick a random location between -20 and 20 at .1 increments
-        spheres[iSphere].SetOrigin(((float)((rand() % 400) - 200) * 0.1f), 0.0, (float)((rand() % 400) - 200) * 0.1f);
+        spheres[iSphere].SetOrigin(((float)((rand() % 400) - 200) * 0.1f),
+                0.0, (float)((rand() % 400) - 200) * 0.1f);
     }
 
     // Set up texture maps
@@ -117,7 +118,6 @@ void SetupRC()
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     }
-
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -187,11 +187,15 @@ void DrawInhabitants(GLint nShadow)
         glColor4f(0.00f, 0.00f, 0.00f, .6f);  // Shadow color
 
 
+    GLfloat fv[] = { 0.0f, 0.0f, -2.0f };
+    GLfloat uv[] = { 0.0f, 1.2f, 0.0f };
     // Draw the randomly located spheres
     glBindTexture(GL_TEXTURE_2D, textureObjects[SPHERE_TEXTURE]);
     for(i = 0; i < NUM_SPHERES; i++)
     {
         glPushMatrix();
+        spheres[i].SetForwardVector(fv);
+        spheres[i].SetUpVector(uv);
         spheres[i].ApplyActorTransform();
         gltDrawSphere(0.3f, 21, 11);
         glPopMatrix();
@@ -226,7 +230,7 @@ void RenderScene(void)
     // Clear the window with current clearing color
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-    glPushMatrix();
+    glPushMatrix(); // push 1
     frameCamera.ApplyCameraTransform();
 
     // Position light before any other transformations
@@ -242,21 +246,23 @@ void RenderScene(void)
     glDisable(GL_TEXTURE_2D);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    // 开启模板测试, 使得任一阴影区域的像素只被画一次!
     glEnable(GL_STENCIL_TEST);
     glPushMatrix();
-    glMultMatrixf(mShadowMatrix);
-    DrawInhabitants(1);
+        // draw shadows!
+        glMultMatrixf(mShadowMatrix);
+        DrawInhabitants(1);
     glPopMatrix();
+
     glDisable(GL_STENCIL_TEST);
     glDisable(GL_BLEND);
     glEnable(GL_LIGHTING);
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_DEPTH_TEST);
-
     // Draw inhabitants normally
     DrawInhabitants(0);
 
-    glPopMatrix();
+    glPopMatrix(); // pop 1
 
     // Do the buffer Swap
     glutSwapBuffers();
