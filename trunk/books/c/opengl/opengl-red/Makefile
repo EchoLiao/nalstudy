@@ -58,7 +58,10 @@ TARGETS = \
 		  surface surfpoints teapots tesswind tess \
 		  texbind texgen texprox texsub texture3d \
 		  texturesurf torus trim unproject varray \
-		  wrap
+		  wrap \
+		  20e 20e-2 20e-3 20e-4 20e-5 20e-6 smooth-2 \
+#	  primrestart
+
 
 #
 # If the ARB imaging subset is not implemented on your platform, you may
