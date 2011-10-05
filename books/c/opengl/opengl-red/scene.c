@@ -46,6 +46,9 @@
  *  Objects are drawn using a grey material characteristic.
  *  A single light source illuminates the objects.
  */
+
+/* 场景中有多个物体时, 光照对各个物体的影响 */
+
 #include <GL/glut.h>
 #include <stdlib.h>
 
