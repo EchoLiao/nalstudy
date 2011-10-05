@@ -57,8 +57,8 @@ void init(void)
    GLfloat ambient[] = { 0.0, 0.0, 0.0, 1.0 };
    GLfloat diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
    GLfloat position[] = { 0.0, 3.0, 2.0, 0.0 };
-   GLfloat lmodel_ambient[] = { 0.4, 0.4, 0.4, 1.0 };
-   GLfloat local_view[] = { 0.0 };
+   GLfloat lmodel_ambient[] = { 1.0, 1.0, 1.0, 0.0 };
+   GLfloat local_view[] = { 0.0 }; /* 假设观察点位于无限远处 */
 
    glClearColor(0.0, 0.1, 0.1, 0.0);
    glEnable(GL_DEPTH_TEST);
@@ -67,7 +67,12 @@ void init(void)
    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
    glLightfv(GL_LIGHT0, GL_POSITION, position);
+
+   /* 选定光照模型: [(P138)]
+    */
+   /* 整个场景的环境光的RGBA强度 */
    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
+   /* 假设观察点位于无限远处 */
    glLightModelfv(GL_LIGHT_MODEL_LOCAL_VIEWER, local_view);
 
    glEnable(GL_LIGHTING);
@@ -102,7 +107,7 @@ void display(void)
    /* 材料的境面颜色 */
    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 
-   /* 境面指数，值越大则亮点越小越亮 */
+   /* 境面指数, 值越大则亮点越小越亮 */
    GLfloat no_shininess[] = { 0.0 };
    GLfloat low_shininess[] = { 5.0 };
    GLfloat high_shininess[] = { 100.0 };
