@@ -5,19 +5,23 @@ list: list.c
 select: select.c
 bezsurf: bezsurf.c
 robot: robot.c
+20e: 20e.c
 blendeqn: blendeqn.c
+20e-6: 20e-6.c
 fogcoord: fogcoord.c
 texbind: texbind.c
 lines: lines.c
 polyoff: polyoff.c
 smooth: smooth.c
 multisamp: multisamp.c
+20e-4: 20e-4.c
 movelight: movelight.c
 feedback: feedback.c
 surface: surface.c
 colormatrix: colormatrix.c
 hello: hello.c
 quadric: quadric.c
+smooth-2: smooth-2.c
 stencil: stencil.c
 aaindex: aaindex.c
 dof: dof.c jitter.h
@@ -45,12 +49,15 @@ tesswind: tesswind.c
 texsub: texsub.c
 aargb: aargb.c
 colortable: colortable.c
+20e-2: 20e-2.c
 checker: checker.c
 histogram: histogram.c
 scene: scene.c
+primrestart: primrestart.c
 texgen: texgen.c
 material: material.c
 accanti: accanti.c jitter.h
+20e-5: 20e-5.c
 font: font.c
 alpha3D: alpha3D.c
 model: model.c
@@ -68,5 +75,6 @@ colormat: colormat.c
 stroke: stroke.c
 minmax: minmax.c
 pickdepth: pickdepth.c
+20e-3: 20e-3.c
 image: image.c
 texprox: texprox.c

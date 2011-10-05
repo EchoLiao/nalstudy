@@ -1,4 +1,3 @@
-
 This file lists the programs that are refereced in the OpenGL Programming
 Guide, Fourth Edition, by chapter.  For each program, the version of
 OpenGL that is required is listed with the program.
@@ -119,6 +118,3 @@ Chapter 14: Now That You Know
 Color Plates:
 
       teapots.c		(1.1)
-
-
-
