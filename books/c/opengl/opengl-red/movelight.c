@@ -55,10 +55,15 @@
  *  the modeling transformation (x rotation) by 30 degrees.
  *  The scene is then redrawn with the light in a new position.
  */
+
+/* 独立地移动光源(观察点位置不变) 
+ * */
+
 #include <GL/glut.h>
 #include <stdlib.h>
 
-static int spin = 0;
+static int xspin = 0, yspin = 0, zspin = 0;
+static GLfloat zpos = 1.5;
 
 /*  Initialize material property, light source, lighting model,
  *  and depth buffer.
@@ -79,21 +84,25 @@ void init(void)
  */
 void display(void)
 {
-   GLfloat position[] = { 0.0, 0.0, 1.5, 1.0 };
+   GLfloat position[] = { 0.0, 0.0, zpos, 1.0 };
 
    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
    glPushMatrix ();
+   // 观察点位置不变
    gluLookAt (0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 
    glPushMatrix ();
-   glRotated ((GLdouble) spin, 1.0, 0.0, 0.0);
-   glLightfv (GL_LIGHT0, GL_POSITION, position);
+       // 改变光源的位置
+       glRotated ((GLdouble) xspin, 1.0, 0.0, 0.0);
+       glRotated ((GLdouble) yspin, 0.0, 1.0, 0.0);
+       glRotated ((GLdouble) zspin, 0.0, 0.0, 1.0);
+       glLightfv (GL_LIGHT0, GL_POSITION, position);
 
-   glTranslated (0.0, 0.0, 1.5);
-   glDisable (GL_LIGHTING);
-   glColor3f (0.0, 1.0, 1.0);
-   glutWireCube (0.1);
-   glEnable (GL_LIGHTING);
+       glTranslated (0.0, 0.0, zpos);
+       glDisable (GL_LIGHTING);
+       glColor3f (0.0, 1.0, 1.0);
+       glutWireCube (0.1); // 模拟标记出光源的位置
+       glEnable (GL_LIGHTING);
    glPopMatrix ();
 
    glutSolidTorus (0.275, 0.85, 8, 15);
@@ -104,9 +113,11 @@ void display(void)
 void reshape (int w, int h)
 {
    glViewport (0, 0, (GLsizei) w, (GLsizei) h);
+
    glMatrixMode (GL_PROJECTION);
    glLoadIdentity();
    gluPerspective(40.0, (GLfloat) w/(GLfloat) h, 1.0, 20.0);
+
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
 }
@@ -116,7 +127,7 @@ void mouse(int button, int state, int x, int y)
    switch (button) {
       case GLUT_LEFT_BUTTON:
          if (state == GLUT_DOWN) {
-            spin = (spin + 30) % 360;
+            xspin = (xspin + 30) % 360;
             glutPostRedisplay();
          }
          break;
@@ -128,10 +139,26 @@ void mouse(int button, int state, int x, int y)
 void keyboard(unsigned char key, int x, int y)
 {
    switch (key) {
+      case 'x':
+            xspin = (xspin + 10) % 360;
+         break;
+      case 'y':
+            yspin = (yspin + 10) % 360;
+         break;
+      case 'z':
+            zspin = (zspin + 10) % 360;
+         break;
+      case 'd':
+            zpos += 0.2;
+         break;
+      case 'D':
+            zpos -= 0.2;
+         break;
       case 27:
          exit(0);
          break;
    }
+   glutPostRedisplay();
 }
 
 int main(int argc, char** argv)
