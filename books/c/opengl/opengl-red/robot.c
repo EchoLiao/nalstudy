@@ -49,11 +49,27 @@
  */
 #include <GL/glut.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static int shoulder = 0, elbow = 0;
 
 void init(void)
 {
+   GLfloat values[2];
+   glGetFloatv (GL_LINE_WIDTH_GRANULARITY, values); // 线条的精确度
+   printf ("GL_LINE_WIDTH_GRANULARITY value is %3.1f\n", values[0]);
+   glGetFloatv (GL_LINE_WIDTH_RANGE, values);
+   printf ("GL_LINE_WIDTH_RANGE values are %3.1f %3.1f\n", values[0],
+           values[1]);
+
+   /* 可通过注释以下两行代码来观察抗锯齿的效果 */
+   glEnable (GL_LINE_SMOOTH);   // 启用线条抗锯齿功能
+   glEnable (GL_BLEND);         // 抗锯齿是通过混合实现的
+   glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+   glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE); // 设置线条采样质量提示
+   glLineWidth (0.5);
+
+
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glShadeModel (GL_FLAT);
 }
