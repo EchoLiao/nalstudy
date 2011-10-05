@@ -93,11 +93,14 @@ void init(void)
  *  are demonstrated.
  */
    startList = glGenLists(4);
+   /* 创建一个新的二次方程对象. [(P354)] */
    qobj = gluNewQuadric();
-   gluQuadricCallback(qobj, GLU_ERROR,
-                      errorCallback);
+   /* 注册一个错误处理函数. [(P354)] */
+   gluQuadricCallback(qobj, GLU_ERROR, errorCallback);
 
+   /* 设置绘图风格. [(P354)] */
    gluQuadricDrawStyle(qobj, GLU_FILL); /* smooth shaded */
+   /* 指定如何生成法线向量. [(P355)] */
    gluQuadricNormals(qobj, GLU_SMOOTH);
    glNewList(startList, GL_COMPILE);
       gluSphere(qobj, 0.75, 15, 10);
