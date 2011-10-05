@@ -58,12 +58,15 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 
+static GLfloat srcAlpha = 0.75;
+static GLfloat desAlpha = 0.75;
 
 void init(void)
 {
-   glClearColor(1.0, 1.0, 0.0, 0.0);
+   glClearColor(1.0, 1.0, 0.0, desAlpha);
 
-   glBlendFunc(GL_ONE, GL_ONE);
+   // glBlendFunc(GL_ONE, GL_ONE);
+   glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
    glEnable(GL_BLEND);
 }
 
@@ -71,8 +74,35 @@ void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
 
-   glColor3f(0.0, 0.0, 1.0);
-   glRectf(-0.5,-0.5,0.5,0.5);
+   glColor4f(0.0, 0.0, 1.0, srcAlpha);
+   // glColor3f(0.0, 0.0, 1.0);
+   glRectf(-0.5,-0.5,0.1,0.1);
+
+#if 1
+   glDisable(GL_BLEND);
+   glColor4f(0.0, 0.0, 0.0, 0.0);
+   glRectf(-0.1, -0.1, 0.6, 0.6);
+   glEnable(GL_BLEND);
+   glColor4f(
+           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
+           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
+           1.0 * srcAlpha + 0.0 * (1.0 - srcAlpha), 
+           1.0 /* srcAlpha * srcAlpha + desAlpha * (1.0 - srcAlpha) */); 
+   glRectf(0.0, 0.0, 0.5, 0.5);
+#else 
+   glDisable(GL_BLEND);
+   glPushMatrix ();
+   glScalef(0.5, 0.5, 0.5);
+   glColor4f(
+           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
+           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
+           1.0 * srcAlpha + 0.0 * (1.0 - srcAlpha), 
+           srcAlpha * srcAlpha + desAlpha * (1.0 - srcAlpha)); 
+   glRectf(0.0, 0.0, 0.5, 0.5);
+   glPopMatrix ();
+   glEnable(GL_BLEND);
+#endif
+
 
    glFlush();
 }
@@ -106,7 +136,8 @@ void keyboard(unsigned char key, int x, int y)
 	 /* Colors are subtracted as: (0, 0, 1) - (1, 1, 0) = (-1, -1, 1)
 	  *  which is clamped to (0, 0, 1), producing a blue square on a
 	  *  yellow background
-	  */	 glBlendEquation(GL_FUNC_SUBTRACT);
+	  */	 
+         glBlendEquation(GL_FUNC_SUBTRACT);
 	 break;
 
       case 'r': case 'R':
