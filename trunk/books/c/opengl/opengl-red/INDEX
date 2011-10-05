@@ -69,6 +69,7 @@ Chapter 8: Drawing Pixels, Bitmaps, Fonts, and Images
 	drawf.c		(1.0)
 	font.c		(1.0)
 	image.c		(1.1)
+    pboimage.c  用缓冲区对象传输像素数据
 	colortable.c	(ARB_imaging_subset)
 	convolution.c	(ARB_imaging_subset)
 	colormatrix.c	(ARB_imaging_subset)
