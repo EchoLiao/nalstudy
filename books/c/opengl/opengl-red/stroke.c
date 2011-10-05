@@ -92,6 +92,7 @@ CP Sdata[] = {
  */
 static void drawLetter(CP *l)
 {
+   // [(P197)]
    glBegin(GL_LINE_STRIP);
    while (1) {
       switch (l->type) {
@@ -120,8 +121,9 @@ static void init (void)
 
    glShadeModel (GL_FLAT);
 
-   base = glGenLists (128);
-   glListBase(base);
+   base = glGenLists (128); // 分配128个连续的显示列表索引
+   glListBase(base);        // 设置偏移量, 对 glCallLists() 有用!
+   /* 定义显示列表 */
    glNewList(base+'A', GL_COMPILE); drawLetter(Adata); glEndList();
    glNewList(base+'E', GL_COMPILE); drawLetter(Edata); glEndList();
    glNewList(base+'P', GL_COMPILE); drawLetter(Pdata); glEndList();
@@ -136,6 +138,7 @@ char *test2 = "APES PREPARE RARE PEPPERS";
 static void printStrokedString(char *s)
 {
    GLsizei len = strlen(s);
+   /* 执行显示列表: 索引值 = base + ASCII值 */
    glCallLists(len, GL_BYTE, (GLbyte *)s);
 }
 
@@ -143,16 +146,19 @@ void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
    glColor3f(1.0, 1.0, 1.0);
+
    glPushMatrix();
    glScalef(2.0, 2.0, 2.0);
    glTranslatef(10.0, 30.0, 0.0);
    printStrokedString(test1);
    glPopMatrix();
+
    glPushMatrix();
    glScalef(2.0, 2.0, 2.0);
    glTranslatef(10.0, 13.0, 0.0);
    printStrokedString(test2);
    glPopMatrix();
+
    glFlush();
 }
 
@@ -183,7 +189,7 @@ int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (440, 120);
+   glutInitWindowSize (440, 420);
    glutCreateWindow ("stroke");
    init ();
    glutReshapeFunc(reshape);
