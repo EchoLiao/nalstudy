@@ -84,6 +84,7 @@ void init (void)
    glEnable(GL_LIGHTING);
    glEnable(GL_DEPTH_TEST);
 
+   /* 把模板缓冲区清除值设为0. [(P312)] */
    glClearStencil(0x0);
    glEnable(GL_STENCIL_TEST);
 }
@@ -96,13 +97,17 @@ void display(void)
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 /* draw blue sphere where the stencil is 1 */
+   /* 设置模板测试所使用的比较函数, 参考值和掩码. [(P318)] */
    glStencilFunc (GL_EQUAL, 0x1, 0x1);
+   /* 指定模板缓冲区的数据如何修改. [(P318)] */
    glStencilOp (GL_KEEP, GL_KEEP, GL_KEEP);
    glCallList (BLUEMAT);
    glutSolidSphere (0.5, 15, 15);
 
 /* draw the tori where the stencil is not 1 */
+   /* 设置模板测试所使用的比较函数(不等于) ... [(P318)] */
    glStencilFunc (GL_NOTEQUAL, 0x1, 0x1);
+   glStencilOp (GL_KEEP, GL_KEEP, GL_KEEP);
    glPushMatrix();
       glRotatef (45.0, 0.0, 0.0, 1.0);
       glRotatef (45.0, 0.0, 1.0, 0.0);
@@ -134,15 +139,22 @@ void reshape(int w, int h)
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
 
-   glClear(GL_STENCIL_BUFFER_BIT);
+   /* 先把整个模板缓冲区清除为指定值(0x0), 然后画一个正方形, 并把其对应区域的
+    * 模板缓冲区的值修改为参考值(0x1).
+    * */
+   /* 使模板缓冲区清除为指定值 */
+   glClear(GL_STENCIL_BUFFER_BIT); 
+   /* 设置模板测试所使用的比较函数, 参考值和掩码. [(P318)] */
    glStencilFunc (GL_ALWAYS, 0x1, 0x1);
+   /* 指定模板缓冲区的数据如何修改(修改为参考值). [(P318)] */
    glStencilOp (GL_REPLACE, GL_REPLACE, GL_REPLACE);
    glBegin(GL_QUADS);
       glVertex2f (-1.0, 0.0);
-      glVertex2f (0.0, 1.0);
-      glVertex2f (1.0, 0.0);
       glVertex2f (0.0, -1.0);
+      glVertex2f (1.0, 0.0);
+      glVertex2f (0.0, 1.0);
    glEnd();
+
 
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
