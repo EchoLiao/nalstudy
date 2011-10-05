@@ -92,7 +92,7 @@ default: targets $(IMAGING_SUBSET)
 
 def:
 	find . -name '*.c' | xargs gcc -MM | \
-	sed 's/\(^[^ :]*\).o:/\1:/' > Makefile.def ;
+	sed 's/\(^[^ :]*\).o:/\1:/' > Makefile.d;
 
 
 # 使用"静态模式"书写规则
@@ -102,7 +102,7 @@ $(TARGETS) $(IMAGING_SUBSET): %: %.o
 	gcc -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
 
 
-include Makefile.def
+include Makefile.d
 
 
 clean:
