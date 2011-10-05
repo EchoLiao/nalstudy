@@ -70,11 +70,16 @@ void init(void)
    int i, j;
 
    glClearColor(0.0, 0.0, 0.0, 0.0);
-   glGetIntegerv (GL_SAMPLE_BUFFERS_ARB, buf);
+
+   /* 验证多重采样功能是否可用:
+    *   若buf[0]等于1且sbuf[0]大于1, 则可用.
+    */
+   glGetIntegerv (GL_SAMPLE_BUFFERS, buf);
    printf ("number of sample buffers is %d\n", buf[0]);
    glGetIntegerv (GL_SAMPLES_ARB, sbuf);
    printf ("number of samples is %d\n", sbuf[0]);
 
+   /* 前景 */
    glNewList (1, GL_COMPILE);
    for (i = 0; i < 19; i++) {
       glPushMatrix();
@@ -95,16 +100,18 @@ void init(void)
    }
    glEndList ();
 
+   /* 棋盘 */
    glNewList (2, GL_COMPILE);
    glColor3f (1.0, 0.5, 0.0);
    glBegin (GL_QUADS);
    for (i = 0; i < 16; i++) {
       for (j = 0; j < 16; j++) {
          if (((i + j) % 2) == 0) {
+            /* 以逆时针放置顶点 */
             glVertex2f (-2.0 + (i * 0.25), -2.0 + (j * 0.25));
-            glVertex2f (-2.0 + (i * 0.25), -1.75 + (j * 0.25));
-            glVertex2f (-1.75 + (i * 0.25), -1.75 + (j * 0.25));
             glVertex2f (-1.75 + (i * 0.25), -2.0 + (j * 0.25));
+            glVertex2f (-1.75 + (i * 0.25), -1.75 + (j * 0.25));
+            glVertex2f (-2.0 + (i * 0.25), -1.75 + (j * 0.25));
          }
       }
    }
@@ -125,17 +132,20 @@ void display(void)
    if (bgtoggle)
       glCallList (2);
 
+   /* 使用多重采样 */
    glEnable (GL_MULTISAMPLE_ARB);
    glPushMatrix();
    glTranslatef (-1.0, 0.0, 0.0);
    glCallList (1);
    glPopMatrix();
 
+   /* 不使用多重采样 */
    glDisable (GL_MULTISAMPLE_ARB);
    glPushMatrix();
    glTranslatef (1.0, 0.0, 0.0);
    glCallList (1);
    glPopMatrix();
+
    glutSwapBuffers();
 }
 
@@ -176,8 +186,9 @@ void keyboard(unsigned char key, int x, int y)
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
+   /* 获取一个支持多重采样的窗口 */
    glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB | GLUT_MULTISAMPLE);
-   glutInitWindowSize (600, 300);
+   glutInitWindowSize (600, 900);
    glutCreateWindow (argv[0]);
    init();
    glutReshapeFunc (reshape);
