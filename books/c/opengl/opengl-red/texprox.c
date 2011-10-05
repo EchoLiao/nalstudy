@@ -55,9 +55,11 @@ void init(void)
 {
    GLint proxyComponents;
 
+   /* 纹理代理: 判断是否有足够的资源来创建一个给定规格的纹理. [(P255)] */
    glTexImage2D(GL_PROXY_TEXTURE_2D, 0, GL_RGBA8,
                 64, 64, 0,
                 GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+   /* [(P256)] */
    glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0,
                             GL_TEXTURE_COMPONENTS, &proxyComponents);
    printf ("proxyComponents are %d\n", proxyComponents);
@@ -67,7 +69,7 @@ void init(void)
       printf ("proxy allocation failed\n");
 
    glTexImage2D(GL_PROXY_TEXTURE_2D, 0, GL_RGBA16,
-                2048, 2048, 0,
+                2048*4, 2048*4, 0,
                 GL_RGBA, GL_UNSIGNED_SHORT, NULL);
    glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0,
                             GL_TEXTURE_COMPONENTS, &proxyComponents);
