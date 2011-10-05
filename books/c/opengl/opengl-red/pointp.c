@@ -62,6 +62,7 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 #ifdef GL_VERSION_1_4
 
@@ -75,15 +76,15 @@ void init(void)
 {
    int i;
 
-   srand (12345);
+   srand(time(NULL));
 
    glNewList(1, GL_COMPILE);
    glBegin (GL_POINTS);
       for (i = 0; i < 250; i++) {
           glColor3f (1.0, ((rand()/(float) RAND_MAX) * 0.5) + 0.5,
                           rand()/(float) RAND_MAX);
-/*  randomly generated vertices:
-    -5 < x < 5;  -5 < y < 5;  -5 < z < -45  */
+          /* randomly generated vertices:
+               -5 < x < 5;  -5 < y < 5;  -5 < z < -45  */
           glVertex3f ( ((rand()/(float)RAND_MAX) * 10.0) - 5.0,
                        ((rand()/(float)RAND_MAX) * 10.0) - 5.0,
                        ((rand()/(float)RAND_MAX) * 40.0) - 45.0);
@@ -92,13 +93,21 @@ void init(void)
    glEndList();
 
    glEnable(GL_DEPTH_TEST);
+
+   /* 启用抗锯齿功能, 因为: [(P182 A)] */
    glEnable(GL_POINT_SMOOTH);
    glEnable(GL_BLEND);
    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-   glPointSize(psize);
-   glGetFloatv(GL_POINT_SIZE_MAX_EXT, pmax);
 
+   glPointSize(psize); // 设置点大小
+   glGetFloatv(GL_POINT_SIZE_MIN_EXT, pmax);
+   printf("GL_POINT_SIZE_MIN = %f\n", pmax[0]);
+   glGetFloatv(GL_POINT_SIZE_MAX_EXT, pmax);
+   printf("GL_POINT_SIZE_MAX = %f\n", pmax[0]);
+
+   // 设置衰减系数的线性衰减系数 [(P181)]
    glPointParameterfvEXT (GL_DISTANCE_ATTENUATION_EXT, linear);
+   // 设置 threshold. [(P181)]
    glPointParameterfEXT (GL_POINT_FADE_THRESHOLD_SIZE_EXT, 2.0);
 }
 
@@ -115,6 +124,7 @@ void reshape (int w, int h)
    glMatrixMode (GL_PROJECTION);
    glLoadIdentity ();
    gluPerspective (35.0, 1.0, 0.25, 200.0);
+
    glMatrixMode (GL_MODELVIEW);
    glTranslatef (0.0, 0.0, -10.0);
 }
@@ -128,6 +138,7 @@ void keyboard(unsigned char key, int x, int y)
             glutPostRedisplay();
          break;
       case 'c':
+            // 设置衰减系数的常数衰减系数 [(P181)]
             glPointParameterfvEXT (GL_DISTANCE_ATTENUATION_EXT, constant);
             glutPostRedisplay();
          break;
@@ -137,22 +148,26 @@ void keyboard(unsigned char key, int x, int y)
             glutPostRedisplay();
          break;
       case 'l':
+            // 设置衰减系数的线性衰减系数 [(P181)]
             glPointParameterfvEXT (GL_DISTANCE_ATTENUATION_EXT, linear);
             glutPostRedisplay();
          break;
       case 'q':
+            // 设置衰减系数的二次衰减系数 [(P181)]
             glPointParameterfvEXT (GL_DISTANCE_ATTENUATION_EXT, quadratic);
             glutPostRedisplay();
          break;
       case '+':
             if (psize < (pmax[0] + 1.0))
                psize = psize + 1.0;
+            printf("psize = %f\n", psize);
             glPointSize (psize);
             glutPostRedisplay();
          break;
       case '-':
             if (psize >= 2.0)
                psize = psize - 1.0;
+            printf("psize = %f\n", psize);
             glPointSize (psize);
             glutPostRedisplay();
          break;
@@ -165,6 +180,7 @@ void keyboard(unsigned char key, int x, int y)
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
+   /* 获取一个支持多重采样的窗口 */
    glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH | GLUT_MULTISAMPLE);
    glutInitWindowSize (500, 500);
    glutInitWindowPosition (100, 100);
