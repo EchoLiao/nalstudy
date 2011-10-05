@@ -53,6 +53,7 @@ GLuint listName;
 
 static void init (void)
 {
+   /* 创建一个显示列表 */
    listName = glGenLists (1);
    glNewList (listName, GL_COMPILE);
       glColor3f (1.0, 0.0, 0.0);  /*  current color red  */
@@ -68,6 +69,7 @@ static void init (void)
 
 static void drawLine (void)
 {
+    /* 受显示列表中的 glTranslatef() 影响 */
    glBegin (GL_LINES);
    glVertex2f (0.0, 0.5);
    glVertex2f (15.0, 0.5);
@@ -82,6 +84,8 @@ void display(void)
    glColor3f (0.0, 1.0, 0.0);  /*  current color green  */
    for (i = 0; i < 10; i++)    /*  draw 10 triangles    */
       glCallList (listName);
+
+   /* 前面的显示列表的状态变化会影响到此! */
    drawLine ();  /*  is this line green?  NO!  */
                  /*  where is the line drawn?  */
    glFlush ();
