@@ -58,15 +58,14 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 
-static GLfloat srcAlpha = 0.75;
-static GLfloat desAlpha = 0.75;
+static GLfloat srcR = 1.0, srcG = 1.0, srcB = 0.0, srcA = 0.75;
+static GLfloat desR = 0.2, desG = 0.6, desB = 0.3, desA = 0.05;
 
 void init(void)
 {
-   glClearColor(1.0, 1.0, 0.0, desAlpha);
+   glClearColor(desR, desG, desB, desA);
 
-   // glBlendFunc(GL_ONE, GL_ONE);
-   glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+   glBlendFunc(GL_ONE, GL_ONE);
    glEnable(GL_BLEND);
 }
 
@@ -74,35 +73,18 @@ void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
 
-   glColor4f(0.0, 0.0, 1.0, srcAlpha);
-   // glColor3f(0.0, 0.0, 1.0);
+   glColor4f(srcR, srcG, srcB, srcA);
    glRectf(-0.5,-0.5,0.1,0.1);
 
-#if 1
+   /* 验证混合后的效果 */
    glDisable(GL_BLEND);
-   glColor4f(0.0, 0.0, 0.0, 0.0);
-   glRectf(-0.1, -0.1, 0.6, 0.6);
-   glEnable(GL_BLEND);
    glColor4f(
-           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
-           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
-           1.0 * srcAlpha + 0.0 * (1.0 - srcAlpha), 
-           1.0 /* srcAlpha * srcAlpha + desAlpha * (1.0 - srcAlpha) */); 
+           srcR * 1.0 + desR * 1.0, 
+           srcG * 1.0 + desG * 1.0, 
+           srcB * 1.0 + desB * 1.0, 
+           srcA * 1.0 + desA * 1.0); 
    glRectf(0.0, 0.0, 0.5, 0.5);
-#else 
-   glDisable(GL_BLEND);
-   glPushMatrix ();
-   glScalef(0.5, 0.5, 0.5);
-   glColor4f(
-           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
-           0.0 * srcAlpha + 1.0 * (1.0 - srcAlpha), 
-           1.0 * srcAlpha + 0.0 * (1.0 - srcAlpha), 
-           srcAlpha * srcAlpha + desAlpha * (1.0 - srcAlpha)); 
-   glRectf(0.0, 0.0, 0.5, 0.5);
-   glPopMatrix ();
    glEnable(GL_BLEND);
-#endif
-
 
    glFlush();
 }
@@ -129,7 +111,7 @@ void keyboard(unsigned char key, int x, int y)
 	 /* Colors are added as: (1, 1, 0) + (0, 0, 1) = (1, 1, 1)
 	  *  which will produce a white square on a yellow background.
 	  */
-	 glBlendEquation(GL_FUNC_ADD);
+	 glBlendEquation(GL_FUNC_ADD); // OpenGL 的默认值 
 	 break;
 
       case 's': case 'S':
