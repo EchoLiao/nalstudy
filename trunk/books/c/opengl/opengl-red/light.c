@@ -55,8 +55,19 @@
 void init(void)
 {
    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-   GLfloat mat_shininess[] = { 28.0 }; // 值超大亮点就更小更亮
+   GLfloat mat_shininess[] = { 28.0 }; // 值越大亮点就越小越亮
    GLfloat light_position[] = { 0.0, 22.0, 22.0, 1.0 }; // 位置性光源 [(P131)]
+
+   // 第二个光源
+   /* 环境光主要影响整个场景物体的颜色; 而散射光很容易受到环境光影响, 只有在没
+    * 有环境光时才能明显感受到它的影响; 镜面光主要影响最亮点的颜色. 
+    * */
+   GLfloat light1_ambient[] = { 1.0, 0.0, 0.0, 1.0 };  // 环境光
+   GLfloat light1_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };  // 散射光
+   GLfloat light1_specular[] = { 1.0, 1.0, 1.0, 1.0 }; // 镜面光
+   GLfloat light1_position[] = { 0.0, -0.3, 3.0, 1.0 }; // 位置性光源
+   // GLfloat light1_position[] = { 0.0, 0.0, 6.0, 0.0 }; // 方向性光源
+   GLfloat spot_direction[] = { 0.0, -0.7, -1.0 };     // 聚光灯方向
 
    glClearColor (0.0, 0.0, 0.0, 0.0);
    // glShadeModel (GL_FLAT); // 会出现明显的边痕
@@ -67,9 +78,23 @@ void init(void)
    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess); // 境面指数
    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
+   // 第二个光源
+   glLightfv(GL_LIGHT1, GL_AMBIENT, light1_ambient);
+   glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
+   glLightfv(GL_LIGHT1, GL_SPECULAR, light1_specular);
+   glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
+   // 把第个光源设为聚光灯类型(GL_SPOT_CUTOFF != 180)
+   glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.8);     // 线性衰减因子
+   glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.2);  // 二次衰减因子
+   glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 45.0);           // 聚光灯切角
+   glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction); // 聚光灯方向
+   glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0); // 聚光灯指数, 值越小越聚 
+
+
    // 开启光照
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
+   glEnable(GL_LIGHT1);
    glEnable(GL_DEPTH_TEST); // 开启深度测试 
 }
 
