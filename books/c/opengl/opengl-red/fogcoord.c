@@ -78,7 +78,9 @@ static void init(void)
    glFogfv (GL_FOG_COLOR, fogColor);
    glFogf (GL_FOG_DENSITY, 0.25);
    glHint (GL_FOG_HINT, GL_DONT_CARE);
+   /* 指明程序显式地为各个顶点指定雾坐标 */
    glFogi(GL_FOG_COORDINATE_SOURCE_EXT, GL_FOG_COORDINATE_EXT);
+
    glClearColor(0.0, 0.25, 0.25, 1.0);  /* fog color */
 }
 
@@ -89,7 +91,10 @@ void display(void)
    glClear(GL_COLOR_BUFFER_BIT);
 
    glColor3f (1.0f, 0.75f, 0.0f);
+
    glBegin (GL_TRIANGLES);
+   // 指定雾坐标, 在 GL_FOG_COORDINATE_EXT 或 GL_FOG_COORD 下有效
+   // 为什么在显式雾坐标下, f1,f2,f3 值的变化对物体的渲染没有产生影响? QQQQQ
    glFogCoordfEXT (f1);
    glVertex3f (2.0f, -2.0f, 0.0f);
    glFogCoordfEXT (f2);
@@ -116,40 +121,49 @@ void keyboard(unsigned char key, int x, int y)
 {
    switch (key) {
       case 'c':
+         /* 指明程序使用默认的雾坐标 */
          glFogi(GL_FOG_COORDINATE_SOURCE_EXT, GL_FRAGMENT_DEPTH_EXT);
          glutPostRedisplay();
          break;
       case 'C':
+         /* 指明程序显式地为各个顶点指定雾坐标 */
          glFogi(GL_FOG_COORDINATE_SOURCE_EXT, GL_FOG_COORDINATE_EXT);
          glutPostRedisplay();
          break;
       case '1':
          f1 = f1 + 0.25;
+         printf("f1 = %f\n", f1);
          glutPostRedisplay();
          break;
       case '2':
          f2 = f2 + 0.25;
+         printf("f2 = %f\n", f2);
          glutPostRedisplay();
          break;
       case '3':
          f3 = f3 + 0.25;
+         printf("f3 = %f\n", f3);
          glutPostRedisplay();
          break;
       case '8':
+         /* 雾坐标应该是正的, 表示视觉坐标距离. [(P178)] */
          if (f1 > 0.25) {
             f1 = f1 - 0.25;
+            printf("f1 = %f\n", f1);
             glutPostRedisplay();
          }
          break;
       case '9':
          if (f2 > 0.25) {
             f2 = f2 - 0.25;
+            printf("f2 = %f\n", f2);
             glutPostRedisplay();
          }
          break;
       case '0':
          if (f3 > 0.25) {
             f3 = f3 - 0.25;
+            printf("f3 = %f\n", f3);
             glutPostRedisplay();
          }
          break;
