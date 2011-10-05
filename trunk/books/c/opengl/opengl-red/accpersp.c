@@ -67,6 +67,7 @@
  * probably want to insure that your ModelView matrix has been
  * initialized to identity before calling accFrustum().
  */
+/* [(P328)] */
 void accFrustum(GLdouble left, GLdouble right, GLdouble bottom,
    GLdouble top, GLdouble zNear, GLdouble zFar, GLdouble pixdx,
    GLdouble pixdy, GLdouble eyedx, GLdouble eyedy, GLdouble focus)
@@ -80,8 +81,9 @@ void accFrustum(GLdouble left, GLdouble right, GLdouble bottom,
    xwsize = right - left;
    ywsize = top - bottom;
 
-   dx = -(pixdx*xwsize/(GLdouble) viewport[2] + eyedx*zNear/focus);
-   dy = -(pixdy*ywsize/(GLdouble) viewport[3] + eyedy*zNear/focus);
+   /* 微移值只是简单地叠加微移物体和微移观察点所产生的效果值. */
+   dx = -(pixdx*xwsize/(GLdouble)viewport[2] + eyedx*zNear/focus);
+   dy = -(pixdy*ywsize/(GLdouble)viewport[3] + eyedy*zNear/focus);
 
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
@@ -200,12 +202,14 @@ void display(void)
    glClear(GL_ACCUM_BUFFER_BIT);
    for (jitter = 0; jitter < ACSIZE; jitter++) {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      accPerspective (50.0,
-         (GLdouble) viewport[2]/(GLdouble) viewport[3],
-         1.0, 15.0, j8[jitter].x, j8[jitter].y, 0.0, 0.0, 1.0);
+      accPerspective (50.0, (GLdouble)viewport[2] / (GLdouble)viewport[3],
+            1.0, 15.0, j8[jitter].x, j8[jitter].y,
+            0.0, 0.0, 2.0);
       displayObjects ();
+      /* 把结果添加到累积缓冲区中. [(P327)] */
       glAccum(GL_ACCUM, 1.0/ACSIZE);
    }
+   /* 把结果写入颜色缓冲区. [(P327)] */
    glAccum (GL_RETURN, 1.0);
    glFlush();
 }
