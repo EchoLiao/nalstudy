@@ -47,6 +47,10 @@
 #include <stdio.h>
 
 #ifdef GL_VERSION_1_2
+#define USE_MULTEX // 使用多重纹理
+
+static GLuint texNames[2];
+
 
 static GLubyte texels0[32][32][4];
 static GLubyte texels1[16][16][4];
@@ -57,8 +61,8 @@ void makeCheckImages(void)
 
    for (i = 0; i < 32; i++) {
       for (j = 0; j < 32; j++) {
-         texels0[i][j][0] = (GLubyte) i;
-         texels0[i][j][1] = (GLubyte) j;
+         texels0[i][j][0] = (GLubyte) i*8;
+         texels0[i][j][1] = (GLubyte) j*8;
          texels0[i][j][2] = (GLubyte) (i*j)/255;
          texels0[i][j][3] = (GLubyte) 255;
       }
@@ -67,8 +71,8 @@ void makeCheckImages(void)
    for (i = 0; i < 16; i++) {
       for (j = 0; j < 16; j++) {
          texels1[i][j][0] = (GLubyte) 255;
-         texels1[i][j][1] = (GLubyte) i;
-         texels1[i][j][2] = (GLubyte) j;
+         texels1[i][j][1] = (GLubyte) i*6;
+         texels1[i][j][2] = (GLubyte) j*6;
          texels1[i][j][3] = (GLubyte) 255;
       }
    }
@@ -76,8 +80,6 @@ void makeCheckImages(void)
 
 void init(void)
 {
-   GLuint texNames[2];
-
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel(GL_FLAT);
    glEnable(GL_DEPTH_TEST);
@@ -85,14 +87,14 @@ void init(void)
    makeCheckImages();
    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
+   /* 创建两个纹理对象
+    * */
    glGenTextures(2, texNames);
    glBindTexture(GL_TEXTURE_2D, texNames[0]);
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 32, 32, 0, GL_RGBA,
 		GL_UNSIGNED_BYTE, texels0);
-   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
-                   GL_NEAREST);
-   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
-                   GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
@@ -103,9 +105,32 @@ void init(void)
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+#ifdef USE_MULTEX // 使用多重纹理
    /*  Use the two texture objects to define two texture units
     *  for use in multitexturing  */
+   /* 多重纹理处理管线: [(P296)] 
+    * */
+
+   /* 第一个纹理单位 */
+   // 激活GL_TEXTURE0_ARB为当前纹理单位, 设置一些纹理状态. [(P297)]
    glActiveTextureARB (GL_TEXTURE0_ARB);
+   glEnable(GL_TEXTURE_2D);
+   glBindTexture(GL_TEXTURE_2D, texNames[0]);
+   glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+   glMatrixMode(GL_TEXTURE);
+      glLoadIdentity();
+      glTranslatef(0.5f, 0.5f, 0.0f);
+      glRotatef(45.0f, 0.0f, 0.0f, 1.0f);
+      glTranslatef(-0.5f, -0.5f, 0.0f);
+   glMatrixMode(GL_MODELVIEW);
+
+   /* 第二个纹理单位. 多重纹理处理管线: [(P296)] */
+   glActiveTextureARB(GL_TEXTURE1_ARB);
+   glEnable(GL_TEXTURE_2D);
+   glBindTexture(GL_TEXTURE_2D, texNames[1]);
+   glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+#else
    glEnable(GL_TEXTURE_2D);
    glBindTexture(GL_TEXTURE_2D, texNames[0]);
    glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
@@ -115,26 +140,42 @@ void init(void)
       glRotatef(45.0f, 0.0f, 0.0f, 1.0f);
       glTranslatef(-0.5f, -0.5f, 0.0f);
    glMatrixMode (GL_MODELVIEW);
-   glActiveTextureARB (GL_TEXTURE1_ARB);
+
    glEnable(GL_TEXTURE_2D);
    glBindTexture(GL_TEXTURE_2D, texNames[1]);
    glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+#endif
 }
 
 void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+#ifdef USE_MULTEX // 使用多重纹理
+   // 至此使用的即是 texNames[1], 所以可以可以不用 glBindTexture()!
+   // glBindTexture(GL_TEXTURE_2D, texNames[1]);
    glBegin(GL_TRIANGLES);
-   glMultiTexCoord2fARB (GL_TEXTURE0_ARB, 0.0, 0.0);
-   glMultiTexCoord2fARB (GL_TEXTURE1_ARB, 1.0, 0.0);
-   glVertex2f(0.0, 0.0);
-   glMultiTexCoord2fARB (GL_TEXTURE0_ARB, 0.5, 1.0);
-   glMultiTexCoord2fARB (GL_TEXTURE1_ARB, 0.5, 0.0);
-   glVertex2f(50.0, 100.0);
-   glMultiTexCoord2fARB (GL_TEXTURE0_ARB, 1.0, 0.0);
-   glMultiTexCoord2fARB (GL_TEXTURE1_ARB, 1.0, 1.0);
-   glVertex2f(100.0, 0.0);
+       /* 指定纹理坐标. [(P298)] */
+       glMultiTexCoord2fARB (GL_TEXTURE0_ARB, 0.0, 0.0);
+       glMultiTexCoord2fARB (GL_TEXTURE1_ARB, 1.0, 0.0);
+       glVertex2f(0.0, 0.0);
+       glMultiTexCoord2fARB (GL_TEXTURE0_ARB, 0.5, 1.0);
+       glMultiTexCoord2fARB (GL_TEXTURE1_ARB, 0.5, 0.0);
+       glVertex2f(50.0, 100.0);
+       glMultiTexCoord2fARB (GL_TEXTURE0_ARB, 1.0, 0.0);
+       glMultiTexCoord2fARB (GL_TEXTURE1_ARB, 1.0, 1.0);
+       glVertex2f(100.0, 0.0);
    glEnd();
+#else
+   glBindTexture(GL_TEXTURE_2D, texNames[0]);
+   glBegin(GL_TRIANGLES);
+       glTexCoord2f(0.0, 0.0);
+       glVertex2f(0.0, 0.0);
+       glTexCoord2f(1.0, 0.0);
+       glVertex2f(50.0, 100.0);
+       glTexCoord2f(1.0, 1.0);
+       glVertex2f(100.0, 0.0);
+   glEnd();
+#endif
    glFlush();
 }
 
