@@ -140,7 +140,8 @@ void reshape(int w, int h)
    glLoadIdentity();
 
    /* 先把整个模板缓冲区清除为指定值(0x0), 然后画一个正方形, 并把其对应区域的
-    * 模板缓冲区的值修改为参考值(0x1).
+    * 模板缓冲区的值修改为参考值(0x1); 该区域即是我们所要的模板，该模板的值被
+    * 修改为0x1.
     * */
    /* 使模板缓冲区清除为指定值 */
    glClear(GL_STENCIL_BUFFER_BIT); 
@@ -148,12 +149,18 @@ void reshape(int w, int h)
    glStencilFunc (GL_ALWAYS, 0x1, 0x1);
    /* 指定模板缓冲区的数据如何修改(修改为参考值). [(P318)] */
    glStencilOp (GL_REPLACE, GL_REPLACE, GL_REPLACE);
+#if 0
    glBegin(GL_QUADS);
-      glVertex2f (-1.0, 0.0);
-      glVertex2f (0.0, -1.0);
-      glVertex2f (1.0, 0.0);
-      glVertex2f (0.0, 1.0);
+     glVertex2f (-1.0, 0.0);
+     glVertex2f (0.0, -1.0);
+     glVertex2f (1.0, 0.0);
+     glVertex2f (0.0, 1.0);
    glEnd();
+#else
+   // 应该画一个平面圆更合适, 而不是一个球, 因为现在的需求是: 在屏幕范围(2D)内
+   // 确定一个区域用来作为模板.
+   glutSolidSphere (0.5, 15, 15);
+#endif
 
 
    glMatrixMode(GL_PROJECTION);
