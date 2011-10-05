@@ -105,6 +105,7 @@ void makeImages(void)
          mipmapImage2[i][j][3] = 255;
       }
    }
+   /* for (i = 0; i < 1; i++)  */
    mipmapImage1[0][0][0] = 255;
    mipmapImage1[0][0][1] = 255;
    mipmapImage1[0][0][2] = 255;
@@ -126,9 +127,14 @@ void init(void)
 #endif
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+   /* 放大时OpenGL只使用基层(level0)的纹理图像. [(P276 A)] [(P276 B)] MMMMM */
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
-                   GL_NEAREST_MIPMAP_NEAREST);
+                   /* GL_NEAREST_MIPMAP_NEAREST */ GL_LINEAR_MIPMAP_LINEAR);
+
+   /* 生成每种分辨率的纹理图像, level必须是从0到N, 中间不能有断隔. 
+    * [(P269)] [(P274 A)]  */
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 32, 32, 0,
                 GL_RGBA, GL_UNSIGNED_BYTE, mipmapImage32);
    glTexImage2D(GL_TEXTURE_2D, 1, GL_RGBA, 16, 16, 0,
@@ -142,6 +148,7 @@ void init(void)
    glTexImage2D(GL_TEXTURE_2D, 5, GL_RGBA, 1, 1, 0,
                 GL_RGBA, GL_UNSIGNED_BYTE, mipmapImage1);
 
+   /* 指定为贴花方式的纹理函数. [(P282)] */
    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
    glEnable(GL_TEXTURE_2D);
 }
@@ -153,6 +160,7 @@ void display(void)
    glBindTexture(GL_TEXTURE_2D, texName);
 #endif
    glBegin(GL_QUADS);
+   /* glTexCoord2f(0.0, 8.0); 为什么是8.0? QQQQQ */
    glTexCoord2f(0.0, 0.0); glVertex3f(-2.0, -1.0, 0.0);
    glTexCoord2f(0.0, 8.0); glVertex3f(-2.0, 1.0, 0.0);
    glTexCoord2f(8.0, 8.0); glVertex3f(2000.0, 1.0, -6000.0);
