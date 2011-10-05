@@ -62,8 +62,10 @@ void init(void)
 void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
-   glColor3f (1.0, 1.0, 1.0);
+   glColor3f (1.0, 0.0, 0.0);   // 有效
    glRasterPos2i (20, 20);
+   /* 光栅颜色是在调用 glRasterPos*() 根据当前颜色时设置的. [(P206 B)] */
+   glColor3f (1.0, 1.0, 0.0);   // 无效!
    glBitmap (10, 12, 0.0, 0.0, 11.0, 0.0, rasters);
    glBitmap (10, 12, 0.0, 0.0, 11.0, 0.0, rasters);
    glBitmap (10, 12, 0.0, 0.0, 11.0, 0.0, rasters);
