@@ -55,7 +55,13 @@
 #define	iHeight 16
 #define iDepth 16
 
+#define IS_3D_TEX   0
+
+#if IS_3D_TEX
 static GLubyte image[iDepth][iHeight][iWidth][3];
+#else
+static GLubyte image[iHeight][iWidth][3];
+#endif
 static GLuint texName;
 
 /*  Create a 16x16x16x3 array with different color values in
@@ -66,6 +72,7 @@ void makeImage(void)
 {
    int s, t, r;
 
+#if IS_3D_TEX
    for (s = 0; s < 16; s++)
       for (t = 0; t < 16; t++)
          for (r = 0; r < 16; r++) {
@@ -73,6 +80,13 @@ void makeImage(void)
             image[r][t][s][1] = (GLubyte) (t * 17);
             image[r][t][s][2] = (GLubyte) (r * 17);
          }
+#else
+   for (s = 0; s < 16; s++)
+       for (t = 0; t < 16; t++) {
+           image[s][t][0] = (GLubyte) (s * 17);
+           image[s][t][1] = (GLubyte) (t * 17);
+       }
+#endif
 }
 
 void init(void)
@@ -85,6 +99,7 @@ void init(void)
    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
    glGenTextures(1, &texName);
+#if IS_3D_TEX
    glBindTexture(GL_TEXTURE_3D, texName);
    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP);
    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP);
@@ -96,6 +111,17 @@ void init(void)
    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB, iWidth, iHeight,
                 iDepth, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
    glEnable(GL_TEXTURE_3D);
+#else
+   glBindTexture(GL_TEXTURE_2D, texName);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, iWidth, iHeight,
+           0, GL_RGB, GL_UNSIGNED_BYTE, image);
+   glEnable(GL_TEXTURE_2D);
+#endif
 }
 
 void display(void)
