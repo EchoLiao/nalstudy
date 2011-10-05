@@ -33,6 +33,7 @@ Chapter 3: Vieweing
 Chapter 4: Color
 
 	smooth.c	(1.0)
+	smooth-2.c      用不同的方法画正方体(着色正方体)
 
 Chapter 5: Lighting
 

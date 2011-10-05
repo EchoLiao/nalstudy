@@ -54,6 +54,17 @@ void init(void)
    glShadeModel (GL_SMOOTH);
 }
 
+void triangle3d(void)
+{
+   glBegin (GL_TRIANGLES);
+   glColor3f (1.0, 0.0, 0.0);
+   glVertex3f (5.0, 5.0,  1.4);
+   glColor3f (0.0, 1.0, 0.0);
+   glVertex3f (25.0, 5.0, 1.4);
+   glColor3f (0.0, 0.0, 1.0);
+   glVertex3f (5.0, 25.0, 1.4);
+   glEnd();
+}
 void triangle(void)
 {
    glBegin (GL_TRIANGLES);
@@ -69,20 +80,33 @@ void triangle(void)
 void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT);
-   triangle ();
+   /* triangle (); */
+   triangle3d();
    glFlush ();
 }
 
 void reshape (int w, int h)
 {
-   glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-   glMatrixMode (GL_PROJECTION);
-   glLoadIdentity ();
-   if (w <= h)
-      gluOrtho2D (0.0, 30.0, 0.0, 30.0 * (GLfloat) h/(GLfloat) w);
-   else
-      gluOrtho2D (0.0, 30.0 * (GLfloat) w/(GLfloat) h, 0.0, 30.0);
-   glMatrixMode(GL_MODELVIEW);
+    glViewport (0, 0, (GLsizei) w, (GLsizei) h);
+    glMatrixMode (GL_PROJECTION);
+    glLoadIdentity ();
+
+    /* gluOrtho2D 的前提假设是: 近平面与远平面的距离为2; 值默认分别为 -1.0 和
+     * 1.0, 它们受观察点影响, 规律是: "观察点"永远在两者的中间(如: 设"观察点"
+     * 的z坐标为0.4, 则此两个值分别为: -0.6 和 1.4), 这点与 glOrtho 不同. 另: 
+     * 还与 glOrtho 不同的是只要物体出现在视景体中就能观察到, 而不管观察方向是
+     * 否正确. 
+     * */
+    // gluOrtho2D (1.0, 30.0, 1.0, 30.0);
+    // glOrtho (0.0, 30.0, 0.0, 30.0, 0.00, 4.00001);
+    if (w <= h)
+        gluOrtho2D (0.0, 30.0, 0.0, 30.0 * (GLfloat) h/(GLfloat) w);
+    else
+        gluOrtho2D (0.0, 30.0 * (GLfloat) w/(GLfloat) h, 0.0, 30.0);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt (0.0, 0.0, 0.4,  0.0, 0.0, -10.0,  0.0, 1.0, 0.0);
 }
 
 void keyboard(unsigned char key, int x, int y)
