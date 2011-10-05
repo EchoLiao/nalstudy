@@ -69,7 +69,16 @@ void makeCheckImage(void)
 
    for (i = 0; i < checkImageHeight; i++) {
       for (j = 0; j < checkImageWidth; j++) {
-         c = ((((i&0x8)==0)^((j&0x8))==0))*255;
+#if 0
+         c = (i + j) %2 == 0 ? 255 : 0;
+#else 
+         // c = ((((i&0x8)==0)^((j&0x8))==0))*255;
+
+         /* 当 i==0 时, ((i&0x8)==0)为假; 而((j&0x8)==0)在当 0<=j<8 时为假, 当
+          * 8<=j<16 时为真, 当 16<=j<24 时为假 ... ...
+          * */
+         c = ( ((i&0x8)==0) ^ ((j&0x8)==0) ) * 255;
+#endif
          checkImage[i][j][0] = (GLubyte) c;
          checkImage[i][j][1] = (GLubyte) c;
          checkImage[i][j][2] = (GLubyte) c;
@@ -88,7 +97,14 @@ void init(void)
 void display(void)
 {
    glClear(GL_COLOR_BUFFER_BIT);
+   /* glColor*() 无论写在何处都是无效的, 因为 glDrawPixels() 直接操作像素!! */
+   glColor3f(1.0, 0.0, 0.0);    // 无效!
    glRasterPos2i(0, 0);
+   /* 位图无法进行旋转, 缩放等! [(P206 A)] */
+   // glTranslatef(5.0, 50.0, 5.0);     // 无效
+   // glScalef(5.0, 5.0, 5.0);          // 无效
+   // glRotatef(30.0, 5.0, 5.0, 5.0);   // 无效
+   glColor3f(0.0, 1.0, 0.0);    // 无效!
    glDrawPixels(checkImageWidth, checkImageHeight, GL_RGB,
                 GL_UNSIGNED_BYTE, checkImage);
    glFlush();
@@ -101,6 +117,7 @@ void reshape(int w, int h)
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    gluOrtho2D(0.0, (GLdouble) w, 0.0, (GLdouble) h);
+
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
 }
