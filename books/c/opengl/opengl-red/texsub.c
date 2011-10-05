@@ -101,7 +101,7 @@ void init(void)
 
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, checkImageWidth, checkImageHeight,
                 0, GL_RGBA, GL_UNSIGNED_BYTE, checkImage);
@@ -145,7 +145,8 @@ void keyboard (unsigned char key, int x, int y)
       case 's':
       case 'S':
          glBindTexture(GL_TEXTURE_2D, texName);
-         glTexSubImage2D(GL_TEXTURE_2D, 0, 12, 44, subImageWidth,
+         /* 替换纹理对象的全部或一部分.  */
+         glTexSubImage2D(GL_TEXTURE_2D, 0, 13, 44, subImageWidth,
                          subImageHeight, GL_RGBA,
                          GL_UNSIGNED_BYTE, subImage);
          glutPostRedisplay();
