@@ -142,14 +142,18 @@ void DrawGround(void)
     GLfloat texStep = 1.0f / (fExtent * .075f);
 
     glBindTexture(GL_TEXTURE_2D, textureObjects[GROUND_TEXTURE]);
+    // 显然, 就应该用 GL_REPEAT
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
+    // 一列一列地画. [(P223)]
+    // row, s   [-fExtent, fExtent]
     for(iStrip = -fExtent; iStrip <= fExtent; iStrip += fStep)
     {
-        t = 0.0f;
+        t = 1.0f;
         glBegin(GL_TRIANGLE_STRIP);
 
+        // col, t   [-fExtent, fExtent]
         for(iRun = fExtent; iRun >= -fExtent; iRun -= fStep)
         {
             glTexCoord2f(s, t);
@@ -160,7 +164,7 @@ void DrawGround(void)
             glNormal3f(0.0f, 1.0f, 0.0f);   // All Point up
             glVertex3f(iStrip + fStep, y, iRun);
 
-            t += texStep;
+            t -= texStep;
         }
         glEnd();
         s += texStep;
@@ -332,3 +336,5 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
+
