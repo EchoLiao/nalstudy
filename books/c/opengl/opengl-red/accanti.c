@@ -126,11 +126,12 @@ void display(void)
    for (jitter = 0; jitter < ACSIZE; jitter++) {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       glPushMatrix ();
-/*	Note that 4.5 is the distance in world space between
+/*	Note that 4.5 (2.25 - (-2.25)) is the distance in world space between
  *	left and right and bottom and top.
  *	This formula converts fractional pixel movement to
  *	world coordinates.
  */
+      /* 对视景体进行微移以模拟景深 */
       glTranslatef (j8[jitter].x*4.5/viewport[2],
                     j8[jitter].y*4.5/viewport[3], 0.0);
       displayObjects ();
