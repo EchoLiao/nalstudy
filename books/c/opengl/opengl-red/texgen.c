@@ -60,6 +60,7 @@
 
 #define	stripeImageWidth 32
 GLubyte stripeImage[4*stripeImageWidth];
+GLfloat sX, sY, sZ;
 
 #ifdef GL_VERSION_1_1
 static GLuint texName;
@@ -70,8 +71,8 @@ void makeStripeImage(void)
    int j;
 
    for (j = 0; j < stripeImageWidth; j++) {
-      stripeImage[4*j] = (GLubyte) ((j<=4) ? 255 : 0);
-      stripeImage[4*j+1] = (GLubyte) ((j>4) ? 255 : 0);
+      stripeImage[4*j] = (GLubyte) ((j<=15) ? 255 : 0);
+      stripeImage[4*j+1] = (GLubyte) ((j>15) ? 255 : 0);
       stripeImage[4*j+2] = (GLubyte) 0;
       stripeImage[4*j+3] = (GLubyte) 255;
    }
@@ -109,22 +110,24 @@ void init(void)
 #endif
 
    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+   /* 指定纹理坐标的生成方式 */
    currentCoeff = xequalzero;
    currentGenMode = GL_OBJECT_LINEAR;
    currentPlane = GL_OBJECT_PLANE;
    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, currentGenMode);
    glTexGenfv(GL_S, currentPlane, currentCoeff);
 
-   glEnable(GL_TEXTURE_GEN_S);
-   glEnable(GL_TEXTURE_1D);
+   glEnable(GL_TEXTURE_GEN_S);  // 使S纹理坐标自动生成
+   glEnable(GL_TEXTURE_1D);     // 一维纹理 
    glEnable(GL_CULL_FACE);
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
    glEnable(GL_AUTO_NORMAL);
    glEnable(GL_NORMALIZE);
-   glFrontFace(GL_CW);
-   glCullFace(GL_BACK);
-   glMaterialf (GL_FRONT, GL_SHININESS, 64.0);
+   glFrontFace(GL_CW);          // 顶点顺序是顺时针方向的表面是正面[(P37)]
+   glCullFace(GL_BACK);         // 剔除背面[(P37)]
+   glMaterialf (GL_FRONT, GL_SHININESS, 64.0);  // 设置镜面指数. [(P140-P141)]
 }
 
 void display(void)
@@ -132,6 +135,7 @@ void display(void)
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
    glPushMatrix ();
+   glTranslatef(sX, sY, sZ);
    glRotatef(45.0, 0.0, 0.0, 1.0);
 #ifdef GL_VERSION_1_1
    glBindTexture(GL_TEXTURE_1D, texName);
@@ -159,8 +163,10 @@ void reshape(int w, int h)
 void keyboard (unsigned char key, int x, int y)
 {
    switch (key) {
+      /* 注意 GL_EYE_PLANE 和 GL_OBJECT_PLANE 的区别! */
       case 'e':
       case 'E':
+         /* 相对于视觉坐标 [(P293-2)] */
          currentGenMode = GL_EYE_LINEAR;
          currentPlane = GL_EYE_PLANE;
          glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, currentGenMode);
@@ -169,6 +175,7 @@ void keyboard (unsigned char key, int x, int y)
          break;
       case 'o':
       case 'O':
+         /* 相对于物体坐标 [(P289-1)] */
          currentGenMode = GL_OBJECT_LINEAR;
          currentPlane = GL_OBJECT_PLANE;
          glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, currentGenMode);
@@ -181,10 +188,34 @@ void keyboard (unsigned char key, int x, int y)
          glTexGenfv(GL_S, currentPlane, currentCoeff);
          glutPostRedisplay();
          break;
-      case 'x':
-      case 'X':
+      case 'a':
+      case 'A':
          currentCoeff = xequalzero;
          glTexGenfv(GL_S, currentPlane, currentCoeff);
+         glutPostRedisplay();
+         break;
+      case 'x':
+         sX += 0.1;
+         glutPostRedisplay();
+         break;
+      case 'X':
+         sX -= 0.1;
+         glutPostRedisplay();
+         break;
+      case 'y':
+         sY += 0.1;
+         glutPostRedisplay();
+         break;
+      case 'Y':
+         sY -= 0.1;
+         glutPostRedisplay();
+         break;
+      case 'z':
+         sZ += 0.1;
+         glutPostRedisplay();
+         break;
+      case 'Z':
+         sZ -= 0.1;
          glutPostRedisplay();
          break;
       case 27:
