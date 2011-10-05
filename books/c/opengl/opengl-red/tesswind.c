@@ -63,7 +63,9 @@ GLuint list;
 /*  Make four display lists,
  *  each with a different tessellated object.
  */
-void makeNewLists (void) {
+/* [(P348)] */
+void makeNewLists (void) 
+{
    int i;
    static GLdouble rects[12][3] =
       {50.0, 50.0, 0.0, 300.0, 50.0, 0.0,
@@ -91,9 +93,10 @@ void makeNewLists (void) {
       {200.0, 50.0, 0.0, 250.0, 300.0, 0.0,
        150.0, 300.0, 0.0};
 
-   gluTessProperty(tobj, GLU_TESS_WINDING_RULE,
-                   currentWinding);
+   /* 指定环尧规则 */
+   gluTessProperty(tobj, GLU_TESS_WINDING_RULE, currentWinding);
 
+   /* A */
    glNewList(list, GL_COMPILE);
       gluTessBeginPolygon(tobj, NULL);
          gluTessBeginContour(tobj);
@@ -111,6 +114,7 @@ void makeNewLists (void) {
       gluTessEndPolygon(tobj);
    glEndList();
 
+   /* B */
    glNewList(list+1, GL_COMPILE);
       gluTessBeginPolygon(tobj, NULL);
          gluTessBeginContour(tobj);
@@ -128,6 +132,7 @@ void makeNewLists (void) {
       gluTessEndPolygon(tobj);
    glEndList();
 
+   /* D */
    glNewList(list+2, GL_COMPILE);
       gluTessBeginPolygon(tobj, NULL);
          gluTessBeginContour(tobj);
@@ -137,6 +142,7 @@ void makeNewLists (void) {
       gluTessEndPolygon(tobj);
    glEndList();
 
+   /* C */
    glNewList(list+3, GL_COMPILE);
       gluTessBeginPolygon(tobj, NULL);
          gluTessBeginContour(tobj);
@@ -155,9 +161,11 @@ void makeNewLists (void) {
    glEndList();
 }
 
-void display (void) {
+void display (void) 
+{
    glClear(GL_COLOR_BUFFER_BIT);
-   glColor3f(1.0, 1.0, 1.0);
+   glColor3f(0.0, 0.0, 0.0);
+
    glPushMatrix();
    glCallList(list);
    glTranslatef(0.0, 500.0, 0.0);
@@ -167,6 +175,7 @@ void display (void) {
    glTranslatef(0.0, 500.0, 0.0);
    glCallList(list+3);
    glPopMatrix();
+
    glFlush();
 }
 
@@ -208,20 +217,15 @@ void CALLBACK combineCallback(GLdouble coords[3], GLdouble *data[4],
 
 void init(void)
 {
-   glClearColor(0.0, 0.0, 0.0, 0.0);
+   glClearColor(1.0, 1.0, 1.0, 0.0);
    glShadeModel(GL_FLAT);
 
    tobj = gluNewTess();
-   gluTessCallback(tobj, GLU_TESS_VERTEX,
-                   glVertex3dv);
-   gluTessCallback(tobj, GLU_TESS_BEGIN,
-                   beginCallback);
-   gluTessCallback(tobj, GLU_TESS_END,
-                   endCallback);
-   gluTessCallback(tobj, GLU_TESS_ERROR,
-                   errorCallback);
-   gluTessCallback(tobj, GLU_TESS_COMBINE,
-                   combineCallback);
+   gluTessCallback(tobj, GLU_TESS_VERTEX, glVertex3dv);
+   gluTessCallback(tobj, GLU_TESS_BEGIN, beginCallback);
+   gluTessCallback(tobj, GLU_TESS_END, endCallback);
+   gluTessCallback(tobj, GLU_TESS_ERROR, errorCallback);
+   gluTessCallback(tobj, GLU_TESS_COMBINE, combineCallback);
 
    list = glGenLists(4);
    makeNewLists();
@@ -243,6 +247,7 @@ void reshape(int w, int h)
 void keyboard(unsigned char key, int x, int y)
 {
    switch (key) {
+      /* test - 环尧规则 */
       case 'w':
       case 'W':
          if (currentWinding == GLU_TESS_WINDING_ODD)
