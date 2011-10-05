@@ -55,19 +55,22 @@
 void init(void)
 {
    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-   GLfloat mat_shininess[] = { 50.0 };
-   GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+   GLfloat mat_shininess[] = { 28.0 }; // 值超大亮点就更小更亮
+   GLfloat light_position[] = { 0.0, 22.0, 22.0, 1.0 }; // 位置性光源 [(P131)]
 
    glClearColor (0.0, 0.0, 0.0, 0.0);
+   // glShadeModel (GL_FLAT); // 会出现明显的边痕
    glShadeModel (GL_SMOOTH);
 
-   glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-   glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+   // [(P140)]
+   glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);   // 材料的境面颜色
+   glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess); // 境面指数
    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
+   // 开启光照
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
-   glEnable(GL_DEPTH_TEST);
+   glEnable(GL_DEPTH_TEST); // 开启深度测试 
 }
 
 void display(void)
@@ -88,6 +91,7 @@ void reshape (int w, int h)
    else
       glOrtho (-1.5*(GLfloat)w/(GLfloat)h,
          1.5*(GLfloat)w/(GLfloat)h, -1.5, 1.5, -10.0, 10.0);
+
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
 }
