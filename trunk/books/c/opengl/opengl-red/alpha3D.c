@@ -54,11 +54,11 @@
 
 #define MAXZ 8.0
 #define MINZ -8.0
-#define ZINC 0.4
+#define ZINC 0.3
 
 static float solidZ = MAXZ;
 static float transparentZ = MINZ;
-static GLuint sphereList, cubeList;
+static GLuint sphereList, cubeList; // 显示列表
 
 static void init(void)
 {
@@ -72,7 +72,7 @@ static void init(void)
 
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
-   glEnable(GL_DEPTH_TEST);
+   glEnable(GL_DEPTH_TEST); // 启用深度测试
 
    sphereList = glGenLists(1);
    glNewList(sphereList, GL_COMPILE);
@@ -107,11 +107,12 @@ void display(void)
       glRotatef (30.0, 0.0, 1.0, 0.0);
       glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
       glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_transparent);
-      glEnable (GL_BLEND);
-      glDepthMask (GL_FALSE);
-      glBlendFunc (GL_SRC_ALPHA, GL_ONE);
+
+      glEnable (GL_BLEND);      // 画透明物体, 开启混合
+      glDepthMask (GL_FALSE);   // 使深度值只能读. [(P160 B)]
+      glBlendFunc (GL_SRC_ALPHA, GL_ONE);   // 设置混合因子
       glCallList (cubeList);
-      glDepthMask (GL_TRUE);
+      glDepthMask (GL_TRUE);    // 使深度值能读写 
       glDisable (GL_BLEND);
    glPopMatrix ();
 
@@ -151,7 +152,8 @@ void keyboard(unsigned char key, int x, int y)
       case 'A':
          solidZ = MAXZ;
          transparentZ = MINZ;
-         glutIdleFunc(animate);
+         // 设置Idle函数, 其一直会生效, 直到下一次重新设置
+         glutIdleFunc(animate); 
          break;
       case 'r':
       case 'R':
