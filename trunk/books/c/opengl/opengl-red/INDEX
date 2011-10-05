@@ -42,6 +42,7 @@ Chapter 5: Lighting
 	material.c	(1.0)
 	colormat.c	(1.1)
 	scene.c		(1.0)
+	movelight-2.c	光源和观察点一起移动
 
 qChapter 6: Blending, Antialiasing, Fog, and Polygon Offset
 
