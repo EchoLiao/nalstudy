@@ -302,6 +302,11 @@ int main (int argc, char *argv[])
     printf("%s\n", str);
     TSC_WritePrivateProfileString(NULL, "goto", "888", "thunder.ini");
 #endif
+    time_t tim;
+    tim = time(NULL);
+    char *pt = ctime((const time_t*)&tim);
+    *(pt + strlen(pt) - 1) = '\0';
+    printf("%s\n", pt);
 
     return 0;
 }
