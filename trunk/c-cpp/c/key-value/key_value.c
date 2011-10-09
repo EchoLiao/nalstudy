@@ -143,7 +143,7 @@ _NO_MEMORY:
     fclose(pf);
 _CANNOT_OPEN:
     free(pdata); // no memory, pdata is NULL. ok!
-    free(*pRet);  // ...
+    free(*pRet); // ...
     *pRet = NULL;
     return FALSE;
 }
@@ -260,6 +260,7 @@ int TSC_GetPrivateProfileString(char *papp, char *pkey, char *pdef,
 {
     assert(pkey != NULL && pretval != NULL && pfile != NULL);
     KValS *pKS = NULL;
+    char *pstr;
     int ret, i, len = 0;
 
     ret = st_read_allpros(&pKS, pfile);
@@ -269,7 +270,8 @@ int TSC_GetPrivateProfileString(char *papp, char *pkey, char *pdef,
     {
         if ( strcmp((pKS->pkval)[i].key, pkey) == 0 )
         {
-            st_strncpy(pretval, (pKS->pkval)[i].val, nsize - 1);
+            pstr = st_strncpy(pretval, (pKS->pkval)[i].val, nsize - 1);
+            len = strlen(pstr);
             break;
         }
     }
