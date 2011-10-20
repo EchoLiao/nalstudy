@@ -6,8 +6,7 @@
  *    Description:
  *
  *        Version:  1.0
- *        Created:  2011年09月30日 04时41分47秒
- *       Revision:  none
+ *        Created:  2011�?9�?0�?04�?1�?7�? *       Revision:  none
  *       Compiler:  gcc
  *
  *         Author:  nuoerlz (nuoliu), nuoerlz@gmail.com
@@ -206,13 +205,10 @@ _CANNOT_OPEN:
 }
 
 /****************************************************
-写入信息到指定的配置文件中
-参数1:lpAppName未使用.
-参数2:要保存的标志符
-参数3:要写入的数据值
-参数4:配置文件名.
-假如要将IP信息写入 \thunder\thunder.ini 文件中,IP地址为 192.168.1.3 ,
-表识信息数据为 localip.
+写入信息到指定的配置文件�?参数1:lpAppName未使�?
+参数2:要保存的标志�?参数3:要写入的数据�?参数4:配置文件�?
+假如要将IP信息写入 \thunder\thunder.ini 文件�?IP地址�?192.168.1.3 ,
+表识信息数据�?localip.
 实际调用为TSC_WritePrivateProfileString(0,"localip","192.168.1.3","\thunder\thunder.ini");
 *****************************************************/
 BOOL TSC_WritePrivateProfileString(char *papp, char *pkey,
@@ -223,26 +219,30 @@ BOOL TSC_WritePrivateProfileString(char *papp, char *pkey,
     KVal kV;
     int ret, i;
 
+    st_strncpy(kV.key, pkey, KEY_MAX_LEN);
+    st_strncpy(kV.val, pval, VAL_MAX_LEN);
+
     ret = st_read_allpros(&pKS, pfile);
-    if ( ! ret )
-        return FALSE;
-
-    for ( i = 0; i < pKS->num; i++ )
+    if ( ret )
     {
-        if ( strcmp((pKS->pkval)[i].key, pkey) == 0 )
+        for ( i = 0; i < pKS->num; i++ )
         {
-            st_strncpy((pKS->pkval)[i].val, pval, VAL_MAX_LEN);
-            break;
+            if ( strcmp((pKS->pkval)[i].key, pkey) == 0 )
+            {
+                st_strncpy((pKS->pkval)[i].val, pval, VAL_MAX_LEN);
+                break;
+            }
         }
+        ret = st_write_allpros(pKS, pfile, 0);
+        if ( ret && i == pKS->num )
+            ret = st_write_pro(&kV, pfile, 1);
     }
-
-    ret = st_write_allpros(pKS, pfile, 0);
-    if ( ret && i == pKS->num )
+    else
     {
-        st_strncpy(kV.key, pkey, KEY_MAX_LEN);
-        st_strncpy(kV.val, pval, VAL_MAX_LEN);
         ret = st_write_pro(&kV, pfile, 1);
     }
+    printf("NAL &&&==write==&&& pkey=%s, pval=%s, pfile=%s,\n",
+            pkey, pval, pfile);
 
     free(pKS);
     return ret;
@@ -250,36 +250,38 @@ BOOL TSC_WritePrivateProfileString(char *papp, char *pkey,
 
 /****************************************************
 从指定的配置文件中读出字符串数据
-参数1:lpAppName未使用.
-参数2:标志符
-参数3:默认值,即没有保存的标志符时返回的数据
-参数4:配置文件名.
+参数1:lpAppName未使�?
+参数2:标志�?参数3:默认�?即没有保存的标志符时返回的数�?参数4:配置文件�?
 *****************************************************/
 int TSC_GetPrivateProfileString(char *papp, char *pkey, char *pdef,
         char *pretval, int nsize, char *pfile)
 {
     assert(pkey != NULL && pretval != NULL && pfile != NULL);
     KValS *pKS = NULL;
-    char *pstr;
+    char *pst;
     int ret, i, len = 0;
 
     ret = st_read_allpros(&pKS, pfile);
-    if ( ! ret )
-        return 0;
-    for ( i = 0; i < pKS->num; i++ )
+    if ( ret )
     {
-        if ( strcmp((pKS->pkval)[i].key, pkey) == 0 )
+        for ( i = 0; i < pKS->num; i++ )
         {
-            pstr = st_strncpy(pretval, (pKS->pkval)[i].val, nsize - 1);
-            len = strlen(pstr);
-            break;
+            if ( strcmp((pKS->pkval)[i].key, pkey) == 0 )
+            {
+                pst = st_strncpy(pretval, (pKS->pkval)[i].val, nsize - 1);
+                len = strlen(pst);
+                break;
+            }
         }
     }
-    if ( i == pKS->num && pdef != NULL )
+
+    if ( (!ret || i == pKS->num) && pdef != NULL )
     {
         strcpy(pretval, pdef);
         len = strlen(pdef);
     }
+    printf("NAL &&&==read==&&& pkey=%s, pdef=%s, pretval=%s, pfile=%s,\n",
+            pkey, pdef, pretval, pfile);
 
     free(pKS);
     return len;
@@ -300,7 +302,7 @@ int main (int argc, char *argv[])
     free(pKS);
 #else
     char str[128];
-    TSC_GetPrivateProfileString(NULL, "xMin", "ZZZ", str, 128, "thunder.ini");
+    TSC_GetPrivateProfileString(NULL, "yMin", "ZZZ", str, 128, "thunder.ini");
     printf("%s\n", str);
     TSC_WritePrivateProfileString(NULL, "goto", "888", "thunder.ini");
 #endif
