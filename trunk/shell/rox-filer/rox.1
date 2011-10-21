@@ -1,0 +1,192 @@
+.TH ROX 1 "2005" "Thomas Leonard" ""
+.SH NAME
+ROX-Filer \- a simple graphical file manager
+.SH SYNOPSIS
+
+.B rox
+[\fBOPTION\fP]... [FILE]... 
+.SH DESCRIPTION
+.PP
+ROX-Filer is a simple and easy to use graphical file manager for X11, the windowing system used on Unix and Unix-like operating systems.
+
+.PP
+It is also the core component of the ROX Desktop:
+http://rox.sourceforge.net
+
+.PP
+Invoking
+.B rox
+opens each directory or file listed, or the current working directory if no arguments are given.
+.SH COMMAND-LINE OPTIONS
+.PP
+ 
+.TP
+\fB-b\fP, \fB--border=PANEL\fP
+open PANEL.
+      
+.TP
+\fB-B\fP, \fB--bottom=PANEL\fP
+open PANEL as a bottom-edge panel.
+      
+.TP
+\fB-c\fP, \fB--client-id=ID\fP
+used for session management.
+      
+.TP
+\fB-d\fP, \fB--dir=DIR\fP
+open DIR as directory (not as an application, even if it looks like one).
+      
+.TP
+\fB-D\fP, \fB--close=DIR\fP
+close DIR and all its subdirectories.
+      
+.TP
+\fB-h\fP, \fB--help\fP
+display help about the various options.
+      
+.TP
+\fB-l\fP, \fB--left=PANEL\fP
+open PANEL as a left-edge panel.
+      
+.TP
+\fB-m\fP, \fB--mime-type=FILE\fP
+print MIME type of FILE and exit.
+      
+.TP
+\fB-n\fP, \fB--new\fP
+start a new filer, even if one already seems to be
+      running. This also prevents the filer from forking (running in the
+      background). This option is mainly useful for debugging.
+      
+.TP
+\fB-p\fP, \fB--pinboard=PIN\fP
+use pinboard PIN as the pinboard.
+      
+.TP
+\fB-r\fP, \fB--right=PANEL\fP
+open PANEL as a right-edge panel.
+      
+.TP
+\fB-R\fP, \fB--RPC\fP
+read and invoke SOAP RPC from standard input (see the manual).
+      
+.TP
+\fB-s\fP, \fB--show=FILE\fP
+open a directory showing FILE.
+      
+.TP
+\fB-S\fP, \fB--rox-session\fP
+run by session manager, open the default panel and pinboard (implies --new).
+If an XSM session manager is running and this option is used then ROX-Filer will ask to be automatically
+restarted if it crashes.
+      
+.TP
+\fB-t\fP, \fB--top=PANEL\fP
+open PANEL as a top-edge panel.
+      
+.TP
+\fB-u\fP, \fB--user\fP
+show user name in each window.
+      
+.TP
+\fB-U\fP, \fB--url=URI\fP
+run URI as a file or directory. If URI is a
+file: url and refers to a file on the local machine then it is
+converted to a local file name:  rox -U
+file:///tmp is equivalent to rox /tmp.  If the URI is some other
+scheme the shared URI handler configuration is consulted to run it.
+      
+.TP
+\fB-v\fP, \fB--version\fP
+display the version information and exit.
+      
+.TP
+\fB-x\fP, \fB--examine=FILE\fP
+FILE has changed; re-examine it.
+       
+.SH NOTES
+.PP
+The main documentation for ROX-Filer is available by choosing Show Help Files from the popup menu, or by clicking on the right-most toolbar icon.
+.SH LICENSE
+.PP
+Copyright (C) 2004 Thomas Leonard.
+
+.PP
+You may redistribute copies of ROX-Filer under the terms of the GNU General Public License.
+.SH BUGS
+.PP
+Please report bugs to the developer mailing list:
+http://rox.sourceforge.net/contact.html.
+.SH AUTHORS
+.PP
+ROX-Filer was created by Thomas Leonard, with help from:
+
+.PP
+Michael Adams,
+Christopher Arndt,
+Jens Askengren,
+Liav Asseraf,
+Wilbert Berendsen,
+Francesco Bochicchio,
+Yuri Bongiorno,
+Andrzej Borsuk,
+Richard Boulton,
+Simon Britnell,
+Arnaud Calvo,
+Babyfai Cheung,
+Andrew Clover,
+Fabien Coutant,
+Couderc Damien,
+Andreas Dehmel,
+Micah Dowty,
+Dmitry Elfimov,
+Mattias Engdegard,
+Andrew Flegg,
+Olivier Fourdan,
+Eric Gillespie,
+Thierry Godefroy,
+Olli Helenius,
+Alex Holden,
+Jasper Huijsmans,
+Sigve Indregard,
+Bernard Jungen,
+Marcin Juszkiewicz,
+James Kermode,
+Jim Knoble,
+Krzysztof Krzyzaniak,
+Aaron Kurtz,
+Vincent Ledda,
+Vincent Lefevre,
+Victor Liu See-le,
+Alexey Lubimov,
+Krzysztof Luks,
+Marcus Lundblad,
+Anders Lundmark,
+Jose Romildo Malaquias,
+Denis Manente,
+Brendan McCarthy,
+Andras Mohari,
+Christiansen Merel,
+Jimmy Olgeni,
+Richard Olsson,
+Matthew O'Phinney,
+Daniele Peri,
+Andy Piper,
+Marcelo Ramos,
+Michel Alexandre Salim,
+Adam Sampson,
+Chris Sawer,
+Christian Storgaard,
+Taras,
+Simon Truss,
+Hirosi Utumi,
+Jan Wagemakers,
+Keith Warno,
+Götz Waschk,
+Stephen Watson,
+Andre Wyrwa,
+Geoff Youngs,
+Diego Zamboni
+
+.PP
+and many others; the Changes file contains more detailed information!
