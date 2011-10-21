@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<selections interface="/home/builder/build/rox-filer-2.11.xml" xmlns="http://zero-install.sourceforge.net/2004/injector/interface" xmlns:ns0="http://zero-install.sourceforge.net/2006/namespaces/0compile">
+  <selection arch="*-src" id="sha1new=44c2506ae5b5abe98d66d5af36653d5edafa91d2" interface="/home/builder/build/rox-filer-2.11.xml" ns0:binary-main="ROX-Filer/AppRun" ns0:min-version="0.19.1" released="2011-10-09" version="2.11">
+    <manifest-digest sha1new="44c2506ae5b5abe98d66d5af36653d5edafa91d2" sha256="06dd833c6a92ac169a431530b619d98b273a4c854eaf2bd42eada51330fabed7"/>
+    <requires interface="http://repo.roscidus.com/devel/pkg-config">
+      <environment insert="bin" mode="prepend" name="PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2006/interfaces/GTK-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2006/interfaces/GLib-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2006/interfaces/ATK-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2006/interfaces/Pango-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2008/interfaces/libxml2-dev.xml">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+  </selection>
+  <selection id="sha1new=61d0238880a8770123436e5ef5dc29243a80822c" interface="http://0install.net/2006/interfaces/ATK-dev" ns0:lib-mappings="atk-1.0:0" released="2008-05-10" version="1.22.0">
+    <manifest-digest sha1new="61d0238880a8770123436e5ef5dc29243a80822c"/>
+  </selection>
+  <selection arch="Linux-x86_64" id="sha1new=96667a5606f161c6b0c729df83a452003cb32e8b" interface="http://0install.net/2006/interfaces/GLib-dev" ns0:lib-mappings="glib-2.0:0 gmodule-2.0:0 gobject-2.0:0 gthread-2.0:0" released="2008-05-10" version="2.16.3">
+    <manifest-digest sha1new="96667a5606f161c6b0c729df83a452003cb32e8b"/>
+  </selection>
+  <selection id="sha1new=cc1df9d2a745cf0b245526c6b1065faf28f851ea" interface="http://0install.net/2006/interfaces/GTK-dev" ns0:lib-mappings="gtk-x11-2.0:0 gdk-x11-2.0:0 gdk_pixbuf-2.0:0" released="2008-05-10" version="2.12.9">
+    <manifest-digest sha1new="cc1df9d2a745cf0b245526c6b1065faf28f851ea"/>
+    <requires interface="http://0install.net/2006/interfaces/GLib-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2006/interfaces/ATK-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+    <requires interface="http://0install.net/2006/interfaces/Pango-dev">
+      <environment insert="lib/pkgconfig" mode="prepend" name="PKG_CONFIG_PATH"/>
+    </requires>
+  </selection>
+  <selection id="sha1new=f44d77837d6bacf78e638bc4acb50493fab7e9e8" interface="http://0install.net/2006/interfaces/Pango-dev" ns0:lib-mappings="pangoxft-1.0:0 pangox-1.0:0 pango-1.0:0 pangoft2-1.0:0 pangocairo-1.0:0" released="2008-05-10" version="1.20.2">
+    <manifest-digest sha1new="f44d77837d6bacf78e638bc4acb50493fab7e9e8"/>
+  </selection>
+  <selection arch="Linux-x86_64" id="sha1new=c5dd932aadd7f52edeadddabd392049f2d67a317" interface="http://0install.net/2008/interfaces/libxml2-dev.xml" ns0:lib-mappings="xml2:2" released="2008-02-22" version="2.6.27">
+    <manifest-digest sha1new="c5dd932aadd7f52edeadddabd392049f2d67a317"/>
+  </selection>
+  <selection distributions="Debian" from-feed="distribution:http://repo.roscidus.com/devel/pkg-config" id="package:deb:pkg-config:0.25-1.1:x86_64" interface="http://repo.roscidus.com/devel/pkg-config" package="pkg-config" version="0.25-1.1"/>
+  <command name="compile" shell-command="&quot;$SRCDIR/ROX-Filer/src/build&quot;"/>
+  <build-info arch="Linux-x86_64" host="debian6" time="2011-10-09 16:20" user="builder"/>
+</selections>
