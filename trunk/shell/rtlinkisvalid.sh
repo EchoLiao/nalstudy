@@ -57,8 +57,8 @@ if [[ $? == 0 ]]; then
         find $fdir -type l > $tf
     else
         find $fdir -type l \
-                -iname "*.txt" -o -iname "README" -o -iname "INSTALL" \
-                -iname "README.*" -o -iname "INSTALL.*" \
+                -type f -iname '*.txt' -o -type f -iname 'README' -o -type f -iname 'INSTALL' \
+                -o -type f -iname 'README.*' -o -type f -iname 'INSTALL.*' \
                 | grep -v '\.git' | grep -v '\.svn' | grep -v 'minix.*svn'\
                 | grep -v '/rfc/' | grep -v 'softEngineering' > $tf
     fi
