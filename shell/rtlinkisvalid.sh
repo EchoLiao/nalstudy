@@ -59,7 +59,7 @@ if [[ $? == 0 ]]; then
         find $fdir -type l \
                 -iname "*.txt" -o -iname "README" -o -iname "INSTALL" \
                 -iname "README.*" -o -iname "INSTALL.*" \
-                | grep -v '.git' | grep -v '.svn' \
+                | grep -v '\.git' | grep -v '\.svn' | grep -v 'minix.*svn'\
                 | grep -v '/rfc/' | grep -v 'softEngineering' > $tf
     fi
 else
