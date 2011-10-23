@@ -26,9 +26,9 @@ if [[ $? == 0 ]]; then
     #===============================
     # Modify follow line to fit you!
     echo "THE BASE DIRECTORY IS: $rt/{$fdir}"
-    find $fdir -type f \
-            -iname "*.txt" -o -iname "README" -o -iname "INSTALL" \
-            -iname "README.*" -o -iname "INSTALL.*" \
+    find $fdir \
+            -type f -iname '*.txt' -o -type f -iname 'README' -o -type f -iname 'INSTALL' \
+            -o -type f -iname 'README.*' -o -type f -iname 'INSTALL.*' \
             | grep -v '\.git' | grep -v '\.svn' | grep -v 'minix.*svn'\
             | grep -v '/rfc/' | grep -v 'softEngineering' > $tf
 else

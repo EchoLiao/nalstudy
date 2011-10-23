@@ -26,9 +26,9 @@ if [[ $? == 0 ]]; then
     #===============================
     # Modify follow line to fit you!
     echo "THE BASE DIRECTORY IS: $rt/{$fdir}"
-    find $fdir -type f \
-            -iname "*.txt" -o -iname "README" -o -iname "INSTALL" \
-            -iname "README.*" -o -iname "INSTALL.*" \
+    find $fdir \
+            -type f -iname '*.txt' -o -type f -iname 'README' -o -type f -iname 'INSTALL' \
+            -o -type f -iname 'README.*' -o -type f -iname 'INSTALL.*' \
             | grep -v '\.git' | grep -v '\.svn' | grep -v 'minix.*svn'\
             | grep -v '/rfc/' | grep -v 'softEngineering' > $tf
 else
@@ -50,8 +50,12 @@ do
             continue; # the $rtnt/$line NOT exist, so we do nothing!
         fi
     else
-        if [[ -f "$rtnt/$bpath/$bname" ]]; then continue; else
-            echo "THEY ARE NOT EQUAL: $rt/$line AND $rtnt/$line" 1>&2; continue;
+        if [[ ! -e "$rt/$bpath/$bname" ]]; then # $rt/... 是软链接且所指向的文件不存在
+            rm -f "$rt/$bpath/$bname"   # Add link late
+        else # $rt/... 是软链接且所指向的文件存在
+            if [[ -f "$rtnt/$bpath/$bname" ]]; then continue; else
+                echo "THEY ARE NOT EQUAL: $rt/$line AND $rtnt/$line" 1>&2; continue;
+            fi
         fi
     fi
 
