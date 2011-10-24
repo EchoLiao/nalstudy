@@ -1,8 +1,8 @@
 
-PROGS_1 = \
-		example.1 \
-		example3.1 \
-		example4.1 \
+#PROGS_1 = \
+		#example.1 \
+		#example3.1 \
+		#example4.1 \
 
 PROGS_PDF = \
 		example.pdf \
@@ -20,7 +20,8 @@ PROGS =	\
 all: ${PROGS}
 
 
-$(PROGS_1): %.1: %.mp
+#$(PROGS_1): %.1: %.mp
+%.1: %.mp
 	mpost $<
 
 $(PROGS_PDF): %.pdf: %.1
@@ -32,4 +33,4 @@ $(PROGS_PDF_LATEX): %.pdf: %.tex
 
 clean:
 	-rm -f $(PROGS)
-	-rm -f *.log *.aux
+	-rm -f *.log *.aux *.1
