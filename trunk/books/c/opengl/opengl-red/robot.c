@@ -85,10 +85,10 @@ struct nalobject g_obj[2];
 
 void st_display2(int i)
 {
+    glPushMatrix();
     {
         glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
-        if ( i == 0 )
-            glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+        glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
         glPushMatrix();
         {
             glTranslatef (0.5, 0.0, 0.0);
@@ -97,6 +97,7 @@ void st_display2(int i)
         }
         glPopMatrix();
     }
+    glPopMatrix();
 }
 
 void display2(void)
@@ -106,22 +107,18 @@ void display2(void)
     glScalef (0.5, 0.5, 0.5);
     glClear (GL_COLOR_BUFFER_BIT);
 
-    // 无论 g_obj[0].x 的值如何, 该两物体都衔接在一起. 因为 g_obj[1] 最终的 x
-    // 坐标也会受到它的影响.
-    g_obj[0].x = -2.0;
+    g_obj[0].x = -0.5;
     g_obj[0].y =  0.0;
     g_obj[0].z =  0.0;
     g_obj[0].r =  (float)shoulder;
 
-    g_obj[1].x =  1.0;
+    g_obj[1].x =  0.5;
     g_obj[1].y =  0.0;
     g_obj[1].z =  0.0;
     g_obj[1].r =  (float)shoulder;
 
-    glPushMatrix();
     st_display2(0);
     st_display2(1);
-    glPopMatrix();
 
     glutSwapBuffers();
 }
