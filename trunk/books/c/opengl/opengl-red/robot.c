@@ -106,7 +106,9 @@ void display2(void)
     glScalef (0.5, 0.5, 0.5);
     glClear (GL_COLOR_BUFFER_BIT);
 
-    g_obj[0].x = -1.0;
+    // 无论 g_obj[0].x 的值如何, 该两物体都衔接在一起. 因为 g_obj[1] 最终的 x
+    // 坐标也会受到它的影响.
+    g_obj[0].x = -2.0;
     g_obj[0].y =  0.0;
     g_obj[0].z =  0.0;
     g_obj[0].r =  (float)shoulder;
