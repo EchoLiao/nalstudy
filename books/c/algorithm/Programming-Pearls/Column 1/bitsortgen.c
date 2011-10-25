@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     for (i = 0; i < n; i++)
         x[i] = i;
 
+    /* 随机打乱数列的顺序 */
     for (i = 0; i < n; i++) {
         p = randint(i, n-1);
         t = x[p];
