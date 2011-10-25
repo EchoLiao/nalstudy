@@ -50,6 +50,11 @@ void reverse(int i, int j)
 }
 
 /*
+ * AB ==> BA
+ * 原理: (^表示反转, 如: abc^ = cba)
+ *      (A^B^)^ = BA
+ *
+ *
  * rotdist = "abcdefgh", n = 3 :
  *
  *  abcdefgh -> cbadefgh -> cbahgfed -> defghabc
@@ -72,6 +77,7 @@ void revrot(int rotdist, int n)
 
 /*
  * 返回 i 和 j 的最大公约数
+ *   gcd(2, 8) == 2
  *
  * */
 int gcd(int i, int j)
@@ -87,8 +93,13 @@ int gcd(int i, int j)
 }
 
 /*
- * rotdist = 2, n = 8
+ * i = rotdist = 2, n = 8
  *
+ *   把x[0]移动tmp中暂存, 然后把x[i]移动到x[0], 把x[2i]移动到x[i], 依此类推,
+ *   直到又返回到x[0]处取元素. 如果该过程不能移动所有的元素, 那么我们从x[1]开
+ *   始移动, 一直依次下去, 直到移动了所有的元素为止.
+ *
+ * 01234567    01234567    01234567
  * abcdefgh -> cbedgfah -> cdefghab
  *
  * */
@@ -98,14 +109,23 @@ void jugglerot(int rotdist, int n)
 		return;
     int cycles, i, j, k, t;
 	cycles = gcd(rotdist, n);
+    printf("NAL gcd(rotdist, n)=%d\n", cycles);
 	for (i = 0; i < cycles; i++) {
 		/* move i-th values of blocks */
 		t = x[i];
 		j = i;
 		for (;;) {
 			k = j + rotdist;
-			if (k >= n)
+			if (k >= n) // 等价于求余
 				k -= n;
+            /* 方程式:
+             *      (a + r * h) % n = a
+             *  h 必有整数解, 且有无数个:
+             *    h = N * (n / gcd(r, n)), (N = 0,1,2,3 ...)
+             *
+             *      (0 + 2 * h) % 8 = 0
+             *  h = 0,4,8,12,16...
+             * */
 			if (k == i)
 				break;
 			x[j] = x[k];
@@ -225,7 +245,7 @@ void gcdrot(int rotdist, int n)
 		}
 	}
     printf("%d\n", i);
-    assert(i == 1);
+    // assert(i == 1); // 错误! 不一定等于一.
 	swap(p-i, p, i);
 }
 
@@ -308,6 +328,7 @@ void timedriver()
     while (scanf("%d %d %d %d", &algnum, &numtests, &n, &rotdist) != EOF) {
 		initx();
 		start = clock();
+        printf("NAL 1X: %d %d %d %d\n", algnum, numtests, n, rotdist);
 		for (i = 0; i < numtests; i++) {
 			if (algnum == 1)
 				revrot(rotdist, n);
