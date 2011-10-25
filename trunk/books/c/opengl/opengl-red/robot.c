@@ -85,10 +85,12 @@ struct nalobject g_obj[2];
 
 void st_display2(int i)
 {
-    glPushMatrix();
+    if ( i == 0 )
+        glPushMatrix();
     {
         glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
-        glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+        if ( i == 0 )
+            glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
         glPushMatrix();
         {
             glTranslatef (0.5, 0.0, 0.0);
@@ -97,7 +99,8 @@ void st_display2(int i)
         }
         glPopMatrix();
     }
-    glPopMatrix();
+    if ( i == 1)
+        glPopMatrix();
 }
 
 void display2(void)
@@ -107,13 +110,13 @@ void display2(void)
     glScalef (0.5, 0.5, 0.5);
     glClear (GL_COLOR_BUFFER_BIT);
 
-    // 只有当 g_obj[0].x 的值为某值刊, 该两物体才能衔接在一起.
+    // 无论 g_obj[0].x 的值如何, 该两物体都衔接在一起.
     g_obj[0].x = -0.5;
     g_obj[0].y =  0.0;
     g_obj[0].z =  0.0;
     g_obj[0].r =  (float)shoulder;
 
-    g_obj[1].x =  0.5;
+    g_obj[1].x =  1.0;
     g_obj[1].y =  0.0;
     g_obj[1].z =  0.0;
     g_obj[1].r =  (float)shoulder;
@@ -224,3 +227,5 @@ int main(int argc, char** argv)
     glutMainLoop();
     return 0;
 }
+
+
