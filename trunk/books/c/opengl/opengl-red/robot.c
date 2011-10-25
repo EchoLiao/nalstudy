@@ -74,6 +74,56 @@ void init(void)
     glShadeModel (GL_FLAT);
 }
 
+struct nalobject
+{
+    float x;
+    float y;
+    float z;
+    float r;
+};
+struct nalobject g_obj[2];
+
+void st_display2(int i)
+{
+    {
+        glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
+        if ( i == 0 )
+            glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+        glPushMatrix();
+        {
+            glTranslatef (0.5, 0.0, 0.0);
+            glScalef (1.0, 0.4, 1.0);
+            glutWireCube (1.0);
+        }
+        glPopMatrix();
+    }
+}
+
+void display2(void)
+{
+    glLoadIdentity();
+    glTranslatef (0.0, 0.0, -5.0);
+    glScalef (0.5, 0.5, 0.5);
+    glClear (GL_COLOR_BUFFER_BIT);
+
+    g_obj[0].x = -1.0;
+    g_obj[0].y =  0.0;
+    g_obj[0].z =  0.0;
+    g_obj[0].r =  (float)shoulder;
+
+    g_obj[1].x =  1.0;
+    g_obj[1].y =  0.0;
+    g_obj[1].z =  0.0;
+    g_obj[1].r =  (float)shoulder;
+
+    glPushMatrix();
+    st_display2(0);
+    st_display2(1);
+    glPopMatrix();
+
+    glutSwapBuffers();
+}
+
 void display(void)
 {
     glClear (GL_COLOR_BUFFER_BIT);
@@ -85,7 +135,7 @@ void display(void)
         glTranslatef (1.0, 0.0, 0.0);
         glPushMatrix();
         {
-            glScalef (2.0, 0.4, 1.0); /* 会改变局部坐标系统标尺 */
+            glScalef (1.6, 0.4, 1.0); /* 会改变局部坐标系统标尺 */
             glutWireCube (1.0);
         }
         glPopMatrix();
@@ -95,7 +145,7 @@ void display(void)
         glTranslatef (1.0, 0.0, 0.0);
         glPushMatrix();
         {
-            glScalef (2.0, 0.4, 1.0);
+            glScalef (1.6, 0.4, 1.0);
             glutWireCube (1.0);
         }
         glPopMatrix();
@@ -105,8 +155,8 @@ void display(void)
         glTranslatef (1.0, 0.0, 0.0);
         glPushMatrix();
         {
-            glScalef (2.0, 0.4, 1.0);
-            glutWireCube (1.0);
+           glScalef (1.6, 0.4, 1.0);
+           glutWireCube (1.0);
         }
         glPopMatrix();
     }
@@ -127,7 +177,10 @@ void reshape (int w, int h)
     /* 模形视图坐标系统原点变为: (0.0, 0.0, -5.0) */
     glTranslatef (0.0, 0.0, -5.0);
     glScalef (0.5, 0.5, 0.5);
-    /* 为什么把glScalef放glTranslatef前面起不到作用? QQAQQ */
+    /* 为什么把glScalef放glTranslatef前面起不到作用? QQAQQ
+     * 因为坐标系的刻度扩大了一倍, 同样的glTranslatef()将使得移动的距离变为原
+     * 来的2倍.
+     * */
 }
 
 void keyboard (unsigned char key, int x, int y)
@@ -165,7 +218,7 @@ int main(int argc, char** argv)
     glutInitWindowPosition (100, 100);
     glutCreateWindow (argv[0]);
     init ();
-    glutDisplayFunc(display);
+    glutDisplayFunc(display2);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);
     glutMainLoop();
