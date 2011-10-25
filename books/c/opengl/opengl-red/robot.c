@@ -107,6 +107,7 @@ void display2(void)
     glScalef (0.5, 0.5, 0.5);
     glClear (GL_COLOR_BUFFER_BIT);
 
+    // 只有当 g_obj[0].x 的值为某值刊, 该两物体才能衔接在一起.
     g_obj[0].x = -0.5;
     g_obj[0].y =  0.0;
     g_obj[0].z =  0.0;
