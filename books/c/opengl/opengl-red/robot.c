@@ -85,29 +85,25 @@ struct nalobject g_obj[2];
 
 void st_display2(int i)
 {
-    if ( i == 0 )
-    {
+    glPushMatrix(); // 使得各个物体的位置不相互受影响.
         glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
-        glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
-
         glPushMatrix();
-            glTranslatef (0.5, 0.0, 0.0);
+            // glTranslatef (0.5, 0.0, 0.0); // ((AA))
+            glTranslatef (1.0, 0.0, 0.0); // ((BB))
             glScalef (1.0, 0.4, 1.0);
             glutWireCube (1.0);
         glPopMatrix();
-        glTranslatef (-g_obj[i].x, -g_obj[i].y, -g_obj[i].z);
-    }
-    else
-    {
-        glPushMatrix(); // 使得各个物体的位置不相互受影响.
-            glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
-            glPushMatrix();
-                glTranslatef (0.5, 0.0, 0.0);
-                glScalef (1.0, 0.4, 1.0);
-                glutWireCube (1.0);
-            glPopMatrix();
-        glPopMatrix();
-    }
+    glPopMatrix();
+}
+
+void st_init_rotate()
+{
+    glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+
+    /* 新坐标系的原点为原坐标系的(-0.5, 0.0, 0.0). */
+    // glTranslatef (0.5, 0.0, 0.0); // ((AA))
+
+    glTranslatef (0.0, 0.0, 0.0); // ((BB))
 }
 
 void display2(void)
@@ -132,6 +128,7 @@ void display2(void)
     g_obj[1].r =  (float)shoulder;
 
     glPushMatrix();
+    st_init_rotate();
     st_display2(0);
     st_display2(1);
     glPopMatrix();
