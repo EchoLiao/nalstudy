@@ -86,21 +86,28 @@ struct nalobject g_obj[2];
 void st_display2(int i)
 {
     if ( i == 0 )
-        glPushMatrix();
     {
         glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
-        if ( i == 0 )
-            glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+        glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+
         glPushMatrix();
-        {
             glTranslatef (0.5, 0.0, 0.0);
             glScalef (1.0, 0.4, 1.0);
             glutWireCube (1.0);
-        }
+        glPopMatrix();
+        glTranslatef (-g_obj[i].x, -g_obj[i].y, -g_obj[i].z);
+    }
+    else
+    {
+        glPushMatrix(); // 使得各个物体的位置不相互受影响.
+            glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
+            glPushMatrix();
+                glTranslatef (0.5, 0.0, 0.0);
+                glScalef (1.0, 0.4, 1.0);
+                glutWireCube (1.0);
+            glPopMatrix();
         glPopMatrix();
     }
-    if ( i == 1)
-        glPopMatrix();
 }
 
 void display2(void)
@@ -110,19 +117,24 @@ void display2(void)
     glScalef (0.5, 0.5, 0.5);
     glClear (GL_COLOR_BUFFER_BIT);
 
-    // 无论 g_obj[0].x 的值如何, 该两物体都衔接在一起.
+    /* (x, y, z) 是物体所处的位置的坐标.
+     * */
     g_obj[0].x = -0.5;
     g_obj[0].y =  0.0;
     g_obj[0].z =  0.0;
     g_obj[0].r =  (float)shoulder;
 
-    g_obj[1].x =  1.0;
+    // x 值要设为 0.5 的原因: glutWireCube() 所画的立方体的边是1, 且在此我们对
+    // 该立方体的 x 方向的放缩因子是 1 , 且 g_obj[0].x = -0.5 .
+    g_obj[1].x =  0.5;
     g_obj[1].y =  0.0;
     g_obj[1].z =  0.0;
     g_obj[1].r =  (float)shoulder;
 
+    glPushMatrix();
     st_display2(0);
     st_display2(1);
+    glPopMatrix();
 
     glutSwapBuffers();
 }
@@ -191,6 +203,7 @@ void keyboard (unsigned char key, int x, int y)
     switch (key) {
         case 's':
             shoulder = (shoulder + 5) % 360;
+            printf("KKK %d\n", shoulder);
             glutPostRedisplay();
             break;
         case 'S':
