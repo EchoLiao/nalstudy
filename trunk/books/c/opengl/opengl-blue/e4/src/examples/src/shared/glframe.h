@@ -152,6 +152,22 @@ class GLFrame
         /////////////////////////////////////////////////////////////
         // Get a 4x4 transformation matrix that describes the ccamera
         // orientation.
+        //
+        // [(P106 A)]
+        //
+        //   X         Y         Z          T
+        //
+        // | 0         4         8          12 |
+        // | 1         5         9          13 |
+        // | 2         6         10         14 |
+        // | 3         7         11         15 |
+        //
+        // | M(0,0)    M(1,0)    .          .  |
+        // | M(0,1)    M(1,1)    .          .  |
+        // | .         .         .          .  |
+        // | .         .         .      M(3,3) |
+        //
+        /////////////////////////////////////////////////////////////
         inline void GetCameraOrientation(M3DMatrix44f m)
         {
             M3DVector3f x, z;
@@ -172,18 +188,22 @@ class GLFrame
             M(0, 1) = x[1];
             M(0, 2) = x[2];
             M(0, 3) = 0.0;
+
             M(1, 0) = vUp[0];
             M(1, 1) = vUp[1];
             M(1, 2) = vUp[2];
             M(1, 3) = 0.0;
+
             M(2, 0) = z[0];
             M(2, 1) = z[1];
             M(2, 2) = z[2];
             M(2, 3) = 0.0;
+
+            // 位置(移动了多少)由调用者在函数外设置.
             M(3, 0) = 0.0;
             M(3, 1) = 0.0;
             M(3, 2) = 0.0;
-            M(3, 3) = 1.0;
+            M(3, 3) = 1.0; // 第15个为1
 #undef M
         }
 
@@ -401,7 +421,7 @@ class GLFrame
         {
             M3DMatrix44f m;
             GetMatrix(m, false);    // Rotate and translate
-            vPointDst[0] = m[0] * vPointSrc[0] + m[4] * vPointSrc[1] + m[8] *  vPointSrc[2] + m[12];// * v[3];	
+            vPointDst[0] = m[0] * vPointSrc[0] + m[4] * vPointSrc[1] + m[8] *  vPointSrc[2] + m[12];// * v[3];
             vPointDst[1] = m[1] * vPointSrc[0] + m[5] * vPointSrc[1] + m[9] *  vPointSrc[2] + m[13];// * v[3];
             vPointDst[2] = m[2] * vPointSrc[0] + m[6] * vPointSrc[1] + m[10] * vPointSrc[2] + m[14];// * v[3];
         }
@@ -413,7 +433,7 @@ class GLFrame
             M3DMatrix44f m;
             GetMatrix(m, true);    // Rotate only
 
-            vVectorDst[0] = m[0] * vVectorSrc[0] + m[4] * vVectorSrc[1] + m[8] *  vVectorSrc[2];	
+            vVectorDst[0] = m[0] * vVectorSrc[0] + m[4] * vVectorSrc[1] + m[8] *  vVectorSrc[2];
             vVectorDst[1] = m[1] * vVectorSrc[0] + m[5] * vVectorSrc[1] + m[9] *  vVectorSrc[2];
             vVectorDst[2] = m[2] * vVectorSrc[0] + m[6] * vVectorSrc[1] + m[10] * vVectorSrc[2];
         }
