@@ -23,12 +23,15 @@ class GLFrame
         // down the positive Z axis (right handed coordinate system).
         GLFrame(void) {
             // At origin
+            // 初始位置为原点
             vOrigin[0] = 0.0f; vOrigin[1] = 0.0f; vOrigin[2] = 0.0f;
 
             // Up is up (+Y)
+            // 向上方向为Y轴正方向
             vUp[0] = 0.0f; vUp[1] = 1.0f; vUp[2] = 0.0f;
 
             // Forward is -Z (default OpenGL)
+            // 向前方向为Z轴负方向
             vForward[0] = 0.0f; vForward[1] = 0.0f; vForward[2] = -1.0f;
         }
 
@@ -174,6 +177,7 @@ class GLFrame
 
             // Make rotation matrix
             // Z vector is reversed
+            // 相机相对于物体是反方向的
             z[0] = -vForward[0];
             z[1] = -vForward[1];
             z[2] = -vForward[2];
@@ -224,12 +228,14 @@ class GLFrame
             GetCameraOrientation(m);
 
             // Camera Transform
+            // 乘以当前的矩阵(模型视图矩阵或投影矩阵), 并更新当前矩阵.
             glMultMatrixf(m);
 
             // If Rotation only, then do not do the translation
             if(!bRotOnly)
                 glTranslatef(-vOrigin[0], -vOrigin[1], -vOrigin[2]);
 
+            // 等价于使用 gluLookAt
             /*gluLookAt(vOrigin[0], vOrigin[1], vOrigin[2],
               vOrigin[0] + vForward[0],
               vOrigin[1] + vForward[1],
