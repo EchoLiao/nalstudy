@@ -22,7 +22,7 @@ endif
 
 CC      = gcc
 CFLAGS  = -Wall $(OPTFLAGS)
-LDFLAGS = -lGL -lglu -lglut
+LDFLAGS = -lGL -lGLU -lglut -L/lib64 -lm
 
 UNAME = $(shell uname)
 ifeq ($(UNAME), Darwin)  # Mac OS X
