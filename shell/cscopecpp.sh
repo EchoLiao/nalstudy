@@ -33,7 +33,7 @@
 #find . -name '*.s' -or -name '*.S' -or -name '*.c' -or -name '*cpp' -or -name '*.h' -or -name '*.C' -or -name '*.CPP' -or -name '*.H' > cscope.files
 #cscope -bq
 
-curpwd=$PWD
+curpwd=`pwd -P`
 cd /
 
 find $curpwd -name '*.s' -or -name '*.S' -or -name '*.c' -or -name '*cpp' \

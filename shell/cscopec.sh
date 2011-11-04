@@ -15,7 +15,7 @@
 cscope --version
 
 #pwd
-curpwd=$PWD
+curpwd=`pwd -P`
 #echo $curpwd
 #echo $rootdir
 cd /
