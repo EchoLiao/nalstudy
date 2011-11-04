@@ -10,6 +10,10 @@ find . -type f | grep "\.scc$"      > /dev/null;    scc=$?
 find . -type f | grep "~$"          > /dev/null;    blx=$?
 find . -type f | grep "\.swp$"      > /dev/null;    swp=$?
 find . -type d | grep "\.svn"       > /dev/null;    svn=$?
+find . -type f | grep "GPATH"       > /dev/null;    gpa=$?
+find . -type f | grep "GRTAGS"      > /dev/null;    grt=$?
+find . -type f | grep "GTAGS"       > /dev/null;    gta=$?
+
 
 echo -e "tags   = $tag"
 echo -e "o      = $o"
@@ -18,7 +22,11 @@ echo -e "swo    = $swo"
 echo -e "scc    = $scc"
 echo -e "~      = $blx"
 echo -e "swp    = $swp"
-echo -e "svn    = $svn"
+echo -e "svn/   = $svn"
+echo -e "GPATH  = $gpa"
+echo -e "GRTAGS = $grt"
+echo -e "GTAGS  = $gta"
+
 
 echo "\$1 = $1"
 [[ $1 != "-d" ]] && {
@@ -48,6 +56,9 @@ find . -type f | grep "\.scc$"      | xargs rm -rf
 find . -type f | grep "~$"          | xargs rm -rf
 find . -type f | grep "\.swp$"      | xargs rm -rf
 find . -type d | grep "\.svn"       | xargs rm -rf
+find . -type f | grep "GPATH"       | xargs rm -rf
+find . -type f | grep "GRTAGS"      | xargs rm -rf
+find . -type f | grep "GTAGS"       | xargs rm -rf
 
 echo "Delete done."
 echo
