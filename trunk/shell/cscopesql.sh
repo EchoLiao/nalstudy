@@ -1,5 +1,5 @@
 #!/bin/bash
-curpwd=$PWD
+curpwd=`pwd -P`
 cd /
 
 find $curpwd -name '*.sql' > $curpwd/cscope.files

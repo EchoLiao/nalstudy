@@ -16,7 +16,7 @@
 hb=0
 hw=0
 
-curpwd=$PWD
+curpwd=`pwd -P`
 
 if [ -e $curpwd/build ]; then
     hb=1
