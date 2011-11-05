@@ -132,12 +132,14 @@ void st_display2(struct nalobject *pobj)
 
 void st_set_pos_for_rotate(struct nalobject *pobj)
 {
-    glTranslatef(pobj->l / 2, 0.0, 0.0);
+    float r = pobj->l / 2 + (pobj->l / 5);
+    glTranslatef(r, 0.0, 0.0);
 }
 
 void st_set_pos_after_rotate(struct nalobject *pobj)
 {
-    glTranslatef(-pobj->l / 2, 0.0, 0.0);
+    float r = pobj->l / 2 + (pobj->l / 5);
+    glTranslatef(-r, 0.0, 0.0);
 }
 
 void st_set_rotate(struct nalobject *pobj)
@@ -178,6 +180,14 @@ void display2(void)
         glutWireCube (1.0);
     } glPopMatrix();
 
+    // 画出旋转点
+    glPushMatrix(); {
+        // float r = pobj->l / 2 + (pobj->l / 5);
+        float r = 1.0 / 2 + (1.0 / 5);
+        glTranslatef(r, 0.0, 0.0);
+        glScalef (0.02, 0.02, 0.02);
+        glutWireCube (1.0);
+    } glPopMatrix();
 
     num = sizeof(g_objs) / sizeof(struct nalobject);
     st_init_obj_pos(g_objs, num);
