@@ -50,24 +50,25 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 
 static int shoulder = 0, elbow = 0;
 
 void init(void)
 {
-   GLfloat values[2];
-   glGetFloatv (GL_LINE_WIDTH_GRANULARITY, values); // 线条的精确度
-   printf ("GL_LINE_WIDTH_GRANULARITY value is %3.1f\n", values[0]);
-   glGetFloatv (GL_LINE_WIDTH_RANGE, values);
-   printf ("GL_LINE_WIDTH_RANGE values are %3.1f %3.1f\n", values[0],
-           values[1]);
+    GLfloat values[2];
+    glGetFloatv (GL_LINE_WIDTH_GRANULARITY, values); // 线条的精确度
+    printf ("GL_LINE_WIDTH_GRANULARITY value is %3.1f\n", values[0]);
+    glGetFloatv (GL_LINE_WIDTH_RANGE, values);
+    printf ("GL_LINE_WIDTH_RANGE values are %3.1f %3.1f\n", values[0],
+            values[1]);
 
-   /* 可通过注释以下两行代码来观察抗锯齿的效果 */
-   glEnable (GL_LINE_SMOOTH);   // 启用线条抗锯齿功能
-   glEnable (GL_BLEND);         // 抗锯齿是通过混合实现的
-   glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-   glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE); // 设置线条采样质量提示
-   glLineWidth (0.5);
+    /* 可通过注释以下两行代码来观察抗锯齿的效果 */
+    glEnable (GL_LINE_SMOOTH);   // 启用线条抗锯齿功能
+    glEnable (GL_BLEND);         // 抗锯齿是通过混合实现的
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE); // 设置线条采样质量提示
+    glLineWidth (0.5);
 
 
     glClearColor (0.0, 0.0, 0.0, 0.0);
@@ -79,59 +80,109 @@ struct nalobject
     float x;
     float y;
     float z;
-    float r;
+    float r; // 旋转角度
+    float l; // 长
+    float w; // 宽
+    float h; // 高
 };
-struct nalobject g_obj[2];
 
-void st_display2(int i)
+struct nalobject g_objs[3];
+
+void st_init_obj_pos(struct nalobject *obj, int num)
 {
-    glPushMatrix(); // 使得各个物体的位置不相互受影响.
-        glTranslatef (g_obj[i].x, g_obj[i].y, g_obj[i].z);
-        glPushMatrix();
-            // glTranslatef (0.5, 0.0, 0.0); // ((AA))
-            glTranslatef (1.0, 0.0, 0.0); // ((BB))
-            glScalef (1.0, 0.4, 1.0);
-            glutWireCube (1.0);
-        glPopMatrix();
-    glPopMatrix();
+    /* (x, y, z) 是物体所处的位置的坐标(对应的是起始的坐标系).
+     * */
+    obj[0].x =  0.0;
+    obj[0].y =  0.0;
+    obj[0].z =  0.0;
+    obj[0].r =  (float)shoulder;
+    obj[0].l =  1.0;
+    obj[0].w =  0.2;
+    obj[0].h =  0.2;
+
+    obj[1].x = -1.0; // 使紧邻 obj[0]
+    obj[1].y =  0.0;
+    obj[1].z =  0.0;
+    obj[1].r =  (float)shoulder;
+    obj[1].l =  1.0;
+    obj[1].w =  0.2;
+    obj[1].h =  0.2;
+
+    obj[2].x = -2.0; // 使紧邻 obj[1]
+    obj[2].y =  0.0;
+    obj[2].z =  0.0;
+    obj[2].r =  (float)shoulder;
+    obj[2].l =  1.0;
+    obj[2].w =  0.2;
+    obj[2].h =  0.2;
+
+    assert(2 < num);
 }
 
-void st_init_rotate()
+void st_display2(struct nalobject *pobj)
 {
-    glRotatef (g_obj[0].r, 0.0, 0.0, 1.0);
+    glPushMatrix(); { // 使得各个物体的位置不相互受影响.
+        glTranslatef (pobj->x, pobj->y, pobj->z);
+        glPushMatrix(); {
+            glScalef (pobj->l, pobj->w, pobj->h);
+            glutWireCube (1.0);
+        } glPopMatrix();
+    } glPopMatrix();
+}
 
-    /* 新坐标系的原点为原坐标系的(-0.5, 0.0, 0.0). */
-    // glTranslatef (0.5, 0.0, 0.0); // ((AA))
+void st_set_pos_for_rotate(struct nalobject *pobj)
+{
+    glTranslatef(pobj->l / 2, 0.0, 0.0);
+}
 
-    glTranslatef (0.0, 0.0, 0.0); // ((BB))
+void st_set_pos_after_rotate(struct nalobject *pobj)
+{
+    glTranslatef(-pobj->l / 2, 0.0, 0.0);
+}
+
+void st_set_rotate(struct nalobject *pobj)
+{
+    glRotatef (pobj->r, 0.0, 0.0, 1.0);
+}
+
+void st_draw_objs(struct nalobject *objs, int num)
+{
+    int i;
+
+    for ( i = 0; i < num; i++ )
+    {
+        glPushMatrix(); {
+            // 安置旋转点(即: 设置原点位置)
+            st_set_pos_for_rotate(&objs[i]);
+            // 作些旋转
+            st_set_rotate(&objs[i]);
+            // 旋转后重新调整原点位置, 为后面画物体作准备
+            st_set_pos_after_rotate(&objs[i]);
+
+            st_display2(&objs[i]);
+        } glPopMatrix();
+    }
 }
 
 void display2(void)
 {
+    int i, num;
+
     glLoadIdentity();
     glTranslatef (0.0, 0.0, -5.0);
-    glScalef (0.5, 0.5, 0.5);
     glClear (GL_COLOR_BUFFER_BIT);
 
-    /* (x, y, z) 是物体所处的位置的坐标.
-     * */
-    g_obj[0].x = -0.5;
-    g_obj[0].y =  0.0;
-    g_obj[0].z =  0.0;
-    g_obj[0].r =  (float)shoulder;
+    // 画出最开始的坐标系的原点
+    glPushMatrix(); {
+        glScalef (0.08, 0.08, 0.08);
+        glutWireCube (1.0);
+    } glPopMatrix();
 
-    // x 值要设为 0.5 的原因: glutWireCube() 所画的立方体的边是1, 且在此我们对
-    // 该立方体的 x 方向的放缩因子是 1 , 且 g_obj[0].x = -0.5 .
-    g_obj[1].x =  0.5;
-    g_obj[1].y =  0.0;
-    g_obj[1].z =  0.0;
-    g_obj[1].r =  (float)shoulder;
 
-    glPushMatrix();
-    st_init_rotate();
-    st_display2(0);
-    st_display2(1);
-    glPopMatrix();
+    num = sizeof(g_objs) / sizeof(struct nalobject);
+    st_init_obj_pos(g_objs, num);
+
+    st_draw_objs(g_objs, num);
 
     glutSwapBuffers();
 }
@@ -167,8 +218,8 @@ void display(void)
         glTranslatef (1.0, 0.0, 0.0);
         glPushMatrix();
         {
-           glScalef (1.6, 0.4, 1.0);
-           glutWireCube (1.0);
+            glScalef (1.6, 0.4, 1.0);
+            glutWireCube (1.0);
         }
         glPopMatrix();
     }
@@ -181,18 +232,14 @@ void reshape (int w, int h)
     glViewport (0, 0, (GLsizei)w, (GLsizei)h);
     glMatrixMode (GL_PROJECTION);
     glLoadIdentity ();
-    gluPerspective(65.0, (GLfloat) w/(GLfloat) h, 1.0, 20.0);
+    gluPerspective(75.0, (GLfloat) w/(GLfloat) h, 1.0, 20.0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
     /* 模形视图坐标系统原点变为: (0.0, 0.0, -5.0) */
     glTranslatef (0.0, 0.0, -5.0);
-    glScalef (0.5, 0.5, 0.5);
-    /* 为什么把glScalef放glTranslatef前面起不到作用? QQAQQ
-     * 因为坐标系的刻度扩大了一倍, 同样的glTranslatef()将使得移动的距离变为原
-     * 来的2倍.
-     * */
+    // glScalef (1.0, 1.0, 1.0); // 不进行任何放缩
 }
 
 void keyboard (unsigned char key, int x, int y)
