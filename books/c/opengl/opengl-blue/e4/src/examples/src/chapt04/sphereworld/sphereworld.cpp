@@ -8,6 +8,7 @@
 #include "../../shared/glframe.h"   // Frame Class
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 #define NUM_SPHERES      50
@@ -71,34 +72,35 @@ void RenderScene(void)
     // Clear the window with current clearing color
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glPushMatrix();
-    frameCamera.ApplyCameraTransform();
+    // 把当前模型视图矩阵压栈, 以免被 frameCamera.ApplyCameraTransform 所污染.
+    glPushMatrix(); {
+        frameCamera.ApplyCameraTransform();
 
-    // Draw the ground
-    DrawGround();
+        // Draw the ground
+        DrawGround();
 
-    // Draw the randomly located spheres
-    for(i = 0; i < NUM_SPHERES; i++)
-    {
-        glPushMatrix();
-        spheres[i].ApplyActorTransform();
-        glutSolidSphere(0.1f, 13, 26);
-        glPopMatrix();
-    }
+        // Draw the randomly located spheres
+        for(i = 0; i < NUM_SPHERES; i++)
+        {
+            glPushMatrix(); {
+                spheres[i].ApplyActorTransform();
+                glutSolidSphere(0.1f, 13, 26);
+            } glPopMatrix();
+        }
 
-    glPushMatrix();
-    glTranslatef(0.0f, 0.0f, -2.5f);
+        glPushMatrix(); {
+            glTranslatef(0.0f, 0.0f, -2.5f);
 
-    glPushMatrix();
-    glRotatef(-yRot * 2.0f, 0.0f, 1.0f, 0.0f);
-    glTranslatef(1.0f, 0.0f, 0.0f);
-    glutSolidSphere(0.1f, 13, 26);
-    glPopMatrix();
+            glPushMatrix(); {
+                glRotatef(-yRot * 2.0f, 0.0f, 1.0f, 0.0f);
+                glTranslatef(1.0f, 0.0f, 0.0f);
+                glutSolidSphere(0.1f, 13, 26);
+            } glPopMatrix();
 
-    glRotatef(yRot, 0.0f, 1.0f, 0.0f);
-    gltDrawTorus(0.35, 0.15, 40, 20);
-    glPopMatrix();
-    glPopMatrix();
+            glRotatef(yRot, 0.0f, 1.0f, 0.0f);
+            gltDrawTorus(0.35, 0.15, 40, 20);
+        } glPopMatrix();
+    } glPopMatrix();
 
     // Do the buffer Swap
     glutSwapBuffers();
@@ -133,7 +135,10 @@ void TimerFunction(int value)
 {
     // Redraw the scene with new coordinates
     glutPostRedisplay();
-    glutTimerFunc(3,TimerFunction, 1);
+
+    // 每33毫秒刷新一次
+    glutTimerFunc(33,TimerFunction, 1);
+    //printf("NAL ...\n");
 }
 
 void ChangeSize(int w, int h)
