@@ -118,7 +118,15 @@ class GLFrame
             vOrigin[1] += vCross[1] * fDelta;
             vOrigin[2] += vCross[2] * fDelta;
         }
-        ///////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////
+        //
+        //          X         Y         Z          T
+        //
+        //        | 0         4         8          12 |
+        //        | 1         5         9          13 |
+        //        | 2         6         10         14 |
+        //        | 3         7         11         15 |
+        //
         // Just assemble the matrix
         void GetMatrix(M3DMatrix44f	matrix, bool bRotationOnly = false)
         {
