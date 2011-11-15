@@ -156,28 +156,45 @@ class GLFrame
         // Get a 4x4 transformation matrix that describes the ccamera
         // orientation.
         //
+        // glMultMatrixf(m) 要求传入的矩阵 m 是按列优先存储的, 即:
+        // m[0] ~ m[3] 存储的是矩阵 m 的第一列, m[4] ~ m[7] 存储的是
+        // 矩阵 m 的第二列, 依此类推.
+        //
         // [(P106 A)]
         //
-        //   X         Y         Z          T
+        //          X         Y         Z          T
         //
-        // | 0         4         8          12 |
-        // | 1         5         9          13 |
-        // | 2         6         10         14 |
-        // | 3         7         11         15 |
+        //        | 0         4         8          12 |
+        //        | 1         5         9          13 |
+        //        | 2         6         10         14 |
+        //        | 3         7         11         15 |
         //
-        // | M(0,0)    M(1,0)    .          .  |
-        // | M(0,1)    M(1,1)    .          .  |
-        // | .         .         .          .  |
-        // | .         .         .      M(3,3) |
+        //
+        //          0         1         2          3         col
+        //     --------------------------------------------->
+        //   0 |  | M(0,0)    M(0,1)    M(0,2)     M(0,3) |
+        //   1 |  | M(1,0)    M(1,1)    M(1,2)     M(1,3) |
+        //   2 |  | M(2,0)    M(2 1)    M(2,2)     M(2,3) |
+        //   3 |  | M(3,0)    M(3,1)    M(3,2)     M(3,3) |
+        //     |
+        //     V row
+        //
+        //        | ux        uy        uz         0 |
+        // M(r) = | vx        vy        vz         0 |
+        //        | nx        ny        nz         0 |
+        //        | 0         0         0          1 |
         //
         /////////////////////////////////////////////////////////////
+        //
+        // 构造 M(r) 用于把世界坐标系变换到观察坐标系.
+        // [(<<G:2>> P13)]
         inline void GetCameraOrientation(M3DMatrix44f m)
         {
             M3DVector3f x, z;
 
             // Make rotation matrix
-            // Z vector is reversed
-            // 相机相对于物体是反方向的
+
+            // n vector is reverse of Z vector
             z[0] = -vForward[0];
             z[1] = -vForward[1];
             z[2] = -vForward[2];
@@ -188,26 +205,29 @@ class GLFrame
             // Matrix has no translation information and is
             // transposed.... (rows instead of columns)
 #define M(row,col)  m[col*4+row]
-            M(0, 0) = x[0];
-            M(0, 1) = x[1];
-            M(0, 2) = x[2];
-            M(0, 3) = 0.0;
+            // u vector
+            M(0, 0) = x[0];     // 0
+            M(0, 1) = x[1];     // 4
+            M(0, 2) = x[2];     // 8
+            M(0, 3) = 0.0;      // 12
 
-            M(1, 0) = vUp[0];
-            M(1, 1) = vUp[1];
-            M(1, 2) = vUp[2];
-            M(1, 3) = 0.0;
+            // v vector
+            M(1, 0) = vUp[0];   // 1
+            M(1, 1) = vUp[1];   // 5
+            M(1, 2) = vUp[2];   // 9
+            M(1, 3) = 0.0;      // 13
 
-            M(2, 0) = z[0];
-            M(2, 1) = z[1];
-            M(2, 2) = z[2];
-            M(2, 3) = 0.0;
+            // n vector
+            M(2, 0) = z[0];     // 2
+            M(2, 1) = z[1];     // 6
+            M(2, 2) = z[2];     // 10
+            M(2, 3) = 0.0;      // 14
 
-            // 位置(移动了多少)由调用者在函数外设置.
-            M(3, 0) = 0.0;
-            M(3, 1) = 0.0;
-            M(3, 2) = 0.0;
-            M(3, 3) = 1.0; // 第15个为1
+            // ...
+            M(3, 0) = 0.0;      // 3
+            M(3, 1) = 0.0;      // 7
+            M(3, 2) = 0.0;      // 11
+            M(3, 3) = 1.0;      // 15
 #undef M
         }
 
@@ -223,25 +243,44 @@ class GLFrame
         // This will get called once per frame.... go ahead and inline
         inline void ApplyCameraTransform(bool bRotOnly = false)
         {
+#if 1
+            /*
+             * 世界坐标系到观察坐标系的变换:
+             *     1. 平移观察坐标原点到世界坐标原点;
+             *     2. 进行旋转, 分别让 Xview, Yview 和 Zview 轴对应到世界坐标
+             *        的 Xw, Yw, Zw 轴.
+             *
+             *       M(wc,vc) = M(r) * M(t)
+             *
+             *                  |ux  uy  uz  0|   |1  0  0  -x0|
+             *                = |vx  vy  vz  0| * |0  1  0  -y0|
+             *                  |nx  ny  nz  0|   |0  0  1  -z0|
+             *                  |0   0   0   1|   |0  0  0   1 |
+             *
+             * */
+
             M3DMatrix44f m;
 
             GetCameraOrientation(m);
 
             // Camera Transform
-            // 乘以当前的矩阵(模型视图矩阵或投影矩阵), 并更新当前矩阵.
-            glMultMatrixf(m);
+            // OpenGL 的矩阵相乘规则:
+            //   矩阵M右乘当前矩阵C(模型视图矩阵或投影矩阵), 并更新当前矩阵C:
+            //    C = C * M
+            glMultMatrixf(m);                                          // M(r)
 
             // If Rotation only, then do not do the translation
             if(!bRotOnly)
-                glTranslatef(-vOrigin[0], -vOrigin[1], -vOrigin[2]);
+                glTranslatef(-vOrigin[0], -vOrigin[1], -vOrigin[2]);   // M(t)
 
+#else
             // 等价于使用 gluLookAt
-            /*gluLookAt(vOrigin[0], vOrigin[1], vOrigin[2],
-              vOrigin[0] + vForward[0],
-              vOrigin[1] + vForward[1],
-              vOrigin[2] + vForward[2],
-              vUp[0], vUp[1], vUp[2]);
-              */
+            gluLookAt(vOrigin[0], vOrigin[1], vOrigin[2],
+                    vOrigin[0] + vForward[0],
+                    vOrigin[1] + vForward[1],
+                    vOrigin[2] + vForward[2],
+                    vUp[0], vUp[1], vUp[2]);
+#endif
         }
 
 
