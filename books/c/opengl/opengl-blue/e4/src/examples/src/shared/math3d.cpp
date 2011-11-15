@@ -321,6 +321,8 @@ void m3dRotationMatrix33(M3DMatrix33d m, double angle, double x, double y, doubl
 
 ///////////////////////////////////////////////////////////////////////////////
 // Creates a 4x4 rotation matrix, takes radians NOT degrees
+// 构造一个矩阵, 用于绕任意向量 (x, y, z) 逆时针转 angle 弧度.
+// [(<<G:1>> P48)]
 void m3dRotationMatrix44(M3DMatrix44d m, double angle, double x, double y, double z)
 {
     double mag, s, c;
