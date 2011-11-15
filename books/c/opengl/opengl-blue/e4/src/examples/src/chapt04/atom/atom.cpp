@@ -35,37 +35,37 @@ void RenderScene(void)
 
     // First Electron Orbit
     // Save viewing transformation
-    glPushMatrix();
+    glPushMatrix(); {
 
-    // Rotate by angle of revolution
-    glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
+        // Rotate by angle of revolution
+        glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
 
-    // Translate out from origin to orbit distance
-    glTranslatef(90.0f, 0.0f, 0.0f);
+        // Translate out from origin to orbit distance
+        glTranslatef(90.0f, 0.0f, 0.0f);
 
-    // Draw the electron
-    glutSolidSphere(6.0f, 15, 15);
+        // Draw the electron
+        glutSolidSphere(6.0f, 15, 15);
 
 
-    // Restore the viewing transformation
-    glPopMatrix();
+        // Restore the viewing transformation
+    } glPopMatrix();
 
     // Second Electron Orbit
-    glPushMatrix();
-    glRotatef(45.0f, 0.0f, 0.0f, 1.0f);
-    glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
-    glTranslatef(-70.0f, 0.0f, 0.0f);
-    glutSolidSphere(6.0f, 15, 15);
-    glPopMatrix();
+    glPushMatrix(); {
+        glRotatef(45.0f, 0.0f, 0.0f, 1.0f);
+        glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
+        glTranslatef(-70.0f, 0.0f, 0.0f);
+        glutSolidSphere(6.0f, 15, 15);
+    } glPopMatrix();
 
 
     // Third Electron Orbit
-    glPushMatrix();
-    glRotatef(360.0f-45.0f,0.0f, 0.0f, 1.0f);
-    glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
-    glTranslatef(0.0f, 0.0f, 60.0f);
-    glutSolidSphere(6.0f, 15, 15);
-    glPopMatrix();
+    glPushMatrix(); {
+        glRotatef(360.0f-45.0f,0.0f, 0.0f, 1.0f);
+        glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
+        glTranslatef(0.0f, 0.0f, 60.0f);
+        glutSolidSphere(6.0f, 15, 15);
+    } glPopMatrix();
 
 
     // Increment the angle of revolution
