@@ -159,7 +159,30 @@ void ChangeSize(int w, int h)
     glLoadIdentity();
 
     // Set the clipping volume
-    gluPerspective(35.0f, fAspect, 1.0f, 50.0f);
+    float theta = 63.0f;
+    float n = 1.0f;
+    float f = 50.0f;
+#if 0
+    gluPerspective(theta, fAspect, n, f);
+#else
+    // [(<<G:2>> P26)]
+    const float PI = 3.1415926f;
+    float xwmax, xwmin, ywmax, ywmin;
+    float theta_div2 = (theta/2.0f) * (PI/180.0f);
+    float tan_theta_div2 = tan(theta_div2);
+
+    xwmax = -(-n) * (tan_theta_div2) * fAspect;
+    ywmax = -(-n) * (tan_theta_div2);
+    xwmin = -xwmax;
+    ywmin = -ywmax;
+
+    printf("NAL xwmax=%f xwmin=%f ywmax=%f ywmin=%f\n",
+            xwmax, xwmin, ywmax, ywmin);
+    printf("NAL fAspect=%f, (xwmax-xwmin)/(ywmax-ywmin)=%f\n",
+            fAspect, (xwmax-xwmin)/(ywmax-ywmin));
+
+    glFrustum(xwmin, xwmax, ywmin, ywmax, n, f);
+#endif
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
