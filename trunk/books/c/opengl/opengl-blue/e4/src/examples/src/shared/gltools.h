@@ -12,7 +12,7 @@
 
 #define FREEGLUT_STATIC
 
-// Bring in OpenGL 
+// Bring in OpenGL
 // Windows
 #ifdef WIN32
 #include <windows.h>		// Must have for Windows platform builds
@@ -75,10 +75,10 @@ typedef GLvoid (_stdcall *CallBack)();      // Visual C++ style
 // There is a static block allocated for loading shaders to prevent heap fragmentation
 #define MAX_SHADER_LENGTH   8192
 
-    
+
 ///////////////////////////////////////////////////////
 // Macros for big/little endian happiness
-// These are intentionally written to be easy to understand what they 
+// These are intentionally written to be easy to understand what they
 // are doing... no flames please on the inefficiency of these.
 #ifdef __BIG_ENDIAN__
 ///////////////////////////////////////////////////////////
@@ -86,39 +86,39 @@ typedef GLvoid (_stdcall *CallBack)();      // Visual C++ style
 // If the value must be changed it is... otherwise, this
 // function is defined away below (on Intel systems for example)
 inline void LITTLE_ENDIAN_WORD(void *pWord)
-	{
+{
     unsigned char *pBytes = (unsigned char *)pWord;
     unsigned char temp;
-    
+
     temp = pBytes[0];
     pBytes[0] = pBytes[1];
     pBytes[1] = temp;
-	}
+}
 
 ///////////////////////////////////////////////////////////
 // This function says, "this pointer is a little endian value"
 // If the value must be changed it is... otherwise, this
 // function is defined away below (on Intel systems for example)
 inline void LITTLE_ENDIAN_DWORD(void *pWord)
-	{
+{
     unsigned char *pBytes = (unsigned char *)pWord;
     unsigned char temp;
-    
+
     // Swap outer bytes
     temp = pBytes[3];
     pBytes[3] = pBytes[0];
     pBytes[0] = temp;
-    
+
     // Swap inner bytes
     temp = pBytes[1];
     pBytes[1] = pBytes[2];
     pBytes[2] = temp;
-	}
+}
 #else
 
 // Define them away on little endian systems
-#define LITTLE_ENDIAN_WORD 
-#define LITTLE_ENDIAN_DWORD 
+#define LITTLE_ENDIAN_WORD
+#define LITTLE_ENDIAN_DWORD
 #endif
 
 
