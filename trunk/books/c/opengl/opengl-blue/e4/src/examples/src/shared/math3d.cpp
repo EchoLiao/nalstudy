@@ -737,6 +737,12 @@ void m3dFindNormal(M3DVector3d result, const M3DVector3d point1, const M3DVector
 // Calculate the plane equation of the plane that the three specified points lay in. The
 // points are given in clockwise winding order, with normal pointing out of clockwise face
 // planeEq contains the A,B,C, and D of the plane equation coefficients
+//
+// 根据给出的不共线的三点求过该三点的平面(Ax+By+Cz+D=0).
+// planeEq is (A,B,C,D)
+//
+// [(<<计算机图形学几何工具算法详解>> P492)]
+//
 void m3dGetPlaneEquation(M3DVector4f planeEq, const M3DVector3f p1, const M3DVector3f p2, const M3DVector3f p3)
 {
     // Get two vectors... do the cross product
