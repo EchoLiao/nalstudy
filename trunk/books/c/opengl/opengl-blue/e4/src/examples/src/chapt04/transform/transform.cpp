@@ -44,6 +44,7 @@ void DrawTorus(M3DMatrix44f mTransform)
             objectVertex[0] = x0*r;
             objectVertex[1] = y0*r;
             objectVertex[2] = z;
+            // 把点objectVertex变换到矩阵mTransform所表示的坐标系中.
             m3dTransformVector3(transformedVertex, objectVertex, mTransform);
             glVertex3fv(transformedVertex);
 
@@ -71,6 +72,7 @@ void RenderScene(void)
 
     // Build a rotation matrix
     m3dRotationMatrix44(transformationMatrix, m3dDegToRad(yRot), 0.0f, 1.0f, 0.0f);
+    // 增加平移向量
     transformationMatrix[12] = 0.0f;
     transformationMatrix[13] = 0.0f;
     transformationMatrix[14] = -2.5f;
