@@ -978,6 +978,40 @@ float m3dSmoothStep(float edge1, float edge2, float x)
 // Creae a projection to "squish" an object into the plane.
 // Use m3dGetPlaneEquationf(planeEq, point1, point2, point3);
 // to get a plane equation.
+//
+// http://www.cppblog.com/summericeyl/archive/2011/03/14/141802.html
+// 将模型视图矩阵延灯光方向压平, 所有被绘制的物体都将位于这个平面的二维世界中.
+// 灯光方向: |0| - |vLightPos| = -|vLightPos|
+//
+// 推导过程:
+//   假设平面方程 Ax + By + Cz + D = 0 已知, 光的方向L(Lx, Ly, Lz, 0)已知. 则
+//   模型视图空间的点 P(Px, Py, Pz, 1), 沿着光的方向投射到平面上的点为 S(Sx,
+//   Sy, Sz, 1).其中我们设置向量 N(A, B, C, D). 现在我们需要求的是矩阵M, 使得
+//   MP = S. 即 M左乘点P得到点S.
+//
+//   由于点S是P沿着光的方向L到达的, 所以可假设 S = P + kL (k >= 0).
+//   因为点S是平面上的一点, 所以 A*Sx + B*Sy + C*Sz + D = 0. 即 S*N = 0.
+//   由于 S = P + kL, 所以 (P + kL) * N = 0, 推导可得出 k = -(P*N)/L*N
+//   即:
+//       k = -(A*Px + B*Py + C*Pz + D)/(A*Lx + B*Ly + C*Lz),
+//
+//   代入 S = P + kL, 得
+//
+//   Sx = Px + k*Lx
+//      = Px - (A*Px + B*Py + C*Pz + D)*Lx / (A*Lx + B*Ly + C*Lz)
+//      = [Px*(B*Ly + C*Lz) - Py*(B*Lx) - Px*(C*Lx) - 1*D*Lx] / (A*Lx + B*Ly + C*Lz)
+//      = P*((B*Ly + C*Lz), -B*Lx, -C*Lx, -D*Lx) / (A*Lx + B*Ly + C*Lz)
+//   同理:
+//   Sy = P*(-A*Ly, (A*Lx + C*Lz), -C*Ly, -D*Ly) / (A*Lx + B*Ly + C*Lz)
+//   Sz = P*(-A*Lz, -B*Lz, (A*Lx + B*Ly), -D*Lz) / (A*Lx + B*Ly + C*Lz)
+//   Sw = P*(0, 0, 0, (A*Lx + B*Ly + C*Lz)) / (A*Lx + B*Ly + C*Lz)
+//
+//   所以可得到矩阵M:
+//          |  B*Ly + C*Lz  -B*Lx         -C*Lx         -D*Lx               |
+//      M = | -A*Ly          A*Lx + C*Lz  -C*Ly         -D*Ly               |
+//          | -A*Lz         -B*Lz          A*Lx + B*Ly  -D*Lz               |
+//          |  0             0             0             A*Lx + B*Ly + C*Lz |
+//
 void m3dMakePlanarShadowMatrix(M3DMatrix44f proj, const M3DVector4f planeEq, const M3DVector3f vLightPos)
 {
     // These just make the code below easier to read. They will be
