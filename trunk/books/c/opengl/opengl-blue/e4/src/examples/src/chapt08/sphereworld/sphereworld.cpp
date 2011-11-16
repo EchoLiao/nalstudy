@@ -9,6 +9,7 @@
 #include "../../shared/math3d.h"    // 3D Math Library
 #include "../../shared/glframe.h"   // Frame class
 #include <math.h>
+#include <stdio.h>
 
 #define GROUND_R    (20.0f)
 #define GROUND_Y    (-0.6f)
@@ -52,7 +53,8 @@ void SetupRC()
     // draws into it. When stencil function is enabled, only write where
     // stencil value is zero. This prevents the transparent shadow from drawing
     // over itself
-    /* 指定模板缓冲区的数据如何修改(加一). [(P318<Red>)] */
+    /* 指定模板缓冲区(不显式指定, 则默认为整个场景)的数据如何修改(加一).
+     * [(P318<Red>)] */
     glStencilOp(GL_INCR, GL_INCR, GL_INCR);
     glClearStencil(0);
     /* 设置模板测试所使用的比较函数, 参考值和掩码. [(P318<Red>)] */
@@ -176,6 +178,7 @@ void DrawGround(void)
 void DrawInhabitants(GLint nShadow)
 {
     static GLfloat yRot = 0.0f;         // Rotation angle for animation
+    static GLboolean isNotFirstScale[NUM_SPHERES] = { 0 };
     GLint i;
 
     if(nShadow == 0)
@@ -194,9 +197,19 @@ void DrawInhabitants(GLint nShadow)
     for(i = 0; i < NUM_SPHERES; i++)
     {
         glPushMatrix(); {
-            spheres[i].SetForwardVector(fv);
-            spheres[i].SetUpVector(uv);
+#if 0
+            // 自转
             spheres[i].ApplyActorTransform();
+            glTranslatef(0.0f, 0.0f, 1.1f);
+            glRotatef((yRot/4.0f)*(180.0f/M3D_PI), 0.0f, 1.0f, 0.0f);
+            glScalef(0.4f, 0.4f, 0.4f);
+#else
+            // spheres[i].MoveForward(0.1f);
+            // 自转
+            spheres[i].RotateLocalY(0.5f/4.0f);
+            spheres[i].ScaleLocal(0.4f, 0.4f, 0.4f);
+            spheres[i].ApplyActorTransform();
+#endif
             gltDrawSphere(0.3f, 21, 11);
         } glPopMatrix();
     }
@@ -216,8 +229,8 @@ void DrawInhabitants(GLint nShadow)
             glMaterialfv(GL_FRONT, GL_SPECULAR, fBrightLight);
         }
 
-        glRotatef(yRot, 0.0f, 1.0f, 0.0f);
         glBindTexture(GL_TEXTURE_2D, textureObjects[TORUS_TEXTURE]);
+        glRotatef(yRot, 0.0f, 1.0f, 0.0f);
         gltDrawTorus(0.35, 0.15, 61, 37);
         glMaterialfv(GL_FRONT, GL_SPECULAR, fNoLight);
     } glPopMatrix();
