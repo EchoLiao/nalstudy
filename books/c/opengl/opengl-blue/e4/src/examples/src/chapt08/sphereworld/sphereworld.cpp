@@ -36,7 +36,7 @@ const char *szTextureFiles[] = {"grass.tga", "wood.tga", "orb.tga"};
 
 //////////////////////////////////////////////////////////////////
 // This function does any needed initialization on the rendering
-// context. 
+// context.
 void SetupRC()
 {
     M3DVector3f vPoints[3] = {{ 0.0f, GROUND_Y, 0.0f },
@@ -193,34 +193,34 @@ void DrawInhabitants(GLint nShadow)
     glBindTexture(GL_TEXTURE_2D, textureObjects[SPHERE_TEXTURE]);
     for(i = 0; i < NUM_SPHERES; i++)
     {
-        glPushMatrix();
-        spheres[i].SetForwardVector(fv);
-        spheres[i].SetUpVector(uv);
-        spheres[i].ApplyActorTransform();
-        gltDrawSphere(0.3f, 21, 11);
-        glPopMatrix();
+        glPushMatrix(); {
+            spheres[i].SetForwardVector(fv);
+            spheres[i].SetUpVector(uv);
+            spheres[i].ApplyActorTransform();
+            gltDrawSphere(0.3f, 21, 11);
+        } glPopMatrix();
     }
 
-    glPushMatrix();
-    glTranslatef(0.0f, 0.1f, -2.5f);
+    glPushMatrix(); {
+        glTranslatef(0.0f, 0.1f, -2.5f);
 
-    glPushMatrix();
-    glRotatef(-yRot * 2.0f, 0.0f, 1.0f, 0.0f);
-    glTranslatef(1.0f, 0.0f, 0.0f);
-    gltDrawSphere(0.1f,21, 11);
-    glPopMatrix();
+        glPushMatrix(); {
+            glRotatef(-yRot * 2.0f, 0.0f, 1.0f, 0.0f);
+            glTranslatef(1.0f, 0.0f, 0.0f);
+            gltDrawSphere(0.1f,21, 11);
+        } glPopMatrix();
 
-    if(nShadow == 0)
-    {
-        // Torus alone will be specular
-        glMaterialfv(GL_FRONT, GL_SPECULAR, fBrightLight);
-    }
+        if(nShadow == 0)
+        {
+            // Torus alone will be specular
+            glMaterialfv(GL_FRONT, GL_SPECULAR, fBrightLight);
+        }
 
-    glRotatef(yRot, 0.0f, 1.0f, 0.0f);
-    glBindTexture(GL_TEXTURE_2D, textureObjects[TORUS_TEXTURE]);
-    gltDrawTorus(0.35, 0.15, 61, 37);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, fNoLight);
-    glPopMatrix();
+        glRotatef(yRot, 0.0f, 1.0f, 0.0f);
+        glBindTexture(GL_TEXTURE_2D, textureObjects[TORUS_TEXTURE]);
+        gltDrawTorus(0.35, 0.15, 61, 37);
+        glMaterialfv(GL_FRONT, GL_SPECULAR, fNoLight);
+    } glPopMatrix();
 }
 
 
@@ -230,39 +230,39 @@ void RenderScene(void)
     // Clear the window with current clearing color
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-    glPushMatrix(); // push 1
-    frameCamera.ApplyCameraTransform();
+    glPushMatrix(); { // push 1
+        frameCamera.ApplyCameraTransform();
 
-    // Position light before any other transformations
-    glLightfv(GL_LIGHT0, GL_POSITION, fLightPos);
+        // Position light before any other transformations
+        glLightfv(GL_LIGHT0, GL_POSITION, fLightPos);
 
-    // Draw the ground
-    glColor3f(1.0f, 1.0f, 1.0f);
-    DrawGround();
+        // Draw the ground
+        glColor3f(1.0f, 1.0f, 1.0f);
+        DrawGround();
 
-    // Draw shadows first
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_LIGHTING);
-    glDisable(GL_TEXTURE_2D);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    // 开启模板测试, 使得任一阴影区域的像素只被画一次!
-    glEnable(GL_STENCIL_TEST);
-    glPushMatrix();
-        // draw shadows!
-        glMultMatrixf(mShadowMatrix);
-        DrawInhabitants(1);
-    glPopMatrix();
+        // Draw shadows first
+        glDisable(GL_DEPTH_TEST);
+        glDisable(GL_LIGHTING);
+        glDisable(GL_TEXTURE_2D);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        // 开启模板测试, 使得任一阴影区域的像素只被画一次!
+        glEnable(GL_STENCIL_TEST);
+        glPushMatrix(); {
+            // draw shadows!
+            glMultMatrixf(mShadowMatrix);
+            DrawInhabitants(1);
+        } glPopMatrix();
 
-    glDisable(GL_STENCIL_TEST);
-    glDisable(GL_BLEND);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_TEXTURE_2D);
-    glEnable(GL_DEPTH_TEST);
-    // Draw inhabitants normally
-    DrawInhabitants(0);
+        glDisable(GL_STENCIL_TEST);
+        glDisable(GL_BLEND);
+        glEnable(GL_LIGHTING);
+        glEnable(GL_TEXTURE_2D);
+        glEnable(GL_DEPTH_TEST);
+        // Draw inhabitants normally
+        DrawInhabitants(0);
 
-    glPopMatrix(); // pop 1
+    } glPopMatrix(); // pop 1
 
     // Do the buffer Swap
     glutSwapBuffers();
@@ -320,7 +320,7 @@ void ChangeSize(int w, int h)
     gluPerspective(35.0f, fAspect, 1.0f, 50.0f);
 
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();    
+    glLoadIdentity();
 }
 
 int main(int argc, char* argv[])
