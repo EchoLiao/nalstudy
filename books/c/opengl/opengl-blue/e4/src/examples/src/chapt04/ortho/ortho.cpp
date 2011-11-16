@@ -26,6 +26,8 @@ void ChangeSize(int w, int h)
     glLoadIdentity();
 
     // Establish clipping volume (left, right, bottom, top, near, far)
+    // 根据视口的尺寸比例来设置裁剪窗口的尺寸比例.
+    // [(<<G:2>> P30)]
     if (w <= h)
         glOrtho (-nRange, nRange, -nRange*h/w, nRange*h/w, -nRange*2.0f, nRange*2.0f);
     else
