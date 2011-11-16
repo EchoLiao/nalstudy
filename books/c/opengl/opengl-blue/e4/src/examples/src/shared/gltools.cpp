@@ -276,7 +276,9 @@ void gltDrawTorus(GLfloat majorRadius, GLfloat minorRadius, GLint numMajor, GLin
             vNormal[1] = y0*c;
             vNormal[2] = z/minorRadius;
             m3dNormalizeVector(vNormal);
+            // 以顶点向量作为法向量
             glNormal3fv(vNormal);
+            // glVertex3f里会与当前矩阵相乘作一些必要的变换.
             glVertex3f(x0*r, y0*r, z);
 
             glTexCoord2f((float)(i+1)/(float)(numMajor), (float)(j)/(float)(numMinor));
