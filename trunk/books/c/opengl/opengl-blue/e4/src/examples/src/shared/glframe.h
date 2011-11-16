@@ -307,6 +307,44 @@ class GLFrame
             glMultMatrixf(rotMat);
         }
 
+        //////////////////////////////////////////////////////////////////////
+        //
+        //          X         Y         Z          T
+        //
+        //        | 0         4         8          12 |
+        //        | 1         5         9          13 |
+        //        | 2         6         10         14 |
+        //        | 3         7         11         15 |
+        //
+        //  [(<<G:1>> P49)]
+        //
+        void ScaleLocal(float sx, float sy, float sz)
+        {
+            M3DMatrix44f mat;
+
+            mat[0] = sx;
+            mat[1] = 0.0f;
+            mat[2] = 0.0f;
+            mat[3] = 0.0f;
+
+            mat[4] = 0.0f;
+            mat[5] = sy;
+            mat[6] = 0.0f;
+            mat[7] = 0.0f;
+
+            mat[8] = 0.0f;
+            mat[9] = 0.0f;
+            mat[10] = sz;
+            mat[11] = 0.0f;
+
+            mat[12] = (1.0f - sx) * vOrigin[0];
+            mat[13] = (1.0f - sy) * vOrigin[1];
+            mat[14] = (1.0f - sz) * vOrigin[2];
+            mat[15] = 1.0f;
+
+            glMultMatrixf(mat);
+        }
+
 
         // Rotate around local X Axes - Note all rotations are in radians
         void RotateLocalX(float fAngle)
@@ -332,6 +370,7 @@ class GLFrame
         }
 
         // Rotate around local Y
+        // fAngle is in radians!
         void RotateLocalY(float fAngle)
         {
             M3DMatrix44f rotMat;
