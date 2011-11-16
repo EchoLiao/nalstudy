@@ -178,7 +178,6 @@ void DrawGround(void)
 void DrawInhabitants(GLint nShadow)
 {
     static GLfloat yRot = 0.0f;         // Rotation angle for animation
-    static GLboolean isNotFirstScale[NUM_SPHERES] = { 0 };
     GLint i;
 
     if(nShadow == 0)
@@ -190,8 +189,6 @@ void DrawInhabitants(GLint nShadow)
         glColor4f(0.00f, 0.00f, 0.00f, .6f);  // Shadow color
 
 
-    GLfloat fv[] = { 0.0f, 0.0f, -2.0f };
-    GLfloat uv[] = { 0.0f, 1.2f, 0.0f };
     // Draw the randomly located spheres
     glBindTexture(GL_TEXTURE_2D, textureObjects[SPHERE_TEXTURE]);
     for(i = 0; i < NUM_SPHERES; i++)
@@ -204,6 +201,7 @@ void DrawInhabitants(GLint nShadow)
             glRotatef((yRot/4.0f)*(180.0f/M3D_PI), 0.0f, 1.0f, 0.0f);
             glScalef(0.4f, 0.4f, 0.4f);
 #else
+            // 只要有 MoveForward() 就没法自转.
             // spheres[i].MoveForward(0.1f);
             // 自转
             spheres[i].RotateLocalY(0.5f/4.0f);
