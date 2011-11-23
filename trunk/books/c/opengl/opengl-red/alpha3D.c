@@ -62,12 +62,8 @@ static GLuint sphereList, cubeList; // 显示列表
 
 static void init(void)
 {
-   GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 0.15 };
-   GLfloat mat_shininess[] = { 100.0 };
    GLfloat position[] = { 0.5, 0.5, 1.0, 0.0 };
 
-   glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-   glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
    glLightfv(GL_LIGHT0, GL_POSITION, position);
 
    glEnable(GL_LIGHTING);
@@ -87,10 +83,12 @@ static void init(void)
 
 void display(void)
 {
-   GLfloat mat_solid[] = { 0.75, 0.75, 0.0, 1.0 };
    GLfloat mat_zero[] = { 0.0, 0.0, 0.0, 1.0 };
+   GLfloat mat_solid[] = { 0.75, 0.75, 0.0, 1.0 };
+
+   // 环境光和散射光中, 起主导作用的是散射光!
+   GLfloat mat_emission[] = { 0.0, 0.3, 0.3, 1.0 };
    GLfloat mat_transparent[] = { 0.0, 0.8, 0.8, 0.6 };
-   GLfloat mat_emission[] = { 0.0, 0.3, 0.3, 0.6 };
 
    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -108,9 +106,18 @@ void display(void)
       glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
       glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_transparent);
 
+      /* 混合计算公式:
+       *   ( des 的深度值大于 src 的深度值! )
+       *
+       * R = srcR * sfactorR + desR * dfactorR
+       * G = srcG * sfactorG + desG * dfactorG
+       * B = srcB * sfactorB + desB * dfactorB
+       * A = srcA * sfactorA + desA * dfactorA
+       **/
       glEnable (GL_BLEND);      // 画透明物体, 开启混合
       glDepthMask (GL_FALSE);   // 使深度值只能读. [(P160 B)]
-      glBlendFunc (GL_SRC_ALPHA, GL_ONE);   // 设置混合因子
+      // glBlendFunc(sfactor, dfactor); 设置混合因子
+      glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
       glCallList (cubeList);
       glDepthMask (GL_TRUE);    // 使深度值能读写 
       glDisable (GL_BLEND);
@@ -150,10 +157,9 @@ void keyboard(unsigned char key, int x, int y)
    switch (key) {
       case 'a':
       case 'A':
-         solidZ = MAXZ;
-         transparentZ = MINZ;
-         // 设置Idle函数, 其一直会生效, 直到下一次重新设置
-         glutIdleFunc(animate); 
+         solidZ = MINZ;
+         transparentZ = MAXZ;
+         glutPostRedisplay();
          break;
       case 'r':
       case 'R':
