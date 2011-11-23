@@ -67,11 +67,12 @@ void init(void)
 
    glBlendFunc(GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR);
    glEnable(GL_BLEND);
+   glEnable(GL_DEPTH_TEST);
 }
 
 void display(void)
 {
-   glClear(GL_COLOR_BUFFER_BIT);
+   glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
    glColor4f(srcR, srcG, srcB, srcA);
    glRectf(-0.5,-0.5,0.1,0.1);
@@ -160,7 +161,7 @@ void keyboard(unsigned char key, int x, int y)
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
-   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
    glutInitWindowSize(512,512);
    glutInitWindowPosition(100, 100);
    glutCreateWindow(argv[0]);
