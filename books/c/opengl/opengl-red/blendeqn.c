@@ -84,6 +84,7 @@ void display(void)
            srcG * srcG + desG * (1.0 - srcG), 
            srcB * srcB + desB * (1.0 - srcB), 
            srcA * srcA + desA * (1.0 - srcA)); 
+   glTranslatef(0.0, 0.0, 0.1);
    glRectf(0.0, 0.0, 0.5, 0.5);
    glEnable(GL_BLEND);
 
