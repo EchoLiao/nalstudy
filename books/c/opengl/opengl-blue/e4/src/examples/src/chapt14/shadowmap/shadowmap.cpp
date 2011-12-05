@@ -219,7 +219,7 @@ void RenderScene(void)
         gluPerspective(45.0f, 1.0f, 1.0f, 1000.0f);
         glMatrixMode(GL_MODELVIEW);
     }
-    else if (noShadows)
+    else if (noShadows) // 不显示阴影
     {
         // Set up some simple lighting
         glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
@@ -230,6 +230,8 @@ void RenderScene(void)
     }
     else
     {
+        // 若不支持ambientshadow, 则先用较暗的光对整个场景进行渲染一遍, 以模拟
+        // 阴影.
         if (!ambientShadowAvailable)
         {
             GLfloat lowAmbient[4] = {0.1f, 0.1f, 0.1f, 1.0f};
@@ -255,8 +257,10 @@ void RenderScene(void)
         // Set up shadow comparison
         glEnable(GL_TEXTURE_2D);
         glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+        // 把当前片段的z值与深度纹理图中的r值比较, 若z<r, 则该片段能看见光源,
+        // 渲染它; 若z>=r, 则该片段看不同光源, 不渲染它.
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, 
-                        GL_COMPARE_R_TO_TEXTURE);
+                GL_COMPARE_R_TO_TEXTURE);
 
         // Set up the eye plane for projecting the shadow map on the scene
         glEnable(GL_TEXTURE_GEN_S);
@@ -356,6 +360,7 @@ void SetupRC()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // 深度纹理
     glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_INTENSITY);
     if (ambientShadowAvailable)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FAIL_VALUE_ARB, 
@@ -533,6 +538,7 @@ void ChangeSize(int w, int h)
     windowWidth = shadowWidth = w;
     windowHeight = shadowHeight = h;
     
+    // 纹理图的宽和高必须的2的n次方
     if (!npotTexturesAvailable)
     {
         // Find the largest power of two that will fit in window.
