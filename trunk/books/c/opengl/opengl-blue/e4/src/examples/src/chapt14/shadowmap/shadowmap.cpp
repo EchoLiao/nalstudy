@@ -92,6 +92,9 @@ void RegenerateShadowMap(void)
     GLfloat lightModelview[16], lightProjection[16];
     GLfloat sceneBoundingRadius = 95.0f; // based on objects in scene
 
+    // 设置投影矩阵和裁剪区域, 使所有的应该在屏幕中显示的场景尽可能地刚好填满
+    // 屏幕, 从而使得所产生的深度纹理图(尺寸为屏幕大小)能够刚好包含所有的场景
+    // 的深度信息.
     // Save the depth precision for where it's useful
     lightToSceneDistance = sqrt(lightPos[0] * lightPos[0] + 
                                 lightPos[1] * lightPos[1] + 
@@ -104,6 +107,8 @@ void RegenerateShadowMap(void)
     glLoadIdentity();
     gluPerspective(fieldOfView, 1.0f, nearPlane, nearPlane + (2.0f * sceneBoundingRadius));
     glGetFloatv(GL_PROJECTION_MATRIX, lightProjection);
+
+    // 把观察点设置到光源的位置, 以产生深度纹理图.
     // Switch to light's point of view
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -141,17 +146,35 @@ void RegenerateShadowMap(void)
     glColorMask(1, 1, 1, 1);
     glDisable(GL_POLYGON_OFFSET_FILL);
 
+    //=========== 
+    // http://www.4ucode.com/Study/Topic/1940032
+    //
+    //   p' = B * S * PL * VL * VC^-1 * p
+    // 
     // Set up texture matrix for shadow map projection,
     // which will be rolled into the eye linear
     // texture coordinate generation plane equations
     M3DMatrix44f tempMatrix;
     m3dLoadIdentity44(tempMatrix);
-    m3dTranslateMatrix44(tempMatrix, 0.5f, 0.5f, 0.5f);
-    m3dScaleMatrix44(tempMatrix, 0.5f, 0.5f, 0.5f);
-    m3dMatrixMultiply44(textureMatrix, tempMatrix, lightProjection);
-    m3dMatrixMultiply44(tempMatrix, textureMatrix, lightModelview);
+
+    // 裁剪空间的坐标范围是: [-1.0, 1.0], 而纹理空间的坐标范围是: [0.0, 1.0],
+    // 要从[-1.0, 1.0]变换到[0.0, 1.0], 需要先缩小一半再往正方向平移一半.
+    //
+    //   p' = B * S * p
+    //                    |1   0   0   Tx|   |Sx  0   0   0|   |Sx  0   0   Tx|  
+    //   M(bs) = B * S =  |0   1   0   Ty| * |0   Sy  0   0| = |0   Sy  0   Ty|  
+    //                    |0   0   1   Tz|   |0   0   Sz  0|   |0   0   Sz  Tz|  
+    //                    |0   0   0   1 |   |0   0   0   1|   |0   0   0   1 | 
+    // 
+    // 以下两行代码只是简单地直接地构造出一个矩阵: M(bs) !
+    // 所以此两行代码没顺序要求!!
+    m3dTranslateMatrix44(tempMatrix, 0.5f, 0.5f, 0.5f); // B
+    m3dScaleMatrix44(tempMatrix, 0.5f, 0.5f, 0.5f);     // S
+
+    m3dMatrixMultiply44(textureMatrix, tempMatrix, lightProjection);  // PL (变换到光的裁剪空间的矩阵)
+    m3dMatrixMultiply44(tempMatrix, textureMatrix, lightModelview);   // VL (变换到光的观察空间的矩阵)
     // transpose to get the s, t, r, and q rows for plane equations
-    m3dTransposeMatrix44(textureMatrix, tempMatrix);
+    m3dTransposeMatrix44(textureMatrix, tempMatrix);                  // VC
 }
 
 // Called to draw scene
@@ -194,6 +217,9 @@ void RenderScene(void)
         glMatrixMode(GL_TEXTURE);
         glPushMatrix();
         glLoadIdentity();
+        // 深度纹理图中的rgb颜色分量的值都等于1.0乘以深度值:
+        //     r = g = b = 1.0 * z
+        //   QQQQQ
         glEnable(GL_TEXTURE_2D);
         glDisable(GL_LIGHTING);
         glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
@@ -538,11 +564,11 @@ void ChangeSize(int w, int h)
     windowWidth = shadowWidth = w;
     windowHeight = shadowHeight = h;
     
-    // 纹理图的宽和高必须的2的n次方
     if (!npotTexturesAvailable)
     {
+        // GL2.0 以前的版本要求, 纹理图的宽和高必须的2的n次方.
+        
         // Find the largest power of two that will fit in window.
-
         // Try each width until we get one that's too big
         i = 0;
         while ((1 << i) <= shadowWidth)
