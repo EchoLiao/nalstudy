@@ -147,9 +147,19 @@ void RegenerateShadowMap(void)
     glDisable(GL_POLYGON_OFFSET_FILL);
 
     //=========== 
+    // <NOTE2>:
+    // [(<<Red-Book>> P293)]
     // http://www.4ucode.com/Study/Topic/1940032
+    // http://www.zwqxin.com/archives/opengl/more-about-matrix-opengl.html
+    // http://blog.csdn.net/crazyjumper/article/details/1967993
     //
-    //   p' = B * S * PL * VL * VC^-1 * p
+    //   T' = B * S * PL * VL * VC^-1 * T
+    //   [(<<Blue-Book>> P329)]
+    //
+    //   由<NOTE1>可知, 为了生成纹理坐标T', 我们只需要计算出组合矩阵
+    //   textureMatrix(B*S*PL*VL), 即PE, 但是我们并不能直接指定PE, 必须通过
+    //   glTexGenfv() 来指定, 又由于 textureMatrix 是按列优先存储的, 所以为了
+    //   方便使用我们先对 textureMatrix 进行了转置处理!
     // 
     // Set up texture matrix for shadow map projection,
     // which will be rolled into the eye linear
@@ -160,11 +170,11 @@ void RegenerateShadowMap(void)
     // 裁剪空间的坐标范围是: [-1.0, 1.0], 而纹理空间的坐标范围是: [0.0, 1.0],
     // 要从[-1.0, 1.0]变换到[0.0, 1.0], 需要先缩小一半再往正方向平移一半.
     //
-    //   p' = B * S * p
-    //                    |1   0   0   Tx|   |Sx  0   0   0|   |Sx  0   0   Tx|  
-    //   M(bs) = B * S =  |0   1   0   Ty| * |0   Sy  0   0| = |0   Sy  0   Ty|  
-    //                    |0   0   1   Tz|   |0   0   Sz  0|   |0   0   Sz  Tz|  
-    //                    |0   0   0   1 |   |0   0   0   1|   |0   0   0   1 | 
+    //   T' = B * S * T
+    //                    |1   0   0   Bx|   |Sx  0   0   0|   |Sx  0   0   Bx|
+    //   M(bs) = B * S =  |0   1   0   By| * |0   Sy  0   0| = |0   Sy  0   By|
+    //                    |0   0   1   Bz|   |0   0   Sz  0|   |0   0   Sz  Bz|
+    //                    |0   0   0   1 |   |0   0   0   1|   |0   0   0   1 |
     // 
     // 以下两行代码只是简单地直接地构造出一个矩阵: M(bs) !
     // 所以此两行代码没顺序要求!!
@@ -174,7 +184,7 @@ void RegenerateShadowMap(void)
     m3dMatrixMultiply44(textureMatrix, tempMatrix, lightProjection);  // PL (变换到光的裁剪空间的矩阵)
     m3dMatrixMultiply44(tempMatrix, textureMatrix, lightModelview);   // VL (变换到光的观察空间的矩阵)
     // transpose to get the s, t, r, and q rows for plane equations
-    m3dTransposeMatrix44(textureMatrix, tempMatrix);                  // VC
+    m3dTransposeMatrix44(textureMatrix, tempMatrix);                  // 转置矩阵(B*S*PL*VL), 以方便使用
 }
 
 // Called to draw scene
@@ -277,6 +287,24 @@ void RenderScene(void)
             glEnable(GL_ALPHA_TEST);
         }
 
+        // <NOTE1>:
+        // [(<<Red-Book>> P293)]
+        // GL_EYE_LINEAR 模式下生成的纹理坐标的函数是:
+        //     生成的纹理坐标 = p0' * Xe + p1' * Ye + p2' * Ze + p3' * We
+        //     其中, (p0', p1', p2', p3')^T = VC^-1 * (p0, p1, p2, p3)^T
+        // 用矩阵表示为:
+        //       | s' |   |ps0'  ps1'  ps2'  ps3'|   | Xe |
+        //  T' = | t' | = |pt0'  pt1'  pt2'  pt3'| * | Ye |
+        //       | r' |   |pr0'  pr1'  pr2'  pr3'|   | Ze |
+        //       | q' |   |pq0'  pq1'  pq2'  pq3'|   | We |
+        //
+        //                |ps0  ps1  ps2  ps3|            | Xe |
+        //              = |pt0  pt1  pt2  pt3| * VC^-1 *  | Ye |
+        //                |pr0  pr1  pr2  pr3|            | Ze |
+        //                |pq0  pq1  pq2  pq3|            | We |
+        //
+        //              = PE * VC^-1 * E
+        //
         glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
         glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
 
@@ -293,10 +321,10 @@ void RenderScene(void)
         glEnable(GL_TEXTURE_GEN_T);
         glEnable(GL_TEXTURE_GEN_R);
         glEnable(GL_TEXTURE_GEN_Q);
-        glTexGenfv(GL_S, GL_EYE_PLANE, &textureMatrix[0]);
-        glTexGenfv(GL_T, GL_EYE_PLANE, &textureMatrix[4]);
-        glTexGenfv(GL_R, GL_EYE_PLANE, &textureMatrix[8]);
-        glTexGenfv(GL_Q, GL_EYE_PLANE, &textureMatrix[12]);
+        glTexGenfv(GL_S, GL_EYE_PLANE, &textureMatrix[0]);  // (ps0, ps1, ps2, ps3)
+        glTexGenfv(GL_T, GL_EYE_PLANE, &textureMatrix[4]);  // (pt0, pt1, pt2, pt3)
+        glTexGenfv(GL_R, GL_EYE_PLANE, &textureMatrix[8]);  // (pr0, pr1, pr2, pr3)
+        glTexGenfv(GL_Q, GL_EYE_PLANE, &textureMatrix[12]); // (pq0, pq1, pq2, pq3)
 
         // Draw objects in the scene, including base plane
         DrawModels(GL_TRUE);
