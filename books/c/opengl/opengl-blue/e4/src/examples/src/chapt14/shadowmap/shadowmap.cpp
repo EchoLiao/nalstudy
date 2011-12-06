@@ -414,7 +414,9 @@ void SetupRC()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // 深度纹理
+    // 在深度纹理图中只保存有深度信息(D), 但纹理处理单元所要的信息是颜色分量
+    // (RGBA), 所以我们必须告诉OpenGL怎么构造出RGBA给纹理处理单元. 
+    // GL_INTENSITY 表示构造算法是把D作为各个颜色分量的值(D, D, D, D).
     glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_INTENSITY);
     if (ambientShadowAvailable)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FAIL_VALUE_ARB, 
