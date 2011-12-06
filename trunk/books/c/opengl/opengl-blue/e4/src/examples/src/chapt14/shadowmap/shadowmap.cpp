@@ -340,32 +340,41 @@ void RenderScene(void)
         // GL_MODULATE 表示:
         //   把<NOTE4>中得到的纹理片段的RGBA(t)值与当前被渲染的物体片段的
         //   GRBA(f)进行混合, 并把结果送到下一处理单元(alpha测试等).
-        //   混合算法是(GL_RGBA, GL_MODULATE): [(man glTexEnvi)]
-        //        R = Rt * Rf
-        //        G = Gt * Gf
-        //        B = Bt * Bf
-        //        A = At * Af
-        //   注意: 在 DrawModels() 中我们使用的 glColor3f() 来指定颜色值,
-        // 该函数默认指定Alpha的值为1.0, 所以:
-        //        A = At * Af = At * 1.0 = At
+        // 混合算法是: [(man glTexEnvi)]
+        //  1. (GL_INTENSITY, GL_MODULATE)
+        //        R = Rf * It
+        //        G = Gf * It
+        //        B = Bf * It
+        //        A = Af * It // 结果是只有非阴影部分通过了Alpha测试
+        //     注意: 在 DrawModels() 中我们使用的 glColor3f() 来指定颜色值,
+        //     该函数默认指定Alpha的值为1.0, 所以:
+        //            A = Af * It = 1.0 * It = It
+        //  2. (GL_LUMINANCE, GL_MODULATE)
+        //        R = Rf * Lt
+        //        G = Gf * Lt
+        //        B = Bf * Lt
+        //        A = Af      // 结果是所有的都通过了Alpha测试
+        //  3. (GL_ALPHA, GL_MODULATE)
+        //        R = Rf
+        //        G = Gf
+        //        B = Bf
+        //        A = Af * At // 结果是只有非阴影部分通过了Alpha测试
         glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
         // <NOTE4>
         // 把当前纹理的r值与深度纹理图中的深度值D(用(s,t)来寻址)作比较来
-        // 产生(要对当前被渲染片段进行纹理的)纹理片段的RGBA的值, 算法是:
+        // 产生(要对当前被渲染片段进行纹理的)纹理片段的颜色的值, 根据
+        // <NOTE3>所设置使用的颜色生产方法, 得到的值也不一样, 但基本算法
+        // 不变, 算法是:
         //     D' = (r < D) ? 1 : 0
         //  (显然, 阴影区域的D'值为0, 非阴影区域的D'值为1)
         //
-        //   若<NOTE3>中, 设置使用的是 GL_INTENSITY(D,D,D,D), 则为:
-        //       R = (r < D) ? 1 : 0
-        //       G = (r < D) ? 1 : 0
-        //       B = (r < D) ? 1 : 0
-        //       A = (r < D) ? 1 : 0
-        //   若<NOTE3>中, 设置使用的是 GL_LUMINANCE(D,D,D,1), 则为:
-        //       R = (r < D) ? 1 : 0
-        //       G = (r < D) ? 1 : 0
-        //       B = (r < D) ? 1 : 0
-        //       A = 1
+        //   1. 若<NOTE3>中, 设置使用的是 GL_INTENSITY(D,D,D,D), 则为:
+        //       It = (r < D) ? 1 : 0
+        //   2. 若<NOTE3>中, 设置使用的是 GL_LUMINANCE(D,D,D,1), 则为:
+        //       Lt = (r < D) ? 1 : 0
+        //   3. 若<NOTE3>中, 设置使用的是 GL_ALPHA(0,0,0,1), 则为:
+        //       At = (r < D) ? 1 : 0
         //   ...
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, 
                 GL_COMPARE_R_TO_TEXTURE);
