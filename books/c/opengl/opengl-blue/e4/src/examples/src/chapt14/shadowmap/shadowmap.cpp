@@ -283,6 +283,9 @@ void RenderScene(void)
             DrawModels(GL_TRUE);
 
             // Enable alpha test so that shadowed fragments are discarded
+            // 开启 alpha 测试, 丢弃不通过测试的片段. 在此, 若片段的 alpha
+            // 小于 0.9 则弃之!
+            // (对<NOTE5所产生的结果进行alpha测试)
             glAlphaFunc(GL_GREATER, 0.9f);
             glEnable(GL_ALPHA_TEST);
         }
@@ -332,10 +335,38 @@ void RenderScene(void)
 
         // Set up shadow comparison
         glEnable(GL_TEXTURE_2D);
+
+        // <NOTE5>
+        // GL_MODULATE 表示:
+        //   把<NOTE4>中得到的纹理片段的RGBA(t)值与当前被渲染的物体片段的
+        //   GRBA(f)进行混合, 并把结果送到下一处理单元(alpha测试等).
+        //   混合算法是(GL_RGBA, GL_MODULATE): [(man glTexEnvi)]
+        //        R = Rt * Rf
+        //        G = Gt * Gf
+        //        B = Bt * Bf
+        //        A = At * Af
+        //   注意: 在 DrawModels() 中我们使用的 glColor3f() 来指定颜色值,
+        // 该函数默认指定Alpha的值为1.0, 所以:
+        //        A = At * Af = At * 1.0 = At
         glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-        // 把当前片段的z值与深度纹理图中的r值比较, 若z<r, 则该片段能看见光源,
-        // 渲染它; 若z>=r, 则该片段看不同光源, 不渲染它.
+        // <NOTE4>
+        // 把当前纹理的r值与深度纹理图中的深度值D(用(s,t)来寻址)作比较来
+        // 产生(要对当前被渲染片段进行纹理的)纹理片段的RGBA的值, 算法是:
+        //     D' = (r < D) ? 1 : 0
+        //  (显然, 阴影区域的D'值为0, 非阴影区域的D'值为1)
+        //
+        //   若<NOTE3>中, 设置使用的是 GL_INTENSITY(D,D,D,D), 则为:
+        //       R = (r < D) ? 1 : 0
+        //       G = (r < D) ? 1 : 0
+        //       B = (r < D) ? 1 : 0
+        //       A = (r < D) ? 1 : 0
+        //   若<NOTE3>中, 设置使用的是 GL_LUMINANCE(D,D,D,1), 则为:
+        //       R = (r < D) ? 1 : 0
+        //       G = (r < D) ? 1 : 0
+        //       B = (r < D) ? 1 : 0
+        //       A = 1
+        //   ...
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, 
                 GL_COMPARE_R_TO_TEXTURE);
 
