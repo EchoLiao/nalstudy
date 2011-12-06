@@ -305,12 +305,35 @@ void RenderScene(void)
         //
         //              = PE * VC^-1 * E
         //
+        //  若令:
+        //      |ps0  ps1  ps2  ps3|   |1.0  0.0  0.0  0.0|
+        //      |pt0  pt1  pt2  pt3| = |0.0  1.0  0.0  0.0|
+        //      |pr0  pr1  pr2  pr3|   |0.0  0.0  1.0  0.0|
+        //      |pq0  pq1  pq2  pq3|   |0.0  0.0  0.0  1.0|
+        //  则:
+        //      s' = 1.0f * x + 0.0f * y + 0.0f * z + 0.0f * w = x;
+        //      t' = 0.0f * x + 1.0f * y + 0.0f * z + 0.0f * w = y;
+        //      r' = 0.0f * x + 0.0f * y + 1.0f * z + 0.0f * w = z;
+        //      q' = 0.0f * x + 0.0f * y + 0.0f * z + 1.0f * w = w;
+        //  所以:
+        //     (s', t', r', q')的值实际上经(VC^-1)转换后的(x, y, z, w)的
+        //  值; 也是到相应平面的距离(如: r' 表示的是到平面
+        //  (pr0, pr1, pr2, pr3)=(0.0, 0.0, 1.0, 0.0) 的距离; 又由于平面
+        //  方程为: p0*x + p1*y + p2*z + p3*w = 0, 所以 r' 即表示的是到平
+        //  面 z=0 的距离, 即片段的深度值!!)
+        //
+        //  同理:
+        //      一般地, (s', t', r', q')的值是经(PE * VC^-1)转换后的
+        //  (x, y , z, w) 的值; 也是到相应平面的距离, 也即是对应的坐标系
+        //  统下的片段的深度值.
+        //
         glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
         glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
 
         // Set up shadow comparison
         glEnable(GL_TEXTURE_2D);
         glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
         // 把当前片段的z值与深度纹理图中的r值比较, 若z<r, 则该片段能看见光源,
         // 渲染它; 若z>=r, 则该片段看不同光源, 不渲染它.
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, 
@@ -362,7 +385,7 @@ void SetupRC()
     // Check for optional extensions
     if (GLEE_ARB_shadow_ambient)
     {
-        ambientShadowAvailable = GL_TRUE;
+        // ambientShadowAvailable = GL_TRUE;
     }
     else
     {
@@ -417,6 +440,8 @@ void SetupRC()
     // 在深度纹理图中只保存有深度信息(D), 但纹理处理单元所要的信息是颜色分量
     // (RGBA), 所以我们必须告诉OpenGL怎么构造出RGBA给纹理处理单元. 
     // GL_INTENSITY 表示构造算法是把D作为各个颜色分量的值(D, D, D, D).
+    //   其它值: GL_LUMINANCE(D,D,D,1), GL_ALPHA(0,0,0,D)
+    // <NOTE3>
     glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_INTENSITY);
     if (ambientShadowAvailable)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FAIL_VALUE_ARB, 
