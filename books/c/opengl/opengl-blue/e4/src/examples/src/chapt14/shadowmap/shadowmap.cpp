@@ -153,6 +153,9 @@ void RegenerateShadowMap(void)
     // http://www.zwqxin.com/archives/opengl/more-about-matrix-opengl.html
     // http://blog.csdn.net/crazyjumper/article/details/1967993
     //
+    // 由于渲染场景时我们使用的是 GL_EYE_PLANE 模式生成纹理坐标, 即: 是在相机
+    // 的视觉空间下生成的. 所以为了把一空间下的纹理坐标变换到光的裁剪空间下(目
+    // 的是为了与深度纹理作比较), 需要做如下变换:
     //   T' = B * S * PL * VL * VC^-1 * T
     //   [(<<Blue-Book>> P329)]
     //
