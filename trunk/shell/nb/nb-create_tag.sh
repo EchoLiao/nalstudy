@@ -9,22 +9,30 @@ echo "book"       | nb add tag
 echo "centos"       | nb add tag
 echo "c"            | nb add tag
 echo "cpp"       | nb add tag
+echo "database"       | nb add tag
 echo "devel"       | nb add tag
 echo "dev"       | nb add tag
+echo "emacs"       | nb add tag
 echo "embedded"       | nb add tag
 echo "encoding"       | nb add tag
 echo "engs"       | nb add tag
+echo "erp"       | nb add tag
 echo "e-test"       | nb add tag
 echo "fedora"       | nb add tag
+echo "framebuffer"       | nb add tag
+echo "git"       | nb add tag
 echo "graph"       | nb add tag
 echo "java"       | nb add tag
+echo "lang"            | nb add tag
 echo "life"       | nb add tag
 echo "linux"       | nb add tag
 echo "linux-tool"       | nb add tag
 echo "mail"       | nb add tag
 echo "matrix"       | nb add tag
 echo "minix"       | nb add tag
+echo "mp3"       | nb add tag
 echo "network"       | nb add tag
+echo "opengl"       | nb add tag
 echo "open-lib"       | nb add tag
 echo "sap"       | nb add tag
 echo "sed-awk"       | nb add tag
@@ -32,6 +40,7 @@ echo "selinux"       | nb add tag
 echo "shell"       | nb add tag
 echo "sql"       | nb add tag
 echo "strust"       | nb add tag
+echo "svn"       | nb add tag
 echo "tcp-ip"       | nb add tag
 echo "terminal"       | nb add tag
 echo "ubuntu"       | nb add tag
@@ -39,5 +48,5 @@ echo "video"       | nb add tag
 echo "viki"       | nb add tag
 echo "vim"       | nb add tag
 echo "vm"       | nb add tag
-echo "framebuffer"       | nb add tag
+echo "win"       | nb add tag
 
