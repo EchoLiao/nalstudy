@@ -75,5 +75,17 @@ int main(int argc, char** argv)
 #endif
     }
 
+
+
+// ============== test enc_utf8_to_unicode_one ===============
+    char         strone[10] = "要";
+    unsigned int unic;
+    int ret = enc_utf8_to_unicode_one_uint(strone, &unic);
+    if ( ret == -1 )
+        printf("Error!\n");
+    else
+        printf("%s, unicode: %x\n", strone, unic);
+
+
     return 0;
 }
