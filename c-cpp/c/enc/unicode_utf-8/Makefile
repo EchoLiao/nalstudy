@@ -25,7 +25,7 @@ $(TARGETS): %: %.o unicode_utf-8.o
 	gcc $^ $(LLDLIBS) -o $@
 
 $(OBJS): %.o: %.c
-	gcc -g -c -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
+	gcc -c $(CFLAGS) -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
 
 
 -include Makefile.d

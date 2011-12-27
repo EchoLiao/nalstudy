@@ -26,7 +26,7 @@
 #include "unicode_utf-8.h"
 
 
-#define BUF_LEN 128
+#define BUF_LEN 256
 
 
 int main(int argc, char** argv)
@@ -42,50 +42,64 @@ int main(int argc, char** argv)
     };
 #else
     // 请保证该文件是以 utf-8 格式存储的!
-    char str[20] = "我不要";
+    // utf[BUF_LEN] = "我不要";
+    char utf[BUF_LEN] = "请保证该文件是以 utf-8 格式存储的!";
 #endif
-    char uni[BUF_LEN] = { 0 };
-    int i;
+    unsigned long uni[BUF_LEN];
 
-    int num = enc_utf8_to_unicode(str, uni, BUF_LEN);
+    int i, ret;
+    int utflen = strlen(utf);
+    int unilen = BUF_LEN;
 
-    if (num == -1)
+    ret = enc_utf8_to_unicode((unsigned char *)utf, utflen, uni, &unilen);
+    if ( ret == 0 )
     {
-        printf("Error!\n");
+        fprintf(stderr, "1a Error!\n");
     }
-    else
+    else if ( ret == 1 )
     {
-        if ( num + 2 + 1 >= BUF_LEN )
-            fprintf(stderr, "May be NO enuogh space to convertion!\n");
-
-        unsigned char* p = (unsigned char *)uni;
-#if 0
-        for (i = 0; i < num; i++)
+        for ( i = 0; i < unilen; i++ )
         {
-            printf("%02X", *p);
-            p++;
+            printf("%lX ", uni[i]);
         }
         printf("\n");
-#else
-        for ( i = 0; i < num; i += 2 )
-        {
-            printf("%x\n", *((unsigned short*)p));
-            p += 2;
-        }
-#endif
+    }
+    else
+    {
+        fprintf(stderr, "2a No enough space!\n");
     }
 
 
+// ================================================================
+    char utf2[BUF_LEN];
+    unsigned long uni2[BUF_LEN] = {
+        0x8BF7, 0x4FDD, 0x8BC1, 0x8BE5, 0x6587, 0x4EF6, 0x662F, 0x4EE5,
+        0x20, 0x75, 0x74, 0x66, 0x2D, 0x38, 0x20, 0x683C, 0x5F0F,
+        0x5B58, 0x50A8, 0x7684, 0x21, 0x0
+    };
 
-// ============== test enc_utf8_to_unicode_one ===============
-    char         strone[10] = "要";
-    unsigned int unic;
-    int ret = enc_utf8_to_unicode_one_uint(strone, &unic);
-    if ( ret == -1 )
-        printf("Error!\n");
+    int ret2, j;
+    int utflen2 = BUF_LEN;
+    int unilen2 = 0;
+
+    for ( j = 0; uni2[j] != 0x0; j++ ) { }
+
+    unilen2 = j;
+    ret2 = enc_unicode_to_utf8(uni2, unilen2,
+            (unsigned char *)utf2, &utflen2);
+    if ( ret2 == 0 )
+    {
+        fprintf(stderr, "1b Error!\n");
+    }
+    else if ( ret2 == 1 )
+    {
+        utf2[utflen2] = '\0';
+        printf("%s\n", utf2);
+    }
     else
-        printf("%s, unicode: %x\n", strone, unic);
-
+    {
+        fprintf(stderr, "2b No enough space!\n");
+    }
 
     return 0;
 }
