@@ -79,20 +79,18 @@ cd $nblogdir
 isClean=`git status data | grep "(working directory clean)"`
 [[ ! $isClean ]] && {
     echo "y" | $nv_nb --force update all >> $nv_log 2>&1
+
+    # 由于deplate生的html中的css路径在naoblogger下无效, 
+    # 所以需要修改一下 css 的路径.
+    cd $nblogdir
+    find archives/2011/ archives/2012/ articles/ *.html -type f -name '*.html' > $findlis
+    cat $findlis |
+    while read line
+    do
+        if [ -z "$line"  ]; then continue; fi # 空行
+        $nv_3css "$line" >> $nv_log 2>&1
+    done
 }
-
-
-######=================######
-# 由于deplate生的html中的css路径在naoblogger下无效, 
-# 所以需要修改一下 css 的路径.
-cd $nblogdir
-find archives/2011/ archives/2012/ articles/ *.html -type f -name '*.html' > $findlis
-cat $findlis |
-while read line
-do
-    if [ -z "$line"  ]; then continue; fi # 空行
-    $nv_3css "$line" >> $nv_log 2>&1
-done
 
 
 ######=================######
