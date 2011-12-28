@@ -63,7 +63,7 @@ do
     firstline=`head -1 $nblogdir/data/cat_$curid.db`
     echo $metaline   >> $nblogdir/data/cat_$curid.db
     echo $firstline   > $tmpdbfile
-    sed '1d' $nblogdir/data/cat_$curid.db | sort | uniq >> $tmpdbfile
+    sed '1d' $nblogdir/data/cat_$curid.db | sort | sort -t\> +0 -1 -u >> $tmpdbfile
     mv -f $tmpdbfile  $nblogdir/data/cat_$curid.db
 
     if [[ "$curid" == "$lasid" ]]; then break; fi
