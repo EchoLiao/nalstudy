@@ -24,6 +24,7 @@
 #include <string.h>
 #include <assert.h>
 #include "unicode_utf-8.h"
+#include "unicode_utf-8_test.h"
 
 
 #define BUF_LEN 256
@@ -102,6 +103,37 @@ int main(int argc, char** argv)
     {
         fprintf(stderr, "2b No enough space!\n");
     }
+
+
+    // ================================================================
+    // int enc_GBK_to_unicode_str(const unsigned char *pInput,
+    //         unsigned long *pOutput, int *nMembOut);
+    unsigned char gbk[BUF_LEN];
+    unsigned long gbk2unic[BUF_LEN];
+    int           outlen = BUF_LEN;
+
+    fread(gbk, 1, BUF_LEN, stdin);
+    fprintf(stderr, "%s", gbk);
+
+    ret = enc_GBK_to_unicode_str(gbk, gbk2unic, &outlen);
+    if ( ret == 0 )
+    {
+        fprintf(stderr, "1b Error!\n");
+    }
+    else if ( ret == 1 )
+    {
+        for ( i = 0; i < outlen; i++ )
+        {
+            printf("%lX ", gbk2unic[i]);
+        }
+        printf("\n");
+    }
+    else
+    {
+        fprintf(stderr, "2b No enough space!\n");
+    }
+
+
 
     return 0;
 }
