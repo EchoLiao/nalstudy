@@ -106,8 +106,7 @@ int main(int argc, char** argv)
 
 
     // ================================================================
-    // int enc_GBK_to_unicode_str(const unsigned char *pInput,
-    //         unsigned long *pOutput, int *nMembOut);
+    // 测试方法: ./unicode_utf-8_test < gbk_code_file.txt
     unsigned char gbk[BUF_LEN];
     unsigned long gbk2unic[BUF_LEN];
     int           outlen = BUF_LEN;
@@ -132,8 +131,6 @@ int main(int argc, char** argv)
     {
         fprintf(stderr, "2b No enough space!\n");
     }
-
-
 
     return 0;
 }

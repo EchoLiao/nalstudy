@@ -32179,7 +32179,7 @@ int enc_GBK_to_unicode(const unsigned char *pInput, int nMembIn,
             return 2; // 输出空间不足
         }
 
-        *pchgbk     = *(pInCur+1);
+        *pchgbk     = *(pInCur+1); // 有可能越界访问, 但不会有问题
         *(pchgbk+1) = *pInCur;
         ret = enc_GBK_to_unicode_one(gbk, pOutCur);
         if ( ret == 0 )
