@@ -48,10 +48,11 @@ int main(int argc, char** argv)
     unsigned long uni[BUF_LEN];
 
     int i, ret;
-    int utflen = strlen(utf);
+    // int utflen = strlen(utf);
     int unilen = BUF_LEN;
 
-    ret = enc_utf8_to_unicode((unsigned char *)utf, utflen, uni, &unilen);
+    // ret = enc_utf8_to_unicode((unsigned char *)utf, utflen, uni, &unilen);
+    ret = enc_utf8_to_unicode_str((unsigned char *)utf, uni, &unilen);
     if ( ret == 0 )
     {
         fprintf(stderr, "1a Error!\n");
@@ -78,15 +79,16 @@ int main(int argc, char** argv)
         0x5B58, 0x50A8, 0x7684, 0x21, 0x0
     };
 
-    int ret2, j;
+    int ret2;
     int utflen2 = BUF_LEN;
-    int unilen2 = 0;
+    // int unilen2 = 0;
 
-    for ( j = 0; uni2[j] != 0x0; j++ ) { }
+    // for ( j = 0; uni2[j] != 0x0; j++ ) { }
 
-    unilen2 = j;
-    ret2 = enc_unicode_to_utf8(uni2, unilen2,
-            (unsigned char *)utf2, &utflen2);
+    // unilen2 = j;
+    /* ret2 = enc_unicode_to_utf8(uni2, unilen2,
+            (unsigned char *)utf2, &utflen2); */
+    ret2 = enc_unicode_to_utf8_str(uni2, (unsigned char *)utf2, &utflen2);
     if ( ret2 == 0 )
     {
         fprintf(stderr, "1b Error!\n");
