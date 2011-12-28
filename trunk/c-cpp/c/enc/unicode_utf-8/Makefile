@@ -24,7 +24,7 @@ def:
 $(TARGETS): %: %.o unicode_utf-8.o
 	gcc $^ $(LLDLIBS) -o $@
 
-$(OBJS): %.o: %.c
+$(OBJS): %.o: %.c %.h
 	gcc -c $(CFLAGS) -I/usr/include -I$(TOP) $< $(LLDLIBS) -o $@
 
 
