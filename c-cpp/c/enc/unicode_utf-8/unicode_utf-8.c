@@ -227,6 +227,35 @@ int enc_utf8_to_unicode(const unsigned char* pInput, int nMembIn,
     return 1;         // 所有字符转换成功
 }
 
+/*****************************************************************************
+ * 将以0结束的字符串的UTF8编码转换成Unicode(UCS-2和UCS-4)编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以UTF-8编码, 以0结束.
+ *    pOutput     指向输出缓冲区, 用于保存Unicode编码值
+ *    nMembOut    输入: pOutput可以存储的Unicode编码(字符)的个数(单位: 4字节);
+ *                输出: 成功转换的字符的个数.
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut 返回成功转换的字符的个数.
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是Unicode有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_utf8_to_unicode_str(const unsigned char *pInput,
+        unsigned long *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL);
+    assert(*nMembOut >= 1);
+
+    return enc_utf8_to_unicode(pInput, strlen((const char *)pInput), 
+            pOutput, nMembOut);
+}
 
 /*****************************************************************************
  * 将一个字符的Unicode(UCS-2和UCS-4)编码转换成UTF-8编码.
@@ -363,3 +392,58 @@ int enc_unicode_to_utf8(const unsigned long *pInput, int nMembIn,
     return 1;
 }
 
+/*****************************************************************************
+ * 将字符串的Unicode(UCS-2和UCS-4)编码(以0结束)转换成UTF8编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以Unicode编码, 以0结束.
+ *    pOutput     指向输出缓冲区, 用于保存UTF8编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: 1字节);
+ *                输出: 成功转换后, UTF8编码所占空间大小(单位: 1字节).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回UTF8编码所占空间大小(单位: 1字节).
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是Unicode有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_unicode_to_utf8_str(const unsigned long *pInput,
+        unsigned char *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(*nMembOut >= 6);
+
+    int i, ret, outSize, resOutSize;
+    const unsigned long *pIn     = pInput;
+    unsigned char       *pOutCur = pOutput;
+
+    outSize = *nMembOut;
+    for ( ; *pIn != 0; )
+    {
+        resOutSize = outSize - (pOutCur - pOutput);
+        if ( resOutSize < 6 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 2;
+        }
+
+        ret = enc_unicode_to_utf8_one(*pIn, pOutCur, resOutSize);
+        if ( ret == 0 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 0;
+        }
+
+        i   += 1;
+        pIn += 1;
+        pOutCur += ret;
+    }
+
+    *nMembOut = pOutCur - pOutput;
+    return 1;
+}
