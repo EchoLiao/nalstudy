@@ -132,5 +132,22 @@ int main(int argc, char** argv)
         fprintf(stderr, "2b No enough space!\n");
     }
 
+
+    // ================================================================
+// int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk);
+//    ucs
+    unsigned long  ucs2 = 0x4E02;
+    unsigned long  ucs3 = 0x4E6D;
+    unsigned short gbk2;
+
+    if ( enc_unicode_to_GBK_one(ucs2, &gbk2) == 0 )
+        printf("1H Error!!\n");
+    else
+        printf("%x\n", gbk2);
+    if ( enc_unicode_to_GBK_one(ucs3, &gbk2) == 0 )
+        printf("1H Error!!\n");
+    else
+        printf("%x\n", gbk2);
+
     return 0;
 }

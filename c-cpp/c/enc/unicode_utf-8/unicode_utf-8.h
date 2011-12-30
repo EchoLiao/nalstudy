@@ -44,7 +44,7 @@ int enc_utf8_to_unicode_one(const unsigned char *pInput,
  * */
 int enc_utf8_to_unicode(const unsigned char *pInput, int nMembIn,
         unsigned long *pOutput, int *nMembOut);
-/* 
+/*
  * 将以0结束的字符串的UTF8编码转换成Unicode(UCS-2和UCS-4)编码.
  * */
 int enc_utf8_to_unicode_str(const unsigned char *pInput,
@@ -63,7 +63,7 @@ int enc_unicode_to_utf8_one(unsigned long unic,
  * */
 int enc_unicode_to_utf8(const unsigned long *pInput, int nMembIn,
         unsigned char *pOutput, int *nMembOut);
-/* 
+/*
  * 将字符串的Unicode(UCS-2和UCS-4)编码(以0结束)转换成UTF8编码.
  * */
 int enc_unicode_to_utf8_str(const unsigned long *pInput,
@@ -76,17 +76,22 @@ int enc_unicode_to_utf8_str(const unsigned long *pInput,
  * */
 int enc_GBK_to_unicode_one(unsigned short gbk,
         unsigned long *ucs);
-/* 
+/*
  * 将字符串的GBK编码转换成Unicode(UCS-2和UCS-4)编码.
  * */
 int enc_GBK_to_unicode(const unsigned char *pInput, int nMembIn,
         unsigned long *pOutput, int *nMembOut);
-/* 
+/*
  * 将以0结束的字符串的GBK编码转换成Unicode(UCS-2和UCS-4)编码.
  * */
 int enc_GBK_to_unicode_str(const unsigned char *pInput,
         unsigned long *pOutput, int *nMembOut);
 
 
+// GBK ==> Unicode
+/*
+ * 将一个字符的Unicode(UCS-2和UCS-4)编码转换成GBK编码.
+ * */
+int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk);
 
 #endif // UNICODE_UTF_8_H_
