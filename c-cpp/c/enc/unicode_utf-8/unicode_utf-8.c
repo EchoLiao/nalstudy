@@ -40,6 +40,7 @@
 
 
 
+#include <stdio.h>
 #include <string.h>
 #include <assert.h>
 
@@ -32735,6 +32736,10 @@ int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk)
         return 0;
 
     *gbk = (unsigned long)pvalue;
+
+#ifdef ALG_UNICODE_UTF8_DEBUG
+    printf("bucket_maxlen=%d\n", Table_debug_maxlen_bucket(tab_UCS2_to_GBK));
+#endif
 
     return 1;
 }
