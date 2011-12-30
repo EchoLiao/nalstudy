@@ -32643,8 +32643,11 @@ int enc_unicode_to_utf8_str(const unsigned long *pInput,
  *==========================================================================*/
 static int enc_stc_unicode_to_GBK_cmp(const void *x, const void *y)
 {
-    unsigned int ix = (unsigned int)x;
-    unsigned int iy = (unsigned int)y;
+    /* 注意: 在64位系统中:
+     * sizeof(int*) == sizeof(long) == 8 bytes 
+     * */
+    unsigned long ix = (unsigned long)x;
+    unsigned long iy = (unsigned long)y;
 
     return ix != iy;
 }
@@ -32660,7 +32663,7 @@ static int enc_stc_unicode_to_GBK_cmp(const void *x, const void *y)
  *==========================================================================*/
 static unsigned int enc_stc_unicode_to_GBK_hash(const void *key)
 {
-    unsigned int ikey = (unsigned int)key;
+    unsigned long ikey = (unsigned long)key;
 
     return ikey & 0xFFFF;
 }
@@ -32691,8 +32694,8 @@ int enc_stc_unicode_to_GBK_init()
         if ( tab_GBK_to_UCS2[i][1] == 0x0001 )
             continue;
 
-        unsigned int k = (unsigned int)tab_GBK_to_UCS2[i][1];
-        unsigned int v = (unsigned int)tab_GBK_to_UCS2[i][0];
+        unsigned long k = (unsigned long)tab_GBK_to_UCS2[i][1];
+        unsigned long v = (unsigned long)tab_GBK_to_UCS2[i][0];
         ret = Table_put(tab_UCS2_to_GBK, (void*)k, (void*)v);
         if ( ret != TABLE_OK )
             return 0;
@@ -32731,7 +32734,7 @@ int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk)
     if ( pvalue == TABLE_NO_KEY )
         return 0;
 
-    *gbk = (unsigned int)pvalue;
+    *gbk = (unsigned long)pvalue;
 
     return 1;
 }
