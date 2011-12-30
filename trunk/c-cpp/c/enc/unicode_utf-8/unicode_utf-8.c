@@ -43,19 +43,19 @@
 #include <string.h>
 #include <assert.h>
 
+#include <alg_table.h>
+
+
+static Table_T tab_UCS2_to_GBK = NULL;
 
 
 // sizeof(tab_GBK_to_UCS2) / sizeof(tab_GBK_to_UCS2[0]);
-#define NUMOF_TAB_GBK_TO_UCS2 32016 
+#define NUMOF_TAB_GBK_TO_UCS2 32016
 
-
-
-
-
-static const unsigned short tab_GBK_to_UCS2[][2] = 
+static const unsigned short tab_GBK_to_UCS2[][2] =
 {
    /* GBK    Unicode     字 */
-    
+
     {0x8140, 0x4E02}, // 丂
     {0x8141, 0x4E04}, // 丄
     {0x8142, 0x4E05}, // 丅
@@ -32075,7 +32075,7 @@ static const unsigned short tab_GBK_to_UCS2[][2] =
 };
 
 // 确保数组 tab_GBK_to_UCS2 的大小是 NUMOF_TAB_GBK_TO_UCS2 !
-extern int dummy[ ( NUMOF_TAB_GBK_TO_UCS2 == 
+extern int dummy[ ( NUMOF_TAB_GBK_TO_UCS2 ==
         sizeof(tab_GBK_to_UCS2)/sizeof(tab_GBK_to_UCS2[0]) ) ? 0 : -1 ];
 
 
@@ -32147,10 +32147,10 @@ int enc_GBK_to_unicode_one(unsigned short gbk,
  *     1. GBK 和 Unicode 都有字节序要求;
  *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
  *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
- * 
  *
- *      "那" 的GBK编码是 0xC4C7, 
- *     
+ *
+ *      "那" 的GBK编码是 0xC4C7,
+ *
  *       --------------------------------> 地址增大方向
  *                    ---   ---
  *         char :     C4    C7
@@ -32223,7 +32223,7 @@ int enc_GBK_to_unicode_str(const unsigned char *pInput,
     assert(pInput != NULL && pOutput != NULL);
     assert(*nMembOut >= 1);
 
-    return enc_GBK_to_unicode(pInput, strlen((const char *)pInput), 
+    return enc_GBK_to_unicode(pInput, strlen((const char *)pInput),
             pOutput, nMembOut);
 }
 
@@ -32436,7 +32436,7 @@ int enc_utf8_to_unicode_str(const unsigned char *pInput,
     assert(pInput != NULL && pOutput != NULL);
     assert(*nMembOut >= 1);
 
-    return enc_utf8_to_unicode(pInput, strlen((const char *)pInput), 
+    return enc_utf8_to_unicode(pInput, strlen((const char *)pInput),
             pOutput, nMembOut);
 }
 
@@ -32628,5 +32628,110 @@ int enc_unicode_to_utf8_str(const unsigned long *pInput,
     }
 
     *nMembOut = pOutCur - pOutput;
+    return 1;
+}
+
+/*==========================================================================*
+ * @Description:
+ *      传递给Table_new()的cmp函数.
+ *
+ * @Param   x
+ * @Param   y
+ *
+ * @Returns:
+ *
+ *==========================================================================*/
+static int enc_stc_unicode_to_GBK_cmp(const void *x, const void *y)
+{
+    unsigned int ix = (unsigned int)x;
+    unsigned int iy = (unsigned int)y;
+
+    return ix != iy;
+}
+
+/*==========================================================================*
+ * @Description:
+ *      传递给Table_new()的hash函数.
+ *
+ * @Param   key
+ *
+ * @Returns:
+ *
+ *==========================================================================*/
+static unsigned int enc_stc_unicode_to_GBK_hash(const void *key)
+{
+    unsigned int ikey = (unsigned int)key;
+
+    return ikey & 0xFFFF;
+}
+
+/*==========================================================================*
+ * @Description:
+ *      初始化unicode(key)与GBK(value)的映射表tab_UCS2_to_GBK
+ *
+ * @Returns:
+ *      成功, 返回1;
+ *      失败, 返回0.
+ *
+ *==========================================================================*/
+int enc_stc_unicode_to_GBK_init()
+{
+    assert(tab_UCS2_to_GBK == NULL);
+
+    int  i;
+    void *ret;
+
+    tab_UCS2_to_GBK = Table_new(21791, enc_stc_unicode_to_GBK_cmp,
+            enc_stc_unicode_to_GBK_hash);
+    if ( tab_UCS2_to_GBK == TABLE_ERROR )
+        return 0;
+
+    for ( i = 0; i < NUMOF_TAB_GBK_TO_UCS2; i++ )
+    {
+        if ( tab_GBK_to_UCS2[i][1] == 0x0001 )
+            continue;
+
+        unsigned int k = (unsigned int)tab_GBK_to_UCS2[i][1];
+        unsigned int v = (unsigned int)tab_GBK_to_UCS2[i][0];
+        ret = Table_put(tab_UCS2_to_GBK, (void*)k, (void*)v);
+        if ( ret != TABLE_OK )
+            return 0;
+    }
+
+    return 1;
+}
+
+/*****************************************************************************
+ * 将一个字符的Unicode(UCS-2和UCS-4)编码转换成GBK编码.
+ *
+ * 参数:
+ *    ucs      字符的Unicode编码值
+ *    gbk      指向输出的用于存储GBK编码值的缓冲区的指针
+ *
+ * 返回值:
+ *    成功, 则返回1;
+ *    失败, 则返回0.
+ *
+ * 注意:
+ *     1. GKB和Unicode都有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk)
+{
+    assert(gbk != NULL);
+
+    if ( tab_UCS2_to_GBK == NULL )
+        if ( enc_stc_unicode_to_GBK_init() == 0 )
+            return 0;
+
+    void *pvalue;
+
+    pvalue = Table_get(tab_UCS2_to_GBK, (void*)ucs);
+    if ( pvalue == TABLE_NO_KEY )
+        return 0;
+
+    *gbk = (unsigned int)pvalue;
+
     return 1;
 }
