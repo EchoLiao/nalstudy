@@ -279,7 +279,7 @@ void *Table_remove(T table, const void *key)
 }
 
 /*==========================================================================*
- * @Description:    
+ * @Description:
  *      对Table中所有的(key, value)对保存到数组中, 并返回该数组的首地址;
  *      其中, key和value是交替地保存在数组中的, key对应于数组索引为偶数的
  *      位置, value对应数组索引为奇数的位置.
@@ -288,7 +288,7 @@ void *Table_remove(T table, const void *key)
  * @Param   table
  * @Param   end
  *
- * @Returns:    
+ * @Returns:
  *      成功, 则返回数组的首地址;
  *      失败, 则返回TABLE_ERROR.
  *
@@ -318,7 +318,7 @@ void **Table_toArray(T table, void *end)
 }
 
 /*==========================================================================*
- * @Description:    
+ * @Description:
  *      释放Table中的所有元素和Table本身.
  *
  * @Param   table
@@ -341,3 +341,37 @@ void Table_free(T *table)
     free(*table);
     *table = NULL;
 }
+
+#ifdef ALG_TABLE_DEBUG
+/*==========================================================================*
+ * @Description:
+ *      找出table中所以的bucket中最长的一个, 并求出其长度.
+ *      我们可以用这一个返回值来选择合适的hash函数.
+ *
+ * @Param   table
+ *
+ * @Returns:
+ *      返回table中所以的bucket中最长的一个的长度.
+ *
+ *==========================================================================*/
+int Table_debug_maxlen_bucket(T table)
+{
+    assert(table != NULL);
+
+    int i, bucket_maxlen = 0;
+    struct binding *p;
+
+    for (i = 0; i < table->size; i++)
+    {
+        int cur_bucket_len = 0;
+        for (p = table->buckets[i]; p; p = p->link)
+        {
+            cur_bucket_len++;
+        }
+        if ( cur_bucket_len > bucket_maxlen )
+            bucket_maxlen = cur_bucket_len;
+    }
+
+    return bucket_maxlen;
+}
+#endif

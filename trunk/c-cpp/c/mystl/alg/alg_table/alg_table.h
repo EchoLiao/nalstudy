@@ -51,6 +51,11 @@ extern void Table_map    (T table,
 
 extern void **Table_toArray(T table, void *end);
 
+
+#ifdef ALG_TABLE_DEBUG
+int Table_debug_maxlen_bucket(T table);
+#endif
+
 #undef T
 
 #endif

@@ -12,6 +12,8 @@ A=.a
 O=.o
 E=
 
+MY_DEBUG=-DALG_TABLE_DEBUG
+
 MY_STL_INCLUDE=/home/scr/.rt/lang/0mystl/include
 MY_STL_LIBDIRS=/home/scr/.rt/lang/0mystl/lib
 MY_STL_LIBS=
@@ -20,7 +22,7 @@ INCLUDE=-I./include -I$(MY_STL_INCLUDE)
 LIBDIRS=-L./lib -L$(MY_STL_LIBDIRS)
 LIBS=$(MY_STL_LIBS) -lm
 
-CFLAGS=-g -Wall $(INCLUDE)
+CFLAGS=-g -Wall $(INCLUDE) $(MY_DEBUG)
 LDFLAGS=-g $(LIBDIRS) $(LIBS)
 
 
