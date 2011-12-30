@@ -134,8 +134,6 @@ int main(int argc, char** argv)
 
 
     // ================================================================
-// int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk);
-//    ucs
     unsigned long  ucs2 = 0x4E02;
     unsigned long  ucs3 = 0x4E6D;
     unsigned short gbk2;
