@@ -32645,7 +32645,7 @@ int enc_unicode_to_utf8_str(const unsigned long *pInput,
 static int enc_stc_unicode_to_GBK_cmp(const void *x, const void *y)
 {
     /* 注意: 在64位系统中:
-     * sizeof(int*) == sizeof(long) == 8 bytes 
+     * sizeof(int*) == sizeof(long) == 8 bytes
      * */
     unsigned long ix = (unsigned long)x;
     unsigned long iy = (unsigned long)y;
@@ -32713,8 +32713,9 @@ int enc_stc_unicode_to_GBK_init()
  *    gbk      指向输出的用于存储GBK编码值的缓冲区的指针
  *
  * 返回值:
- *    成功, 则返回1;
- *    失败, 则返回0.
+ *    1. 成功则返回该字符的GBK编码所占用的字节数;
+ *         对于ASCII字符返回1, 对于非ASCII中文字符返回2.
+ *    2. 失败则返回0.
  *
  * 注意:
  *     1. GKB和Unicode都有字节序要求;
@@ -32724,6 +32725,12 @@ int enc_stc_unicode_to_GBK_init()
 int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk)
 {
     assert(gbk != NULL);
+
+    if ( ucs < 0x80 )
+    {
+        *gbk = ucs;
+        return 1;
+    }
 
     if ( tab_UCS2_to_GBK == NULL )
         if ( enc_stc_unicode_to_GBK_init() == 0 )
@@ -32741,5 +32748,5 @@ int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk)
     printf("bucket_maxlen=%d\n", Table_debug_maxlen_bucket(tab_UCS2_to_GBK));
 #endif
 
-    return 1;
+    return 2;
 }
