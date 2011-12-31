@@ -94,4 +94,16 @@ int enc_GBK_to_unicode_str(const unsigned char *pInput,
  * */
 int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk);
 
+/*
+ * 将字符串的Unicode(UCS-2和UCS-4)编码转换成GBK编码.
+ * */
+int enc_unicode_to_GBK(const unsigned long *pInput, int nMembIn,
+        unsigned short *pOutput, int *nMembOut);
+
+/*
+ * 将字符串的Unicode(UCS-2和UCS-4)编码(以0结束)转换成GBK编码.
+ * */
+int enc_unicode_to_GBK_str(const unsigned long *pInput,
+        unsigned char *pOutput, int *nMembOut);
+
 #endif // UNICODE_UTF_8_H_
