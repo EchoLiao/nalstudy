@@ -27,11 +27,14 @@
 #include "unicode_utf-8_test.h"
 
 
-#define BUF_LEN 256
+#define BUF_LEN 8192
 
 
 int main(int argc, char** argv)
 {
+    int ret;
+
+#if 0
 
 #if 0
     //汉字"我"的UTF8编码是 E6 88 91, Unicode编码是 62 11
@@ -48,9 +51,8 @@ int main(int argc, char** argv)
 #endif
     unsigned long uni[BUF_LEN];
 
-    int i, ret;
     // int utflen = strlen(utf);
-    int unilen = BUF_LEN;
+    int i, unilen = BUF_LEN;
 
     // ret = enc_utf8_to_unicode((unsigned char *)utf, utflen, uni, &unilen);
     ret = enc_utf8_to_unicode_str((unsigned char *)utf, uni, &unilen);
@@ -103,49 +105,46 @@ int main(int argc, char** argv)
     {
         fprintf(stderr, "2b No enough space!\n");
     }
-
+#endif
 
     // ================================================================
     // 测试方法: ./unicode_utf-8_test < gbk_code_file.txt
     unsigned char gbk[BUF_LEN];
-    unsigned long gbk2unic[BUF_LEN];
+    unsigned char gbk2[BUF_LEN];
+    unsigned long unic[BUF_LEN];
     int           outlen = BUF_LEN;
 
     fread(gbk, 1, BUF_LEN, stdin);
-    fprintf(stderr, "%s", gbk);
+    // fprintf(stderr, "%s", gbk);
+    unsigned char *peof = (unsigned char*)strstr((char*)gbk, "EOF");
+    assert(peof != NULL && "Must end of 'EOF'!!");
+    gbk[peof - gbk] = '\0';
 
-    ret = enc_GBK_to_unicode_str(gbk, gbk2unic, &outlen);
+    ret = enc_GBK_to_unicode_str(gbk, unic, &outlen);
     if ( ret == 0 )
     {
-        fprintf(stderr, "1b Error!\n");
+        fprintf(stderr, "1b enc_GBK_to_unicode_str Error!\n");
     }
     else if ( ret == 1 )
     {
-        for ( i = 0; i < outlen; i++ )
+        unic[outlen] = 0;
+        outlen = BUF_LEN;
+        ret = enc_unicode_to_GBK_str(unic, gbk2, &outlen);
+        if ( ret == 1 )
         {
-            printf("%lX ", gbk2unic[i]);
+            gbk2[outlen] = 0;
+            // printf("%s", gbk2);
+            assert(strcmp((char*)gbk, (char*)gbk2) == 0);
         }
-        printf("\n");
+        else
+        {
+            fprintf(stderr, "1b enc_unicode_to_GBK_str Error!\n");
+        }
     }
     else
     {
         fprintf(stderr, "2b No enough space!\n");
     }
-
-
-    // ================================================================
-    unsigned long  ucs2 = 0x4E02;
-    unsigned long  ucs3 = 0x0075;
-    unsigned short gbk2;
-
-    if ( enc_unicode_to_GBK_one(ucs2, &gbk2) == 0 )
-        printf("1H Error!!\n");
-    else
-        printf("%x\n", gbk2);
-    if ( enc_unicode_to_GBK_one(ucs3, &gbk2) == 0 )
-        printf("1H Error!!\n");
-    else
-        printf("%x\n", gbk2);
 
     return 0;
 }

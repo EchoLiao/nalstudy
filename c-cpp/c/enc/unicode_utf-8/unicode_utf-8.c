@@ -32602,7 +32602,7 @@ int enc_unicode_to_utf8_str(const unsigned long *pInput,
     assert(pInput != NULL && pOutput != NULL );
     assert(*nMembOut >= 6);
 
-    int i, ret, outSize, resOutSize;
+    int ret, outSize, resOutSize;
     const unsigned long *pIn     = pInput;
     unsigned char       *pOutCur = pOutput;
 
@@ -32623,7 +32623,6 @@ int enc_unicode_to_utf8_str(const unsigned long *pInput,
             return 0;
         }
 
-        i   += 1;
         pIn += 1;
         pOutCur += ret;
     }
@@ -32702,6 +32701,10 @@ int enc_stc_unicode_to_GBK_init()
             return 0;
     }
 
+#ifdef ALG_UNICODE_UTF8_DEBUG
+    // printf("bucket_maxlen=%d\n", Table_debug_maxlen_bucket(tab_UCS2_to_GBK));
+#endif
+
     return 1;
 }
 
@@ -32744,9 +32747,134 @@ int enc_unicode_to_GBK_one(unsigned long ucs, unsigned short *gbk)
 
     *gbk = (unsigned long)pvalue;
 
-#ifdef ALG_UNICODE_UTF8_DEBUG
-    printf("bucket_maxlen=%d\n", Table_debug_maxlen_bucket(tab_UCS2_to_GBK));
-#endif
-
     return 2;
+}
+
+/*****************************************************************************
+ * 将字符串的Unicode(UCS-2和UCS-4)编码转换成GBK编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以Unicode编码
+ *    nMembIn     pInput大小(即, 字符串的长度)(单位: sizeof(unsigned long))
+ *    pOutput     指向输出缓冲区, 用于保存GBK编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: sizeof(unsigned short));
+ *                输出: 成功转换后, GBK编码所占空间大小(单位: sizeof(unsigned
+ *                       short)).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回GBK编码所占空间大小(单位: sizeof(unsigned short)).
+ *
+ * 注意:
+ *     1. GBK和Unicode都有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_unicode_to_GBK(const unsigned long *pInput, int nMembIn,
+        unsigned short *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(nMembIn >=0 && *nMembOut >= 1);
+
+    int i, ret, outSize, resOutSize;
+    const unsigned long *pIn     = pInput;
+    unsigned short      *pOutCur = pOutput;
+
+    outSize = *nMembOut;
+    for ( i = 0; i < nMembIn; )
+    {
+        resOutSize = outSize - (pOutCur - pOutput);
+        if ( resOutSize < 1 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 2;
+        }
+
+        ret = enc_unicode_to_GBK_one(*pIn, pOutCur);
+        if ( ret == 0 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 0;
+        }
+
+        i       += 1;
+        pIn     += 1;
+        pOutCur += 1;
+    }
+
+    *nMembOut = pOutCur - pOutput;
+    return 1;
+}
+
+/*****************************************************************************
+ * 将字符串的Unicode(UCS-2和UCS-4)编码(以0结束)转换成GBK编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以Unicode编码, 以0结束.
+ *    pOutput     指向输出缓冲区, 用于保存GBK编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: sizeof(unsigned char));
+ *                输出: 成功转换后, GBK编码所占空间大小(单位: sizeof(unsigned
+ *                char)).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回GBK编码所占空间大小(单位: sizeof(unsigned char)).
+ *
+ * 注意:
+ *     1. GBK和Unicode都有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_unicode_to_GBK_str(const unsigned long *pInput,
+        unsigned char *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(*nMembOut >= 2);
+
+    int ret, outSize, resOutSize;
+    const unsigned long *pIn     = pInput;
+    unsigned char       *pOutCur = pOutput;
+    unsigned short      gbk;
+    unsigned char       *pgbk = (unsigned char*)&gbk;
+
+    outSize = *nMembOut;
+    for ( ; *pIn != 0; )
+    {
+        resOutSize = outSize - (pOutCur - pOutput);
+        if ( resOutSize < 2 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 2;
+        }
+
+        ret = enc_unicode_to_GBK_one(*pIn, &gbk);
+        if ( ret == 0 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 0;
+        }
+
+        if ( ret == 1 )
+        {
+            *pOutCur       = *pgbk;
+        }
+        else if ( ret == 2 )
+        {
+            *pOutCur       = *(pgbk + 1);
+            *(pOutCur + 1) = *pgbk;
+        }
+        else
+        {
+            assert(0);
+        }
+        pIn     += 1;
+        pOutCur += ret;
+    }
+
+    *nMembOut = pOutCur - pOutput;
+    return 1;
 }
