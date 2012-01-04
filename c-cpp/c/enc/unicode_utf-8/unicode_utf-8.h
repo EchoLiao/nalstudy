@@ -106,4 +106,44 @@ int enc_unicode_to_GBK(const unsigned long *pInput, int nMembIn,
 int enc_unicode_to_GBK_str(const unsigned long *pInput,
         unsigned char *pOutput, int *nMembOut);
 
+
+
+// GBK ==> UTF-8
+/*
+ * 将一个字符的GBK编码转换成UTF-8编码.
+ * */
+int enc_GBK_to_utf8_one(unsigned short gbk, unsigned char *pOutput,
+        int outsize);
+
+/*
+ * 将字符串的GBK编码转换成UTF8编码.
+ * */
+int enc_GBK_to_utf8(const unsigned char *pInput, int nMembIn,
+        unsigned char *pOutput, int *nMembOut);
+
+/*
+ * 将字符串的GBK编码(以0结束)转换成UTF8编码.
+ * */
+int enc_GBK_to_utf8_str(const unsigned char *pInput,
+        unsigned char *pOutput, int *nMembOut);
+
+
+// UTF-8 ==> GBK
+/*
+ * 将一个字符的UTF-8编码转换成GBK编码.
+ * */
+int enc_utf8_to_GBK_one(const unsigned char *pInput, unsigned short *gbk);
+
+/*
+ * 将字符串的UTF-8编码转换成GBK编码.
+ * */
+int enc_utf8_to_GBK(const unsigned char *pInput, int nMembIn,
+        unsigned short *pOutput, int *nMembOut);
+
+/*
+ * 将字符串的UTF-8编码(以0结束)转换成GBK编码.
+ * */
+int enc_utf8_to_GBK_str(const unsigned char *pInput,
+        unsigned char *pOutput, int *nMembOut);
+
 #endif // UNICODE_UTF_8_H_
