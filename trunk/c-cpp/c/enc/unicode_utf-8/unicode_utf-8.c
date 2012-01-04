@@ -41,6 +41,7 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 
@@ -32677,7 +32678,7 @@ static unsigned int enc_stc_unicode_to_GBK_hash(const void *key)
  *      失败, 返回0.
  *
  *==========================================================================*/
-int enc_stc_unicode_to_GBK_init()
+static int enc_stc_unicode_to_GBK_init()
 {
     assert(tab_UCS2_to_GBK == NULL);
 
@@ -32873,6 +32874,289 @@ int enc_unicode_to_GBK_str(const unsigned long *pInput,
         }
         pIn     += 1;
         pOutCur += ret;
+    }
+
+    *nMembOut = pOutCur - pOutput;
+    return 1;
+}
+
+
+/*****************************************************************************
+ * 将一个字符的GBK编码转换成UTF-8编码.
+ *
+ * 参数:
+ *    gbk      字符的GBK编码值
+ *    pOutput  指向输出的用于存储UTF8编码值的缓冲区的指针
+ *    outsize  pOutput缓冲的大小
+ *
+ * 返回值:
+ *    返回转换后的字符的UTF8编码所占的字节数, 如果出错则返回 0 .
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是GBK有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ *     2. 请保证 pOutput 缓冲区有最少有 6 字节的空间大小!
+ ****************************************************************************/
+int enc_GBK_to_utf8_one(unsigned short gbk, unsigned char *pOutput,
+        int outsize)
+{
+    assert(pOutput != NULL);
+    assert(outsize >= 6);
+
+    int ret;
+    unsigned long unic;
+
+    ret = enc_GBK_to_unicode_one(gbk, &unic);
+
+    if ( ret == 0 )
+        return 0;
+
+    ret = enc_unicode_to_utf8_one(unic, pOutput, outsize);
+
+    return ret;
+
+}
+
+/*****************************************************************************
+ * 将字符串的GBK编码转换成UTF8编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以GBK编码
+ *    nMembIn     pInput大小(即, 字符串的长度)(单位: sizeof(unsigned char))
+ *    pOutput     指向输出缓冲区, 用于保存UTF8编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: sizeof(unsigned char));
+ *                输出: 成功转换后, UTF8编码所占空间大小(单位: sizeof(unsigned
+ *                      char)).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回UTF8编码所占空间大小(单位: sizeof(unsigned char)).
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是GBK有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_GBK_to_utf8(const unsigned char *pInput, int nMembIn,
+        unsigned char *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(*nMembOut >= 6);
+
+    int ret, unicsSize;
+    unsigned long *unics;
+
+    unicsSize = nMembIn;
+    unics = (unsigned long *)malloc(unicsSize * sizeof(unsigned long));
+    if ( unics == NULL )
+        return 0;
+
+    ret = enc_GBK_to_unicode(pInput, nMembIn, unics, &unicsSize);
+    if ( ret == 0 )
+    {
+        free(unics);
+        return 0;
+    }
+    assert(ret == 1);
+
+
+    ret = enc_unicode_to_utf8(unics, unicsSize, pOutput, nMembOut);
+    free(unics);
+
+    return ret;
+}
+
+/*****************************************************************************
+ * 将字符串的GBK编码(以0结束)转换成UTF8编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以GBK编码, 以0结束.
+ *    pOutput     指向输出缓冲区, 用于保存UTF8编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: sizeof(unsigned char));
+ *                输出: 成功转换后, UTF8编码所占空间大小(单位: sizeof(unsigned
+ *                      char)).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回UTF8编码所占空间大小(单位: 1字节).
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是GBK有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_GBK_to_utf8_str(const unsigned char *pInput,
+        unsigned char *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(*nMembOut >= 6);
+
+    return enc_GBK_to_utf8(pInput, strlen((const char *)pInput),
+            pOutput, nMembOut);
+}
+
+
+/*****************************************************************************
+ * 将一个字符的UTF-8编码转换成GBK编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以UTF-8编码
+ *    gbk         指向输出缓冲区, 其保存的数据即是GBK编码值,
+ *                类型为 unsigned short .
+ *
+ * 返回值:
+ *    1. 出错, 则返回 0 ;
+ *    2. 成功, 则返回字符的UTF8编码所占的字节数.
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是GBK有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_utf8_to_GBK_one(const unsigned char *pInput, unsigned short *gbk)
+{
+    assert(pInput != NULL && gbk != NULL);
+
+    int ret1, ret2;
+    unsigned long unic;
+
+    ret1 = enc_utf8_to_unicode_one(pInput, &unic);
+    if ( ret1 == 0 )
+        return 0;
+
+    ret2 = enc_unicode_to_GBK_one(unic, gbk);
+    if ( ret2 == 0 )
+        return 0;
+
+    return ret1;
+}
+
+/*****************************************************************************
+ * 将字符串的UTF-8编码转换成GBK编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以UTF-8编码
+ *    nMembIn     pInput大小(即, 字符串的长度)(单位: sizeof(unsigned char))
+ *    pOutput     指向输出缓冲区, 用于保存GBK编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: sizeof(unsigned short));
+ *                输出: 成功转换后, GBK编码所占空间大小(单位: sizeof(unsigned
+ *                       short)).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回GBK编码所占空间大小(单位: sizeof(unsigned short)).
+ *
+ * 注意:
+ *     1. GBK和UTF-8都有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_utf8_to_GBK(const unsigned char *pInput, int nMembIn,
+        unsigned short *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(nMembIn >=0 && *nMembOut >= 1);
+
+    int i, ret, outSize, resOutSize;
+    const unsigned char *pIn     = pInput;
+    unsigned short      *pOutCur = pOutput;
+
+    outSize = *nMembOut;
+    for ( i = 0; i < nMembIn; )
+    {
+        resOutSize = outSize - (pOutCur - pOutput);
+        if ( resOutSize < 1 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 2;
+        }
+
+        ret = enc_utf8_to_GBK_one(pIn, pOutCur);
+        if ( ret == 0 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 0;
+        }
+
+        i       += ret;
+        pIn     += ret;
+        pOutCur += 1;
+    }
+
+    *nMembOut = pOutCur - pOutput;
+    return 1;
+}
+
+/*****************************************************************************
+ * 将字符串的UTF-8编码(以0结束)转换成GBK编码.
+ *
+ * 参数:
+ *    pInput      指向输入缓冲区, 以UTF-8编码, 以0结束.
+ *    pOutput     指向输出缓冲区, 用于保存GBK编码值
+ *    nMembOut    输入: pOutput缓冲区的大小(单位: sizeof(unsigned char));
+ *                输出: 成功转换后, GBK编码所占空间大小(单位: sizeof(unsigned
+ *                      char)).
+ *
+ * 返回值:
+ *    若有错误发生, 则返回 0 ;
+ *    若所有的字符都转换成功, 则返回 1 ;
+ *    若输出缓冲区空间不足, 导致只有部分字符转换成功, 则返回 2 ;
+ *    另: *nMembOut返回GBK编码所占空间大小(单位: sizeof(unsigned char)).
+ *
+ * 注意:
+ *     1. GBK和UTF-8都有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ ****************************************************************************/
+int enc_utf8_to_GBK_str(const unsigned char *pInput,
+        unsigned char *pOutput, int *nMembOut)
+{
+    assert(pInput != NULL && pOutput != NULL );
+    assert(*nMembOut >= 6);
+
+    int ret, outSize, resOutSize;
+    const unsigned char *pIn     = pInput;
+    unsigned char       *pOutCur = pOutput;
+    unsigned short      gbk;
+    unsigned char       *pgbk = (unsigned char*)&gbk;
+
+    outSize = *nMembOut;
+    for ( ; *pIn != 0; )
+    {
+        resOutSize = outSize - (pOutCur - pOutput);
+        if ( resOutSize < 2 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 2;
+        }
+
+        ret = enc_utf8_to_GBK_one(pIn, &gbk);
+        if ( ret == 0 )
+        {
+            *nMembOut = pOutCur - pOutput;
+            return 0;
+        }
+
+        if ( gbk < 0x80 )
+        {
+            *pOutCur = *pgbk;
+            pOutCur += 1;
+        }
+        else
+        {
+            *pOutCur       = *(pgbk + 1);
+            *(pOutCur + 1) = *pgbk;
+            pOutCur += 2;
+        }
+
+        pIn += ret;
     }
 
     *nMembOut = pOutCur - pOutput;

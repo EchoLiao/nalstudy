@@ -146,5 +146,20 @@ int main(int argc, char** argv)
         fprintf(stderr, "2b No enough space!\n");
     }
 
+
+
+    unsigned char utf8[BUF_LEN];
+    unsigned char gbk3[BUF_LEN];
+    int utf8_len = BUF_LEN;
+    int gbk3_len;
+
+    ret = enc_GBK_to_utf8_str(gbk, utf8, &utf8_len);
+    // printf("%s", utf8);
+    assert(ret == 1);
+    gbk3_len = utf8_len;
+    ret = enc_utf8_to_GBK_str(utf8, gbk3, &gbk3_len);
+    assert(ret == 1);
+    assert(strcmp((char*)gbk, (char*)gbk3) == 0);
+
     return 0;
 }
