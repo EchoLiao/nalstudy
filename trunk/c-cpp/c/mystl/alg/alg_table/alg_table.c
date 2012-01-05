@@ -272,6 +272,7 @@ void *Table_remove(T table, const void *key)
             void *value = p->value;
             *pp = p->link;
             free(p);
+            p = NULL;
             table->length--;
             return value;
         }
@@ -336,6 +337,7 @@ void Table_free(T *table)
             {
                 q = p->link;
                 free(p);
+                p = NULL;
             }
     }
     free(*table);
