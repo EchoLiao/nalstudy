@@ -169,6 +169,9 @@ void *Table_get(T table, const void *key)
  *          2. 若失败, 则返回TABLE_ERROR.
  *      若Table中已有该key, 则把其对应的value修改, 并返回旧value.
  *
+ * @Notes:
+ *      返回值 TABLE_OK 与 旧value 有可能值相同, 从而引起歧义!
+ *
  *==========================================================================*/
 void *Table_put(T table, const void *key, void *value)
 {
@@ -255,6 +258,9 @@ void Table_map(T table,
  * @Returns:
  *      若Table中, 没有key, 则不做任何操作, 并返回TABLE_OK;
  *      若有, 则把其删除, 并返回该key对应的value.
+ *
+ * @Notes:
+ *      返回值 TABLE_OK 与 value 有可能值相同, 从而引起歧义!
  *
  *==========================================================================*/
 void *Table_remove(T table, const void *key)
