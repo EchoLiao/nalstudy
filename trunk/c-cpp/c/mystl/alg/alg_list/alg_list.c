@@ -280,3 +280,191 @@ void **List_toArray(T list, void *end)
 
     return array;
 }
+
+/*==========================================================================*
+ * @Description:
+ *      判断链表list是否是"有环单向链表".
+ *      有环单向链表: 一个单向链表中可能有一个环, 也就是某个节点的next指向的是
+ *                    链表中在它之前的节点, 这样在链表的尾部形成一个环, 这样的
+ *                    链表称之为"有环单向链表".
+ *
+ * @Param   list        被操作链表
+ * @Param   tailNote    若其不为NULL且list有环, 则*tailNote用于保存
+ *                      链表list尾节点指针; 显然, 环的入口节点是
+ *                      (*tailNote)->rest .
+ *
+ * @Returns:
+ *      若是"有环单向链表", 则返回1; 否则, 返回0.
+ *
+ * http://keep.iteye.com/blog/293454
+ *==========================================================================*/
+int List_hasCircle(T list, T *tailNote)
+{
+    int hasCircle;
+    T slow = list, fast = list;
+
+    while ( fast && fast->rest )
+    {
+        slow = slow->rest;
+        fast = fast->rest->rest;
+        if ( slow == fast )
+            break;
+    }
+    hasCircle = !(fast == NULL || fast->rest == NULL);
+    if ( hasCircle == 0 || tailNote == NULL )
+        return hasCircle;
+
+    assert(hasCircle == 1);
+    assert(list != NULL);
+    slow = list;
+    while ( slow != fast )
+    {
+        slow = slow->rest;
+        fast = fast->rest;
+    }
+    // 至此, slow和fast都指向环入口节点!
+
+    int c = 0;
+    slow = list;
+    while ( 1 )
+    {
+        while ( slow->rest != fast )
+            slow = slow->rest;
+        if ( ++c == 2 )
+            break;
+        slow = slow->rest;
+    }
+    *tailNote = slow;
+
+    return hasCircle;
+}
+
+/*==========================================================================*
+ * @Description:
+ *      判断两个非空无环单向链表是否相交.
+ *
+ * @Param   alist   非空无环单向链表A
+ * @Param   blist   非空无环单向链表B
+ * @Param   alen    用于返回alist的长度(节点个数)
+ * @Param   blen    用于返回blist的长度(节点个数)
+ *
+ * @Returns:
+ *      若A与B相交, 则返回1; 否则, 返回0.
+ *
+ *==========================================================================*/
+static int List_hasCross_Len_pri(T alist, T blist, int *alen, int *blen)
+{
+    assert(alist != NULL && blist != NULL);
+    assert(alen != NULL && blen != NULL);
+
+    T pa = alist, pb = blist;
+    *alen = 1;
+    *blen = 1;
+
+    while ( pa->rest != NULL )
+    {
+        (*alen)++;
+        pa = pa->rest;
+    }
+    while ( pb->rest != NULL )
+    {
+        (*blen)++;
+        pb = pb->rest;
+    }
+
+    return (pa == pb);
+}
+
+/*==========================================================================*
+ * @Description:
+ *      判断两个无环单向链表是否相交.
+ *
+ * @Param   alist       无环单向链表A
+ * @Param   blist       无环单向链表B
+ * @Param   crsNote     若其不为NULL且A与B相交, 则*crsNote用于保存
+ *                      相交节点指针.
+ *
+ * @Returns:
+ *      若A与B相交, 则返回1; 否则, 返回0.
+ *
+ *==========================================================================*/
+static int List_hasCross_pri(T alist, T blist, T *crsNote)
+{
+    if ( alist == NULL || blist == NULL )
+        return 0;
+
+    int alen, blen, hasCross, i;
+    T pa, pb;
+
+    hasCross = List_hasCross_Len_pri(alist, blist, &alen, &blen);
+    if ( hasCross == 0 || crsNote == NULL )
+        return hasCross;
+
+    assert(hasCross == 1);
+    pa = alist;
+    pb = blist;
+    if ( alen > blen )
+    {
+        for ( i = 0; i < alen - blen; i++ )
+            pa = pa->rest;
+    }
+    else if ( alen < blen )
+    {
+        for ( i = 0; i < blen - alen; i++ )
+            pb = pb->rest;
+    }
+    while ( pa != pb )
+    {
+        pa = pa->rest;
+        pb = pb->rest;
+    }
+    *crsNote = pa;
+
+    return 1;
+}
+
+/*==========================================================================*
+ * @Description:
+ *      判断两个单向链表是否相交.
+ *
+ * @Param   alist       单向链表A
+ * @Param   blist       单向链表A
+ * @Param   crsNote     若其不为NULL且A与B相交, 则*crsNote用于保存
+ *                      相交节点指针.
+ *
+ * @Returns:
+ *      若A与B相交, 则返回1; 否则, 返回0.
+ *
+ *==========================================================================*/
+int List_hasCross(T alist, T blist, T *crsNote)
+{
+    int aHasCircle, bHasCircle, ret;
+    T aTail = NULL, bTail = NULL, aCle, bCle;
+
+    if ( alist == NULL || blist == NULL )
+        return 0;
+
+    aHasCircle = List_hasCircle(alist, &aTail);
+    bHasCircle = List_hasCircle(blist, &bTail);
+    if ( aHasCircle )
+    {
+        assert(aTail != NULL);
+        aCle = aTail->rest;
+        aTail->rest = NULL;
+    }
+    if ( bHasCircle )
+    {
+        assert(bTail != NULL);
+        bCle = bTail->rest;
+        bTail->rest = NULL;
+    }
+
+    ret = List_hasCross_pri(alist, blist, crsNote);
+
+    if ( aHasCircle )
+        aTail->rest = aCle;
+    if ( bHasCircle )
+        bTail->rest = bCle;
+
+    return ret;
+}

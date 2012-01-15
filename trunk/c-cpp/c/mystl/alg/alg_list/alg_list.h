@@ -55,6 +55,8 @@ extern void   List_map    (T list,
 
 extern void **List_toArray(T list, void *end);
 
+extern int List_hasCircle(T list, T *cleNote);
+extern int List_hasCross(T alist, T blist, T *crsNote);
 
 #undef T
 
