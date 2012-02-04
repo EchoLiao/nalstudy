@@ -32688,7 +32688,10 @@ static int enc_stc_unicode_to_GBK_init()
     tab_UCS2_to_GBK = Table_new(21791, enc_stc_unicode_to_GBK_cmp,
             enc_stc_unicode_to_GBK_hash);
     if ( tab_UCS2_to_GBK == TABLE_ERROR )
+    {
+        tab_UCS2_to_GBK = NULL;
         return 0;
+    }
 
     for ( i = 0; i < NUMOF_TAB_GBK_TO_UCS2; i++ )
     {
@@ -32699,7 +32702,11 @@ static int enc_stc_unicode_to_GBK_init()
         unsigned long v = (unsigned long)tab_GBK_to_UCS2[i][0];
         ret = Table_put(tab_UCS2_to_GBK, (void*)k, (void*)v);
         if ( ret != TABLE_OK )
+        {
+            Table_free(&tab_UCS2_to_GBK);
+            tab_UCS2_to_GBK = NULL;
             return 0;
+        }
     }
 
 #ifdef ALG_UNICODE_UTF8_DEBUG
