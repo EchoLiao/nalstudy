@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <assert.h>
+#include "alg_rand.h"
 
 
 
