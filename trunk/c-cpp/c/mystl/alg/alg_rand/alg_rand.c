@@ -76,7 +76,7 @@ int* Rand_randN(int n)
         a = Rand_int(i, n - 1);
         t = X[a];
         X[a] = X[i];
-        X[i] = a;
+        X[i] = t;
     }
 
     return X;
