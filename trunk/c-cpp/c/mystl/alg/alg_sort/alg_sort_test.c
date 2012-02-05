@@ -22,7 +22,7 @@
 #include <assert.h>
 #include <stdlib.h>
 
-#include <alg_rand.h>
+#include <alg/alg_rand/alg_rand.h>
 #include "alg_sort.h"
 
 

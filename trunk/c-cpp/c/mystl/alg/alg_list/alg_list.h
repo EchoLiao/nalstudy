@@ -23,6 +23,9 @@
 #ifndef ALG_LIST_H_
 #define ALG_LIST_H_
 
+#include "commdef.h"
+
+
 #define T List_T
 
 typedef struct T *T;

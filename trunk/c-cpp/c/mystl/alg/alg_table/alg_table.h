@@ -22,6 +22,9 @@
 #ifndef TABLE_H_
 #define TABLE_H_
 
+#include "commdef.h"
+
+
 #define TABLE_OK        ((void*)(0))
 #define TABLE_ERROR     ((void*)(~0))
 #define TABLE_NO_KEY    ((void*)(~0))

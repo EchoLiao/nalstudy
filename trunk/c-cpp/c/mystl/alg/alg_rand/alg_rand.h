@@ -22,6 +22,8 @@
 #ifndef ALG_RAND_H_
 #define ALG_RAND_H_
 
+#include "commdef.h"
+
 
 
 /*

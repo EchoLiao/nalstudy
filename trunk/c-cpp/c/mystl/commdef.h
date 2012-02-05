@@ -1,13 +1,13 @@
 /*
  * ===========================================================================
  *
- *       Filename:  alg_arrayrep.h
+ *       Filename:  commdef.h
  *
- *    Description:
+ *    Description:  
  *
  *        Version:  1.0
- *        Created:  2012年01月05日 09时18分07秒
- *        Created:
+ *        Created:  2012年02月05日 16时15分12秒
+ *        Created:  
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -19,23 +19,13 @@
  * ===========================================================================
  */
 
-#ifndef ARRAYREP_INCLUDED
-#define ARRAYREP_INCLUDED
-
-#include "commdef.h"
+#ifndef COMMDEF_H_
+#define COMMDEF_H_
 
 
-#define T Array_T
+#include "debug/memwatch/memwatch.h"
 
-struct T
-{
-	int length;
-	int size;
-	char *array;
-};
 
-extern void ArrayRep_init(struct T *array, int length, int size, void *ary);
 
-#undef T
 
-#endif
+#endif // end of COMMDEF_H_
