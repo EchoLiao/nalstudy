@@ -22,6 +22,9 @@
 #ifndef ALG_SORT_H_
 #define ALG_SORT_H_
 
+#include "commdef.h"
+
+
 
 /* 
 * 插入排序

@@ -23,6 +23,9 @@
 #ifndef ALG_ARRAY_H_
 #define ALG_ARRAY_H_
 
+#include "commdef.h"
+
+
 #define T Array_T
 
 typedef struct T *T;

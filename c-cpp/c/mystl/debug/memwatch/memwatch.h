@@ -333,6 +333,9 @@
 #include <stdlib.h>
 /*lint -restore */
 
+#include "commdef.h"
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
