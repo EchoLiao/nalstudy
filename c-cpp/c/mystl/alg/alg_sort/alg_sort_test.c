@@ -23,6 +23,7 @@
 #include <stdlib.h>
 
 #include <alg/alg_rand/alg_rand.h>
+#include <debug/memwatch/memwatch.h>
 #include "alg_sort.h"
 
 
@@ -40,7 +41,7 @@ int compint(const void *a, const void *b)
 int main (int argc, char *argv[])
 {
     int i, *A;
-    int nmemb = 100000;
+    int nmemb = 1000;
 
     A = Rand_randN(nmemb);
     if ( A == NULL )
