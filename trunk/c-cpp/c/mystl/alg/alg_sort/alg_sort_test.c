@@ -3,7 +3,7 @@
  *
  *       Filename:  alg_sort_test.c
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  2012年02月04日 17时23分50秒
@@ -38,10 +38,10 @@ int compint(const void *a, const void *b)
         return 0;
 }
 
-int main (int argc, char *argv[])
+static int sort_test()
 {
     int i, *A;
-    int nmemb = 1000;
+    int nmemb = 40247;
 
     A = Rand_randN(nmemb);
     if ( A == NULL )
@@ -54,22 +54,33 @@ int main (int argc, char *argv[])
         printf("%d ", A[i]);
     printf("\n");
 #endif
-    printf("\n");
+    // printf("\n");
 
-    Sort_insertSort(A, nmemb, sizeof(int), compint);
+    // Sort_insertSort(A, nmemb, sizeof(int), compint);
+    Sort_quicklySort(A, nmemb, sizeof(int), compint);
 
 #if 0
     for ( i = 0; i < nmemb; i++ )
         printf("%d ", A[i]);
     printf("\n");
 #endif
-    printf("\n");
+    // printf("\n");
 
     for ( i = 1; i < nmemb; i++ )
         assert(A[i-1] + 1 == A[i]);
 
 
     free(A);
+
+    return 0;
+}
+
+int main (int argc, char *argv[])
+{
+    int i;
+
+    for ( i = 0; i < 100; i++ )
+        sort_test();
 
     return 0;
 }

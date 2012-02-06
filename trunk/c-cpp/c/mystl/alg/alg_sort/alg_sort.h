@@ -3,11 +3,11 @@
  *
  *       Filename:  alg_sort.h
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  2012年02月04日 15时21分16秒
- *        Created:  
+ *        Created:
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -26,10 +26,18 @@
 
 
 
-/* 
+/*
 * 插入排序
  */
 void Sort_insertSort(void *base, size_t nmemb, size_t size,
         int(*compar)(const void *, const void *));
+
+
+/*
+ * 快快排序
+ * */
+void Sort_quicklySort(void *base, size_t nmemb, size_t size,
+        int(*compar)(const void *, const void *));
+
 
 #endif
