@@ -104,6 +104,46 @@ void Sort_selectSort(void *base, size_t nmemb, size_t size,
 
 /*==========================================================================*
 *  @Description:
+*       冒泡排序
+*
+*  @Param   base
+*  @Param   nmemb
+*  @Param   size
+*  @Param   compar
+*
+*==========================================================================*/
+void Sort_bubbleSort(void *base, size_t nmemb, size_t size,
+        int(*compar)(const void *, const void *))
+{
+#define SWAP(a, b, t)  ( (t)=(a), (a)=(b), (b)=(t) )
+    assert(base != NULL && nmemb >= 1 && size >= 1 && compar != NULL);
+
+    int s, isSwap;
+    char t, *i, *j;
+    char *left = base;
+    char *right = base + (nmemb - 1) * size;
+
+    for ( i = left; i < right; i += size )
+    {
+        isSwap = 0;
+        for ( j = right; j > i; j -= size )
+        {
+            if ( compar(j, j-size) < 0 )
+            {
+                isSwap = 1;
+                for ( s = 0; s < size; s++ )
+                    SWAP(*(j+s), *(j-size+s), t);
+            }
+        }
+        if ( isSwap == 0 )
+            break;
+    }
+#undef SWAP
+}
+
+
+/*==========================================================================*
+*  @Description:
 *       取三者间的中间值
 *
 *  @Param   left

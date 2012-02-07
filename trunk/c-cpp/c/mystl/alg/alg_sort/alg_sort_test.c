@@ -41,7 +41,7 @@ int compint(const void *a, const void *b)
 static int sort_test()
 {
     int i, *A;
-    int nmemb = 3227;
+    int nmemb = 927;
 
     A = Rand_randN(nmemb);
     if ( A == NULL )
@@ -58,7 +58,8 @@ static int sort_test()
 
     // Sort_insertSort(A, nmemb, sizeof(int), compint);
     // Sort_quicklySort(A, nmemb, sizeof(int), compint);
-    Sort_selectSort(A, nmemb, sizeof(int), compint);
+    // Sort_selectSort(A, nmemb, sizeof(int), compint);
+    Sort_bubbleSort(A, nmemb, sizeof(int), compint);
 
 #if 0
     for ( i = 0; i < nmemb; i++ )

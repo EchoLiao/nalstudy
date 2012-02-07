@@ -46,4 +46,11 @@ void Sort_quicklySort(void *base, size_t nmemb, size_t size,
 void Sort_selectSort(void *base, size_t nmemb, size_t size,
         int(*compar)(const void *, const void *));
 
+
+/*
+ * 冒泡排序
+ * */
+void Sort_bubbleSort(void *base, size_t nmemb, size_t size,
+        int(*compar)(const void *, const void *));
+
 #endif
