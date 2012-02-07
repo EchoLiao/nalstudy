@@ -1,8 +1,9 @@
-CC=gcc
-LD=gcc
-AS=as
-AR=ar ruv
-RANLIB=ranlib
+PREFIX=
+CC=$(PREFIX)gcc
+LD=$(PREFIX)gcc
+AS=$(PREFIX)as
+AR=$(PREFIX)ar ruv
+RANLIB=$(PREFIX)ranlib
 DIFF=diff
 CD=cd
 RM=rm -rf

@@ -64,6 +64,44 @@ void Sort_insertSort(void *base, size_t nmemb, size_t size,
 #undef SWAP
 }
 
+
+/*==========================================================================*
+*  @Description:
+*       选择排序
+*
+*  @Param   base
+*  @Param   nmemb
+*  @Param   size
+*  @Param   compar
+*
+*==========================================================================*/
+void Sort_selectSort(void *base, size_t nmemb, size_t size,
+        int(*compar)(const void *, const void *))
+{
+#define SWAP(a, b, t)  ( (t)=(a), (a)=(b), (b)=(t) )
+    assert(base != NULL && nmemb >= 1 && size >= 1 && compar != NULL);
+
+    int s;
+    char t, *i, *j, *min;
+    char *left = base;
+    char *right = left + (nmemb - 1) * size;
+
+    for ( i = left; i <= right - size; i += size )
+    {
+        min = i;
+        for ( j = i + size; j <= right; j += size )
+        {
+            if ( compar(j, min) < 0 )
+                min = j;
+        }
+        if ( i != min )
+            for ( s = 0; s < size; s++ )
+                SWAP(*(i+s), *(min+s), t);
+    }
+#undef SWAP
+}
+
+
 /*==========================================================================*
 *  @Description:
 *       取三者间的中间值
@@ -172,3 +210,4 @@ void Sort_quicklySort(void *base, size_t nmemb, size_t size,
     else
         Sort_insertSort(base, nmemb, size, compar);
 }
+
