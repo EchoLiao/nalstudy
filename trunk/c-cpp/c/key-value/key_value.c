@@ -100,7 +100,7 @@ static BOOL st_read_pro(KVal *pk, char *str)
 static BOOL st_read_allpros(KValS **pRet, const char *pfile)
 {
     assert(*pRet == NULL && pfile != NULL);
-    KVal *pKv = NULL, *ptmpKv = NULL;
+    KVal *pKv = NULL, *pRecKv = NULL, *ptmpKv = NULL;
 	FILE *pf = NULL;
     char *pdata = NULL, *pstr = NULL, *psub = NULL;
     int len, i;
@@ -128,8 +128,9 @@ static BOOL st_read_allpros(KValS **pRet, const char *pfile)
         if ( ! st_read_pro(ptmpKv, pstr) )
             continue;
         i++;
-        if ( (pKv=(KVal*)realloc(pKv, sizeof(KVal)*(i+1))) == NULL )
+        if ( (pRecKv=(KVal*)realloc(pKv, sizeof(KVal)*(i+1))) == NULL )
             goto _NO_MEMORY;
+        pKv = pRecKv;
     }
     if ( (*pRet=(KValS*)malloc(sizeof(KValS))) == NULL )
         goto _NO_MEMORY;
@@ -142,6 +143,7 @@ _NO_MEMORY:
     fclose(pf);
 _CANNOT_OPEN:
     free(pdata); // no memory, pdata is NULL. ok!
+    free(pKv);   // ...
     free(*pRet); // ...
     *pRet = NULL;
     return FALSE;
