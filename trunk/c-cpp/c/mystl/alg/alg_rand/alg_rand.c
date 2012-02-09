@@ -62,8 +62,10 @@ int* Rand_randN(int n)
     assert(n >= 1);
 
     int *X = NULL, i, a, t;
+    long long size = (long long) n * (long long) sizeof(int);
+    assert(size < (1<<30));
 
-    X = malloc(n * sizeof(int));
+    X = malloc(size);
     if ( X == NULL )
         return NULL;
 
