@@ -22,9 +22,9 @@
 #include <assert.h>
 #include <stdlib.h>
 
-#include <alg/alg_rand/alg_rand.h>
 #include <debug/memwatch/memwatch.h>
-#include "alg_sort.h"
+#include <alg/alg_rand/alg_rand.h>
+#include <alg/alg_sort/alg_sort.h>
 
 
 
@@ -41,7 +41,7 @@ int compint(const void *a, const void *b)
 static int sort_test()
 {
     int i, *A;
-    int nmemb = 927;
+    int nmemb = 32927;
 
     A = Rand_randN(nmemb);
     if ( A == NULL )
@@ -59,7 +59,8 @@ static int sort_test()
     // Sort_insertSort(A, nmemb, sizeof(int), compint);
     // Sort_quicklySort(A, nmemb, sizeof(int), compint);
     // Sort_selectSort(A, nmemb, sizeof(int), compint);
-    Sort_bubbleSort(A, nmemb, sizeof(int), compint);
+    // Sort_bubbleSort(A, nmemb, sizeof(int), compint);
+    Sort_mergeSort(A, nmemb, sizeof(int), compint);
 
 #if 0
     for ( i = 0; i < nmemb; i++ )
@@ -77,12 +78,47 @@ static int sort_test()
     return 0;
 }
 
+
+static int sort_test2()
+{
+    int i, *A;
+    const int value = 33;
+    int nmemb = 32927;
+
+    A = malloc(nmemb * sizeof(int));
+    if ( A == NULL )
+    {
+        fprintf(stderr, "malloc() Error!!\n");
+        exit(1);
+    }
+
+    for ( i = 0; i < nmemb; i++ )
+        A[i] = value;
+
+    // Sort_insertSort(A, nmemb, sizeof(int), compint);
+    // Sort_quicklySort(A, nmemb, sizeof(int), compint);
+    // Sort_selectSort(A, nmemb, sizeof(int), compint);
+    // Sort_bubbleSort(A, nmemb, sizeof(int), compint);
+    Sort_mergeSort(A, nmemb, sizeof(int), compint);
+
+    for ( i = 0; i < nmemb; i++ )
+        assert(A[i] == value);
+
+    free(A);
+
+    return 0;
+}
+
+
 int main (int argc, char *argv[])
 {
     int i;
 
     for ( i = 0; i < 100; i++ )
+    {
         sort_test();
+        sort_test2();
+    }
 
     return 0;
 }

@@ -53,4 +53,11 @@ void Sort_selectSort(void *base, size_t nmemb, size_t size,
 void Sort_bubbleSort(void *base, size_t nmemb, size_t size,
         int(*compar)(const void *, const void *));
 
+
+/*
+ * 合并排序
+ * */
+void Sort_mergeSort(void *base, size_t nmemb, size_t size,
+        int(*compar)(const void *, const void *));
+
 #endif
