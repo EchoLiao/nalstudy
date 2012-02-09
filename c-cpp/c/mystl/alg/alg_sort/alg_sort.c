@@ -18,8 +18,12 @@
  * ===========================================================================
  */
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+
+#include "alg_sort.h"
+
 
 
 #define SORT_CUTOFF     10
@@ -139,6 +143,113 @@ void Sort_bubbleSort(void *base, size_t nmemb, size_t size,
             break;
     }
 #undef SWAP
+}
+
+/*==========================================================================*
+ * @Description:
+ *      合并排序之合并例程
+ *
+ * @Param   left
+ * @Param   center
+ * @Param   right
+ * @Param   size
+ * @Param   compar
+ * @Param   tmparray
+ *
+ *==========================================================================*/
+static void SortST_memge(char *left, char *center, char *right, int size,
+        int(*compar)(const void *, const void *), char *tmparray)
+{
+#define COPY_SIZE(d, s) \
+    do { \
+        for ( i = 0; i < size; i++ ) \
+            *((d) + i) = *((s) + i); \
+    } while ( 0 )
+
+    int i;
+    char *Lright = center;
+    char *Rright = right;
+    char *Lpcur = left;
+    char *Rpcur = center + size;
+    char *Tpcur = tmparray;
+
+    for ( ; Lpcur <= Lright && Rpcur <= Rright; Tpcur += size )
+    {
+        if ( compar(Lpcur, Rpcur) < 0 )
+        {
+            COPY_SIZE(Tpcur, Lpcur);
+            Lpcur += size;
+        }
+        else
+        {
+            COPY_SIZE(Tpcur, Rpcur);
+            Rpcur += size;
+        }
+    }
+
+    for ( ; Lpcur <= Lright; Lpcur += size, Tpcur += size )
+        COPY_SIZE(Tpcur, Lpcur);
+    for ( ; Rpcur <= Rright; Rpcur += size, Tpcur += size )
+        COPY_SIZE(Tpcur, Rpcur);
+
+    for ( Lpcur = left; Lpcur <= right; Lpcur += size, tmparray += size )
+        COPY_SIZE(Lpcur, tmparray);
+
+#undef COPY_SIZE
+}
+
+
+/*==========================================================================*
+ * @Description:
+ *      合并排序
+ *
+ * @Param   left
+ * @Param   right
+ * @Param   size
+ * @Param   compar
+ * @Param   tmparray
+ *
+ *==========================================================================*/
+static void Sort_mergeSort_priv(char *left, char *right, int size,
+        int(*compar)(const void *, const void *), char *tmparray)
+{
+    if ( left < right )
+    {
+        char *center = left + ((right - left) / size / 2) * size;
+
+        Sort_mergeSort_priv(left, center, size, compar, tmparray);
+        Sort_mergeSort_priv(center + size, right, size, compar, tmparray);
+        SortST_memge(left, center, right, size, compar, tmparray);
+    }
+}
+
+
+/*==========================================================================*
+ * @Description:
+*       合并排序驱动例程
+ *
+ * @Param   base
+ * @Param   nmemb
+ * @Param   size
+ * @Param   compar
+ *
+ *==========================================================================*/
+void Sort_mergeSort(void *base, size_t nmemb, size_t size,
+        int(*compar)(const void *, const void *))
+{
+    assert(base != NULL && nmemb >= 1 && size >= 1 && compar != NULL);
+
+    char *left = base;
+    char *right = base + (nmemb - 1) * size;
+    char *tmparray;
+
+    tmparray = malloc(nmemb * size);
+    if ( tmparray == NULL )
+        return;
+
+    Sort_mergeSort_priv(left, right, size, compar, tmparray);
+
+    free(tmparray);
 }
 
 

@@ -74,7 +74,7 @@ $(MY_STL_LIB): $(MY_STL_OBJECTS)
 $(TEST_OBJECTS): %.o: %.c %.h
 	$(CC) $(TEST_CFLAGS) $< -o $@
 
-$(TEST_TARGETS): %: %.o
+$(TEST_TARGETS): %: %.o $(MY_STL_LIB)
 	$(LD) -o $@ $< $(TEST_LDFLAGS)
 
 
