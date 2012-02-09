@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 #include "alg_sort.h"
 
@@ -362,3 +363,51 @@ void Sort_quicklySort(void *base, size_t nmemb, size_t size,
         Sort_insertSort(base, nmemb, size, compar);
 }
 
+
+
+#define SORT_BITSPERWORD    32
+#define SORT_SHIFT          5
+#define SORT_MASK           0x1F
+
+#define SORT_SET(x, a)    ( (x)[(a)>>SORT_SHIFT] |=  (1<<((a)&SORT_MASK)) )
+#define SORT_CLR(x, a)    ( (x)[(a)>>SORT_SHIFT] &= ~(1<<((a)&SORT_MASK)) )
+#define SORT_TEST(x, a)   ( (x)[(a)>>SORT_SHIFT] &   (1<<((a)&SORT_MASK)) )
+
+/*==========================================================================*
+*  @Description:
+*   位排序:
+*       对"非负的, 元素唯一的整型数组"进行从小到大排序.
+*       时间复杂度: O(N)
+*
+*  @Param  base
+*  @Param  nmemb
+*
+*  @Returns:
+*   成功, 则返回1;
+*   失败, 则返回0
+*
+*==========================================================================*/
+int Sort_bitUIntSort(unsigned int *base, int nmemb)
+{
+    assert( sizeof(int) * 8 == SORT_BITSPERWORD );
+
+    const int Xlen = 1 + nmemb / SORT_BITSPERWORD;
+    int i, j;
+
+    unsigned int *X = malloc(Xlen * sizeof(int));
+    if ( X == NULL )
+        return 0;
+
+    memset(X, 0, Xlen * sizeof(int));
+
+    for ( i = 0; i < nmemb; i++ )
+        SORT_SET(X, base[i]);
+
+    for ( i = 0, j = 0; i < nmemb; i++ )
+        if ( SORT_TEST(X, base[i]) )
+            base[j++] = i;
+
+    free(X);
+
+    return 1;
+}
