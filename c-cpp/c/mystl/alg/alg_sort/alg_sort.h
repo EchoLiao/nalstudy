@@ -60,4 +60,10 @@ void Sort_bubbleSort(void *base, size_t nmemb, size_t size,
 void Sort_mergeSort(void *base, size_t nmemb, size_t size,
         int(*compar)(const void *, const void *));
 
+
+/*
+ * 对"非负的, 元素唯一的整型数组"进行从小到大排序.
+ * */
+int Sort_bitUIntSort(unsigned int *base, int nmemb);
+
 #endif

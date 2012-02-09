@@ -41,7 +41,7 @@ int compint(const void *a, const void *b)
 static int sort_test()
 {
     int i, *A;
-    int nmemb = 32927;
+    int nmemb = (1<<26) - 1;
 
     A = Rand_randN(nmemb);
     if ( A == NULL )
@@ -60,7 +60,8 @@ static int sort_test()
     // Sort_quicklySort(A, nmemb, sizeof(int), compint);
     // Sort_selectSort(A, nmemb, sizeof(int), compint);
     // Sort_bubbleSort(A, nmemb, sizeof(int), compint);
-    Sort_mergeSort(A, nmemb, sizeof(int), compint);
+    // Sort_mergeSort(A, nmemb, sizeof(int), compint);
+    Sort_bitUIntSort((unsigned int *)A, nmemb);
 
 #if 0
     for ( i = 0; i < nmemb; i++ )
@@ -114,7 +115,7 @@ int main (int argc, char *argv[])
 {
     int i;
 
-    for ( i = 0; i < 100; i++ )
+    for ( i = 0; i < 1; i++ )
     {
         sort_test();
         sort_test2();
