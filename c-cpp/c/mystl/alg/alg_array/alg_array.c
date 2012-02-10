@@ -44,6 +44,7 @@ T Array_new(int length, int size)
 {
     assert(length >= 0 && size >= 1);
 
+    // They MUST initialize to NULL!!
     T array = NULL;
     void *rep = NULL;
 
