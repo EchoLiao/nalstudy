@@ -44,24 +44,28 @@ T Array_new(int length, int size)
 {
     assert(length >= 0 && size >= 1);
 
-    T array;
+    T array = NULL;
+    void *rep = NULL;
 
     if ( (array=malloc(sizeof(*array))) == NULL )
-        return NULL;
+        goto _MEM_FAIL;
 
     if (length > 0)
     {
-        void *rep;
         if ( (rep=calloc(length, size)) == NULL )
-            return NULL;
+            goto _MEM_FAIL;
         ArrayRep_init(array, length, size, rep);
     }
     else
     {
         ArrayRep_init(array, length, size, NULL);
     }
-
     return array;
+
+_MEM_FAIL:
+    free(array);
+    free(rep);
+    return NULL;
 }
 
 /*==========================================================================*
