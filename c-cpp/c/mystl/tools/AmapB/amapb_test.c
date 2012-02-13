@@ -57,6 +57,16 @@ static void usage(char *prog)
     exit(1);
 }
 
+/*==========================================================================*
+ * @Description:
+ *      该hash函数不能保证对所有的输入文件有效, 即不能保证生成的关键字是唯一.
+ *      在此种情况下, 程序无法运行!
+ *
+ * @Param  key
+ *
+ * @Returns:
+ *
+ *==========================================================================*/
 static unsigned int ab_hash(const void *key)
 {
     const unsigned char *pkey = key;
@@ -74,6 +84,15 @@ static unsigned int ab_hash(const void *key)
     return ret;
 }
 
+/*==========================================================================*
+ * @Description:
+ *
+ * @Param  x
+ * @Param  y
+ *
+ * @Returns:
+ *
+ *==========================================================================*/
 static int ab_cmp(const void *x, const void *y)
 {
     unsigned int xh = ab_hash(x);
