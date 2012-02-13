@@ -15,7 +15,7 @@ O=.o
 E=
 
 
-MY_STL_DEBUGS=
+MY_STL_DEBUGS=-DMEMWATCH -DMW_STDIO -DMEMWATCH_STDIO
 MY_STL_INCLUDE=/home/scr/.rt/lang/0mystl/include
 MY_STL_LIBDIR=/home/scr/.rt/lang/0mystl/lib
 MY_STL_LIBNAME=nalstl
@@ -23,7 +23,7 @@ MY_STL_LIB=lib$(MY_STL_LIBNAME).a
 MY_STL_CFLAGS=-c -g -Wall -I. $(MY_STL_DEBUGS)
 MY_STL_LDFLAGS=-g
 
-TEST_DEBUGS=
+TEST_DEBUGS=-DMEMWATCH -DMW_STDIO -DMEMWATCH_STDIO
 TEST_INCLUDES=-I./include -I$(MY_STL_INCLUDE)
 TEST_LIBDIRS=-L./lib -L$(MY_STL_LIBDIR)
 TEST_LIBS=-lm -l$(MY_STL_LIBNAME)
@@ -39,6 +39,7 @@ MY_STL_OBJECTS = \
 				 alg/alg_rand/alg_rand.o \
 				 alg/alg_sort/alg_sort.o \
 				 alg/alg_table/alg_table.o \
+				 slib/slib.o \
 				 debug/memwatch/memwatch.o \
 
 ## modify this lines by yourself
