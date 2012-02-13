@@ -40,11 +40,13 @@ MY_STL_OBJECTS = \
 				 alg/alg_sort/alg_sort.o \
 				 alg/alg_table/alg_table.o \
 				 slib/slib.o \
+				 tools/AmapB/amapb.o \
 				 debug/memwatch/memwatch.o \
 
 ## modify this lines by yourself
 TEST_OBJECTS = \
 			   alg/alg_sort/alg_sort_test.o \
+			   tools/AmapB/amapb_test.o \
 
 
 MY_STL_TARGETS = $(MY_STL_LIB)
