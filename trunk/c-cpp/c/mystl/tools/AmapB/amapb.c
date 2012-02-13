@@ -77,6 +77,7 @@ static int mt_doline(char *Abuf, int *Asize, char *Bbuf, int *Bsize,
     sl_strncpy(Abuf, pA, Asize);
     sl_strncpy(Bbuf, pB, Bsize);
 
+    /* assert() 的作用是为了保证各个映射表的key值总是唯一的! */
     ret = Table_put(AtoB, Abuf, Bbuf);
     assert(ret == TABLE_OK);
     ret = Table_put(BtoA, Bbuf, Abuf);
