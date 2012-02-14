@@ -39,6 +39,7 @@ MY_STL_OBJECTS = \
 				 alg/alg_rand/alg_rand.o \
 				 alg/alg_sort/alg_sort.o \
 				 alg/alg_table/alg_table.o \
+				 alg/alg_seq/alg_seq.o \
 				 slib/slib.o \
 				 tools/AmapB/amapb.o \
 				 debug/memwatch/memwatch.o \
