@@ -60,7 +60,7 @@ TARGETS = \
 		  texturesurf torus trim unproject varray \
 		  wrap \
 		  20e 20e-2 20e-3 20e-4 20e-5 20e-6 smooth-2 \
-		  robot2 culling \
+		  robot2 culling rotate_any \
 		  movelight-2 pboimage\
 #	  primrestart
 
