@@ -4,9 +4,22 @@
 # run in /etc/rc.d/rc.local file.
 
 ## for network
+#service network restart
+#service iptables stop
+#service nfs restart
+
 service network restart
-service iptables stop
-service nfs restart
+ifconfig eth0 down
+/sbin/route add default gw 192.168.1.1 dev eth1
+wpa=`ps aux | grep 'wpa_supplicant -B -Dwext' | grep -v grep`
+[[ $wpa ]] || {
+wpa_supplicant -B -Dwext -ieth1 -c/etc/wpa_supplicant/wpa_supplicant.conf
+}
+
+#service iptables stop
+#service nfs restart
+
+
 
 ## for svnserve
 svn=`ps aux | grep svnserve | grep -v grep`
