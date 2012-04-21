@@ -3,42 +3,41 @@
 ##
 # run in /etc/rc.d/rc.local file.
 
-## for network
-#service network restart
-#service iptables stop
-#service nfs restart
 
 service network restart
-ifconfig eth0 down
-/sbin/route add default gw 192.168.1.1 dev eth1
-wpa=`ps aux | grep 'wpa_supplicant -B -Dwext' | grep -v grep`
-[[ $wpa ]] || {
-wpa_supplicant -B -Dwext -ieth1 -c/etc/wpa_supplicant/wpa_supplicant.conf
-}
 
-#service iptables stop
-#service nfs restart
+## read configure from /etc/nalrc
+nal_where=`sed -n -e '/^WHERE/p' /etc/nalrc | awk -F= '{print $2}' | sed -e 's/^[ 	]*//g' -e 's/[ 	]*$//g' | head -1`
+echo "nal_where = $nal_where"
 
+if [[ $nal_where == "home" ]]; then
+    ifconfig eth0 down
+    /sbin/route add default gw 192.168.1.1 dev eth1
+    wpa=`ps aux | grep 'wpa_supplicant -B -Dwext' | grep -v grep`
+    [[ $wpa ]] || {
+        wpa_supplicant -B -Dwext -ieth1 -c/etc/wpa_supplicant/wpa_supplicant.conf
+    }
+elif [[ $nal_where == "company" ]]; then
+    ## mount
+    wmo=`df | grep '/media/win_rsync_dir' | grep -v grep`
+    [[ $wmo ]] || mount -t cifs -o nolock //192.168.3.129/rsync /media/win_rsync_dir/ -o username=administrator -o password=hql12345
+    wmo=`df | grep '/media/win_bk_dir' | grep -v grep`
+    [[ $wmo ]] || mount -t cifs -o nolock //192.168.3.129/bk /media/win_bk_dir/ -o username=administrator -o password=hql12345
+    wmo=`df | grep '/home/log' | grep -v grep`
+    [[ $wmo ]] || mount -t cifs -o nolock //192.168.3.129/whxlog /home/log -o username=administrator -o password=hql12345
+else
+    :
+fi
+
+
+## for network
+service iptables stop
+service nfs restart
 
 
 ## for svnserve
 svn=`ps aux | grep svnserve | grep -v grep`
 [[ $svn ]] || svnserve -d -r /var/svn
-
-
-# read configure from /etc/nalrc
-nal_where=`sed -n -e '/^WHERE/p' /etc/nalrc | awk -F= '{print $2}' | sed -e 's/^[ 	]*//g' -e 's/[ 	]*$//g' | head -1`
-
-if [[ $nal_where == "home" ]]; then
-    :
-elif [[ $nal_where == "company" ]]; then
-    ## mount
-    mount -t cifs -o nolock //192.168.3.129/rsync /media/win_rsync_dir/ -o username=administrator -o password=hql12345
-    mount -t cifs -o nolock //192.168.3.129/bk /media/win_bk_dir/ -o username=administrator -o password=hql12345
-    mount -t cifs -o nolock //192.168.3.129/whxlog /home/log -o username=administrator -o password=hql12345
-else
-    :
-fi
 
 
 exit 0
