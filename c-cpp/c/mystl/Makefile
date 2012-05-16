@@ -21,12 +21,12 @@ MY_STL_LIBDIR=/home/scr/.rt/lang/0mystl/lib
 MY_STL_LIBNAME=nalstl
 MY_STL_LIB=lib$(MY_STL_LIBNAME).a
 MY_STL_CFLAGS=-c -g -Wall -I. $(MY_STL_DEBUGS)
-MY_STL_LDFLAGS=-g
+MY_STL_LDFLAGS=-g -lrt
 
 TEST_DEBUGS=-DMEMWATCH -DMW_STDIO -DMEMWATCH_STDIO
 TEST_INCLUDES=-I./include -I$(MY_STL_INCLUDE)
 TEST_LIBDIRS=-L./lib -L$(MY_STL_LIBDIR)
-TEST_LIBS=-lm -l$(MY_STL_LIBNAME)
+TEST_LIBS=-lm -lrt -l$(MY_STL_LIBNAME)
 TEST_CFLAGS=-c -g -Wall $(TEST_INCLUDES) $(TEST_DEBUGS)
 TEST_LDFLAGS=-g $(TEST_LIBDIRS) $(TEST_LIBS)
 
@@ -42,12 +42,16 @@ MY_STL_OBJECTS = \
 				 alg/alg_seq/alg_seq.o \
 				 slib/slib.o \
 				 tools/AmapB/amapb.o \
+				 tools/fps/nal_fps.o \
 				 debug/memwatch/memwatch.o \
 
 ## modify this lines by yourself
 TEST_OBJECTS = \
 			   alg/alg_sort/alg_sort_test.o \
+			   alg/alg_seq/alg_seq_test.o \
+			   alg/alg_rand/alg_rand_test.o \
 			   tools/AmapB/amapb_test.o \
+			   tools/fps/nal_fps_test.o \
 
 
 MY_STL_TARGETS = $(MY_STL_LIB)
