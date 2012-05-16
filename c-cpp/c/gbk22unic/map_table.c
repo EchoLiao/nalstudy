@@ -24,7 +24,8 @@
 #include <assert.h>
 
 // GBK Unicode 映射表
-static const unsigned short gbkunicode_map[][2] = {
+static const unsigned short tab_GBK_to_UCS2[][2] = 
+{
 
    /* GBK    Unicode     字 */
 
@@ -21823,30 +21824,145 @@ static const unsigned short gbkunicode_map[][2] = {
 };
 
 
-#define ZI_NUM  21791
+#define ZI_NUM  21791 // sizeof(tab_GBK_to_UCS2) / sizeof(tab_GBK_to_UCS2[0]);
+
+
+/*****************************************************************************
+ * 将一个字符的Unicode(UCS-2和UCS-4)编码转换成UTF-8编码.
+ *
+ * 参数:
+ *    unic     字符的Unicode编码值
+ *    pOutput  指向输出的用于存储UTF8编码值的缓冲区的指针
+ *    outsize  pOutput缓冲的大小
+ *
+ * 返回值:
+ *    返回转换后的字符的UTF8编码所占的字节数, 如果出错则返回 0 .
+ *
+ * 注意:
+ *     1. UTF8没有字节序问题, 但是Unicode有字节序要求;
+ *        字节序分为大端(Big Endian)和小端(Little Endian)两种;
+ *        在Intel处理器中采用小端法表示, 在此采用小端法表示. (低地址存低位)
+ *     2. 请保证 pOutput 缓冲区有最少有 6 字节的空间大小!
+ ****************************************************************************/
+int enc_unicode_to_utf8_one(unsigned long unic, unsigned char *pOutput,
+        int outSize)
+{
+    assert(pOutput != NULL);
+    assert(outSize >= 6);
+
+    if ( unic <= 0x0000007F )
+    {
+        // * U-00000000 - U-0000007F:  0xxxxxxx
+        *pOutput     = (unic & 0x7F);
+        return 1;
+    }
+    else if ( unic >= 0x00000080 && unic <= 0x000007FF )
+    {
+        // * U-00000080 - U-000007FF:  110xxxxx 10xxxxxx
+        *(pOutput+1) = (unic & 0x3F) | 0x80;
+        *pOutput     = ((unic >> 6) & 0x1F) | 0xC0;
+        return 2;
+    }
+    else if ( unic >= 0x00000800 && unic <= 0x0000FFFF )
+    {
+        // * U-00000800 - U-0000FFFF:  1110xxxx 10xxxxxx 10xxxxxx
+        *(pOutput+2) = (unic & 0x3F) | 0x80;
+        *(pOutput+1) = ((unic >>  6) & 0x3F) | 0x80;
+        *pOutput     = ((unic >> 12) & 0x0F) | 0xE0;
+        return 3;
+    }
+    else if ( unic >= 0x00010000 && unic <= 0x001FFFFF )
+    {
+        // * U-00010000 - U-001FFFFF:  11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+        *(pOutput+3) = (unic & 0x3F) | 0x80;
+        *(pOutput+2) = ((unic >>  6) & 0x3F) | 0x80;
+        *(pOutput+1) = ((unic >> 12) & 0x3F) | 0x80;
+        *pOutput     = ((unic >> 18) & 0x07) | 0xF0;
+        return 4;
+    }
+    else if ( unic >= 0x00200000 && unic <= 0x03FFFFFF )
+    {
+        // * U-00200000 - U-03FFFFFF:  111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+        *(pOutput+4) = (unic & 0x3F) | 0x80;
+        *(pOutput+3) = ((unic >>  6) & 0x3F) | 0x80;
+        *(pOutput+2) = ((unic >> 12) & 0x3F) | 0x80;
+        *(pOutput+1) = ((unic >> 18) & 0x3F) | 0x80;
+        *pOutput     = ((unic >> 24) & 0x03) | 0xF8;
+        return 5;
+    }
+    else if ( unic >= 0x04000000 && unic <= 0x7FFFFFFF )
+    {
+        // * U-04000000 - U-7FFFFFFF:  1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+        *(pOutput+5) = (unic & 0x3F) | 0x80;
+        *(pOutput+4) = ((unic >>  6) & 0x3F) | 0x80;
+        *(pOutput+3) = ((unic >> 12) & 0x3F) | 0x80;
+        *(pOutput+2) = ((unic >> 18) & 0x3F) | 0x80;
+        *(pOutput+1) = ((unic >> 24) & 0x3F) | 0x80;
+        *pOutput     = ((unic >> 30) & 0x01) | 0xFC;
+        return 6;
+    }
+
+    return 0;
+}
+
+
+#define UTF8BUFF_LEN 7
 
 int main (int argc, char *argv[])
 {
-    for ( int i = 0; i < ZI_NUM; i++ )
-    {
-        unsigned char *pgbk = (unsigned char *) &gbkunicode_map[i][0];
-        int idx = (pgbk[0] - 0x81) * 192 + pgbk[1] - 0x40;
-    }
+    // for ( int i = 0; i < ZI_NUM; i++ )
+    // {
+    //     unsigned char *pgbk = (unsigned char *) &tab_GBK_to_UCS2[i][0];
+    //     int idx = (pgbk[0] - 0x81) * 192 + pgbk[1] - 0x40;
+    // }
 
     /* int i;
     unsigned short iprv, icur;
 
-    iprv = icur = gbkunicode_map[0][0];
+    iprv = icur = tab_GBK_to_UCS2[0][0];
     for ( i = 1; i < ZI_NUM; i++ )
     {
         iprv = icur;
-        icur = gbkunicode_map[i][0];
+        icur = tab_GBK_to_UCS2[i][0];
         if ( iprv + 1 != icur )
         {
             printf("iprv=%x, icur=%x, %d\n", iprv, icur, i);
             assert(0);
         }
     } */
+
+    unsigned short gbktmp;
+    unsigned char  utf8buff[UTF8BUFF_LEN];
+    int i, ret;
+    int mapsize = sizeof(tab_GBK_to_UCS2) / sizeof(tab_GBK_to_UCS2[0]);
+
+    // printf("mapsize=%d\n", mapsize);
+    // printf("i=%d code=%04X\n", 0, tab_GBK_to_UCS2[0][0]);
+    // printf("i=%d code=%04X\n", 1, tab_GBK_to_UCS2[1][0]);
+
+    for ( i = 0; i < mapsize - 1; i++ )
+    {
+        ret = enc_unicode_to_utf8_one(tab_GBK_to_UCS2[i][1], utf8buff, UTF8BUFF_LEN);
+        assert( ret != 0);
+        utf8buff[ret] = '\0';
+
+        printf("{0x%04X, 0x%04X}, // %s\n", tab_GBK_to_UCS2[i][0],
+                tab_GBK_to_UCS2[i][1], utf8buff);
+
+        if ( tab_GBK_to_UCS2[i][0] + 1 != tab_GBK_to_UCS2[i+1][0] )
+        {
+            gbktmp = tab_GBK_to_UCS2[i][0] + 1;
+            for ( ; gbktmp < tab_GBK_to_UCS2[i+1][0]; gbktmp++ )
+            {
+                printf("{0x%04X, 0x%04X}, // XXXXX\n", gbktmp, 0x01);
+            }
+        }
+    }
+    ret = enc_unicode_to_utf8_one(tab_GBK_to_UCS2[i][1], utf8buff, UTF8BUFF_LEN);
+    assert( ret != 0);
+    utf8buff[ret] = '\0';
+    printf("{0x%04X, 0x%04X}, // %s\n", tab_GBK_to_UCS2[i][0],
+            tab_GBK_to_UCS2[i][1], utf8buff);
 
     return 0;
 }
