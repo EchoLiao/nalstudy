@@ -20,7 +20,13 @@ curpwd=`pwd -P`
 #echo $rootdir
 cd /
 #ls
-find $curpwd -name '*.[sSchCH]' > $curpwd/cscope.files
+
+#find $curpwd -name '*.[sSchCH]' > $curpwd/cscope.files
+find $curpwd -name '*.s' -or -name '*.S' -or -name '*.c' -or -name '*.cpp' \
+    -or -name '*.h' -or -name '*.C' -or -name '*.CPP' -or -name '*.H' \
+    -or -name '*.asm' -or -name '*.inc' \
+    > $curpwd/cscope.files
+
 cd $curpwd
 cscope -bq
 gtags -f cscope.files
