@@ -1,0 +1,9 @@
+                    <<自动流程图生成脚本>>
+
+
+wget https://raw.github.com/eexpress/eexp-bin/master/flow.pl
+
+支持各种源码, 写几行注释, 生成流程图. 依赖graphviz. 欢迎测试, 找出不方便的地方或者bug. 
+
+图例在 http://forum.ubuntu.com.cn/download/file.php?id=157490&mode=view/t.png
+
