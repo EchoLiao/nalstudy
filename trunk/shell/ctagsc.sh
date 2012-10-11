@@ -1,4 +1,4 @@
 #!/bin/bash
 ctags --version
-ctags -R --c-kinds=+p --fields=+iaS --extra=+q .
+ctags -R --langmap=c:+.m --c-kinds=+p --fields=+iaS --extra=+q .
 # ctags --c-kinds=+p --fields=+iaS --extra=+q .
