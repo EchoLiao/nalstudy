@@ -1,8 +1,6 @@
 #!/bin/bash
 
 E_BADARGS=65
-#DEFAULT_DICTFILE="/usr/share/dict/webster1913-dict.txt"
-DEFAULT_DICTFILE="/usr/share/dict/linux.words"
 
 if [[ ("$1" == "-h") || ("$1" == "--help") || ("$1" == "") ]]
 then
@@ -11,17 +9,11 @@ then
   exit $E_BADARGS
 fi
 
-if [ -z "$2" ]
-then
-  dictfile=$DEFAULT_DICTFILE
-else
-  dictfile="$2"
-fi
-
 Definition=$(sdcv -n "$1")
 
 out1=`echo "$Definition" |
 sed -e 's:对不起，没有发现和 :ZZZZZZZZZZ:' \
+    -e 's|Nothing similar to [^,]*, sorry :(|ZZZZZZZZZZ|' \
     -e 's:^$::' \
     -e 's:^\*\[: \[:' \
     -e 's:^\[: &:' \
@@ -40,6 +32,7 @@ sed -e 's:对不起，没有发现和 :ZZZZZZZZZZ:' \
     -e 's:^-->:@@@@@@@&:' \
 | tr -d '\n' |
 sed -e 's/发现 .* 条记录和 .* 相似。//g' |
+sed -e 's/Found .* items, similar to [^.]*\. //g' |
 sed -e 's/-->WordNet-->.*-->/	/g' |
 sed -e 's/-->.*-->//g' |
 sed -e 's/^[^a-zA-Z]*//' |
